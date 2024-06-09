@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "/images/logo-savebys.png";
+import Logo from "images/logo-savebys.png";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
