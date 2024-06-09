@@ -29,7 +29,7 @@ export default function MissionVisionValues() {
             <h4>Comprometimento</h4>
             <p>
               Entrega constante em ajudar empreendedores a reerguerem seus
-              negócios, dedi- cando tempo, recursos e esforços para garantir o
+              negócios, dedicando tempo, recursos e esforços para garantir o
               sucesso de cada um.
             </p>
           </li>
@@ -37,7 +37,7 @@ export default function MissionVisionValues() {
             <h4>Empatia</h4>
             <p>
               Colocamo-nos no lugar próximo, entendendo suas dificuldades e
-              trabalhando ar- duamente para oferecer soluções adequadas às suas
+              trabalhando arduamente para oferecer soluções adequadas às suas
               necessidades.
             </p>
           </li>
@@ -84,8 +84,8 @@ export default function MissionVisionValues() {
             <h4>Transparência</h4>
             <p>
               Mantemos um compromisso inabalável da honestidade em nossas ações
-              e garan- timos visibilidade e clareza das informações prestadas
-              aos envolvidos.
+              e garantimos visibilidade e clareza das informações prestadas aos
+              envolvidos.
             </p>
           </li>
         </ul>
