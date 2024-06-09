@@ -1,4 +1,5 @@
 import Campaigns from "@/components/Campaigns";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MissionVisionValues from "@/components/MissionVisionValues";
 import PresentationVideo from "@/components/PresentationVideo";
@@ -22,6 +23,8 @@ export default function Home() {
       <WhoWeAre />
       <MissionVisionValues />
       <p className="mb-20">Ajude a divulgar no instagram</p>
+
+      <Footer />
     </main>
   );
 }
