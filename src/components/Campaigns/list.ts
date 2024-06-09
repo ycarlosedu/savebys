@@ -8,19 +8,7 @@ export default [
     image: "/images/logo-sebrae.png"
   },
   {
-    name: "Sebrae",
-    image: "/images/logo-sebrae.png"
-  },
-  {
-    name: "Sebrae",
-    image: "/images/logo-sebrae.png"
-  },
-  {
-    name: "Sebrae",
-    image: "/images/logo-sebrae.png"
-  },
-  {
-    name: "Sebrae",
-    image: "/images/logo-sebrae.png"
+    name: "Lab Fecomercio",
+    image: "/images/logo-lab-fecomercio.png"
   }
 ];
