@@ -1,4 +1,4 @@
-export default [
+const fluxList = [
   {
     title: "Cadastro dos Negócios",
     description:
@@ -25,3 +25,5 @@ export default [
       "A SaveBys proporciona transparência a respeito do progresso de cada campanha, sobre as doações feitas, garantindo que os apoios sejam medidos e utilizados de forma eficaz."
   }
 ];
+
+export default fluxList;

@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "/images/logo-savebys-cropped.png";
 
 export default function Header() {
   return (
     <header className="flex flex-col md:flex-row gap-8 items-center justify-center py-8 text-center text-white flex-wrap px-default">
       <Image
-        src="/images/logo-savebys-cropped.png"
+        src={Logo}
         alt="Logo da marca SAVEBYS"
         width={200}
         height={200}

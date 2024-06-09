@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "/images/logo-savebys.png";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -22,12 +23,7 @@ export default function NotFound() {
       <div className="max-w-screen-xl mx-auto px-4 flex items-center justify-start h-screen md:px-8">
         <div className="max-w-lg mx-auto flex-1 flex-row-reverse gap-12 items-center justify-between md:max-w-none md:flex">
           <div className="flex-1 max-w-lg">
-            <Image
-              alt="Logo da SaveBys"
-              src="/images/logo-savebys.png"
-              width={600}
-              height={600}
-            />
+            <Image alt="Logo da SaveBys" src={Logo} width={600} height={600} />
           </div>
           <div className="mt-12 flex-1 max-w-lg space-y-3 md:mt-0">
             <h3 className=" font-semibold">Erro 404</h3>

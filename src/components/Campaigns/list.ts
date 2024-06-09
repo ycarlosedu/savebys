@@ -1,4 +1,4 @@
-export default [
+const campaingList = [
   {
     name: "Caldeira",
     image: "/images/logo-caldeira.png"
@@ -12,3 +12,5 @@ export default [
     image: "/images/logo-lab-fecomercio.png"
   }
 ];
+
+export default campaingList;

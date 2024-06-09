@@ -1,6 +1,7 @@
 import Image from "next/image";
-import campaignsList from "./list";
 import Link from "next/link";
+
+import campaignsList from "./list";
 
 export default function Campaigns() {
   return (

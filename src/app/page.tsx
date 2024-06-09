@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import Campaigns from "@/components/Campaigns";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -5,7 +7,6 @@ import HowItWorks from "@/components/HowItWorks";
 import MissionVisionValues from "@/components/MissionVisionValues";
 import PresentationVideo from "@/components/PresentationVideo";
 import WhoWeAre from "@/components/WhoWeAre";
-import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

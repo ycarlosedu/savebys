@@ -1,4 +1,5 @@
 import Flux from "@/components/Flux";
+
 import list from "./fluxList";
 
 export default function HowItWorks() {

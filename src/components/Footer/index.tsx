@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "/images/logo-savebys-cropped.png";
 
 export default function Footer() {
   return (
@@ -23,12 +24,7 @@ export default function Footer() {
       </nav>
 
       <div className="flex items-center justify-center gap-4">
-        <Image
-          src="/images/logo-savebys-cropped.png"
-          width={92}
-          height={92}
-          alt="Logo da marca SaveBys"
-        />
+        <Image src={Logo} width={92} height={92} alt="Logo da marca SaveBys" />
         <hr className="h-[24px] w-[1px] bg-white" />
         <p className="w-fit break-normal">
           Copyright ©{new Date().getFullYear()} savebys.com
