@@ -1,0 +1,26 @@
+{
+  "short_name": "SAVEBYS",
+  "name": "SAVEBYS",
+  "default_locale": "pt-br",
+  "description": "SAVEBYS é uma plataforma de financiamento coletivo para empresas. Adote a empresa que você ama e ajude a manter viva a economia local.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x36"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x97"
+    }
+  ],
+  "display": "standalone",
+  "theme_color": "#e21f27",
+  "background_color": "#706e6f"
+}
