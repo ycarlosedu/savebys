@@ -16,6 +16,10 @@ html {
     text-wrap: balance;
   }
 
+  .title {
+    @apply font-bold text-3xl text-center;
+  }
+
   .max-w-default {
     max-width: 1200px;
   }

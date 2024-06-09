@@ -1,6 +1,8 @@
 import Campaigns from "@/components/Campaigns";
 import Header from "@/components/Header";
+import MissionVisionValues from "@/components/MissionVisionValues";
 import PresentationVideo from "@/components/PresentationVideo";
+import WhoWeAre from "@/components/WhoWeAre";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,6 +19,9 @@ export default function Home() {
       <Header />
       <Campaigns />
       <PresentationVideo />
+      <WhoWeAre />
+      <MissionVisionValues />
+      <p className="mb-20">Ajude a divulgar no instagram</p>
     </main>
   );
 }
