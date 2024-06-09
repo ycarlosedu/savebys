@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="flex flex-col md:flex-row gap-8 items-center justify-center py-8 text-center text-white flex-wrap">
+    <header className="flex flex-col md:flex-row gap-8 items-center justify-center py-8 text-center text-white flex-wrap px-default">
       <Image
         src="/images/logo-savebys-cropped.png"
         alt="Logo da marca SAVEBYS"

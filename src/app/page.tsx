@@ -1,5 +1,6 @@
 import Campaigns from "@/components/Campaigns";
 import Header from "@/components/Header";
+import PresentationVideo from "@/components/PresentationVideo";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -12,9 +13,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <main className="bg-secondary text-white flex min-h-screen flex-col items-center justify-start px-4">
+    <main className="bg-secondary text-white flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden">
       <Header />
       <Campaigns />
+      <PresentationVideo />
     </main>
   );
 }

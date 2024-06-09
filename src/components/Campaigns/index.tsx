@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Campaigns() {
   return (
-    <section className="flex flex-col gap-8 items-center py-8">
+    <section className="flex flex-col gap-8 items-center py-8 px-default max-w-default">
       <h2 className="font-bold text-3xl text-center">Nossas Campanhas</h2>
       <div className="flex gap-8 flex-wrap items-center justify-center">
         {campaignsList.map((campaign) => (
