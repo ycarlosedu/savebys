@@ -41,7 +41,11 @@ html {
   }
 
   .link-btn {
-    @apply bg-primary border border-primary rounded-md py-2 px-4 transition-all ease-in-out hover:bg-white hover:text-primary;
+    @apply bg-primary border flex items-center justify-center border-primary rounded-md py-2 px-4 transition-all ease-in-out hover:bg-white hover:text-primary;
+  }
+
+  .floating {
+    @apply size-12 p-1 fixed z-20 bottom-6 right-6 transition-all duration-500;
   }
 
   @media (min-width: 425px) {

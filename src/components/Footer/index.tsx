@@ -24,14 +24,14 @@ export default function Footer() {
         </Link>
       </nav>
 
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
         <Image
           src={Logo}
           width={200}
           height={200}
           alt="Logo da marca SaveBys"
         />
-        <hr className="h-[24px] w-[1px] bg-gray-secondary" />
+        <hr className="h-[24px] w-[1px] bg-gray-secondary hidden md:block" />
         <p className="w-fit break-normal">
           Copyright ©{new Date().getFullYear()} savebys.com
         </p>
