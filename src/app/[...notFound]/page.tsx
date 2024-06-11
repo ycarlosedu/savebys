@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
-import Logo from "images/logo-savebys-slogan.png";
+import Logo from "images/logo-savebys-slogan.webp";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -38,7 +38,7 @@ export default function NotFound() {
             </p>
             <Link
               href="/"
-              className="text-title link duration-150 font-medium inline-flex items-center gap-x-1"
+              className="text-title link font-medium inline-flex items-center gap-x-1"
             >
               Voltar para a página inicial
               <CaretRight size={16} />

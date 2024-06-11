@@ -27,7 +27,7 @@ export default function WannaBeCurator() {
         </ol>
 
         <Link
-          href="/"
+          href="/cadastro-curador"
           className="text-title link hover:border-primary font-bold inline-flex items-center gap-x-1"
         >
           CADASTRE-SE AQUI

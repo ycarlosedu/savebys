@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Logo from "images/logo-savebys-gray-slogan-cropped.png";
+import Logo from "images/logo-savebys-gray-slogan-cropped.webp";
 
 export default function Footer() {
   return (

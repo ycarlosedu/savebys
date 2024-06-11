@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Logo from "images/logo-savebys-slogan-cropped.png";
+import Logo from "images/logo-savebys-slogan-cropped.webp";
 
 export default function Header() {
   return (
