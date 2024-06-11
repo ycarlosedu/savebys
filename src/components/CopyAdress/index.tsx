@@ -16,7 +16,7 @@ export default function CopyAdress() {
   };
 
   return (
-    <fieldset className="flex w-full items-center border-2 border-white rounded-xl overflow-hidden max-w-[610px] min-w-[360px]">
+    <fieldset className="flex w-full items-center border-2 border-white rounded-xl overflow-hidden max-w-[610px] xs:min-w-[360px]">
       <input
         type="text"
         name="project-url"

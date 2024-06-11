@@ -2,12 +2,14 @@ import type { Config } from "tailwindcss";
 
 import colors from "./src/styles/colors";
 
-const config: Config = {
+const config = {
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}"
   ],
+  prefix: "",
   theme: {
     data: {
       active: "active~=true",
@@ -15,9 +17,14 @@ const config: Config = {
       invalid: "invalid~=true"
     },
     colors,
+    container: {
+      center: true,
+      padding: "2rem"
+    },
     extend: {
       screens: {
-        xs: "425px"
+        xs: "425px",
+        "2xl": "1400px"
       },
       backgroundImage: {
         grayForms: "url('/images/bg-gray.webp')",
@@ -69,6 +76,14 @@ const config: Config = {
         slideRightAndFade: {
           from: { opacity: "0", transform: "translateX(-2px)" },
           to: { opacity: "1", transform: "translateX(0)" }
+        },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" }
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" }
         }
       },
       animation: {
@@ -82,7 +97,9 @@ const config: Config = {
           "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideUpAndFade: "slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideRightAndFade:
-          "slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)"
+          "slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out"
       },
       boxShadow: {
         radio: "0 2px 5px #111218",
@@ -90,6 +107,7 @@ const config: Config = {
       }
     }
   },
-  plugins: []
-};
+  plugins: [require("tailwindcss-animate")]
+} satisfies Config;
+
 export default config;
