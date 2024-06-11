@@ -20,8 +20,7 @@ export function FloatingButton({
 
   useEffect(() => {
     const handleScroll = () => {
-      window.scrollY > 900 && !show && setShow(true);
-      window.scrollY < 900 && show && setShow(false);
+      window.scrollY > 900 ? setShow(true) : setShow(false);
     };
 
     window.addEventListener("scroll", handleScroll);

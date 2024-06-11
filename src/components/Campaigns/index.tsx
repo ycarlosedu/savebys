@@ -14,7 +14,7 @@ export default function Campaigns() {
       <h2 className="title">Nossas Campanhas</h2>
       <div className="flex gap-8 flex-wrap items-center justify-center max-w-[800px]">
         {campaignsList.map((campaign) => (
-          <article key={campaign.name}>
+          <article key={campaign.id}>
             {campaign.image ? (
               <Image
                 src={campaign.image}
