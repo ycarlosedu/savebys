@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import HowItWorks from "@/components/HowItWorks";
 import MissionVisionValues from "@/components/MissionVisionValues";
 import PresentationVideo from "@/components/PresentationVideo";
+import Team from "@/components/Team";
 import WannaBeCurator from "@/components/WannaBeCurator";
 import WhoWeAre from "@/components/WhoWeAre";
 
@@ -27,6 +28,7 @@ export default function Home() {
       <MissionVisionValues />
       <HowItWorks />
       <WannaBeCurator />
+      <Team />
       <p className="mb-20">Ajude a divulgar no instagram</p>
 
       <Footer />
