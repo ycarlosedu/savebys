@@ -2,11 +2,11 @@ export default function WhoWeAre() {
   return (
     <section
       id="quem-somos"
-      className="bg-white px-default pt-20 w-full flex flex-col items-center justify-center gap-8"
+      className="bg-white px-default pt-8 w-full flex flex-col items-center justify-center gap-8"
     >
       <div className="max-w-default w-full flex flex-col items-center justify-center gap-8">
         <h2 className="title text-title">Quem Somos</h2>
-        <p className="text-center max-w-[610px] text-secondary text-lg">
+        <p className="text-center max-w-[610px] text-gray-secondary text-lg">
           A <strong>SAVEBYS</strong> é uma <strong>solução global</strong> para
           apoiar empreendedores que enfrentam grandes desafios para se recuperar
           depois de uma situação de crise causada por fatores externos (p.ex.:

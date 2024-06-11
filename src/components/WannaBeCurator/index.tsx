@@ -12,12 +12,12 @@ export default function WannaBeCurator() {
     >
       <div className="max-w-default w-full flex flex-col items-center justify-center gap-8">
         <h2 className="title text-title">Quero ser um Curador</h2>
-        <p className="text-center text-secondary text-lg max-w-[380px]">
+        <p className="text-center text-gray-secondary text-lg max-w-[380px]">
           Os Curadores são parceiros que irão mapear e centralizar as empresas
           afetadas.
         </p>
 
-        <ol className="text-secondary list-inside list-decimal text-lg flex items-start justify-center gap-8 text-center">
+        <ol className="text-gray-secondary list-inside list-decimal text-lg flex items-start justify-center gap-8 text-center flex-wrap">
           {list.map(({ description }, index) => (
             <li key={description} className="flex flex-col max-w-[175px]">
               <span className="text-title title">{index + 1}.</span>

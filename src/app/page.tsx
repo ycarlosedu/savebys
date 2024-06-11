@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import HowItWorks from "@/components/HowItWorks";
 import MissionVisionValues from "@/components/MissionVisionValues";
 import PresentationVideo from "@/components/PresentationVideo";
+import SocialMedias from "@/components/SocialMedias";
 import Supporters from "@/components/Supporters";
 import Team from "@/components/Team";
 import WannaBeCurator from "@/components/WannaBeCurator";
@@ -21,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <main className="bg-secondary text-white flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden">
+    <main className="bg-gray-secondary text-white flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden">
       <Header />
       <Campaigns />
       <PresentationVideo />
@@ -30,8 +31,7 @@ export default function Home() {
       <HowItWorks />
       <WannaBeCurator />
       <Team />
-      <p className="mb-20">Ajude a divulgar no instagram</p>
-
+      <SocialMedias />
       <Supporters />
       <Footer />
     </main>

@@ -22,7 +22,7 @@ export default function Supporters() {
             />
           ))}
         </div>
-        <hr className="w-full h-[2px] bg-secondary" />
+        <hr className="w-full h-[2px] bg-gray-secondary" />
       </div>
     </section>
   );

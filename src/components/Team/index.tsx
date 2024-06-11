@@ -6,7 +6,7 @@ export default function Team() {
   return (
     <section
       id="time"
-      className="bg-tertiary bg-opacity-70 w-full py-20 flex flex-col gap-8 items-center px-default"
+      className="bg-gray-tertiary bg-opacity-70 w-full py-20 flex flex-col gap-8 items-center px-default"
     >
       <div className="max-w-default flex flex-col gap-10 items-center">
         <h2 className="title text-white">Time</h2>

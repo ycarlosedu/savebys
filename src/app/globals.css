@@ -32,8 +32,8 @@ html {
   .bg-gray-forms {
     background-size: cover;
     @apply bg-grayForms
-    /* bg-repeat-y */
-    bg-blend-multiply;
+      /* bg-repeat-y */
+      bg-blend-multiply;
   }
 
   .link {
@@ -41,7 +41,7 @@ html {
   }
 
   .link-btn {
-    @apply bg-primary rounded-md py-2 px-4 transition-all ease-in-out hover:bg-opacity-80;
+    @apply bg-primary border border-primary rounded-md py-2 px-4 transition-all ease-in-out hover:bg-white hover:text-primary;
   }
 
   @media (min-width: 425px) {
@@ -64,7 +64,7 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-tertiary
-  rounded-lg
-  hover:bg-black;
+  @apply bg-gray-tertiary
+    rounded-lg
+    hover:bg-black;
 }
