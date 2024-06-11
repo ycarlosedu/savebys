@@ -37,7 +37,7 @@ html {
   }
 
   .link {
-    @apply border-b-2 border-b-transparent hover:border-b-secondary transition-all ease-in-out;
+    @apply border-b-2 border-b-transparent hover:border-b-white transition-all ease-in-out text-lg;
   }
 
   .link-btn {

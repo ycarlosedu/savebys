@@ -1,15 +1,27 @@
 const campaingList = [
   {
-    name: "Caldeira",
-    image: "/images/logo-caldeira.png"
+    name: "Em breve!",
+    image: ""
   },
   {
-    name: "Sebrae",
-    image: "/images/logo-sebrae.png"
+    name: "Em breve!",
+    image: ""
   },
   {
-    name: "Lab Fecomercio",
-    image: "/images/logo-lab-fecomercio.png"
+    name: "Em breve!",
+    image: ""
+  },
+  {
+    name: "Em breve!",
+    image: ""
+  },
+  {
+    name: "Em breve!",
+    image: ""
+  },
+  {
+    name: "Em breve!",
+    image: ""
   }
 ];
 

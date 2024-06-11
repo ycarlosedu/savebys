@@ -18,13 +18,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <main className="bg-secondary bg-gray-forms text-white flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden">
+    <main className="bg-secondary text-white flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden">
       <Header />
       <Campaigns />
       <PresentationVideo />
-      <HowItWorks />
       <WhoWeAre />
       <MissionVisionValues />
+      <HowItWorks />
       <p className="mb-20">Ajude a divulgar no instagram</p>
 
       <Footer />

@@ -2,15 +2,20 @@ export default function WhoWeAre() {
   return (
     <section
       id="quem-somos"
-      className="px-default pt-20 w-full flex flex-col items-center justify-center gap-8"
+      className="bg-white px-default pt-20 w-full flex flex-col items-center justify-center gap-8"
     >
-      <h2 className="title">Quem Somos</h2>
-      <p className="text-center max-w-[500px]">
-        Surgimos como fonte de apoio aos microempreendedores e aos pequenos
-        negócios, que estão sofrendo com a falta de recursos financeiros,
-        materiais e de outros suportes, após terem seu sustento impactado por
-        catástrofes e pandemias.
-      </p>
+      <div className="max-w-default w-full flex flex-col items-center justify-center gap-8">
+        <h2 className="title text-title">Quem Somos</h2>
+        <p className="text-center max-w-[610px] text-secondary text-lg">
+          A <strong>SAVEBYS</strong> é uma <strong>solução global</strong> para
+          apoiar empreendedores que enfrentam grandes desafios para se recuperar
+          depois de uma situação de crise causada por fatores externos (p.ex.:
+          desastres naturais) com pessoas físicas ou jurídicas dispostas a
+          oferecer suporte financeiro ou material, facilitando uma recuperação
+          sustentável, ágil e fortalecida.
+        </p>
+        <hr className="w-full h-[3px] bg-primary" />
+      </div>
     </section>
   );
 }
