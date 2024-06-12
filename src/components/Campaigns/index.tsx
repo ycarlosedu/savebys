@@ -12,19 +12,19 @@ export default function Campaigns() {
       className="flex flex-col gap-8 items-center py-8 px-default max-w-default"
     >
       <h2 className="title">Nossas Campanhas</h2>
-      <div className="flex gap-8 flex-wrap items-center justify-center max-w-[800px]">
+      <div className="flex gap-8 flex-wrap items-center justify-center max-w-default">
         {campaignsList.map((campaign) => (
           <article key={campaign.id}>
             {campaign.image ? (
               <Image
                 src={campaign.image}
-                width={200}
-                height={200}
+                width={300}
+                height={300}
                 alt={`Logo da marca ${campaign.name}`}
-                className="border-white bg-white border-4 rounded-3xl"
+                className="border-white bg-white border-4 rounded-3xl hover:scale-110 hover:opacity-80 transition-all ease-in-out"
               />
             ) : (
-              <div className="border-white bg-white flex items-center justify-center font-bold text-xl text-primary text-center border-4 rounded-3xl w-[200px] h-[200px]">
+              <div className="border-white bg-white hover:scale-110 hover:opacity-80 transition-all ease-in-out flex items-center justify-center font-bold text-xl text-primary text-center border-4 rounded-3xl w-[300px] h-[300px]">
                 {campaign.name}
               </div>
             )}

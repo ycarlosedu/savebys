@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Logo from "images/logo-savebys-slogan-cropped.webp";
+import Logo from "images/logo-savebys-slogan-cropped1.webp";
 
 import ActiveLink from "../ActiveLink";
 
@@ -11,8 +11,8 @@ export default function Header() {
         src={Logo}
         alt="Logo da marca SAVEBYS"
         className="h-auto"
-        width={200}
-        height={200}
+        width={250}
+        height={250}
       />
       <nav className="flex gap-6 items-center flex-wrap justify-center">
         <ActiveLink href="#quem-somos">Quem Somos</ActiveLink>
