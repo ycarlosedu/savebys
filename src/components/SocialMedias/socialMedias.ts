@@ -10,11 +10,11 @@ const socialMedias = [
     logo: FacebookLogo
   },
   {
-    url: "https://www.instagram.com/savebys/",
+    url: "https://www.instagram.com/save.bys/",
     logo: InstagramLogo
   },
   {
-    url: "https://www.linkedin.com/savebys/",
+    url: "https://www.linkedin.com/company/save-bys/",
     logo: LinkedinLogo
   }
 ];

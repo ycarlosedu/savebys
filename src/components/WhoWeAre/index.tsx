@@ -2,7 +2,7 @@ export default function WhoWeAre() {
   return (
     <section
       id="quem-somos"
-      className="bg-white px-default pt-8 w-full flex flex-col items-center justify-center gap-8"
+      className="bg-white px-default pt-16 w-full flex flex-col items-center justify-center gap-8"
     >
       <div className="max-w-default w-full flex flex-col items-center justify-center gap-8">
         <h2 className="title text-title">Quem Somos</h2>

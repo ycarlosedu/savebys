@@ -38,7 +38,7 @@ export default function Flux({ list }: Props) {
           );
         })}
       </ol>
-      <hr className="h-full w-[1px] hidden border border-white border-dashed md:block" />
+      <hr className="h-full w-[1px] hidden bg-white md:block" />
     </div>
   );
 }

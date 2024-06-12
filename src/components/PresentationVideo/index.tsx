@@ -6,7 +6,7 @@ export default function PresentationVideo() {
           src="/videos/presentation.mp4"
           controls
           className="w-full bg-white"
-          poster="/images/presentation-poster.webp"
+          // poster="/images/presentation-poster.webp"
         />
       </div>
     </section>

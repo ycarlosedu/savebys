@@ -2,22 +2,22 @@ const fluxList = [
   {
     name: "Mariana Leyser",
     occupations: ["Founder", "CEO"],
-    image: "/images/logo-savebys.webp"
+    image: "/images/team/Mari.webp"
   },
   {
     name: "Caroline Vasconcellos",
     occupations: ["Founder", "CFO"],
-    image: "/images/logo-savebys.webp"
+    image: "/images/team/Carol.webp"
   },
   {
     name: "Bárbara Kunzler",
     occupations: ["Founder", "CMO"],
-    image: "/images/logo-savebys.webp"
+    image: "/images/team/Barbara.webp"
   },
   {
     name: "Diogo Reis",
     occupations: ["Founder", "CTO"],
-    image: "/images/logo-savebys.webp"
+    image: "/images/team/Diogo.webp"
   }
 ];
 
