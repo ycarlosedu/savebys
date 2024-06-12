@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import Campaigns from "@/components/Campaigns";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HowItWorks from "@/components/HowItWorks";
@@ -32,6 +33,7 @@ export default function Home() {
       <WannaBeCurator />
       <Team />
       <SocialMedias />
+      <Contact />
       <Supporters />
       <Footer />
     </main>

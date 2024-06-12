@@ -36,10 +36,7 @@ export default function NotFound() {
               Não encontramos o que você procura. Este link pode ter sido movido
               ou estamos com alguma instabilidade no momento.
             </p>
-            <Link
-              href="/"
-              className="text-title link font-medium inline-flex items-center gap-x-1"
-            >
+            <Link href="/" className="text-title link font-medium">
               Voltar para a página inicial
               <CaretRight size={16} />
             </Link>

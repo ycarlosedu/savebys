@@ -1,20 +1,10 @@
 "use client";
-import { toast } from "sonner";
+
+import { handleCopyToClipboard } from "@/utils/copyToClipboard";
 
 const OUR_ADRESS = "https://savebys.org";
 
 export default function CopyAdress() {
-  const handleCopyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      toast.success("Copiado com sucesso!", { duration: 1000 });
-    } catch (err) {
-      toast.error("Ocorreu um erro ao copiar, tente novamente mais tarde!", {
-        duration: 1000
-      });
-    }
-  };
-
   return (
     <fieldset className="flex w-full items-center border-2 border-white rounded-xl overflow-hidden max-w-[610px] xs:min-w-[360px]">
       <input
