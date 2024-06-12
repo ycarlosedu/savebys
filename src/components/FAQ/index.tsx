@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { LegacyRef, useRef, useState } from "react";
 
 import { Minus, Plus } from "@phosphor-icons/react/dist/ssr";
 
@@ -15,12 +15,13 @@ type FaqsCardProps = {
 };
 
 const FaqsCard = ({ faqItem }: FaqsCardProps) => {
-  const answerElRef = useRef();
+  const answerElRef = useRef() as LegacyRef<HTMLDivElement>;
   const [state, setState] = useState(false);
   const [answerH, setAnswerH] = useState("0px");
 
   const handleOpenAnswer = () => {
-    const answerElH = answerElRef.current.childNodes[0].offsetHeight;
+    // @ts-expect-error useRef type Error
+    const answerElH = answerElRef?.current?.childNodes[0].offsetHeight;
     setState(!state);
     setAnswerH(`${answerElH + 20}px`);
   };
