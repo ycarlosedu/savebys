@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { FloatingButton } from "@/components/FloatingButton";
+import { ScrollArea } from "@/components/ScrollArea";
 import { Toaster } from "@/components/Sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -58,7 +59,7 @@ export default function RootLayout({ children }: Props) {
           <meta itemProp="alternateName" content="SAVE BYS" />
         </div>
 
-        {children}
+        <ScrollArea className="h-[100vh]">{children}</ScrollArea>
 
         <Toaster />
 

@@ -11,29 +11,9 @@ html {
   scroll-behavior: smooth !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
+@layer components {
   .title {
     @apply font-bold text-3xl text-center;
-  }
-
-  .max-w-default {
-    max-width: 1200px;
-  }
-
-  .px-default {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .bg-gray-forms {
-    background-size: cover;
-    @apply bg-grayForms
-      /* bg-repeat-y */
-      bg-blend-multiply;
   }
 
   .link {
@@ -47,28 +27,40 @@ html {
   .floating {
     @apply text-white size-12 p-1 fixed z-20 bottom-6 right-6 transition-all duration-500;
   }
+}
 
-  @media (min-width: 425px) {
-    .px-default {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .max-w-default {
+    max-width: 1200px;
+  }
+
+  .px-default {
+    @apply px-4 xs:px-8;
+  }
+
+  .bg-gray-forms {
+    /* bg-repeat-y */
+    @apply bg-grayForms bg-cover bg-blend-multiply;
   }
 }
 
 /* width */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   @apply w-[7px];
-}
+} */
 
 /* Track */
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   @apply hidden;
-}
+} */
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   @apply bg-gray-tertiary
     rounded-lg
     hover:bg-black;
-}
+} */
