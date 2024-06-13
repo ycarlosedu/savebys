@@ -6,7 +6,7 @@ import ActiveLink from "../ActiveLink";
 
 export default function Header() {
   return (
-    <header className="flex flex-col md:flex-row gap-6 items-center justify-center py-8 text-center text-white flex-wrap px-default">
+    <header className="w-full max-w-default flex flex-col md:flex-row gap-6 items-center justify-between py-8 text-center text-white flex-wrap px-default">
       <Image
         src={Logo}
         alt="Logo da marca SAVEBYS"

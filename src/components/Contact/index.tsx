@@ -5,10 +5,10 @@ import contactMethods from "./contactList";
 export default function Contact() {
   return (
     <section
-      className="bg-gray-primary px-default pt-8 pb-16 w-full flex items-center justify-center gap-8"
+      className="bg-gray-primary pt-8 pb-16 w-full flex items-center justify-center gap-8"
       id="contato"
     >
-      <div className="w-full max-w-default mx-auto px-4 text-gray-600 gap-12 md:px-8 lg:flex">
+      <div className="flex flex-col lg:flex-row justify-center w-full max-w-default mx-auto px-default text-gray-600 gap-12 md:px-8">
         <div className="max-w-md">
           <h3 className="text-white text-3xl font-semibold">
             Entre em contato
