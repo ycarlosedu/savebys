@@ -6,8 +6,8 @@ import ActiveLink from "../ActiveLink";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-secondary flex w-full flex-col items-center justify-center gap-6 px-4 py-6 lg:flex-row-reverse md:justify-between md:py-8">
-      <div className="w-full px-default max-w-default flex flex-col items-center justify-center gap-6 px-4 py-6 lg:flex-row-reverse md:justify-between">
+    <footer className="bg-white text-gray-secondary flex w-full flex-col items-center justify-center gap-6 px-4 py-6 md:py-8">
+      <div className="w-full px-default max-w-default flex flex-col items-center justify-center gap-6 px-4 py-6">
         <nav className="flex items-center [&>.link:hover]:border-b-gray-secondary gap-6 text-center flex-wrap justify-center">
           <ActiveLink href="#quem-somos">Quem Somos</ActiveLink>
           <ActiveLink href="#como-funciona">Como funciona</ActiveLink>
