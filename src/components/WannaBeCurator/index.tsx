@@ -26,10 +26,7 @@ export default function WannaBeCurator() {
           ))}
         </ol>
 
-        <Link
-          href="/cadastro-curador"
-          className="text-title link hover:border-primary font-bold inline-flex items-center gap-x-1"
-        >
+        <Link href="/cadastro-curador" className="link-btn py-4 px-8">
           CADASTRE-SE AQUI
           <CaretRight size={16} weight="bold" />
         </Link>

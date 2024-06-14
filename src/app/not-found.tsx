@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
-import Logo from "images/logo-savebys-slogan.webp";
+import Logo from "images/savebys/logo-savebys-slogan-cropped.svg";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

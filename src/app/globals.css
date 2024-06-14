@@ -21,7 +21,7 @@ html {
   }
 
   .link-btn {
-    @apply bg-primary border flex items-center justify-center border-primary rounded-md py-2 px-4 transition-all ease-in-out hover:bg-white hover:text-primary;
+    @apply bg-primary border flex items-center justify-center border-primary rounded-md py-2 px-4 transition-all ease-in-out hover:bg-white hover:text-primary gap-2;
   }
 
   .floating {

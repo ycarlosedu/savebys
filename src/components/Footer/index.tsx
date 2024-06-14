@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Logo from "images/logo-savebys-gray-slogan-cropped.webp";
+import Logo from "images/savebys/logo-savebys-gray-slogan-cropped.svg";
 
 import ActiveLink from "../ActiveLink";
 
@@ -24,6 +24,7 @@ export default function Footer() {
             width={200}
             height={200}
             alt="Logo da marca SaveBys"
+            className="w-200 h-auto"
           />
           <hr className="h-[24px] w-[1px] bg-gray-secondary hidden md:block" />
           <p className="w-fit break-normal">

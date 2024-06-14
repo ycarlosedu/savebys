@@ -27,6 +27,10 @@ const config = {
         "2xl": "1400px"
       },
       backgroundImage: {
+        gradientForms:
+          "linear-gradient(to bottom, rgba(96, 97, 97, 0.5), rgba(96, 97, 97, 1)), url('/images/bg-gray.webp')",
+        gradientFormsToTop:
+          "linear-gradient(to top, rgba(96, 97, 97, 0.5), rgba(96, 97, 97, 1)), url('/images/bg-gray.webp')",
         grayForms: "url('/images/bg-gray.webp')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
 
 import { FloatingButton, GLOBAL_SCROLL_ID } from "@/components/FloatingButton";
 import { ScrollArea } from "@/components/ScrollArea";
@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const fontFamily = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.savebys.com"),
@@ -52,7 +52,7 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>
+      <body className={fontFamily.className}>
         <div itemScope itemType="https://schema.org/WebSite">
           <meta itemProp="url" content="https://savebys.com/" />
           <meta itemProp="name" content="SAVEBYS" />

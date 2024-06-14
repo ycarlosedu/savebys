@@ -1,6 +1,6 @@
 export default function PresentationVideo() {
   return (
-    <section className="py-8 w-full flex flex-col items-center justify-center">
+    <section className="bg-gradientFormsToTop py-8 w-full flex flex-col items-center justify-center">
       <div className="max-w-default px-default w-full flex flex-col items-center justify-center">
         <div className="rounded-3xl overflow-hidden">
           <video
