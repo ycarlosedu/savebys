@@ -14,6 +14,10 @@ const supportersList = [
   {
     name: "ONNE",
     image: "/images/supporters/logo-onne.webp"
+  },
+  {
+    name: "Edu Deferrari",
+    image: "/images/supporters/logo-edu-white.webp"
   }
 ];
 
