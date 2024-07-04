@@ -1,9 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
+
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
 
 import campaignsList from "./list";
 
+const containerClassName =
+  "border-white bg-white border-4 rounded-3xl flex items-center justify-center w-[250px] xs:w-[350px] h-[250px] xs:h-[350px] hover:scale-110 transition-all ease-in-out";
 const imageClassName =
-  "border-white bg-white border-4 rounded-3xl hover:scale-110 transition-all ease-in-out flex items-center justify-center font-bold text-xl text-primary text-center w-[250px] h-[250px] xs:w-[350px] xs:h-[350px]";
+  "flex items-center justify-center font-bold text-xl text-primary text-center";
 
 export default function Campaigns() {
   return (
@@ -17,15 +22,30 @@ export default function Campaigns() {
           {campaignsList.map((campaign) => (
             <article key={campaign.id}>
               {campaign.image ? (
-                <Image
-                  src={campaign.image}
-                  width={350}
-                  height={350}
-                  alt={`Logo da marca ${campaign.name}`}
-                  className={imageClassName}
-                />
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href="/fecomerciors"
+                      aria-label={campaign.name}
+                      className={containerClassName}
+                    >
+                      <Image
+                        src={campaign.image}
+                        width={350}
+                        height={350}
+                        alt={`Logo da marca ${campaign.name}`}
+                        className={imageClassName}
+                      />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{campaign.name}</p>
+                  </TooltipContent>
+                </Tooltip>
               ) : (
-                <div className={imageClassName}>{campaign.name}</div>
+                <div className={containerClassName + imageClassName}>
+                  {campaign.name}
+                </div>
               )}
             </article>
           ))}
