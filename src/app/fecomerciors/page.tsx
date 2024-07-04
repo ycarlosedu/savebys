@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import Header from "@/components/fecomerciors/Header";
@@ -27,6 +28,15 @@ export default function MobiliaSolidaria() {
           <CaretRight size={16} />
         </Link>
       </div>
+      <section className="w-full max-w-default px-default py-16 flex flex-col gap-8 items-center">
+        <h1 className="title">CAMPANHA MOBÍLIA SOLIDÁRIA</h1>
+        <Image
+          src="/images/campaigns/fecomerciors/banner-900x560.png"
+          alt="Banner da campanha Mobília Solidária"
+          width={900}
+          height={560}
+        />
+      </section>
     </main>
   );
 }
