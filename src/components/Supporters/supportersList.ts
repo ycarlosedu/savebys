@@ -1,7 +1,7 @@
 const supportersList = [
   {
     name: "Lab Fecomércio RS",
-    image: "/images/supporters/logo-fecomercio.png",
+    image: "/images/supporters/logo-fecomercio.webp",
     href: "https://lab.fecomercio-rs.org.br"
   },
   {

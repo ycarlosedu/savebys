@@ -4,13 +4,11 @@ import Campaigns from "@/components/Campaigns";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import HowItWorks from "@/components/HowItWorks";
 import MissionVisionValues from "@/components/MissionVisionValues";
 import PresentationVideo from "@/components/PresentationVideo";
 import SocialMedias from "@/components/SocialMedias";
 import Supporters from "@/components/Supporters";
 import Team from "@/components/Team";
-import WannaBeCurator from "@/components/WannaBeCurator";
 import WhoWeAre from "@/components/WhoWeAre";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,8 +27,8 @@ export default function Home() {
       <PresentationVideo />
       <WhoWeAre />
       <MissionVisionValues />
-      <HowItWorks />
-      <WannaBeCurator />
+      {/* <HowItWorks /> */}
+      {/* <WannaBeCurator /> */}
       <Team />
       <SocialMedias />
       <Contact />
