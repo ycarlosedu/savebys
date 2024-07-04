@@ -6,7 +6,7 @@ const fluxList = [
   },
   {
     name: "Caroline Vasconcellos",
-    occupations: ["Founder", "CFO"],
+    occupations: ["Founder", "Advisor"],
     image: "/images/team/Carol.webp"
   },
   {
@@ -16,8 +16,13 @@ const fluxList = [
   },
   {
     name: "Diogo Reis",
-    occupations: ["Founder", "CTO"],
+    occupations: ["Founder", "CFO"],
     image: "/images/team/Diogo.webp"
+  },
+  {
+    name: "Carlos Silva",
+    occupations: ["Founder", "CTO"],
+    image: "/images/team/Carlos.webp"
   }
 ];
 

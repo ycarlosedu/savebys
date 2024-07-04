@@ -2,7 +2,7 @@
 
 import { handleCopyToClipboard } from "@/utils/copyToClipboard";
 
-const OUR_ADRESS = "https://savebys.org";
+const OUR_ADRESS = "https://savebys.com";
 
 export default function CopyAdress() {
   return (

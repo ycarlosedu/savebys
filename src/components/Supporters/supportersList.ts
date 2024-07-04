@@ -23,6 +23,11 @@ const supportersList = [
     name: "Edu Defferrari",
     image: "/images/supporters/logo-edu-white.webp",
     href: "https://edudefferrari.com.br"
+  },
+  {
+    name: "Lab Fecomércio",
+    image: "/images/supporters/logo-fecomercio.webp",
+    href: "https://lab.fecomercio-rs.org.br"
   }
 ];
 

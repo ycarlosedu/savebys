@@ -1,5 +1,7 @@
 "use client";
-import React, { ComponentProps, useEffect, useState } from "react";
+import React, { ComponentProps, useEffect, useRef, useState } from "react";
+
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
 
 import { cn } from "@/lib/utils";
 import { scrollToTop } from "@/utils/scrollToTop";
@@ -16,10 +18,10 @@ type Props = ComponentProps<"button"> & {
 export function FloatingButton({
   children = <ArrowUp size={24} />,
   showOnlyWhenScroll = true,
-  onClick = () => scrollToTop({ element: GLOBAL_SCROLL_QUERY }),
   ...rest
 }: Props) {
   const [show, setShow] = useState<boolean>(!showOnlyWhenScroll);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!showOnlyWhenScroll) return;
@@ -41,13 +43,26 @@ export function FloatingButton({
 
   const translate = show ? "translate-x-0" : "translate-x-[200vw]";
 
+  const defaultClick = () => {
+    buttonRef.current?.blur();
+    scrollToTop({ element: GLOBAL_SCROLL_QUERY });
+  };
+
   return (
-    <button
-      onClick={onClick}
-      className={cn(["link-btn", "floating", translate])}
-      {...rest}
-    >
-      {children}
-    </button>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button
+          ref={buttonRef}
+          onClick={rest.onClick || defaultClick}
+          className={cn(["link-btn", "floating", translate])}
+          {...rest}
+        >
+          {children}
+        </button>
+      </TooltipTrigger>
+      <TooltipContent side="left">
+        <p>{rest["aria-label"]}</p>
+      </TooltipContent>
+    </Tooltip>
   );
 }

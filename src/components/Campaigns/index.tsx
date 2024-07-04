@@ -1,7 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-
-import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 import campaignsList from "./list";
 
@@ -33,10 +30,10 @@ export default function Campaigns() {
             </article>
           ))}
         </div>
-        <Link href="/todas-campanhas" className="link-btn py-4 px-8">
+        {/* <Link href="/todas-campanhas" className="link-btn py-4 px-8">
           Confira aqui todas as campanhas
           <CaretRight size={16} weight="bold" />
-        </Link>
+        </Link> */}
       </div>
     </section>
   );

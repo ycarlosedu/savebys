@@ -7,6 +7,7 @@ import { Toaster } from "@/components/Sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import { TooltipProvider } from "@/components/Tooltip";
 
 const fontFamily = Nunito({ subsets: ["latin"] });
 
@@ -59,13 +60,14 @@ export default function RootLayout({ children }: Props) {
           <meta itemProp="alternateName" content="SAVE BYS" />
         </div>
 
-        <ScrollArea id={GLOBAL_SCROLL_ID} className="h-[100vh]">
-          {children}
-        </ScrollArea>
+        <TooltipProvider delayDuration={50}>
+          <ScrollArea id={GLOBAL_SCROLL_ID} className="h-[100vh]">
+            {children}
+          </ScrollArea>
+          <FloatingButton aria-label="Voltar para o topo da página" />
+        </TooltipProvider>
 
         <Toaster />
-
-        <FloatingButton aria-label="Voltar para o topo da página" />
 
         {/* Vercel */}
         <SpeedInsights />
