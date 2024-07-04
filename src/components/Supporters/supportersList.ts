@@ -1,5 +1,10 @@
 const supportersList = [
   {
+    name: "Lab Fecomércio RS",
+    image: "/images/supporters/logo-fecomercio.png",
+    href: "https://lab.fecomercio-rs.org.br"
+  },
+  {
     name: "Societário Digital",
     image: "/images/supporters/logo-societario-digital.webp",
     href: "https://societariodigital.com.br"
@@ -7,7 +12,7 @@ const supportersList = [
   {
     name: "Soufie Investor Game",
     image: "/images/supporters/logo-soufie.webp",
-    href: "https://www.linkedin.com/company/soufie-investor-game/"
+    href: "https://sites.google.com/view/soufiegame/home"
   },
   {
     name: "Epigenica Biosciences",
@@ -23,11 +28,6 @@ const supportersList = [
     name: "Edu Defferrari",
     image: "/images/supporters/logo-edu-white.webp",
     href: "https://edudefferrari.com.br"
-  },
-  {
-    name: "Lab Fecomércio",
-    image: "/images/supporters/logo-fecomercio.webp",
-    href: "https://lab.fecomercio-rs.org.br"
   }
 ];
 
