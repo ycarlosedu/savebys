@@ -1,11 +1,9 @@
-import Head from "next/head";
+import Script from "next/script";
 
 export default function PresentationVideo() {
   return (
     <section className="bg-gradientFormsToTop py-8 w-full flex flex-col items-center justify-center">
-      <Head>
-        <script src="https://player.vimeo.com/api/player.js" async></script>
-      </Head>
+      <Script src="https://player.vimeo.com/api/player.js" />
 
       <div className="max-w-default px-default w-full flex flex-col items-center justify-center">
         <div className="rounded-3xl overflow-hidden w-full">

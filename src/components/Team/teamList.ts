@@ -5,11 +5,6 @@ const fluxList = [
     image: "/images/team/Mari.webp"
   },
   {
-    name: "Caroline Vasconcellos",
-    occupations: ["Founder", "Advisor"],
-    image: "/images/team/Carol.webp"
-  },
-  {
     name: "Bárbara Kunzler",
     occupations: ["Founder", "CMO"],
     image: "/images/team/Barbara.webp"
@@ -23,6 +18,11 @@ const fluxList = [
     name: "Carlos Silva",
     occupations: ["Founder", "CTO"],
     image: "/images/team/Carlos.webp"
+  },
+  {
+    name: "Caroline Vasconcellos",
+    occupations: ["Founder", "ADVISOR"],
+    image: "/images/team/Carol.webp"
   }
 ];
 
