@@ -16,13 +16,14 @@ export default function Header() {
           height={200}
         />
         <nav className="flex gap-6 items-center flex-wrap justify-center [&>.link:hover]:border-b-gray-secondary">
-          <ActiveLink href="#quem-somos">Quem Somos</ActiveLink>
-          <ActiveLink href="#como-funciona">Como Funciona</ActiveLink>
           <ActiveLink href="#campanhas">Campanhas</ActiveLink>
-          <ActiveLink href="#quero-ser-curador">
+          <ActiveLink href="#quem-somos">Quem Somos</ActiveLink>
+          {/* <ActiveLink href="#como-funciona">Como Funciona</ActiveLink> */}
+          {/* <ActiveLink href="#quero-ser-curador">
             Quero ser um curador
-          </ActiveLink>
+          </ActiveLink> */}
           <ActiveLink href="#contato">Contato</ActiveLink>
+          <ActiveLink href="#apoiadores">Apoiadores</ActiveLink>
         </nav>
       </div>
     </header>
