@@ -22,6 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Home() {
   return (
     <main className="bg-gray-secondary text-white flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden h-full">
+      <h1 className="sr-only">SAVEBYS</h1>
       <Header />
       <Campaigns />
       <PresentationVideo />
