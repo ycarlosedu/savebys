@@ -2,15 +2,20 @@
 import Image from "next/image";
 
 import Input from "@/components/Input";
-import { REQUIRED } from "@/contants";
+import { DEFAULT_IMAGE_PATH, REQUIRED } from "@/contants";
 import { useFormik } from "formik";
 import { toast } from "sonner";
 import * as yup from "yup";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
+import furnitureSectors from "./furnitureSectors";
+
 export type FurnitureValues = {
-  image: string;
+  image: {
+    src: string;
+    name: string;
+  };
   description: string;
   quantity: number;
   sector: string;
@@ -19,12 +24,24 @@ export type FurnitureValues = {
 };
 
 const validationSchema = yup.object().shape({
-  image: yup.string().required(REQUIRED.FILE),
+  image: yup.object().shape({
+    src: yup
+      .string()
+      .required(REQUIRED.FILE)
+      .notOneOf([DEFAULT_IMAGE_PATH], REQUIRED.FILE),
+    name: yup.string()
+  }),
   description: yup.string().required(REQUIRED.FIELD),
   quantity: yup.number().required(REQUIRED.FIELD),
-  sector: yup.string().required(REQUIRED.FIELD),
-  sizeAndColor: yup.string().required(REQUIRED.FIELD),
-  material: yup.string().required(REQUIRED.FIELD)
+  sector: yup
+    .string()
+    .required(REQUIRED.RADIO)
+    .oneOf(
+      furnitureSectors.map((sector) => sector.value),
+      REQUIRED.RADIO
+    ),
+  sizeAndColor: yup.string(),
+  material: yup.string()
 });
 
 export default function FormFurniture() {
@@ -51,16 +68,43 @@ export default function FormFurniture() {
     isSubmitting
   } = useFormik({
     initialValues: {
-      image: "",
+      image: {
+        src: DEFAULT_IMAGE_PATH,
+        name: ""
+      },
       description: "",
       quantity: 1,
-      sector: "",
+      sector: furnitureSectors[0].value,
       sizeAndColor: "",
       material: ""
     },
     validationSchema,
     onSubmit
   });
+
+  const onChangeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.files || !event.target.files[0]) return;
+
+    const file = event.target.files[0];
+
+    if (file.size > 1 * 1024 * 1024)
+      return toast.error("A imagem deve ter menos de 1MB.");
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const image = e.target?.result as string;
+      handleChange({
+        target: {
+          name: "image",
+          value: {
+            src: image,
+            name: ""
+          }
+        }
+      });
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
 
   return (
     <form
@@ -71,7 +115,7 @@ export default function FormFurniture() {
       <Input.Fieldset>
         <div className="flex gap-5">
           <Image
-            src="/images/placeholder-image.png"
+            src={values.image.src}
             width={100}
             height={100}
             alt="Imagem do móvel a ser doado."
@@ -92,14 +136,14 @@ export default function FormFurniture() {
               id="image"
               type="file"
               accept="image/*"
-              onChange={handleChange}
+              onChange={onChangeImage}
               onBlur={handleBlur}
-              value={values.image}
-              data-invalid={touched.image && errors.image}
+              value={values.image.name}
+              data-invalid={touched.image?.src && errors.image?.src}
             />
           </div>
         </div>
-        <Input.Error>{touched.image && errors.image}</Input.Error>
+        <Input.Error>{touched.image?.src && errors.image?.src}</Input.Error>
       </Input.Fieldset>
 
       <Input.Fieldset>
@@ -132,7 +176,7 @@ export default function FormFurniture() {
       </Input.Fieldset>
 
       <Input.Fieldset>
-        <Input.Label htmlFor="sector">Tipo</Input.Label>
+        <Input.Label htmlFor="sector">Categoria</Input.Label>
         <Input.Select
           name="sector"
           id="sector"
@@ -144,15 +188,11 @@ export default function FormFurniture() {
           <option disabled selected value="0">
             Selecione uma opção
           </option>
-          <option value="Educação">Educação</option>
-          <option value="Hotelaria/Restaurantes">Hotelaria/Restaurantes</option>
-          <option value="Materiais de Escritório">
-            Materiais de Escritório
-          </option>
-          <option value="Salões de Beleza">Salões de Beleza</option>
-          <option value="Supermercado">Supermercado</option>
-          <option value="Varejo">Varejo</option>
-          <option value="Outras">Outras</option>
+          {furnitureSectors.map((sector) => (
+            <option key={sector.value} value={sector.value}>
+              {sector.name}
+            </option>
+          ))}
         </Input.Select>
         <Input.Error>{touched.sector && errors.sector}</Input.Error>
       </Input.Fieldset>

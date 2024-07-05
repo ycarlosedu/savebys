@@ -33,3 +33,5 @@ export const PAGE = {
     REGISTER_FURNITURE: "/fecomerciors/cadastro-movel"
   }
 };
+
+export const DEFAULT_IMAGE_PATH = "/images/placeholder-image.png";

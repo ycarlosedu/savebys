@@ -1,4 +1,9 @@
 import { Metadata } from "next";
+import Link from "next/link";
+
+import { PAGE } from "@/contants";
+
+import { CaretLeft } from "@phosphor-icons/react/dist/ssr";
 
 import FormFurniture from "./FormFurniture";
 
@@ -13,6 +18,13 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function FurnitureRegister() {
   return (
     <section className="flex flex-col p-12 gap-6 items-center w-full max-w-[500px]">
+      <Link
+        href={PAGE.FECOMERCIO.REGISTER_DONATOR}
+        className="link-btn-secondary h-[58px]"
+      >
+        <CaretLeft size={16} />
+        Voltar para Meus Dados
+      </Link>
       <h1 className="form-title text-gray-dark">
         Cadastro de <span className="text-primary">Móvel</span>
       </h1>
