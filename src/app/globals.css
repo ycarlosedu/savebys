@@ -16,6 +16,10 @@ html {
     @apply font-bold text-3xl text-center;
   }
 
+  .form-title {
+    @apply font-semibold text-5xl text-center;
+  }
+
   .link {
     @apply inline-flex gap-x-1 items-center border-b-2 border-b-transparent hover:border-b-white transition-all ease-in-out text-lg;
   }

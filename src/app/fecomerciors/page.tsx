@@ -2,9 +2,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import Footer from "@/components/fecomerciors/Footer";
-import Header from "@/components/fecomerciors/Header";
-
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,8 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function MobiliaSolidaria() {
   return (
-    <main className="bg-white text-gray-secondary flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden h-full">
-      <Header />
+    <>
       <div className="flex items-center justify-center gap-8 pt-16 px-default">
         <Link href="./cadastro-doador" className="link-btn h-[58px]">
           QUERO DOAR MÓVEIS
@@ -74,7 +70,6 @@ export default function MobiliaSolidaria() {
           </ol>
         </div>
       </section>
-      <Footer />
-    </main>
+    </>
   );
 }

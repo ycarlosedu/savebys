@@ -4,10 +4,10 @@ import { Nunito } from "next/font/google";
 import { FloatingButton, GLOBAL_SCROLL_ID } from "@/components/FloatingButton";
 import { ScrollArea } from "@/components/ScrollArea";
 import { Toaster } from "@/components/Sonner";
+import { TooltipProvider } from "@/components/Tooltip";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
-import { TooltipProvider } from "@/components/Tooltip";
 
 const fontFamily = Nunito({ subsets: ["latin"] });
 
