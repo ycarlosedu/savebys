@@ -1,39 +1,53 @@
 "use client";
+
+import { useRouter } from "next/navigation";
+
 import Input from "@/components/Input";
-import { INVALID, REQUIRED } from "@/contants";
+import { INVALID, PAGE, REQUIRED } from "@/contants";
 import { useFormik } from "formik";
 import { toast } from "sonner";
 import * as yup from "yup";
 
-import { CNPJMask, CPF_MASK, PHONE_NUMBER_MASK } from "@/utils/masks";
-import { PHONE_NUMBER_REGEX } from "@/utils/regex";
+import { CEP_MASK, CNPJMask, CPF_MASK, PHONE_NUMBER_MASK } from "@/utils/masks";
+import { CEP_REGEX, CPF_CNPJ_REGEX, PHONE_NUMBER_REGEX } from "@/utils/regex";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 export type DonatorValues = {
-  emailAddress: string;
   name: string;
+  document: string;
+  emailAddress: string;
   phoneNumber: string;
+  cep: string;
 };
 
 const validationSchema = yup.object().shape({
   name: yup.string().required(REQUIRED.FIELD),
-  document: yup.string().required(REQUIRED.FIELD),
+  document: yup
+    .string()
+    .matches(CPF_CNPJ_REGEX, INVALID.DOCUMENT)
+    .required(REQUIRED.FIELD),
   emailAddress: yup.string().required(REQUIRED.FIELD).email(INVALID.EMAIL),
   phoneNumber: yup
     .string()
     .matches(PHONE_NUMBER_REGEX, INVALID.PHONE)
     .required(REQUIRED.FIELD),
-  cep: yup.string().required(REQUIRED.FIELD)
+  cep: yup.string().matches(CEP_REGEX, INVALID.CEP).required(REQUIRED.FIELD)
 });
 
 export default function FormDonator() {
+  const router = useRouter();
+
+  const previousDonator: DonatorValues = JSON.parse(
+    localStorage.getItem("donator") || "{}"
+  );
+
   const onSubmit = async (values: DonatorValues) => {
+    console.log("🚀 ~ onSubmit ~ values:", values);
     try {
-      setTimeout(() => {
-        console.log("🚀 ~ onSubmit ~ values:", values);
-      }, 2000);
       // await mailing.registerInterest(values, lang);
+      localStorage.setItem("donator", JSON.stringify(values));
+      router.push(PAGE.FECOMERCIO.REGISTER_FURNITURE);
     } catch (error) {
       toast.error("Ocorreu um erro ao avançar, tente novamente mais tarde!");
     }
@@ -49,11 +63,11 @@ export default function FormDonator() {
     isSubmitting
   } = useFormik({
     initialValues: {
-      name: "",
-      document: "",
-      emailAddress: "",
-      phoneNumber: "",
-      cep: ""
+      name: previousDonator.name || "",
+      document: previousDonator.document || "",
+      emailAddress: previousDonator.emailAddress || "",
+      phoneNumber: previousDonator.phoneNumber || "",
+      cep: previousDonator.cep || ""
     },
     validationSchema,
     onSubmit
@@ -112,7 +126,7 @@ export default function FormDonator() {
       </Input.Fieldset>
 
       <Input.Fieldset>
-        <Input.Label htmlFor="phone">Celular (WhatsApp)</Input.Label>
+        <Input.Label htmlFor="phoneNumber">Celular (WhatsApp)</Input.Label>
         <Input.Mask
           name="phoneNumber"
           id="phoneNumber"
@@ -132,7 +146,7 @@ export default function FormDonator() {
           name="cep"
           id="cep"
           placeholder="99999-999"
-          mask={PHONE_NUMBER_MASK}
+          mask={CEP_MASK}
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.cep}
