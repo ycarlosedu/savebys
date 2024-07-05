@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import Footer from "@/components/fecomerciors/Footer";
 import Header from "@/components/fecomerciors/Header";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
@@ -73,6 +74,7 @@ export default function MobiliaSolidaria() {
           </ol>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
