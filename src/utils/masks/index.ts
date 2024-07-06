@@ -34,7 +34,7 @@ export const CPF_MASK = [
   /\d/
 ];
 
-export const CNPJMask = [
+export const CNPJ_Mask = [
   /\d/,
   /\d/,
   ".",

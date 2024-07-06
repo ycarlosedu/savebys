@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 import Input from "@/components/Input";
 import { INVALID, PAGE, REQUIRED } from "@/contants";
@@ -8,7 +9,12 @@ import { useFormik } from "formik";
 import { toast } from "sonner";
 import * as yup from "yup";
 
-import { CEP_MASK, CNPJMask, CPF_MASK, PHONE_NUMBER_MASK } from "@/utils/masks";
+import {
+  CEP_MASK,
+  CNPJ_Mask,
+  CPF_MASK,
+  PHONE_NUMBER_MASK
+} from "@/utils/masks";
 import { CEP_REGEX, CPF_CNPJ_REGEX, PHONE_NUMBER_REGEX } from "@/utils/regex";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
@@ -38,15 +44,14 @@ const validationSchema = yup.object().shape({
 export default function FormDonator() {
   const router = useRouter();
 
-  const previousDonator: DonatorValues = JSON.parse(
-    localStorage.getItem("donator") || "{}"
-  );
-
   const onSubmit = async (values: DonatorValues) => {
     console.log("🚀 ~ onSubmit ~ values:", values);
     try {
       // await mailing.registerInterest(values, lang);
-      localStorage.setItem("donator", JSON.stringify(values));
+      if (typeof window != "undefined") {
+        localStorage.setItem("donator", JSON.stringify(values));
+      }
+
       router.push(PAGE.FECOMERCIO.REGISTER_FURNITURE);
     } catch (error) {
       toast.error("Ocorreu um erro ao avançar, tente novamente mais tarde!");
@@ -60,18 +65,29 @@ export default function FormDonator() {
     handleSubmit,
     touched,
     errors,
-    isSubmitting
+    isSubmitting,
+    setValues
   } = useFormik({
     initialValues: {
-      name: previousDonator.name || "",
-      document: previousDonator.document || "",
-      emailAddress: previousDonator.emailAddress || "",
-      phoneNumber: previousDonator.phoneNumber || "",
-      cep: previousDonator.cep || ""
+      name: "",
+      document: "",
+      emailAddress: "",
+      phoneNumber: "",
+      cep: ""
     },
     validationSchema,
     onSubmit
   });
+
+  useEffect(() => {
+    if (typeof window == "undefined") return;
+
+    const previousDonator: DonatorValues = JSON.parse(
+      localStorage.getItem("donator") || "{}"
+    );
+    setValues(previousDonator);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <form
@@ -100,7 +116,11 @@ export default function FormDonator() {
           id="document"
           type="text"
           placeholder="11.111.111/0001-00"
-          mask={values.document.length <= 14 ? CPF_MASK : CNPJMask}
+          mask={
+            values.document && values.document.length > 14
+              ? CNPJ_Mask
+              : CPF_MASK
+          }
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.document}
