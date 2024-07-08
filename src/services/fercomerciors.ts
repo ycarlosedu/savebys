@@ -2,6 +2,7 @@ import { DonatorValues } from "@/app/fecomerciors/cadastro-doador/FormDonator";
 import { BFFs } from "@/contants";
 import { PERSON_TYPE_DOCUMENT, RegisterDonator } from "@/models/fercomerciors";
 
+import { unmask } from "@/utils/masks";
 import request from "@/utils/request";
 
 const createDonatorBody = (values: DonatorValues) => {
@@ -10,18 +11,18 @@ const createDonatorBody = (values: DonatorValues) => {
     fullName: values.fullName,
     documents: [
       {
-        document: values.document,
+        document: unmask(values.document),
         type: PERSON_TYPE_DOCUMENT[values.personType]
       }
     ],
     contactInfo: {
       personName: values.fullName,
       email: values.emailAddress,
-      phone: values.phoneNumber,
+      phone: unmask(values.phoneNumber),
       isWhatsApp: true
     },
     address: {
-      postalCode: values.postalCode,
+      postalCode: unmask(values.postalCode),
       country: "BR",
       countryDivision: values.countryDivision,
       city: values.city,

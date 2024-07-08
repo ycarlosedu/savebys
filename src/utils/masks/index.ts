@@ -1,3 +1,5 @@
+export const unmask = (value: string) => value.replace(/\D/g, "");
+
 export const PHONE_NUMBER_MASK = [
   "(",
   /\d/,
