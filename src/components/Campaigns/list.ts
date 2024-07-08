@@ -1,8 +1,8 @@
 const campaingList = [
   {
-    name: "Em breve!",
+    name: "Mobília Solidária",
     id: 1,
-    image: ""
+    image: "/images/campaigns/logo-fecomercio.webp"
   },
   {
     name: "Em breve!",

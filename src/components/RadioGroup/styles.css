@@ -1,0 +1,23 @@
+.RadioGroup_Root {
+  @apply flex flex-col gap-3 text-neutral w-full justify-start;
+}
+
+.RadioGroup_ItemContainer {
+  @apply flex items-center justify-start;
+}
+
+.RadioGroup_Item {
+  @apply bg-white w-6 h-6 rounded-full border-none shadow-radio hover:bg-gray-primary focus:shadow-focusRadio;
+}
+
+.RadioGroup_Indicator {
+  @apply flex items-center justify-center w-full h-full relative;
+}
+
+.RadioGroup_Indicator::after {
+  @apply block w-3 h-3 rounded-[50%] bg-primary content-[""];
+}
+
+.RadioGroup_Label {
+  @apply text-sm leading-6 pl-3;
+}
