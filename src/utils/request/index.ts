@@ -22,7 +22,7 @@ export async function fetchRequest<T = unknown>(
 
   if (response.headers.get("Content-Type") === "application/json") {
     const reponseJSON = await response.json();
-    return reponseJSON.data as T;
+    return reponseJSON as T;
   }
 
   return response as T;
@@ -40,7 +40,6 @@ export async function post<T = unknown>(
   body: unknown,
   options?: requestOptions
 ) {
-  console.log("🚀 ~ body:", body);
   return fetchRequest<T>(url, {
     method: "POST",
     body: JSON.stringify(body),

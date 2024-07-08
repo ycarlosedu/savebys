@@ -5,7 +5,6 @@ import { useEffect } from "react";
 
 import Input from "@/components/Input";
 import RadioGroupInputs from "@/components/RadioGroup";
-import { INVALID, PAGE, REQUIRED } from "@/contants";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/fercomerciors";
 import fecomerciorsServices from "@/services/fercomerciors";
@@ -25,6 +24,15 @@ import {
   CPF_REGEX,
   PHONE_NUMBER_REGEX
 } from "@/utils/regex";
+
+import {
+  INVALID,
+  LOCAL_STORAGE,
+  PAGE,
+  REQUIRED,
+  getLocalStorage,
+  setLocalStorage
+} from "@/constants";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
@@ -103,12 +111,15 @@ export default function FormDonator() {
 
   const onSubmit = async (values: DonatorValues) => {
     try {
-      values.personType === PERSON_TYPE.LEGAL
-        ? await fecomerciorsServices.signupCompany(values)
-        : await fecomerciorsServices.signupIndividual(values);
-      if (typeof window != "undefined") {
-        localStorage.setItem("donator", JSON.stringify(values));
+      if (values.personType === PERSON_TYPE.LEGAL) {
+        const { companyId } = await fecomerciorsServices.signupCompany(values);
+        setLocalStorage(LOCAL_STORAGE.DONATOR_ID, companyId);
+      } else {
+        const { individualId } =
+          await fecomerciorsServices.signupIndividual(values);
+        setLocalStorage(LOCAL_STORAGE.DONATOR_ID, individualId);
       }
+      setLocalStorage(LOCAL_STORAGE.DONATOR, values);
 
       router.push(PAGE.FECOMERCIO.REGISTER_FURNITURE);
     } catch (error) {
@@ -148,9 +159,9 @@ export default function FormDonator() {
   useEffect(() => {
     if (typeof window == "undefined") return;
 
-    const previousDonator: DonatorValues = JSON.parse(
-      localStorage.getItem("donator") || "{}"
-    );
+    const previousDonator = getLocalStorage(
+      LOCAL_STORAGE.DONATOR
+    ) as DonatorValues;
     if (Object.keys(previousDonator).length) {
       setValues(previousDonator);
     }

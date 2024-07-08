@@ -9,6 +9,28 @@ export const getBooleanEnvVariable = (variable: string) => {
   return process.env[variable] === "true";
 };
 
+export const IS_MIRAGE_ENABLED = () =>
+  getBooleanEnvVariable("NEXT_PUBLIC_MIRAGE");
+
+export const setLocalStorage = (key: string, value: unknown) => {
+  if (typeof window != "undefined") {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+};
+
+export const getLocalStorage = (key: LOCAL_STORAGE) => {
+  let value = {};
+  if (typeof window != "undefined") {
+    value = JSON.parse(localStorage.getItem(key) || "{}");
+  }
+  return value;
+};
+
+export enum LOCAL_STORAGE {
+  DONATOR = "donator",
+  DONATOR_ID = "donatorId"
+}
+
 export const REQUIRED = {
   FIELD: "O campo não pode estar vazio.",
   RADIO: "Deve ser selecionada uma opção.",

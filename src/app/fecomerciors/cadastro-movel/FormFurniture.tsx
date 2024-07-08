@@ -2,10 +2,11 @@
 import Image from "next/image";
 
 import Input from "@/components/Input";
-import { DEFAULT_IMAGE_PATH, REQUIRED } from "@/contants";
 import { useFormik } from "formik";
 import { toast } from "sonner";
 import * as yup from "yup";
+
+import { DEFAULT_IMAGE_PATH, REQUIRED } from "@/constants";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 

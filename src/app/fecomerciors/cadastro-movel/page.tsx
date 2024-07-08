@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-import { PAGE } from "@/contants";
+import { PAGE } from "@/constants";
 
 import { CaretLeft } from "@phosphor-icons/react/dist/ssr";
 

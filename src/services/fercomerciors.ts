@@ -1,9 +1,10 @@
 import { DonatorValues } from "@/app/fecomerciors/cadastro-doador/FormDonator";
-import { BFFs } from "@/contants";
 import { PERSON_TYPE_DOCUMENT, RegisterDonator } from "@/models/fercomerciors";
 
 import { unmask } from "@/utils/masks";
 import request from "@/utils/request";
+
+import { BFFs } from "@/constants";
 
 const createDonatorBody = (values: DonatorValues) => {
   const body: RegisterDonator = {

@@ -7,7 +7,11 @@ import { Toaster } from "@/components/Sonner";
 import { TooltipProvider } from "@/components/Tooltip";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import "./globals.css";
+import { IS_MIRAGE_ENABLED } from "@/constants";
+
+import Mirage from "./Mirage";
 
 const fontFamily = Nunito({ subsets: ["latin"] });
 
@@ -72,6 +76,8 @@ export default function RootLayout({ children }: Props) {
         {/* Vercel */}
         <SpeedInsights />
         <Analytics />
+
+        {IS_MIRAGE_ENABLED() && <Mirage />}
       </body>
     </html>
   );
