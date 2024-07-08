@@ -9,35 +9,29 @@ import * as yup from "yup";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
-import furnitureSectors from "./furnitureSectors";
+import furnitureCategories from "./furnitureCategories";
 
 export type FurnitureValues = {
-  image: {
-    src: string;
-    name: string;
-  };
+  image: string;
   description: string;
   quantity: number;
-  sector: string;
+  category: string;
   sizeAndColor: string;
   material: string;
 };
 
 const validationSchema = yup.object().shape({
-  image: yup.object().shape({
-    src: yup
-      .string()
-      .required(REQUIRED.FILE)
-      .notOneOf([DEFAULT_IMAGE_PATH], REQUIRED.FILE),
-    name: yup.string()
-  }),
+  image: yup
+    .string()
+    .required(REQUIRED.FILE)
+    .notOneOf([DEFAULT_IMAGE_PATH], REQUIRED.FILE),
   description: yup.string().required(REQUIRED.FIELD),
   quantity: yup.number().required(REQUIRED.FIELD),
-  sector: yup
+  category: yup
     .string()
     .required(REQUIRED.RADIO)
     .oneOf(
-      furnitureSectors.map((sector) => sector.value),
+      furnitureCategories.map((category) => category.value),
       REQUIRED.RADIO
     ),
   sizeAndColor: yup.string(),
@@ -65,16 +59,15 @@ export default function FormFurniture() {
     handleSubmit,
     touched,
     errors,
-    isSubmitting
+    isSubmitting,
+    setFieldValue,
+    setFieldError
   } = useFormik({
     initialValues: {
-      image: {
-        src: DEFAULT_IMAGE_PATH,
-        name: ""
-      },
+      image: DEFAULT_IMAGE_PATH,
       description: "",
       quantity: 1,
-      sector: furnitureSectors[0].value,
+      category: furnitureCategories[0].value,
       sizeAndColor: "",
       material: ""
     },
@@ -87,21 +80,15 @@ export default function FormFurniture() {
 
     const file = event.target.files[0];
 
-    if (file.size > 1 * 1024 * 1024)
+    if (file.size > 1 * 1024 * 1024) {
+      setFieldError("image", "A imagem deve ter menos de 1MB.");
       return toast.error("A imagem deve ter menos de 1MB.");
+    }
 
     const reader = new FileReader();
     reader.onload = (e) => {
       const image = e.target?.result as string;
-      handleChange({
-        target: {
-          name: "image",
-          value: {
-            src: image,
-            name: ""
-          }
-        }
-      });
+      setFieldValue("image", image);
     };
     reader.readAsDataURL(event.target.files[0]);
   };
@@ -115,7 +102,7 @@ export default function FormFurniture() {
       <Input.Fieldset>
         <div className="flex gap-5">
           <Image
-            src={values.image.src}
+            src={values.image}
             width={100}
             height={100}
             alt="Imagem do móvel a ser doado."
@@ -128,7 +115,9 @@ export default function FormFurniture() {
               htmlFor="image"
               className="link-btn-secondary w-fit font-bold"
             >
-              Escolher Imagem
+              {values.image != DEFAULT_IMAGE_PATH
+                ? "Alterar Imagem"
+                : "Escolher Imagem"}
             </Input.Label>
             <Input.Text
               className="hidden"
@@ -138,12 +127,12 @@ export default function FormFurniture() {
               accept="image/*"
               onChange={onChangeImage}
               onBlur={handleBlur}
-              value={values.image.name}
-              data-invalid={touched.image?.src && errors.image?.src}
+              value={""}
+              data-invalid={touched.image && errors.image}
             />
           </div>
         </div>
-        <Input.Error>{touched.image?.src && errors.image?.src}</Input.Error>
+        <Input.Error>{touched.image && errors.image}</Input.Error>
       </Input.Fieldset>
 
       <Input.Fieldset>
@@ -176,25 +165,25 @@ export default function FormFurniture() {
       </Input.Fieldset>
 
       <Input.Fieldset>
-        <Input.Label htmlFor="sector">Categoria</Input.Label>
+        <Input.Label htmlFor="category">Categoria</Input.Label>
         <Input.Select
-          name="sector"
-          id="sector"
+          name="category"
+          id="category"
           onChange={handleChange}
           onBlur={handleBlur}
-          value={values.sector}
-          data-invalid={touched.sector && errors.sector}
+          value={values.category}
+          data-invalid={touched.category && errors.category}
         >
-          <option disabled selected value="0">
+          <option disabled value="0">
             Selecione uma opção
           </option>
-          {furnitureSectors.map((sector) => (
-            <option key={sector.value} value={sector.value}>
-              {sector.name}
+          {furnitureCategories.map((category) => (
+            <option key={category.value} value={category.value}>
+              {category.name}
             </option>
           ))}
         </Input.Select>
-        <Input.Error>{touched.sector && errors.sector}</Input.Error>
+        <Input.Error>{touched.category && errors.category}</Input.Error>
       </Input.Fieldset>
 
       <Input.Fieldset>

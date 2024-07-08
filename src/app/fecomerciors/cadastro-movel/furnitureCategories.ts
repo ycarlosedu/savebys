@@ -1,4 +1,4 @@
-const furnitureSectors = [
+const furnitureCategories = [
   {
     name: "Educação",
     value: "Educação"
@@ -29,4 +29,4 @@ const furnitureSectors = [
   }
 ];
 
-export default furnitureSectors;
+export default furnitureCategories;
