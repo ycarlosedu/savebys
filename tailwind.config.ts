@@ -91,6 +91,8 @@ const config = {
         }
       },
       animation: {
+        loader:
+          "spin 1s linear infinite, pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         fade: "fade 0.5s ease-in-out",
         hide: "hide 0.5s ease-in-out",
         fadeTranslate: "fadeTranslate 0.5s ease-in-out",

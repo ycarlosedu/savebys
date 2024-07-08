@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
+import Button from "@/components/Button";
 import Input from "@/components/Input";
 import RadioGroupInputs from "@/components/RadioGroup";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
@@ -186,7 +187,9 @@ export default function FormDonator() {
       {values.personType === PERSON_TYPE.NATURAL ? (
         <>
           <Input.Fieldset>
-            <Input.Label htmlFor="fullName">Nome Completo</Input.Label>
+            <Input.Label htmlFor="fullName" required>
+              Nome Completo
+            </Input.Label>
             <Input.Text
               name="fullName"
               id="fullName"
@@ -200,7 +203,9 @@ export default function FormDonator() {
           </Input.Fieldset>
 
           <Input.Fieldset>
-            <Input.Label htmlFor="document">CPF</Input.Label>
+            <Input.Label htmlFor="document" required>
+              CPF
+            </Input.Label>
             <Input.Mask
               name="document"
               id="document"
@@ -218,7 +223,9 @@ export default function FormDonator() {
       ) : (
         <>
           <Input.Fieldset>
-            <Input.Label htmlFor="companyName">Razão Social</Input.Label>
+            <Input.Label htmlFor="companyName" required>
+              Razão Social
+            </Input.Label>
             <Input.Text
               name="companyName"
               id="companyName"
@@ -234,7 +241,9 @@ export default function FormDonator() {
           </Input.Fieldset>
 
           <Input.Fieldset>
-            <Input.Label htmlFor="document">CNPJ</Input.Label>
+            <Input.Label htmlFor="document" required>
+              CNPJ
+            </Input.Label>
             <Input.Mask
               name="document"
               id="document"
@@ -250,7 +259,7 @@ export default function FormDonator() {
           </Input.Fieldset>
 
           <Input.Fieldset>
-            <Input.Label htmlFor="fullName">
+            <Input.Label htmlFor="fullName" required>
               Nome da Pessoa de Contato
             </Input.Label>
             <Input.Text
@@ -268,7 +277,9 @@ export default function FormDonator() {
       )}
 
       <Input.Fieldset>
-        <Input.Label htmlFor="emailAddress">Email</Input.Label>
+        <Input.Label htmlFor="emailAddress" required>
+          Email
+        </Input.Label>
         <Input.Text
           name="emailAddress"
           id="emailAddress"
@@ -283,7 +294,9 @@ export default function FormDonator() {
       </Input.Fieldset>
 
       <Input.Fieldset>
-        <Input.Label htmlFor="phoneNumber">Celular (WhatsApp)</Input.Label>
+        <Input.Label htmlFor="phoneNumber" required>
+          Celular (WhatsApp)
+        </Input.Label>
         <Input.Mask
           name="phoneNumber"
           id="phoneNumber"
@@ -299,7 +312,9 @@ export default function FormDonator() {
 
       <Input.Group>
         <Input.Fieldset className="w-[38%]">
-          <Input.Label htmlFor="postalCode">CEP</Input.Label>
+          <Input.Label htmlFor="postalCode" required>
+            CEP
+          </Input.Label>
           <Input.Mask
             name="postalCode"
             id="postalCode"
@@ -314,7 +329,9 @@ export default function FormDonator() {
         </Input.Fieldset>
 
         <Input.Fieldset>
-          <Input.Label htmlFor="countryDivision">Estado</Input.Label>
+          <Input.Label htmlFor="countryDivision" required>
+            Estado
+          </Input.Label>
           <Input.Select
             name="countryDivision"
             id="countryDivision"
@@ -342,7 +359,9 @@ export default function FormDonator() {
       </Input.Group>
 
       <Input.Fieldset>
-        <Input.Label htmlFor="city">Cidade</Input.Label>
+        <Input.Label htmlFor="city" required>
+          Cidade
+        </Input.Label>
         <Input.Text
           name="city"
           id="city"
@@ -356,7 +375,9 @@ export default function FormDonator() {
       </Input.Fieldset>
 
       <Input.Fieldset>
-        <Input.Label htmlFor="publicPlaceName">Logradouro</Input.Label>
+        <Input.Label htmlFor="publicPlaceName" required>
+          Logradouro
+        </Input.Label>
         <Input.Text
           name="publicPlaceName"
           id="publicPlaceName"
@@ -373,7 +394,9 @@ export default function FormDonator() {
 
       <Input.Group>
         <Input.Fieldset className="w-[38%]">
-          <Input.Label htmlFor="publicPlaceNumber">Número</Input.Label>
+          <Input.Label htmlFor="publicPlaceNumber" required>
+            Número
+          </Input.Label>
           <Input.Text
             type="number"
             name="publicPlaceNumber"
@@ -404,14 +427,10 @@ export default function FormDonator() {
         </Input.Fieldset>
       </Input.Group>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="link-btn h-[58px] px-8"
-      >
-        {isSubmitting ? "Salvando..." : "Avançar"}
+      <Button type="submit" isLoading={isSubmitting} className="h-[58px] px-8">
+        Avançar
         <CaretRight size={16} />
-      </button>
+      </Button>
     </form>
   );
 }
