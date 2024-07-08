@@ -1,24 +1,36 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import Button from "@/components/Button";
+import useMenuStore from "@/stores/menuStore";
 import * as Dialog from "@radix-ui/react-dialog";
+
+import { PAGE } from "@/constants";
 
 import { X } from "@phosphor-icons/react";
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 import { ScrollArea } from "../ScrollArea";
 
-export default function Dialog_DonateSuccess() {
+type Props = {
+  onConfirm: () => void;
+};
+
+export default function Dialog_DonateSuccess({ onConfirm }: Props) {
+  const { sucessDonateOpened } = useMenuStore();
+  const router = useRouter();
+
+  const toggleModal = () => {
+    router.push(PAGE.FECOMERCIO.HOME);
+  };
+
   return (
-    <Dialog.Root
-      open={true}
-      // onOpenChange={toggleModal}
-    >
+    <Dialog.Root open={sucessDonateOpened} onOpenChange={toggleModal}>
       <Dialog.Portal>
         <Dialog.Overlay className="Dialog_Overlay" />
         <Dialog.Content className="Dialog_Container">
-          {/* @ts-expect-error forward ref error */}
-          <ScrollArea className="Scroll_Area" scrollBarClassName="">
+          <ScrollArea className="Scroll_Area">
             <section className="Dialog_Content">
               <Dialog.Title className="Dialog_Title">
                 Sucesso
@@ -30,11 +42,17 @@ export default function Dialog_DonateSuccess() {
                 Obrigado por fazer parte do nosso projeto!
               </Dialog.Description>
 
-              <Button color="secondary" className="h-[58px] px-8">
+              <Button
+                color="secondary"
+                className="h-[58px] px-8"
+                onClick={onConfirm}
+              >
                 Cadastrar outro Móvel
                 <CaretRight size={16} />
               </Button>
-              <Button className="h-[58px] px-8">Fechar</Button>
+              <Button className="h-[58px] px-8" onClick={toggleModal}>
+                Fechar
+              </Button>
               <Dialog.Close asChild>
                 <button className="Dialog_CloseButton" aria-label="Close">
                   <X size={32} />

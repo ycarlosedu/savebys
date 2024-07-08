@@ -48,7 +48,8 @@ export const INVALID = {
   DOCUMENT: "CPF/CNPJ inválido.",
   DOCUMENT_LEGAL: "CNPJ inválido.",
   DOCUMENT_NATURAL: "CPF inválido.",
-  POSTAL_CODE: "CEP inválido."
+  POSTAL_CODE: "CEP inválido.",
+  QUANTITY: "Quantidade inválida."
 };
 
 export const PAGE = {
