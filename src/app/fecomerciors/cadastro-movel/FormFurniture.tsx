@@ -3,11 +3,17 @@ import Image from "next/image";
 
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import fecomerciorsServices from "@/services/fercomerciors";
 import { useFormik } from "formik";
 import { toast } from "sonner";
 import * as yup from "yup";
 
-import { DEFAULT_IMAGE_PATH, REQUIRED } from "@/constants";
+import {
+  DEFAULT_IMAGE_PATH,
+  LOCAL_STORAGE,
+  REQUIRED,
+  getLocalStorage
+} from "@/constants";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
@@ -41,13 +47,13 @@ const validationSchema = yup.object().shape({
 });
 
 export default function FormFurniture() {
+  const donatorId = getLocalStorage(LOCAL_STORAGE.DONATOR_ID, "");
+
   const onSubmit = async (values: FurnitureValues) => {
     try {
-      setTimeout(() => {
-        console.log("🚀 ~ onSubmit ~ values:", values);
-      }, 2000);
-      // await mailing.registerInterest(values, lang);
+      await fecomerciorsServices.registerDonation(values, donatorId);
     } catch (error) {
+      console.log("🚀 ~ onSubmit ~ error:", error);
       toast.error(
         "Ocorreu um erro ao cadastrar o móvel, tente novamente mais tarde!"
       );

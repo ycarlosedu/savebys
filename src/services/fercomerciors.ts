@@ -1,4 +1,5 @@
 import { DonatorValues } from "@/app/fecomerciors/cadastro-doador/FormDonator";
+import { FurnitureValues } from "@/app/fecomerciors/cadastro-movel/FormFurniture";
 import { PERSON_TYPE_DOCUMENT, RegisterDonator } from "@/models/fercomerciors";
 
 import { unmask } from "@/utils/masks";
@@ -63,9 +64,22 @@ export const signupIndividual = async (
   );
 };
 
+export const generateRegisterDonationEndpoint = () =>
+  `${BFFs.GATEKEEPER}/donation/giving`;
+export const registerDonation = async (
+  values: FurnitureValues,
+  donatorId: string
+) => {
+  return request.post(generateRegisterDonationEndpoint(), {
+    ...values,
+    donatorId
+  });
+};
+
 const fecomerciorsServices = {
   signupCompany,
-  signupIndividual
+  signupIndividual,
+  registerDonation
 };
 
 export default fecomerciorsServices;

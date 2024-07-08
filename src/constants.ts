@@ -18,12 +18,14 @@ export const setLocalStorage = (key: string, value: unknown) => {
   }
 };
 
-export const getLocalStorage = (key: LOCAL_STORAGE) => {
-  let value = {};
-  if (typeof window != "undefined") {
-    value = JSON.parse(localStorage.getItem(key) || "{}");
-  }
-  return value;
+export const getLocalStorage = (
+  key: LOCAL_STORAGE,
+  defaultValue: unknown = {}
+) => {
+  if (typeof window === "undefined") return defaultValue;
+
+  const value = localStorage.getItem(key);
+  return value ? JSON.parse(value) : defaultValue;
 };
 
 export enum LOCAL_STORAGE {
