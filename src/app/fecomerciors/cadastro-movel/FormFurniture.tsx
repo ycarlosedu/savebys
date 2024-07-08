@@ -2,6 +2,7 @@
 import Image from "next/image";
 
 import Button from "@/components/Button";
+import Dialog from "@/components/Dialog";
 import Input from "@/components/Input";
 import fecomerciorsServices from "@/services/fercomerciors";
 import { useFormik } from "formik";
@@ -53,7 +54,6 @@ export default function FormFurniture() {
     try {
       await fecomerciorsServices.registerDonation(values, donatorId);
     } catch (error) {
-      console.log("🚀 ~ onSubmit ~ error:", error);
       toast.error(
         "Ocorreu um erro ao cadastrar o móvel, tente novamente mais tarde!"
       );
@@ -240,6 +240,7 @@ export default function FormFurniture() {
         Salvar Móvel
         <CaretRight size={16} />
       </Button>
+      <Dialog.DonateSuccess />
     </form>
   );
 }

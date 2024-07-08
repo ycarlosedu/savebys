@@ -1,0 +1,39 @@
+.Dialog_Overlay {
+  @apply bg-overlay fixed inset-0 z-20 animate-fade data-[state=closed]:animate-hide;
+}
+
+.Dialog_Container {
+  @apply bg-white rounded-[32px] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[90vw] max-h-[90vh] h-fit py-12 px-6 flex flex-col gap-3 animate-fadeTranslate data-[state=closed]:animate-hideTranslate overflow-x-hidden z-30 focus:outline-none md:max-w-[600px] md:p-12;
+}
+
+/* .Scroll_Area {
+  @apply max-h-[calc(90vh-6rem)];
+} */
+
+.Dialog_Content {
+  @apply flex flex-col gap-6 items-center h-fit;
+}
+
+.Dialog_Title {
+  @apply font-semibold text-gray-dark text-3xl text-center md:text-[2.75rem] md:leading-[64px];
+}
+
+.Dialog_Title > span {
+  @apply text-primary;
+}
+
+.Dialog_Description {
+  @apply text-gray-secondary text-sm leading-4 text-center md:text-lg md:leading-8;
+}
+
+.Dialog_Form {
+  @apply flex flex-col items-center gap-3;
+}
+
+.Dialog_ContactTypeDescription {
+  @apply text-gray-secondary text-sm leading-4 text-center md:text-lg md:leading-8;
+}
+
+.Dialog_CloseButton {
+  @apply absolute rounded-full h-8 w-8 inline-flex items-center justify-center px-1 text-gray-secondary top-1 right-1 border-none bg-transparent hover:bg-primary hover:text-white focus:shadow-sm transition-all;
+}
