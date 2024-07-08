@@ -22,7 +22,9 @@ export const INVALID = {
   EMAIL: "E-mail inválido.",
   PHONE: "Número de telefone inválido.",
   DOCUMENT: "CPF/CNPJ inválido.",
-  CEP: "CEP inválido."
+  DOCUMENT_LEGAL: "CNPJ inválido.",
+  DOCUMENT_NATURAL: "CPF inválido.",
+  POSTAL_CODE: "CEP inválido."
 };
 
 export const PAGE = {
