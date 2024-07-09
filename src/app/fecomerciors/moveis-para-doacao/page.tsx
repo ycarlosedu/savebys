@@ -5,6 +5,8 @@ import Dropdown from "@/components/Dropdown";
 import ProductCard from "@/components/fecomerciors/ProductCard/intex";
 import fecomerciorsServices from "@/services/fecomerciors";
 
+import FurniturePagination from "./FurniturePagination";
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title:
@@ -39,12 +41,15 @@ export default async function FurnituresToDonation() {
 
       <section className="flex flex-col gap-8 py-8 flex-start w-full">
         <h2 className="text-4xl font-semibold text-gray-secondary">Todos</h2>
+        <FurniturePagination furnitures={furnitures} />
 
         <div className="flex flex-wrap gap-8 justify-between">
           {furnitures.products.map((furniture) => (
             <ProductCard furniture={furniture} key={furniture.id} />
           ))}
         </div>
+
+        <FurniturePagination furnitures={furnitures} />
       </section>
     </section>
   );
