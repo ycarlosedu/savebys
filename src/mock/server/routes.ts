@@ -1,9 +1,10 @@
 import fixtures from "@/mock/fixtures/fecomerciors.json";
 import {
+  generateGetProductsEndpoint,
   generateRegisterDonationEndpoint,
   generateSignupCompanyEndpoint,
   generateSignupIndividualEndpoint
-} from "@/services/fercomerciors";
+} from "@/services/fecomerciors";
 import { Response, Server } from "miragejs";
 
 import { BFFs } from "@/constants";
@@ -26,6 +27,11 @@ export function routes(server: Server) {
   );
 
   server.post(generateRegisterDonationEndpoint(), () => new Response(200));
+
+  server.get(
+    generateGetProductsEndpoint(),
+    () => new Response(200, headers, fixtures.furnitures)
+  );
 
   server.passthrough();
 }

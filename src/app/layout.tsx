@@ -5,6 +5,7 @@ import { FloatingButton, GLOBAL_SCROLL_ID } from "@/components/FloatingButton";
 import { ScrollArea } from "@/components/ScrollArea";
 import { Toaster } from "@/components/Sonner";
 import { TooltipProvider } from "@/components/Tooltip";
+import { makeServerForSSR } from "@/mock/server";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -53,6 +54,8 @@ export const metadata: Metadata = {
 type Props = {
   children: React.ReactNode;
 };
+
+IS_MIRAGE_ENABLED() && makeServerForSSR();
 
 export default function RootLayout({ children }: Props) {
   return (

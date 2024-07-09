@@ -6,8 +6,16 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
 import { CaretDown, Desk } from "@phosphor-icons/react/dist/ssr";
 
+const furnitureCategoriesWithAll = [
+  {
+    name: "Todos",
+    value: "Todos"
+  },
+  ...furnitureCategories
+];
+
 export default function FilterFurnitureDropdown() {
-  const [value, setValue] = useState(furnitureCategories[0].value);
+  const [value, setValue] = useState(furnitureCategoriesWithAll[0].value);
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
@@ -24,7 +32,7 @@ export default function FilterFurnitureDropdown() {
       <DropdownMenu.Portal>
         <DropdownMenu.Content className="min-w-[100px] bg-white rounded-md p-1 shadow-2xl">
           <DropdownMenu.RadioGroup value={value} onValueChange={setValue}>
-            {furnitureCategories.map((category) => (
+            {furnitureCategoriesWithAll.map((category) => (
               <DropdownMenu.RadioItem
                 key={category.value}
                 value={category.value}

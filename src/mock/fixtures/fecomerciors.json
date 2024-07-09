@@ -4,5 +4,30 @@
   },
   "signupIndividual": {
     "individualId": "200"
+  },
+  "furnitures": {
+    "page": 1,
+    "pageSize": 9,
+    "numberOfPages": 3,
+    "products": [
+      {
+        "id": "1",
+        "city": "Porto Alegre",
+        "description": "Balcão de Cozinha",
+        "image": "/images/furnitureExample.png"
+      },
+      {
+        "id": "2",
+        "city": "Canoas",
+        "description": "Cadeira de Escritório",
+        "image": "/images/furnitureExample.png"
+      },
+      {
+        "id": "3",
+        "city": "Caxias",
+        "description": "Mesa Escritório",
+        "image": "/images/furnitureExample.png"
+      }
+    ]
   }
 }

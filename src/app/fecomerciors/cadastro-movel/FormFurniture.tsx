@@ -5,7 +5,7 @@ import Button from "@/components/Button";
 import Dialog from "@/components/Dialog";
 import { GLOBAL_SCROLL_QUERY } from "@/components/FloatingButton";
 import Input from "@/components/Input";
-import fecomerciorsServices from "@/services/fercomerciors";
+import fecomerciorsServices from "@/services/fecomerciors";
 import useMenuStore, { MENU } from "@/stores/menuStore";
 import { useFormik } from "formik";
 import { toast } from "sonner";

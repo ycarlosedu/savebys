@@ -6,11 +6,33 @@ import { routes } from "./routes";
 
 export { Response } from "miragejs";
 
-export function makeServer() {
+type Props = {
+  trackRequests?: boolean;
+  urlPrefix?: string;
+};
+
+const defaultOptions = {
+  trackRequests: true,
+  urlPrefix: BFFs.GATEKEEPER
+};
+export function makeServer({
+  trackRequests,
+  urlPrefix
+}: Props = defaultOptions) {
   console.log("Mirage server enabled");
   return new MirageServer({
-    urlPrefix: BFFs.GATEKEEPER,
-    trackRequests: true,
+    urlPrefix,
+    trackRequests,
+    routes: function () {
+      routes(this);
+    }
+  });
+}
+
+export function makeServerForSSR({ urlPrefix }: Props = defaultOptions) {
+  console.log("Mirage SSR server enabled");
+  return new MirageServer({
+    urlPrefix,
     routes: function () {
       routes(this);
     }

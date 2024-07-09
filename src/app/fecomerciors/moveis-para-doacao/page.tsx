@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 import Dropdown from "@/components/Dropdown";
+import ProductCard from "@/components/fecomerciors/ProductCard/intex";
+import fecomerciorsServices from "@/services/fecomerciors";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -12,7 +14,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function FurnituresToDonation() {
+export default async function FurnituresToDonation() {
+  const furnitures = await fecomerciorsServices.getProducts();
+
   return (
     <section className="flex flex-col p-12 gap-6 items-center w-full max-w-[1282px]">
       <Image
@@ -32,6 +36,16 @@ export default function FurnituresToDonation() {
           Limpar Filtro
         </button>
       </div>
+
+      <section className="flex flex-col gap-8 py-8 flex-start w-full">
+        <h2 className="text-4xl font-semibold text-gray-secondary">Todos</h2>
+
+        <div className="flex flex-wrap gap-8 justify-between">
+          {furnitures.products.map((furniture) => (
+            <ProductCard furniture={furniture} key={furniture.id} />
+          ))}
+        </div>
+      </section>
     </section>
   );
 }
