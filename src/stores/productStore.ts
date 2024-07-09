@@ -4,14 +4,24 @@ import { create } from "zustand";
 import { getLocalStorage, LOCAL_STORAGE, setLocalStorage } from "@/constants";
 
 const initialState = {
-  products: getLocalStorage(LOCAL_STORAGE.PRODUCTS, []) as Product[]
+  products: getLocalStorage(LOCAL_STORAGE.PRODUCTS, []) as Product[],
+  page: 1,
+  filters: {
+    category: "Todos"
+  }
 };
+
+type Filter = keyof typeof initialState.filters;
 
 type InitialState = typeof initialState;
 
 type Store = InitialState & {
   addProduct: (product: Product) => void;
   removeProduct: (id: Product["id"]) => void;
+  goToPage: (page: number) => void;
+  updateFilter: (filter: Filter, value: string) => void;
+  resetFilters: () => void;
+  reset: () => void;
 };
 
 const useProductStore = create<Store>((set, get) => ({
@@ -28,6 +38,25 @@ const useProductStore = create<Store>((set, get) => ({
     setLocalStorage(LOCAL_STORAGE.PRODUCTS, newProducts);
     set({
       products: newProducts
+    });
+  },
+  goToPage: (page) => {
+    set({
+      page
+    });
+  },
+  updateFilter: (filter, value) => {
+    const newFilters = {
+      ...get().filters,
+      [filter]: value
+    };
+    set({
+      filters: newFilters
+    });
+  },
+  resetFilters: () => {
+    set({
+      filters: initialState.filters
     });
   },
   reset: () => {

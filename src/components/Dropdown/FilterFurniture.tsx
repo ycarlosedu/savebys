@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
 
 import furnitureCategories from "@/app/fecomerciors/cadastro-movel/furnitureCategories";
+import useProductStore from "@/stores/productStore";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
 import { CaretDown, Desk } from "@phosphor-icons/react/dist/ssr";
@@ -15,7 +15,8 @@ const furnitureCategoriesWithAll = [
 ];
 
 export default function FilterFurnitureDropdown() {
-  const [value, setValue] = useState(furnitureCategoriesWithAll[0].value);
+  const { filters, updateFilter } = useProductStore();
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
@@ -31,13 +32,16 @@ export default function FilterFurnitureDropdown() {
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content className="min-w-[100px] bg-white rounded-md p-1 shadow-2xl">
-          <DropdownMenu.RadioGroup value={value} onValueChange={setValue}>
+          <DropdownMenu.RadioGroup
+            value={filters.category}
+            onValueChange={(value) => updateFilter("category", value)}
+          >
             {furnitureCategoriesWithAll.map((category) => (
               <DropdownMenu.RadioItem
                 key={category.value}
                 value={category.value}
-                data-disabled={category.value === value}
-                disabled={category.value === value}
+                data-disabled={category.value === filters.category}
+                disabled={category.value === filters.category}
                 className="flex items-center gap-4 text-base border-b border-gray-primary/50 text-gray-dark rounded-sm h-12 py-1 px-2 relative outline-none cursor-pointer hover:bg-gray-minimum data-disabled:bg-gray-secondary data-disabled:text-white data-disabled:cursor-default"
               >
                 <div className="w-5 h-5 rounded-full border-2 border-black flex items-center justify-center">
