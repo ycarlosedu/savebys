@@ -27,6 +27,42 @@
         "city": "Caxias",
         "description": "Mesa Escritório",
         "image": "/images/furnitureExample.png"
+      },
+      {
+        "id": "4",
+        "city": "Porto Alegre",
+        "description": "Sofá",
+        "image": "/images/furnitureExample.png"
+      },
+      {
+        "id": "5",
+        "city": "Canoas",
+        "description": "Cadeira de Jantar",
+        "image": "/images/furnitureExample.png"
+      },
+      {
+        "id": "6",
+        "city": "Caxias",
+        "description": "Mesa de Jantar",
+        "image": "/images/furnitureExample.png"
+      },
+      {
+        "id": "7",
+        "city": "Porto Alegre",
+        "description": "Cama",
+        "image": "/images/furnitureExample.png"
+      },
+      {
+        "id": "8",
+        "city": "Canoas",
+        "description": "Guarda-Roupa",
+        "image": "/images/furnitureExample.png"
+      },
+      {
+        "id": "9",
+        "city": "Caxias",
+        "description": "Cômoda",
+        "image": "/images/furnitureExample.png"
       }
     ]
   }

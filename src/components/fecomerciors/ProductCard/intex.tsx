@@ -2,20 +2,30 @@
 import Image from "next/image";
 import { ComponentProps } from "react";
 
-import Button from "@/components/Button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
 import { Product } from "@/services/fecomerciors";
+import useProductStore from "@/stores/productStore";
 import { toast } from "sonner";
 
-import { ShoppingBag } from "@phosphor-icons/react/dist/ssr";
+import { CheckFat, ShoppingBag } from "@phosphor-icons/react/dist/ssr";
 
 type Props = ComponentProps<"div"> & {
   furniture: Product;
 };
 export default function ProductCard({ furniture, ...rest }: Props) {
+  const { addProduct, removeProduct, products } = useProductStore();
+  const isProductInCart = products.some(
+    (product) => product.id === furniture.id
+  );
+
   const addToCart = (furniture: Product) => {
-    console.log("🚀 ~ addToCart ~ furniture:", furniture);
+    addProduct(furniture);
     toast.success("Item adicionado à sacola!");
+  };
+
+  const removeFromCart = (furniture: Product) => {
+    removeProduct(furniture.id);
+    toast.success("Item removido da sacola!");
   };
 
   return (
@@ -23,7 +33,7 @@ export default function ProductCard({ furniture, ...rest }: Props) {
       <Image
         src={furniture.image}
         className="rounded-lg w-[300px] h-[260px] object-fit"
-        alt="Imagem de um móvel"
+        alt={`Imagem do móvel: ${furniture.description}`}
         width={300}
         height={260}
       />
@@ -34,15 +44,26 @@ export default function ProductCard({ furniture, ...rest }: Props) {
           </p>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button
-                onClick={() => addToCart(furniture)}
-                color="secondary"
-                className="w-[48px] h-[48px] p-0"
+              <button
+                onClick={() =>
+                  isProductInCart
+                    ? removeFromCart(furniture)
+                    : addToCart(furniture)
+                }
+                className="link-btn-secondary w-[48px] h-[48px] p-0"
               >
-                <ShoppingBag size={32} />
-              </Button>
+                {isProductInCart ? (
+                  <CheckFat size={32} />
+                ) : (
+                  <ShoppingBag size={32} />
+                )}
+              </button>
             </TooltipTrigger>
-            <TooltipContent>Adicionar item à sacola</TooltipContent>
+            <TooltipContent>
+              {isProductInCart
+                ? "Remover item da sacola"
+                : "Adicionar item à sacola"}
+            </TooltipContent>
           </Tooltip>
         </div>
         <p className="font-medium text-lg">{furniture.city}</p>
