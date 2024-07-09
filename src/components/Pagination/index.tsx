@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import {
+  PaginationButton,
   PaginationButtonProps,
   paginationButtonVariants
 } from "./PaginationButton";
@@ -40,6 +41,23 @@ const PaginationItem = React.forwardRef<
 ));
 PaginationItem.displayName = "PaginationItem";
 
+const PaginationEllipsis = ({
+  className,
+  ...props
+}: React.ComponentProps<"span">) => (
+  <span
+    aria-hidden
+    className={cn("flex h-9 w-9 items-center justify-center", className)}
+    {...props}
+  >
+    <MoreHorizontal className="h-4 w-4" />
+    <span className="sr-only">Mais páginas</span>
+  </span>
+);
+PaginationEllipsis.displayName = "PaginationEllipsis";
+
+// LINKS
+
 type PaginationLinkProps = {
   isActive?: boolean;
 } & Pick<PaginationButtonProps, "size"> &
@@ -50,19 +68,21 @@ const PaginationLink = ({
   isActive,
   size = "icon",
   ...props
-}: PaginationLinkProps) => (
-  <Link
-    aria-current={isActive ? "page" : undefined}
-    className={cn(
-      paginationButtonVariants({
-        variant: isActive ? "outline" : "ghost",
-        size
-      }),
-      className
-    )}
-    {...props}
-  />
-);
+}: PaginationLinkProps) => {
+  return (
+    <Link
+      aria-current={isActive ? "page" : undefined}
+      className={cn(
+        paginationButtonVariants({
+          variant: isActive ? "outline" : "default",
+          size
+        }),
+        className
+      )}
+      {...props}
+    />
+  );
+};
 PaginationLink.displayName = "PaginationLink";
 
 const PaginationPrevious = ({
@@ -97,20 +117,65 @@ const PaginationNext = ({
 );
 PaginationNext.displayName = "PaginationNext";
 
-const PaginationEllipsis = ({
+// BUTTONS
+
+type PaginationLinkAsButtonProps = {
+  isActive?: boolean;
+} & PaginationButtonProps;
+
+const PaginationLinkAsButton = ({
+  className,
+  isActive,
+  size = "icon",
+  ...props
+}: PaginationLinkAsButtonProps) => {
+  return (
+    <PaginationButton
+      aria-current={isActive ? "page" : undefined}
+      className={cn(
+        paginationButtonVariants({
+          variant: isActive ? "outline" : "default",
+          size
+        }),
+        className
+      )}
+      {...props}
+    />
+  );
+};
+PaginationLinkAsButton.displayName = "PaginationLinkAsButton";
+
+const PaginationPreviousAsButton = ({
   className,
   ...props
-}: React.ComponentProps<"span">) => (
-  <span
-    aria-hidden
-    className={cn("flex h-9 w-9 items-center justify-center", className)}
+}: React.ComponentProps<typeof PaginationLinkAsButton>) => (
+  <PaginationLinkAsButton
+    aria-label="Ir para a página anterior"
+    size="default"
+    className={cn("gap-1 pl-2.5", className)}
     {...props}
   >
-    <MoreHorizontal className="h-4 w-4" />
-    <span className="sr-only">Mais páginas</span>
-  </span>
+    <ChevronLeft className="h-4 w-4" />
+    <span>Anterior</span>
+  </PaginationLinkAsButton>
 );
-PaginationEllipsis.displayName = "PaginationEllipsis";
+PaginationPreviousAsButton.displayName = "PaginationPreviousAsButton";
+
+const PaginationNextAsButton = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof PaginationLinkAsButton>) => (
+  <PaginationLinkAsButton
+    aria-label="Ir para a próxima página"
+    size="default"
+    className={cn("gap-1 pr-2.5", className)}
+    {...props}
+  >
+    <span>Próxima</span>
+    <ChevronRight className="h-4 w-4" />
+  </PaginationLinkAsButton>
+);
+PaginationNextAsButton.displayName = "PaginationNextAsButton";
 
 export {
   Pagination,
@@ -119,5 +184,8 @@ export {
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationPrevious
+  PaginationPrevious,
+  PaginationLinkAsButton,
+  PaginationNextAsButton,
+  PaginationPreviousAsButton
 };

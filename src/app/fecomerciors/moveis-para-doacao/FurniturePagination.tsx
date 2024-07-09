@@ -3,17 +3,21 @@ import {
   PaginationContent,
   PaginationEllipsis,
   PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious
+  PaginationLinkAsButton,
+  PaginationNextAsButton,
+  PaginationPreviousAsButton
 } from "@/components/Pagination";
 import { getProductsResponse } from "@/services/fecomerciors";
+import useProductStore from "@/stores/productStore";
 
 type Props = {
   furnitures: getProductsResponse;
 };
 
 export default function FurniturePagination({ furnitures }: Props) {
+  const { goToPage, currentPage } = useProductStore();
+  console.log("🚀 ~ FurniturePagination ~ currentPage:", currentPage);
+
   const pages = Array.from(
     { length: furnitures.numberOfPages },
     (_, i) => i + 1
@@ -24,15 +28,21 @@ export default function FurniturePagination({ furnitures }: Props) {
       <PaginationContent>
         {furnitures.page > 1 && (
           <PaginationItem>
-            <PaginationPrevious href="#" />
+            <PaginationPreviousAsButton
+              onClick={() => goToPage(furnitures.page - 1)}
+            />
           </PaginationItem>
         )}
 
         {pages.map((page) => (
           <PaginationItem key={page}>
-            <PaginationLink href="#" isActive={page === furnitures.page}>
+            <PaginationLinkAsButton
+              disabled={page === furnitures.page}
+              isActive={page === furnitures.page}
+              onClick={() => goToPage(page)}
+            >
               {page}
-            </PaginationLink>
+            </PaginationLinkAsButton>
           </PaginationItem>
         ))}
 
@@ -42,7 +52,9 @@ export default function FurniturePagination({ furnitures }: Props) {
 
         {furnitures.page < furnitures.numberOfPages && (
           <PaginationItem>
-            <PaginationNext href="#" />
+            <PaginationNextAsButton
+              onClick={() => goToPage(furnitures.page + 1)}
+            />
           </PaginationItem>
         )}
       </PaginationContent>
