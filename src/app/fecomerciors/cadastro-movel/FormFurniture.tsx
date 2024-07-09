@@ -227,7 +227,7 @@ export default function FormFurniture() {
           <Input.Text
             name="aditionalInfo"
             id="aditionalInfo"
-            placeholder="ex: 2x2m, Vermelho"
+            placeholder="ex: 2m², vermelho, de madeira"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.aditionalInfo}
@@ -245,7 +245,7 @@ export default function FormFurniture() {
           <Input.Text
             name="city"
             id="city"
-            placeholder="ex: Madeira"
+            placeholder="Onde está localizado o móvel?"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.city}

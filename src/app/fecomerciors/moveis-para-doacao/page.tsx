@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import Image from "next/image";
 
+import Dropdown from "@/components/Dropdown";
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title:
@@ -21,9 +23,14 @@ export default function FurnituresToDonation() {
         className="w-[1265px] h-[340px] object-cover"
       />
 
-      <div className="bg-gray-secondary self-start flex flex-col gap-3">
-        <h2>Filtro</h2>
-        <button>Limpar Filtros</button>
+      <div className="bg-gray-secondary text-white self-start flex flex-col items-start gap-3 p-8 rounded-[32px]">
+        <h2 className="font-semibold text-4xl">
+          Escolha a área de Atuação do Negócio
+        </h2>
+        <Dropdown.FilterFurniture />
+        <button className="rounded-[30px] bg-white text-gray-dark font-bold text-sm flex gap-2 px-4 py-2">
+          Limpar Filtro
+        </button>
       </div>
     </section>
   );
