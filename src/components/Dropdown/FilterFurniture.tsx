@@ -1,10 +1,13 @@
 "use client";
+import { useState } from "react";
+
 import furnitureCategories from "@/app/fecomerciors/cadastro-movel/furnitureCategories";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
 import { CaretDown, Desk } from "@phosphor-icons/react/dist/ssr";
 
 export default function FilterFurnitureDropdown() {
+  const [value, setValue] = useState(furnitureCategories[0].value);
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
@@ -20,21 +23,22 @@ export default function FilterFurnitureDropdown() {
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content className="min-w-[100px] bg-white rounded-md p-1 shadow-2xl">
-          {furnitureCategories.map((category) => (
-            <DropdownMenu.Item
-              key={category.value}
-              // data-disabled={lang === locale.code}
-              // disabled={lang === locale.code}
-              className="text-sm border-b border-gray-primary/50 text-gray-dark rounded-sm h-12 py-1 px-2 relative outline-none cursor-pointer hover:bg-gray-primary data-disabled:bg-gray-secondary data-disabled:text-white data-disabled:cursor-default"
-            >
-              <button
-                // data-disabled={lang === locale.code}
-                className="flex gap-2 items-center h-full justify-between data-disabled:cursor-default"
+          <DropdownMenu.RadioGroup value={value} onValueChange={setValue}>
+            {furnitureCategories.map((category) => (
+              <DropdownMenu.RadioItem
+                key={category.value}
+                value={category.value}
+                data-disabled={category.value === value}
+                disabled={category.value === value}
+                className="flex items-center gap-4 text-base border-b border-gray-primary/50 text-gray-dark rounded-sm h-12 py-1 px-2 relative outline-none cursor-pointer hover:bg-gray-minimum data-disabled:bg-gray-secondary data-disabled:text-white data-disabled:cursor-default"
               >
+                <div className="w-5 h-5 rounded-full border-2 border-black flex items-center justify-center">
+                  <DropdownMenu.ItemIndicator className="flex items-center justify-center w-full h-full relative [&::after]:block [&::after]:w-3 [&::after]:h-3 [&::after]:rounded-[50%] [&::after]:bg-black [&::after]:content-['']" />
+                </div>
                 {category.name}
-              </button>
-            </DropdownMenu.Item>
-          ))}
+              </DropdownMenu.RadioItem>
+            ))}
+          </DropdownMenu.RadioGroup>
 
           <DropdownMenu.Arrow className="fill-white" />
         </DropdownMenu.Content>
