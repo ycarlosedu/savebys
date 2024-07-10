@@ -8,7 +8,7 @@
   "furnitures": {
     "page": 1,
     "pageSize": 9,
-    "numberOfPages": 3,
+    "numberOfPages": 100,
     "products": [
       {
         "id": "1",
