@@ -30,7 +30,7 @@ export default function Dialog_DonateSuccess({ onConfirm }: Props) {
       <Dialog.Portal>
         <Dialog.Overlay className="Dialog_Overlay" />
         <Dialog.Content className="Dialog_Container">
-          <ScrollArea className="Scroll_Area">
+          <ScrollArea>
             <section className="Dialog_Content">
               <Dialog.Title className="Dialog_Title">
                 Sucesso

@@ -124,6 +124,7 @@ export default function FormDonator() {
 
       router.push(PAGE.FECOMERCIO.REGISTER_FURNITURE);
     } catch (error) {
+      console.error("🚀 ~ onSubmit ~ error:", error);
       toast.error("Ocorreu um erro ao avançar, tente novamente mais tarde!");
     }
   };
@@ -311,7 +312,7 @@ export default function FormDonator() {
       </Input.Fieldset>
 
       <Input.Group>
-        <Input.Fieldset className="w-[38%]">
+        <Input.Fieldset className="md:w-[38%]">
           <Input.Label htmlFor="postalCode" required>
             CEP
           </Input.Label>
@@ -393,7 +394,7 @@ export default function FormDonator() {
       </Input.Fieldset>
 
       <Input.Group>
-        <Input.Fieldset className="w-[38%]">
+        <Input.Fieldset className="md:w-[38%]">
           <Input.Label htmlFor="publicPlaceNumber" required>
             Número
           </Input.Label>

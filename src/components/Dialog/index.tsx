@@ -1,8 +1,10 @@
 import DonateSuccess from "./DonateSuccess";
+import RecipientForm from "./RecipientForm";
 import "./styles.css";
 
 const Dialog = {
-  DonateSuccess
+  DonateSuccess,
+  RecipientForm
 };
 
 export default Dialog;
