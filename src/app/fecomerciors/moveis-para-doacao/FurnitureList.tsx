@@ -1,5 +1,8 @@
 "use client";
+import { Suspense } from "react";
+
 import ProductCard from "@/components/fecomerciors/ProductCard/intex";
+import { Skeleton } from "@/components/Skeleton";
 import fecomerciorsServices from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 import { useQuery } from "@tanstack/react-query";
@@ -15,9 +18,8 @@ export default function FurnitureList() {
       fecomerciorsServices.getProducts(currentPage, filters.category)
   });
 
-  if (!data?.products) return null;
-
-  if (data.numberOfPages != totalPages) updateTotalPages(data.numberOfPages);
+  if (data?.numberOfPages && data?.numberOfPages != totalPages)
+    updateTotalPages(data.numberOfPages);
 
   return (
     <section className="flex flex-col gap-8 py-8 flex-start w-full">
@@ -25,9 +27,13 @@ export default function FurnitureList() {
       <FurniturePagination />
 
       <div className="flex flex-wrap gap-8 justify-between">
-        {data.products.map((furniture) => (
-          <ProductCard furniture={furniture} key={furniture.id} />
-        ))}
+        <Suspense
+          fallback={<Skeleton className="bg-black w-[500px] h-[500px]" />}
+        >
+          {data?.products.map((furniture) => (
+            <ProductCard furniture={furniture} key={furniture.id} />
+          ))}
+        </Suspense>
       </div>
 
       <FurniturePagination />
