@@ -82,6 +82,7 @@ export type Product = {
   city: string;
   image: string;
   quantity: number;
+  quantitySelected?: number;
 };
 export type getProductsResponse = {
   page: number;

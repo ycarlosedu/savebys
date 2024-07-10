@@ -7,13 +7,14 @@ import { Product } from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 import { toast } from "sonner";
 
-import { Trash } from "@phosphor-icons/react/dist/ssr";
+import { Minus, Plus, Trash } from "@phosphor-icons/react/dist/ssr";
 
 type Props = ComponentProps<"div"> & {
   furniture: Product;
 };
 export default function ProductBagCard({ furniture, ...rest }: Props) {
-  const { removeProduct } = useProductStore();
+  const { removeProduct, increaseProductQuantity, decreaseProductQuantity } =
+    useProductStore();
 
   const removeFromCart = (furniture: Product) => {
     removeProduct(furniture.id);
@@ -41,16 +42,39 @@ export default function ProductBagCard({ furniture, ...rest }: Props) {
             <TooltipTrigger asChild>
               <button
                 onClick={() => removeFromCart(furniture)}
-                className="link-btn-secondary w-[48px] h-[48px] p-0"
+                className="link-btn-secondary min-w-12 w-12 h-12 p-0"
               >
                 <Trash size={32} />
               </button>
             </TooltipTrigger>
             <TooltipContent>Remover item da sacola</TooltipContent>
           </Tooltip>
+
+          <div className="flex items-center overflow-hidden border border-gray-secondary rounded-lg min-w-fit">
+            <button
+              disabled={furniture.quantitySelected === 1}
+              onClick={() => decreaseProductQuantity(furniture.id)}
+              className="px-3 w-12 h-12 p-1 flex items-center justify-center disabled:bg-gray-primary"
+            >
+              <Minus size={24} />
+            </button>
+            <p className="px-3 w-8 h-12 p-1 font-bold text-gray-dark flex items-center justify-center">
+              {furniture.quantitySelected || 1}
+            </p>
+            <button
+              onClick={() => increaseProductQuantity(furniture.id)}
+              disabled={furniture.quantitySelected === furniture.quantity}
+              className="px-3 w-12 h-12 p-1 flex items-center justify-center disabled:bg-gray-primary"
+            >
+              <Plus size={24} />
+            </button>
+          </div>
         </div>
         <p className="font-medium text-lg text-gray-secondary">
           Onde retirar: {furniture.city}
+        </p>
+        <p className="font-medium text-lg text-gray-secondary">
+          Quantidade disponível: {furniture.quantity}
         </p>
       </div>
     </div>

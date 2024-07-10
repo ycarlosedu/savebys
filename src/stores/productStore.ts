@@ -31,7 +31,10 @@ type Store = InitialState & {
 const useProductStore = create<Store>((set, get) => ({
   ...initialState,
   addProduct: (product) => {
-    const newProducts = [...get().products, product];
+    const newProducts = [
+      ...get().products,
+      { ...product, quantitySelected: 1 }
+    ];
     setLocalStorage(LOCAL_STORAGE.PRODUCTS, newProducts);
     set({
       products: newProducts
@@ -49,7 +52,7 @@ const useProductStore = create<Store>((set, get) => ({
       if (product.id === id) {
         return {
           ...product,
-          quantity: product.quantity + 1
+          quantitySelected: (product.quantitySelected || 1) + 1
         };
       }
       return product;
@@ -64,7 +67,7 @@ const useProductStore = create<Store>((set, get) => ({
       if (product.id === id) {
         return {
           ...product,
-          quantity: product.quantity - 1
+          quantitySelected: (product.quantitySelected || 2) - 1
         };
       }
       return product;
