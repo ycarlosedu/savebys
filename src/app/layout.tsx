@@ -13,6 +13,7 @@ import "./globals.css";
 import { IS_MIRAGE_ENABLED } from "@/constants";
 
 import Mirage from "./Mirage";
+import QueryProvider from "./QueryProvider";
 
 const fontFamily = Nunito({ subsets: ["latin"] });
 
@@ -67,12 +68,14 @@ export default function RootLayout({ children }: Props) {
           <meta itemProp="alternateName" content="SAVE BYS" />
         </div>
 
-        <TooltipProvider delayDuration={50}>
-          <ScrollArea id={GLOBAL_SCROLL_ID} className="h-[100vh]">
-            {children}
-          </ScrollArea>
-          <FloatingButton aria-label="Voltar para o topo da página" />
-        </TooltipProvider>
+        <QueryProvider>
+          <TooltipProvider delayDuration={50}>
+            <ScrollArea id={GLOBAL_SCROLL_ID} className="h-[100vh]">
+              {children}
+            </ScrollArea>
+            <FloatingButton aria-label="Voltar para o topo da página" />
+          </TooltipProvider>
+        </QueryProvider>
 
         <Toaster />
 

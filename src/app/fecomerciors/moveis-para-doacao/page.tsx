@@ -2,6 +2,11 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 import fecomerciorsServices from "@/services/fecomerciors";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient
+} from "@tanstack/react-query";
 
 import FurnitureFilter from "./FurnitureFilter";
 import FurnitureList from "./FurnitureList";
@@ -16,7 +21,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function FurnituresToDonation() {
-  const furnitures = await fecomerciorsServices.getProducts();
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: ["products"],
+    queryFn: () => fecomerciorsServices.getProducts()
+  });
+  const dehydratedState = dehydrate(queryClient);
 
   return (
     <section className="flex flex-col p-12 gap-6 items-center w-full max-w-[1282px]">
@@ -29,7 +40,9 @@ export default async function FurnituresToDonation() {
       />
 
       <FurnitureFilter />
-      <FurnitureList furnitures={furnitures} />
+      <HydrationBoundary state={dehydratedState}>
+        <FurnitureList />
+      </HydrationBoundary>
     </section>
   );
 }

@@ -9,27 +9,19 @@ import {
   PaginationNextAsButton,
   PaginationPreviousAsButton
 } from "@/components/Pagination";
-import { getProductsResponse } from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 
-type Props = {
-  furnitures: getProductsResponse;
-};
+export default function FurniturePagination() {
+  const { goToPage, currentPage, totalPages } = useProductStore();
 
-export default function FurniturePagination({ furnitures }: Props) {
-  const { goToPage, currentPage } = useProductStore();
-
-  const pages = Array.from(
-    { length: furnitures.numberOfPages },
-    (_, i) => i + 1
-  );
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   const showedPages = pages.filter((page) => {
     return (
       page === 1 ||
       page === 2 ||
-      page === furnitures.numberOfPages ||
-      page === furnitures.numberOfPages - 1 ||
+      page === totalPages ||
+      page === totalPages - 1 ||
       page === currentPage ||
       page === currentPage - 1 ||
       page === currentPage + 1
@@ -50,7 +42,7 @@ export default function FurniturePagination({ furnitures }: Props) {
         {pages.map((page) => {
           const showPage = showedPages.find((p) => p === page);
           const showNextEllipsis = !showedPages.find(
-            (p) => p === page + 1 || page === furnitures.numberOfPages
+            (p) => p === page + 1 || page === totalPages
           );
           if (!showPage) return null;
           return (
@@ -73,7 +65,7 @@ export default function FurniturePagination({ furnitures }: Props) {
           );
         })}
 
-        {currentPage < furnitures.numberOfPages && (
+        {currentPage < totalPages && (
           <PaginationItem>
             <PaginationNextAsButton onClick={() => goToPage(currentPage + 1)} />
           </PaginationItem>

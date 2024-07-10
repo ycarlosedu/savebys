@@ -6,6 +6,7 @@ import { getLocalStorage, LOCAL_STORAGE, setLocalStorage } from "@/constants";
 const initialState = {
   products: getLocalStorage(LOCAL_STORAGE.PRODUCTS, []) as Product[],
   currentPage: 1,
+  totalPages: 1,
   filters: {
     category: "Todos"
   }
@@ -19,6 +20,7 @@ type Store = InitialState & {
   addProduct: (product: Product) => void;
   removeProduct: (id: Product["id"]) => void;
   goToPage: (page: number) => void;
+  updateTotalPages: (pages: number) => void;
   updateFilter: (filter: Filter, value: string) => void;
   resetFilters: () => void;
   reset: () => void;
@@ -43,6 +45,11 @@ const useProductStore = create<Store>((set, get) => ({
   goToPage: (page) => {
     set({
       currentPage: page
+    });
+  },
+  updateTotalPages: (pages) => {
+    set({
+      totalPages: pages
     });
   },
   updateFilter: (filter, value) => {
