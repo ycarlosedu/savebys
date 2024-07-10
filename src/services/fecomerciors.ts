@@ -91,9 +91,11 @@ export type getProductsResponse = {
 };
 export const generateGetProductsEndpoint = () => `${BFFs.GATEKEEPER}/products`;
 export const getProducts = async (
-  page: number = 1
+  page: number = 1,
+  category: string = "Todos"
 ): Promise<getProductsResponse> => {
   console.log("🚀 ~ page:", page);
+  console.log("🚀 ~ category:", category);
   // return request.get(generateGetProductsEndpoint() + `?page=${page}`);
   return fixtures.furnitures;
 };

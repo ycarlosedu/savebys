@@ -58,11 +58,13 @@ const useProductStore = create<Store>((set, get) => ({
       [filter]: value
     };
     set({
+      currentPage: initialState.currentPage,
       filters: newFilters
     });
   },
   resetFilters: () => {
     set({
+      currentPage: initialState.currentPage,
       filters: initialState.filters
     });
   },

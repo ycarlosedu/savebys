@@ -7,10 +7,12 @@ import { useQuery } from "@tanstack/react-query";
 import FurniturePagination from "./FurniturePagination";
 
 export default function FurnitureList() {
-  const { currentPage, totalPages, updateTotalPages } = useProductStore();
+  const { currentPage, totalPages, updateTotalPages, filters } =
+    useProductStore();
   const { data } = useQuery({
-    queryKey: ["posts", currentPage],
-    queryFn: () => fecomerciorsServices.getProducts(currentPage)
+    queryKey: ["posts", currentPage, filters.category],
+    queryFn: () =>
+      fecomerciorsServices.getProducts(currentPage, filters.category)
   });
 
   if (!data?.products) return null;
