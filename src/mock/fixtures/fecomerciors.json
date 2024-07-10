@@ -65,5 +65,127 @@
         "image": "/images/furnitureExample.png"
       }
     ]
+  },
+  "furnituresPage2": {
+    "page": 2,
+    "pageSize": 9,
+    "numberOfPages": 100,
+    "products": [
+      {
+        "id": "10",
+        "city": "Porto Alegre",
+        "description": "Balcão de Cozinha",
+        "image": "/images/furnitureExample2.png"
+      },
+      {
+        "id": "11",
+        "city": "Canoas",
+        "description": "Cadeira de Escritório",
+        "image": "/images/furnitureExample2.png"
+      },
+      {
+        "id": "12",
+        "city": "Caxias",
+        "description": "Mesa Escritório",
+        "image": "/images/furnitureExample2.png"
+      },
+      {
+        "id": "13",
+        "city": "Porto Alegre",
+        "description": "Sofá",
+        "image": "/images/furnitureExample2.png"
+      },
+      {
+        "id": "14",
+        "city": "Canoas",
+        "description": "Cadeira de Jantar",
+        "image": "/images/furnitureExample2.png"
+      },
+      {
+        "id": "15",
+        "city": "Caxias",
+        "description": "Mesa de Jantar",
+        "image": "/images/furnitureExample2.png"
+      },
+      {
+        "id": "16",
+        "city": "Porto Alegre",
+        "description": "Cama",
+        "image": "/images/furnitureExample2.png"
+      },
+      {
+        "id": "17",
+        "city": "Canoas",
+        "description": "Guarda-Roupa",
+        "image": "/images/furnitureExample2.png"
+      },
+      {
+        "id": "18",
+        "city": "Caxias",
+        "description": "Cômoda",
+        "image": "/images/furnitureExample2.png"
+      }
+    ]
+  },
+  "furnituresPage3": {
+    "page": 3,
+    "pageSize": 9,
+    "numberOfPages": 100,
+    "products": [
+      {
+        "id": "19",
+        "city": "Porto Alegre",
+        "description": "Balcão de Cozinha",
+        "image": "/images/furnitureExample3.png"
+      },
+      {
+        "id": "20",
+        "city": "Canoas",
+        "description": "Cadeira de Escritório",
+        "image": "/images/furnitureExample3.png"
+      },
+      {
+        "id": "21",
+        "city": "Caxias",
+        "description": "Mesa Escritório",
+        "image": "/images/furnitureExample3.png"
+      },
+      {
+        "id": "22",
+        "city": "Porto Alegre",
+        "description": "Sofá",
+        "image": "/images/furnitureExample3.png"
+      },
+      {
+        "id": "23",
+        "city": "Canoas",
+        "description": "Cadeira de Jantar",
+        "image": "/images/furnitureExample3.png"
+      },
+      {
+        "id": "24",
+        "city": "Caxias",
+        "description": "Mesa de Jantar",
+        "image": "/images/furnitureExample3.png"
+      },
+      {
+        "id": "25",
+        "city": "Porto Alegre",
+        "description": "Cama",
+        "image": "/images/furnitureExample3.png"
+      },
+      {
+        "id": "26",
+        "city": "Canoas",
+        "description": "Guarda-Roupa",
+        "image": "/images/furnitureExample3.png"
+      },
+      {
+        "id": "27",
+        "city": "Caxias",
+        "description": "Cômoda",
+        "image": "/images/furnitureExample3.png"
+      }
+    ]
   }
 }

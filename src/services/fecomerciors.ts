@@ -1,6 +1,5 @@
 import { DonatorValues } from "@/app/fecomerciors/cadastro-doador/FormDonator";
 import { FurnitureValues } from "@/app/fecomerciors/cadastro-movel/FormFurniture";
-import fixtures from "@/mock/fixtures/fecomerciors.json";
 import { PERSON_TYPE_DOCUMENT, RegisterDonator } from "@/models/fecomerciors";
 
 import { unmask } from "@/utils/masks";
@@ -96,8 +95,8 @@ export const getProducts = async (
 ): Promise<getProductsResponse> => {
   console.log("🚀 ~ page:", page);
   console.log("🚀 ~ category:", category);
-  // return request.get(generateGetProductsEndpoint() + `?page=${page}`);
-  return fixtures.furnitures;
+  return request.get(generateGetProductsEndpoint() + `?page=${page}`);
+  // return fixtures.furnitures;
 };
 
 const fecomerciorsServices = {
