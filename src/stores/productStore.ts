@@ -19,6 +19,8 @@ type InitialState = typeof initialState;
 type Store = InitialState & {
   addProduct: (product: Product) => void;
   removeProduct: (id: Product["id"]) => void;
+  increaseProductQuantity: (id: Product["id"]) => void;
+  decreaseProductQuantity: (id: Product["id"]) => void;
   goToPage: (page: number) => void;
   updateTotalPages: (pages: number) => void;
   updateFilter: (filter: Filter, value: string) => void;
@@ -37,6 +39,36 @@ const useProductStore = create<Store>((set, get) => ({
   },
   removeProduct: (id) => {
     const newProducts = get().products.filter((product) => product.id !== id);
+    setLocalStorage(LOCAL_STORAGE.PRODUCTS, newProducts);
+    set({
+      products: newProducts
+    });
+  },
+  increaseProductQuantity: (id) => {
+    const newProducts = get().products.map((product) => {
+      if (product.id === id) {
+        return {
+          ...product,
+          quantity: product.quantity + 1
+        };
+      }
+      return product;
+    });
+    setLocalStorage(LOCAL_STORAGE.PRODUCTS, newProducts);
+    set({
+      products: newProducts
+    });
+  },
+  decreaseProductQuantity: (id) => {
+    const newProducts = get().products.map((product) => {
+      if (product.id === id) {
+        return {
+          ...product,
+          quantity: product.quantity - 1
+        };
+      }
+      return product;
+    });
     setLocalStorage(LOCAL_STORAGE.PRODUCTS, newProducts);
     set({
       products: newProducts

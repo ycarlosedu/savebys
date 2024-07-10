@@ -36,8 +36,8 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      disabled={isLoading}
-      data-disabled={isLoading}
+      disabled={isLoading || props.disabled}
+      data-disabled={isLoading || props.disabled}
       className={button({ color, rounded, className })}
       {...props}
     >
