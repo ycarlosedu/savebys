@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 import list from "./list";
@@ -26,10 +24,16 @@ export default function WannaBeCurator() {
           ))}
         </ol>
 
-        <Link href="/cadastro-curador" className="link-btn py-4 px-8">
+        <a
+          target="_blank"
+          aria-label="Cadastrar-se como curador de uma campanha SAVEBYS"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSckb6kMK6yb3yXZnkBKPxarfiEy_IF_LDP5v_PDXkE3L9ofEQ/viewform?usp=sharing"
+          className="link-btn py-4 px-8"
+          rel="noreferrer"
+        >
           CADASTRE-SE AQUI
           <CaretRight size={16} weight="bold" />
-        </Link>
+        </a>
       </div>
     </section>
   );
