@@ -19,9 +19,9 @@ export default function Header() {
           <ActiveLink href="#campanhas">Campanhas</ActiveLink>
           <ActiveLink href="#quem-somos">Quem Somos</ActiveLink>
           {/* <ActiveLink href="#como-funciona">Como Funciona</ActiveLink> */}
-          {/* <ActiveLink href="#quero-ser-curador">
-            Quero ser um curador
-          </ActiveLink> */}
+          <ActiveLink href="#quero-ser-curador">
+            Quero ser um Curador
+          </ActiveLink>
           <ActiveLink href="#contato">Contato</ActiveLink>
           <ActiveLink href="#apoiadores">Apoiadores</ActiveLink>
         </nav>

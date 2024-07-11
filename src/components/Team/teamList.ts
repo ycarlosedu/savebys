@@ -11,12 +11,12 @@ const fluxList = [
   },
   {
     name: "Diogo Reis",
-    occupations: ["Founder", "CFO"],
+    occupations: ["Founder", "CTO"],
     image: "/images/team/Diogo.webp"
   },
   {
     name: "Carlos Silva",
-    occupations: ["Founder", "CTO"],
+    occupations: ["Founder", "DEV"],
     image: "/images/team/Carlos.webp"
   },
   {

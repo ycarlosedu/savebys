@@ -9,6 +9,7 @@ import PresentationVideo from "@/components/PresentationVideo";
 import SocialMedias from "@/components/SocialMedias";
 import Supporters from "@/components/Supporters";
 import Team from "@/components/Team";
+import WannaBeCurator from "@/components/WannaBeCurator";
 import WhoWeAre from "@/components/WhoWeAre";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,7 +30,7 @@ export default function Home() {
       <WhoWeAre />
       <MissionVisionValues />
       {/* <HowItWorks /> */}
-      {/* <WannaBeCurator /> */}
+      <WannaBeCurator />
       <Team />
       <SocialMedias />
       <Contact />

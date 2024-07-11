@@ -2,7 +2,7 @@ import valuesList from "./values";
 
 export default function MissionVisionValues() {
   return (
-    <section className="bg-white px-default py-20 w-full flex flex-col items-center justify-center gap-8">
+    <section className="bg-white px-default pt-20 w-full flex flex-col items-center justify-center gap-8">
       <div className="flex gap-8 flex-wrap items-start justify-center w-full max-w-default">
         <div className="flex flex-col gap-8 items-center justify-center flex-1 md:min-w-[320px]">
           <h3 className="text-title title">MISSÃO</h3>
