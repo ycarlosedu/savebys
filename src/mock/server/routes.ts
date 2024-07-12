@@ -1,6 +1,7 @@
 import fixtures from "@/mock/fixtures/fecomerciors.json";
 import {
   generateGetProductsEndpoint,
+  generateReceiveDonationEndpoint,
   generateRegisterDonationEndpoint,
   generateSignupCompanyEndpoint,
   generateSignupIndividualEndpoint
@@ -27,6 +28,8 @@ export function routes(server: Server) {
   );
 
   server.post(generateRegisterDonationEndpoint(), () => new Response(200));
+
+  server.post(generateReceiveDonationEndpoint(), () => new Response(200));
 
   server.get(
     generateGetProductsEndpoint(),

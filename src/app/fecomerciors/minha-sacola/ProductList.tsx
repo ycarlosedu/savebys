@@ -28,6 +28,7 @@ export default function ProductList() {
         <CaretRight size={16} />
       </Button>
       <Dialog.RecipientForm />
+      <Dialog.ReceiveDonationSuccess />
     </>
   );
 }

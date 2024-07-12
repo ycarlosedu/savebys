@@ -1,5 +1,6 @@
 import { DonatorValues } from "@/app/fecomerciors/cadastro-doador/FormDonator";
 import { FurnitureValues } from "@/app/fecomerciors/cadastro-movel/FormFurniture";
+import { RecipientValues } from "@/components/Dialog/RecipientForm";
 import fixtures from "@/mock/fixtures/fecomerciors.json";
 import { PERSON_TYPE_DOCUMENT, RegisterDonator } from "@/models/fecomerciors";
 
@@ -8,7 +9,7 @@ import request from "@/utils/request";
 
 import { BFFs } from "@/constants";
 
-const createDonatorBody = (values: DonatorValues) => {
+const createDonatorBody = (values: DonatorValues | RecipientValues) => {
   const body: RegisterDonator = {
     companyName: values.companyName,
     fullName: values.fullName,
@@ -43,7 +44,7 @@ export type SignupCompanyResponse = {
 export const generateSignupCompanyEndpoint = () =>
   `${BFFs.GATEKEEPER}/signup/companies`;
 export const signupCompany = async (
-  values: DonatorValues
+  values: DonatorValues | RecipientValues
 ): Promise<SignupCompanyResponse> => {
   return request.post(
     generateSignupCompanyEndpoint(),
@@ -63,6 +64,22 @@ export const signupIndividual = async (
     generateSignupIndividualEndpoint(),
     createDonatorBody(values)
   );
+};
+
+export const generateReceiveDonationEndpoint = () =>
+  `${BFFs.GATEKEEPER}/donation/receving`;
+export const receiveDonation = async (
+  products: Product[],
+  recipientId: string
+) => {
+  const body = {
+    products: products.map((product) => ({
+      id: product.id,
+      quantity: product.quantitySelected
+    })),
+    recipientId
+  };
+  return request.post(generateReceiveDonationEndpoint(), body);
 };
 
 export const generateRegisterDonationEndpoint = () =>
@@ -124,6 +141,7 @@ export const getProductById = async (id: string = "1"): Promise<Product> => {
 const fecomerciorsServices = {
   signupCompany,
   signupIndividual,
+  receiveDonation,
   registerDonation,
   getProducts,
   getProductById

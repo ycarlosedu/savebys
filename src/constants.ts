@@ -31,8 +31,11 @@ export const getLocalStorage = (
 export enum LOCAL_STORAGE {
   DONATOR = "donator",
   DONATOR_ID = "donatorId",
-  PRODUCTS = "products",
   RECIPIENT = "recipient"
+}
+
+export enum SESSION_STORAGE {
+  PRODUCTS = "products"
 }
 
 export const REQUIRED = {

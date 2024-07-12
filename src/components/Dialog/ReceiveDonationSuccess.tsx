@@ -9,14 +9,9 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { PAGE } from "@/constants";
 
 import { X } from "@phosphor-icons/react";
-import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
-type Props = {
-  onConfirm: () => void;
-};
-
-export default function Dialog_DonateSuccess({ onConfirm }: Props) {
-  const { sucessDonateOpened } = useMenuStore();
+export default function Dialog_ReceiveDonationSuccess() {
+  const { sucessReceiveDonationOpened } = useMenuStore();
   const router = useRouter();
 
   const toggleModal = () => {
@@ -24,7 +19,7 @@ export default function Dialog_DonateSuccess({ onConfirm }: Props) {
   };
 
   return (
-    <Dialog.Root open={sucessDonateOpened} onOpenChange={toggleModal}>
+    <Dialog.Root open={sucessReceiveDonationOpened} onOpenChange={toggleModal}>
       <Dialog.Portal>
         <Dialog.Overlay className="Dialog_Overlay" />
         <Dialog.Content className="Dialog_Container">
@@ -33,21 +28,12 @@ export default function Dialog_DonateSuccess({ onConfirm }: Props) {
             <span className="text-primary">!</span>
           </Dialog.Title>
           <Dialog.Description className="Dialog_Description">
-            Seu móvel foi cadastrado! <br />
-            Quando alguém mostrar interesse, entraremos em contato. <br />
-            Obrigado por fazer parte do nosso projeto!
+            Obrigado por mostrar interesse! <br />
+            Entraremos em contato o mais rápido possível.
           </Dialog.Description>
 
-          <Button
-            color="secondary"
-            className="h-[58px] px-8"
-            onClick={onConfirm}
-          >
-            Cadastrar outro Móvel
-            <CaretRight size={16} />
-          </Button>
           <Button className="h-[58px] px-8" onClick={toggleModal}>
-            Fechar
+            OK
           </Button>
           <Dialog.Close asChild>
             <button className="Dialog_CloseButton" aria-label="Close">

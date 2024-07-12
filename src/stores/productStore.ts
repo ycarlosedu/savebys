@@ -1,10 +1,11 @@
 import { Product } from "@/services/fecomerciors";
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
-import { getLocalStorage, LOCAL_STORAGE, setLocalStorage } from "@/constants";
+import { SESSION_STORAGE } from "@/constants";
 
 const initialState = {
-  products: getLocalStorage(LOCAL_STORAGE.PRODUCTS, []) as Product[],
+  products: [] as Product[],
   currentPage: 1,
   totalPages: 1,
   filters: {
@@ -28,84 +29,91 @@ type Store = InitialState & {
   reset: () => void;
 };
 
-const useProductStore = create<Store>((set, get) => ({
-  ...initialState,
-  addProduct: (product) => {
-    const newProducts = [
-      ...get().products,
-      { ...product, quantitySelected: 1 }
-    ];
-    setLocalStorage(LOCAL_STORAGE.PRODUCTS, newProducts);
-    set({
-      products: newProducts
-    });
-  },
-  removeProduct: (id) => {
-    const newProducts = get().products.filter((product) => product.id !== id);
-    setLocalStorage(LOCAL_STORAGE.PRODUCTS, newProducts);
-    set({
-      products: newProducts
-    });
-  },
-  increaseProductQuantity: (id) => {
-    const newProducts = get().products.map((product) => {
-      if (product.id === id) {
-        return {
-          ...product,
-          quantitySelected: (product.quantitySelected || 1) + 1
+const useProductStore = create<Store>()(
+  persist(
+    (set, get) => ({
+      ...initialState,
+      addProduct: (product) => {
+        const newProducts = [
+          ...get().products,
+          { ...product, quantitySelected: 1 }
+        ];
+        set({
+          products: newProducts
+        });
+      },
+      removeProduct: (id) => {
+        const newProducts = get().products.filter(
+          (product) => product.id !== id
+        );
+        set({
+          products: newProducts
+        });
+      },
+      increaseProductQuantity: (id) => {
+        const newProducts = get().products.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              quantitySelected: (product.quantitySelected || 1) + 1
+            };
+          }
+          return product;
+        });
+        set({
+          products: newProducts
+        });
+      },
+      decreaseProductQuantity: (id) => {
+        const newProducts = get().products.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              quantitySelected: (product.quantitySelected || 2) - 1
+            };
+          }
+          return product;
+        });
+        set({
+          products: newProducts
+        });
+      },
+      goToPage: (page) => {
+        set({
+          currentPage: page
+        });
+      },
+      updateTotalPages: (pages) => {
+        set({
+          totalPages: pages
+        });
+      },
+      updateFilter: (filter, value) => {
+        const newFilters = {
+          ...get().filters,
+          [filter]: value
         };
+        set({
+          currentPage: initialState.currentPage,
+          filters: newFilters
+        });
+      },
+      resetFilters: () => {
+        set({
+          currentPage: initialState.currentPage,
+          filters: initialState.filters
+        });
+      },
+      reset: () => {
+        set(initialState);
       }
-      return product;
-    });
-    setLocalStorage(LOCAL_STORAGE.PRODUCTS, newProducts);
-    set({
-      products: newProducts
-    });
-  },
-  decreaseProductQuantity: (id) => {
-    const newProducts = get().products.map((product) => {
-      if (product.id === id) {
-        return {
-          ...product,
-          quantitySelected: (product.quantitySelected || 2) - 1
-        };
-      }
-      return product;
-    });
-    setLocalStorage(LOCAL_STORAGE.PRODUCTS, newProducts);
-    set({
-      products: newProducts
-    });
-  },
-  goToPage: (page) => {
-    set({
-      currentPage: page
-    });
-  },
-  updateTotalPages: (pages) => {
-    set({
-      totalPages: pages
-    });
-  },
-  updateFilter: (filter, value) => {
-    const newFilters = {
-      ...get().filters,
-      [filter]: value
-    };
-    set({
-      currentPage: initialState.currentPage,
-      filters: newFilters
-    });
-  },
-  resetFilters: () => {
-    set({
-      currentPage: initialState.currentPage,
-      filters: initialState.filters
-    });
-  },
-  reset: () => {
-    set(initialState);
-  }
-}));
+    }),
+    {
+      name: SESSION_STORAGE.PRODUCTS,
+      storage: createJSONStorage(() => sessionStorage),
+      skipHydration: true
+    }
+  )
+);
 
 export default useProductStore;

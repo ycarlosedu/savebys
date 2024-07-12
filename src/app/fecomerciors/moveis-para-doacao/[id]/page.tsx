@@ -31,7 +31,6 @@ export default async function FurnitureDetailsPage({ params }: Props) {
   if (!furniture) {
     return notFound();
   }
-  console.log("🚀 ~ FurnituresToDonation ~ furniture:", furniture);
 
   return (
     <section className="flex justify-between gap-6 items-start w-full max-w-[1285px]">

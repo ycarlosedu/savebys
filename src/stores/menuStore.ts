@@ -2,11 +2,13 @@ import { create } from "zustand";
 
 export enum MENU {
   SUCESS_DONATE = "sucessDonateOpened",
+  RECEIVE_SUCESS_DONATION = "sucessReceiveDonationOpened",
   RECIPIENT_FORM = "recipientFormOpened"
 }
 
 const initialState = {
   [MENU.SUCESS_DONATE]: false,
+  [MENU.RECEIVE_SUCESS_DONATION]: false,
   [MENU.RECIPIENT_FORM]: false
 };
 
