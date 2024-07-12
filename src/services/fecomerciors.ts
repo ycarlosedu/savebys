@@ -1,7 +1,6 @@
 import { DonatorValues } from "@/app/fecomerciors/cadastro-doador/FormDonator";
 import { FurnitureValues } from "@/app/fecomerciors/cadastro-movel/FormFurniture";
 import { RecipientValues } from "@/components/Dialog/RecipientForm";
-import fixtures from "@/mock/fixtures/fecomerciors.json";
 import { ACCEPTED_DOCUMENTS, RegisterDonator } from "@/models/fecomerciors";
 
 import { unmask } from "@/utils/masks";
@@ -77,7 +76,7 @@ export const signupIndividual = async (
 };
 
 export const generateReceiveDonationEndpoint = () =>
-  `${BFFs.GATEKEEPER}/donation/receving`;
+  `${BFFs.GATEKEEPER}/donation/receiving`;
 export const receiveDonation = async (
   products: Product[],
   recipientId: string
@@ -133,19 +132,7 @@ export const getProducts = async (
 export const generateGetProductByIdEndpoint = (id: string = "1") =>
   `${BFFs.GATEKEEPER}/products/${id}`;
 export const getProductById = async (id: string = "1"): Promise<Product> => {
-  // return request.get(generateGetProductByIdEndpoint(id));
-  const promise = new Promise<Product>((resolve) => {
-    setTimeout(() => {
-      const product = fixtures.furnitures.products.find(
-        (furniture) => furniture.id === id
-      );
-      if (!product) {
-        throw new Error("Product not found");
-      }
-      resolve(product);
-    }, 1000);
-  });
-  return promise;
+  return request.get(generateGetProductByIdEndpoint(id));
 };
 
 const fecomerciorsServices = {

@@ -1,5 +1,6 @@
 export enum BFFs {
-  GATEKEEPER = "https://app-sk5dez4kca-uc.a.run.app"
+  // GATEKEEPER = "https://app-sk5dez4kca-uc.a.run.app"
+  GATEKEEPER = "http://localhost:3000/api"
 }
 
 export const DEFAULT_ERROR_MESSAGE =
@@ -8,9 +9,6 @@ export const DEFAULT_ERROR_MESSAGE =
 export const getBooleanEnvVariable = (variable: string) => {
   return process.env[variable] === "true";
 };
-
-export const IS_MIRAGE_ENABLED = () =>
-  getBooleanEnvVariable("NEXT_PUBLIC_MIRAGE");
 
 export const setLocalStorage = (key: string, value: unknown) => {
   if (typeof window != "undefined") {

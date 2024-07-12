@@ -16,17 +16,26 @@ export default function ProductList() {
       <h1 className="text-gray-secondary text-4xl font-bold self-start">
         Móveis Selecionados: {products.length}
       </h1>
+      {!products.length && (
+        <p className="w-full text-xl text-center">
+          Ops! Parece que você ainda não adicionou nenhum item à sua sacola...
+        </p>
+      )}
       {products.map((product) => (
         <ProductBagCard key={product.id} furniture={product} />
       ))}
-      <Button
-        disabled={!products.length}
-        onClick={() => toggleMenu(MENU.RECIPIENT_FORM)}
-        className="h-[54px] px-8"
-      >
-        Confirmar Solicitação
-        <CaretRight size={16} />
-      </Button>
+      {!!products.length && (
+        <>
+          <Button
+            disabled={!products.length}
+            onClick={() => toggleMenu(MENU.RECIPIENT_FORM)}
+            className="h-[54px] px-8"
+          >
+            Confirmar Solicitação
+            <CaretRight size={16} />
+          </Button>
+        </>
+      )}
       <Dialog.RecipientForm />
       <Dialog.ReceiveDonationSuccess />
     </>

@@ -5,14 +5,11 @@ import { FloatingButton, GLOBAL_SCROLL_ID } from "@/components/FloatingButton";
 import { ScrollArea } from "@/components/ScrollArea";
 import { Toaster } from "@/components/Sonner";
 import { TooltipProvider } from "@/components/Tooltip";
-import { makeServerForSSR } from "@/mock/server";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
-import { IS_MIRAGE_ENABLED } from "@/constants";
 
-import Mirage from "./Mirage";
 import QueryProvider from "./QueryProvider";
 
 const fontFamily = Nunito({ subsets: ["latin"] });
@@ -56,8 +53,6 @@ type Props = {
   children: React.ReactNode;
 };
 
-IS_MIRAGE_ENABLED() && makeServerForSSR();
-
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="pt-BR">
@@ -82,8 +77,6 @@ export default function RootLayout({ children }: Props) {
         {/* Vercel */}
         <SpeedInsights />
         <Analytics />
-
-        {IS_MIRAGE_ENABLED() && <Mirage />}
       </body>
     </html>
   );

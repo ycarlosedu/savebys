@@ -1,10 +1,13 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import Button from "@/components/Button";
 import { Product } from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 import { toast } from "sonner";
+
+import { PAGE } from "@/constants";
 
 import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
 
@@ -31,10 +34,13 @@ export default function FurnitureDetails({ furniture }: Props) {
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-[515px]">
-      <Button color="secondary" className="px-8 w-fit h-[58px]">
+      <Link
+        href={PAGE.FECOMERCIO.FURNITURE_LIST}
+        className="link-btn-secondary px-8 w-fit h-[58px]"
+      >
         <CaretLeft size={16} />
         Voltar
-      </Button>
+      </Link>
       <h1 className="text-4xl font-bold">{furniture.description}</h1>
       <p className="text-2xl">Onde retirar: {furniture.city}</p>
       <p>Informações: {furniture.additionalInfo}</p>
