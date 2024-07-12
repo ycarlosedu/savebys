@@ -159,8 +159,6 @@ export default function FormDonator() {
   });
 
   useEffect(() => {
-    if (typeof window == "undefined") return;
-
     const previousDonator = getLocalStorage(
       LOCAL_STORAGE.DONATOR
     ) as DonatorValues;

@@ -50,7 +50,7 @@ export const REQUIRED = {
 export const INVALID = {
   EMAIL: "E-mail inválido.",
   PHONE: "Número de telefone inválido.",
-  DOCUMENT: "CPF/CNPJ inválido.",
+  DOCUMENT: "Documento inválido.",
   DOCUMENT_LEGAL: "CNPJ inválido.",
   DOCUMENT_NATURAL: "CPF inválido.",
   POSTAL_CODE: "CEP inválido.",

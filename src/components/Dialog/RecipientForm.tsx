@@ -12,8 +12,18 @@ import { useFormik } from "formik";
 import { toast } from "sonner";
 import * as yup from "yup";
 
-import { CEP_MASK, CNPJ_Mask, PHONE_NUMBER_MASK } from "@/utils/masks";
-import { CEP_REGEX, CNPJ_REGEX, PHONE_NUMBER_REGEX } from "@/utils/regex";
+import {
+  CEP_MASK,
+  CNAE_MASK,
+  CNPJ_Mask,
+  PHONE_NUMBER_MASK
+} from "@/utils/masks";
+import {
+  CEP_REGEX,
+  CNAE_REGEX,
+  CNPJ_REGEX,
+  PHONE_NUMBER_REGEX
+} from "@/utils/regex";
 
 import {
   INVALID,
@@ -34,6 +44,7 @@ export type RecipientValues = {
   companyName: string;
   fullName: string;
   document: string;
+  cnae: string;
   emailAddress: string;
   phoneNumber: string;
   postalCode: string;
@@ -51,6 +62,10 @@ const validationSchema = yup.object().shape({
     .string()
     .required(REQUIRED.FIELD)
     .matches(CNPJ_REGEX, INVALID.DOCUMENT_LEGAL),
+  cnae: yup
+    .string()
+    .required(REQUIRED.FIELD)
+    .matches(CNAE_REGEX, INVALID.DOCUMENT),
   emailAddress: yup.string().required(REQUIRED.FIELD).email(INVALID.EMAIL),
   phoneNumber: yup
     .string()
@@ -105,6 +120,7 @@ export default function Dialog_RecipientForm() {
       fullName: "",
       companyName: "",
       document: "",
+      cnae: "",
       emailAddress: "",
       phoneNumber: "",
       postalCode: "",
@@ -181,6 +197,24 @@ export default function Dialog_RecipientForm() {
                   data-invalid={touched.document && errors.document}
                 />
                 <Input.Error>{touched.document && errors.document}</Input.Error>
+              </Input.Fieldset>
+
+              <Input.Fieldset>
+                <Input.Label htmlFor="cnae" required>
+                  Cnae
+                </Input.Label>
+                <Input.Mask
+                  name="cnae"
+                  id="cnae"
+                  type="text"
+                  placeholder="0000-0/00"
+                  mask={CNAE_MASK}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.cnae}
+                  data-invalid={touched.cnae && errors.cnae}
+                />
+                <Input.Error>{touched.cnae && errors.cnae}</Input.Error>
               </Input.Fieldset>
 
               <Input.Fieldset>

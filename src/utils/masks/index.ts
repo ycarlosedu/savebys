@@ -57,3 +57,5 @@ export const CNPJ_Mask = [
 ];
 
 export const CEP_MASK = [/\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/];
+
+export const CNAE_MASK = [/\d/, /\d/, /\d/, /\d/, "-", /\d/, "/", /\d/, /\d/];

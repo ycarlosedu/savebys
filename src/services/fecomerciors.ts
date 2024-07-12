@@ -2,12 +2,18 @@ import { DonatorValues } from "@/app/fecomerciors/cadastro-doador/FormDonator";
 import { FurnitureValues } from "@/app/fecomerciors/cadastro-movel/FormFurniture";
 import { RecipientValues } from "@/components/Dialog/RecipientForm";
 import fixtures from "@/mock/fixtures/fecomerciors.json";
-import { PERSON_TYPE_DOCUMENT, RegisterDonator } from "@/models/fecomerciors";
+import { ACCEPTED_DOCUMENTS, RegisterDonator } from "@/models/fecomerciors";
 
 import { unmask } from "@/utils/masks";
 import request from "@/utils/request";
 
 import { BFFs } from "@/constants";
+
+function isRecipient(
+  values: DonatorValues | RecipientValues
+): values is RecipientValues {
+  return (<RecipientValues>values).cnae !== undefined;
+}
 
 const createDonatorBody = (values: DonatorValues | RecipientValues) => {
   const body: RegisterDonator = {
@@ -16,9 +22,13 @@ const createDonatorBody = (values: DonatorValues | RecipientValues) => {
     documents: [
       {
         document: unmask(values.document),
-        type: PERSON_TYPE_DOCUMENT[values.personType]
+        type: ACCEPTED_DOCUMENTS[values.personType]
+      },
+      {
+        document: isRecipient(values) ? unmask(values.cnae) : "",
+        type: ACCEPTED_DOCUMENTS.CNAE
       }
-    ],
+    ].filter((doc) => doc.document != ""),
     contactInfo: {
       personName: values.fullName,
       email: values.emailAddress,

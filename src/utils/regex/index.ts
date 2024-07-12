@@ -6,3 +6,4 @@ export const CNPJ_REGEX = /(^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$)/;
 export const CPF_CNPJ_REGEX =
   /(^\d{3}\.\d{3}\.\d{3}-\d{2}$)|(^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$)/;
 export const CEP_REGEX = /^\d{5}-\d{3}$/;
+export const CNAE_REGEX = /^\d{4}-\d{1}\/\d{2}$/;

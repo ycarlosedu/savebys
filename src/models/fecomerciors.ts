@@ -3,14 +3,15 @@ export enum PERSON_TYPE {
   NATURAL = "NATURAL"
 }
 
-export enum PERSON_TYPE_DOCUMENT {
+export enum ACCEPTED_DOCUMENTS {
   LEGAL = "CNPJ",
-  NATURAL = "CPF"
+  NATURAL = "CPF",
+  CNAE = "CNAE"
 }
 
-type Document = {
+export type Document = {
   document: string;
-  type: PERSON_TYPE_DOCUMENT;
+  type: ACCEPTED_DOCUMENTS;
 };
 
 type ContactInfo = {

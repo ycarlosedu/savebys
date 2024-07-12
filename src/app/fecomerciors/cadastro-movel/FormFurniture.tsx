@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useEffect } from "react";
 
 import Button from "@/components/Button";
 import Dialog from "@/components/Dialog";
@@ -23,6 +24,7 @@ import {
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
+import { DonatorValues } from "../cadastro-doador/FormDonator";
 import furnitureCategories from "./furnitureCategories";
 
 export type FurnitureValues = {
@@ -90,6 +92,16 @@ export default function FormFurniture() {
     validationSchema,
     onSubmit
   });
+
+  useEffect(() => {
+    const previousDonator = getLocalStorage(
+      LOCAL_STORAGE.DONATOR
+    ) as DonatorValues;
+    if (Object.keys(previousDonator).length) {
+      setFieldValue("city", previousDonator.city);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onChangeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files || !event.target.files[0]) return;
