@@ -90,13 +90,14 @@ const validationSchema = yup.object().shape({
 
 export default function Dialog_RecipientForm() {
   const { toggleMenu, recipientFormOpened } = useMenuStore();
-  const { products } = useProductStore();
+  const { products, reset: clearProducts } = useProductStore();
 
   const onSubmit = async (values: RecipientValues) => {
     try {
       const { companyId } = await fecomerciorsServices.signupCompany(values);
       await fecomerciorsServices.receiveDonation(products, companyId);
       setLocalStorage(LOCAL_STORAGE.RECIPIENT, values);
+      clearProducts();
       toggleModal();
       toggleMenu(MENU.RECEIVE_SUCESS_DONATION);
     } catch (error) {

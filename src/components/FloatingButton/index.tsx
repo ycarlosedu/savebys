@@ -18,6 +18,7 @@ type Props = ComponentProps<"button"> & {
 export function FloatingButton({
   children = <ArrowUp size={24} />,
   showOnlyWhenScroll = true,
+  className,
   ...rest
 }: Props) {
   const [show, setShow] = useState<boolean>(!showOnlyWhenScroll);
@@ -54,7 +55,7 @@ export function FloatingButton({
         <button
           ref={buttonRef}
           onClick={rest.onClick || defaultClick}
-          className={cn(["link-btn", "floating", translate])}
+          className={cn(["link-btn", "floating", translate, className])}
           {...rest}
         >
           {children}

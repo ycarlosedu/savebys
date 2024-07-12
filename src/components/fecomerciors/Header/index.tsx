@@ -5,7 +5,7 @@ import Link from "next/link";
 import ActiveLink from "@/components/ActiveLink";
 import useProductStore from "@/stores/productStore";
 
-import { ShoppingBag } from "@phosphor-icons/react/dist/ssr";
+import { ShoppingBagOpen } from "@phosphor-icons/react/dist/ssr";
 import Logo from "images/savebys/logo-savebys-gray-slogan-cropped.svg";
 
 export default function Header() {
@@ -38,7 +38,7 @@ export default function Header() {
             className="link-btn-secondary h-[54px] relative"
           >
             Minha Sacola
-            <ShoppingBag size={32} />
+            <ShoppingBagOpen size={32} />
             {products.length > 0 && (
               <span className="absolute -top-3 -right-3 bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center">
                 {products.length}

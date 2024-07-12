@@ -6,7 +6,6 @@ import { ComponentProps, useEffect, useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
 import { Product } from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
-import { toast } from "sonner";
 
 import { PAGE } from "@/constants";
 
@@ -27,12 +26,10 @@ export default function ProductCard({ furniture, ...rest }: Props) {
 
   const addToCart = (furniture: Product) => {
     addProduct(furniture);
-    toast.success(`Item ${furniture.id} adicionado à sacola!`);
   };
 
   const removeFromCart = (furniture: Product) => {
     removeProduct(furniture.id);
-    toast.success(`Item ${furniture.id} removido da sacola!`);
   };
 
   const goToProduct = (id: Product["id"]) => {
