@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { ComponentProps } from "react";
+import { ComponentProps, useState } from "react";
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
 import { Product } from "@/services/fecomerciors";
@@ -15,15 +15,23 @@ type Props = ComponentProps<"div"> & {
 export default function ProductBagCard({ furniture, ...rest }: Props) {
   const { removeProduct, increaseProductQuantity, decreaseProductQuantity } =
     useProductStore();
+  const [animation, setAnimation] = useState(false);
 
   const removeFromCart = (furniture: Product) => {
     removeProduct(furniture.id);
-    toast.success("Item removido da sacola!");
+  };
+
+  const startAnimation = () => {
+    toast.success(`Item ${furniture.id} removido da sacola!`);
+    setAnimation(true);
+    setTimeout(() => {
+      removeFromCart(furniture);
+    }, 500);
   };
 
   return (
     <div
-      className="flex gap-8 p-8 w-full border border-black rounded-[32px]"
+      className={`flex gap-8 p-8 w-full border border-black rounded-[32px] ${animation ? "animate-hideAndScaleDown" : ""}`}
       {...rest}
     >
       <Image
@@ -41,7 +49,7 @@ export default function ProductBagCard({ furniture, ...rest }: Props) {
           <Tooltip>
             <TooltipTrigger asChild>
               <button
-                onClick={() => removeFromCart(furniture)}
+                onClick={startAnimation}
                 className="link-btn-secondary min-w-12 w-12 h-12 p-0"
               >
                 <Trash size={32} />

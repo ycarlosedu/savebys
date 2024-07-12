@@ -49,6 +49,14 @@ const config = {
           "0%": { opacity: "1" },
           "100%": { opacity: "0" }
         },
+        scaleDown: {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(0)" }
+        },
+        scaleUp: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" }
+        },
         fadeTranslate: {
           "0%": {
             opacity: "0",
@@ -100,6 +108,7 @@ const config = {
           "spin 1s linear infinite, pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         fade: "fade 0.5s ease-in-out",
         hide: "hide 0.5s ease-in-out",
+        hideAndScaleDown: "hide 0.5s ease-in-out, scaleDown 0.5s ease-in-out",
         fadeTranslate: "fadeTranslate 0.5s ease-in-out",
         hideTranslate: "hideTranslate 0.5s ease-in-out",
         slideDownAndFade:
