@@ -37,6 +37,10 @@ const config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))"
       },
       keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-10deg)", scale: "1" },
+          "50%": { transform: "rotate(10deg)", scale: "1.5" }
+        },
         fade: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" }
@@ -91,6 +95,7 @@ const config = {
         }
       },
       animation: {
+        wiggle: "wiggle 200ms ease-in-out",
         loader:
           "spin 1s linear infinite, pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         fade: "fade 0.5s ease-in-out",

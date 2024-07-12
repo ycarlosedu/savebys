@@ -16,8 +16,16 @@ import FurniturePagination from "./FurniturePagination";
 
 export default function FurnitureList() {
   const router = useRouter();
-  const { currentPage, totalPages, updateTotalPages, filters, products } =
-    useProductStore();
+
+  const {
+    currentPage,
+    totalPages,
+    updateTotalPages,
+    filters,
+    products,
+    animateBagButton,
+    setAnimateBagButton
+  } = useProductStore();
   const { data, isPending } = useQuery({
     queryKey: ["posts", currentPage, filters.category],
     queryFn: () =>
@@ -57,7 +65,9 @@ export default function FurnitureList() {
       <FloatingButton
         aria-label="Ir para minha sacola"
         onClick={goToBagPage}
-        className="bottom-20"
+        className={`bottom-20`}
+        animation={animateBagButton ? "animate-wiggle" : undefined}
+        onAnimationEnd={() => setAnimateBagButton(false)}
       >
         <ShoppingBagOpen size={32} />
         {products.length > 0 && (

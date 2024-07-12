@@ -13,11 +13,13 @@ export const GLOBAL_SCROLL_QUERY = `#${GLOBAL_SCROLL_ID} > #scroll-area`;
 
 type Props = ComponentProps<"button"> & {
   showOnlyWhenScroll?: boolean;
+  animation?: string;
 };
 
 export function FloatingButton({
   children = <ArrowUp size={24} />,
   showOnlyWhenScroll = true,
+  animation,
   className,
   ...rest
 }: Props) {
@@ -55,7 +57,13 @@ export function FloatingButton({
         <button
           ref={buttonRef}
           onClick={rest.onClick || defaultClick}
-          className={cn(["link-btn", "floating", translate, className])}
+          className={cn([
+            "link-btn",
+            "floating",
+            translate,
+            className,
+            show && animation ? animation : ""
+          ])}
           {...rest}
         >
           {children}

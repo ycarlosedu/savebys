@@ -10,7 +10,8 @@ const initialState = {
   totalPages: 1,
   filters: {
     category: "Todos"
-  }
+  },
+  animateBagButton: false
 };
 
 type Filter = keyof typeof initialState.filters;
@@ -27,6 +28,8 @@ type Store = InitialState & {
   updateFilter: (filter: Filter, value: string) => void;
   resetFilters: () => void;
   reset: () => void;
+  animateBagButton: boolean;
+  setAnimateBagButton: (value: boolean) => void;
 };
 
 const useProductStore = create<Store>()(
@@ -106,6 +109,9 @@ const useProductStore = create<Store>()(
       },
       reset: () => {
         set(initialState);
+      },
+      setAnimateBagButton(value) {
+        set({ animateBagButton: value });
       }
     }),
     {
