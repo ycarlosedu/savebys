@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function MobiliaSolidaria() {
+export default function FecomercioCampaign() {
   return (
     <>
       <div className="flex items-center justify-center gap-8 pt-16 px-default">

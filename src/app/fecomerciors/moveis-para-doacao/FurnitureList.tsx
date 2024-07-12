@@ -1,5 +1,5 @@
 "use client";
-import ProductCard from "@/components/fecomerciors/ProductCard/intex";
+import ProductCard from "@/components/fecomerciors/ProductCard";
 import fecomerciorsServices from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";

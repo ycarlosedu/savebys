@@ -30,7 +30,7 @@ export type FurnitureValues = {
   productType: string;
   productDescription: string;
   quantity: number;
-  aditionalInfo: string;
+  additionalInfo: string;
   city: string;
 };
 
@@ -48,7 +48,7 @@ const validationSchema = yup.object().shape({
       REQUIRED.RADIO
     ),
   quantity: yup.number().min(1, INVALID.QUANTITY).required(REQUIRED.FIELD),
-  aditionalInfo: yup.string(),
+  additionalInfo: yup.string(),
   city: yup.string().required(REQUIRED.FIELD)
 });
 
@@ -84,7 +84,7 @@ export default function FormFurniture() {
       productDescription: "",
       quantity: 1,
       productType: furnitureCategories[0].value,
-      aditionalInfo: "",
+      additionalInfo: "",
       city: ""
     },
     validationSchema,
@@ -221,20 +221,20 @@ export default function FormFurniture() {
         </Input.Fieldset>
 
         <Input.Fieldset>
-          <Input.Label htmlFor="aditionalInfo">
+          <Input.Label htmlFor="additionalInfo">
             Informações Complementares (tamanho, cor, material)
           </Input.Label>
           <Input.Text
-            name="aditionalInfo"
-            id="aditionalInfo"
+            name="additionalInfo"
+            id="additionalInfo"
             placeholder="ex: 2m², vermelho, de madeira"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.aditionalInfo}
-            data-invalid={touched.aditionalInfo && errors.aditionalInfo}
+            value={values.additionalInfo}
+            data-invalid={touched.additionalInfo && errors.additionalInfo}
           />
           <Input.Error>
-            {touched.aditionalInfo && errors.aditionalInfo}
+            {touched.additionalInfo && errors.additionalInfo}
           </Input.Error>
         </Input.Fieldset>
 

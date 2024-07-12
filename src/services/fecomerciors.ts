@@ -1,5 +1,6 @@
 import { DonatorValues } from "@/app/fecomerciors/cadastro-doador/FormDonator";
 import { FurnitureValues } from "@/app/fecomerciors/cadastro-movel/FormFurniture";
+import fixtures from "@/mock/fixtures/fecomerciors.json";
 import { PERSON_TYPE_DOCUMENT, RegisterDonator } from "@/models/fecomerciors";
 
 import { unmask } from "@/utils/masks";
@@ -83,6 +84,7 @@ export type Product = {
   image: string;
   quantity: number;
   quantitySelected?: number;
+  additionalInfo?: string;
 };
 export type getProductsResponse = {
   page: number;
@@ -101,11 +103,30 @@ export const getProducts = async (
   );
 };
 
+export const generateGetProductByIdEndpoint = (id: string = "1") =>
+  `${BFFs.GATEKEEPER}/products/${id}`;
+export const getProductById = async (id: string = "1"): Promise<Product> => {
+  // return request.get(generateGetProductByIdEndpoint(id));
+  const promise = new Promise<Product>((resolve) => {
+    setTimeout(() => {
+      const product = fixtures.furnitures.products.find(
+        (furniture) => furniture.id === id
+      );
+      if (!product) {
+        throw new Error("Product not found");
+      }
+      resolve(product);
+    }, 1000);
+  });
+  return promise;
+};
+
 const fecomerciorsServices = {
   signupCompany,
   signupIndividual,
   registerDonation,
-  getProducts
+  getProducts,
+  getProductById
 };
 
 export default fecomerciorsServices;

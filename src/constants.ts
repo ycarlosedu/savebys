@@ -59,7 +59,9 @@ export const PAGE = {
   FECOMERCIO: {
     HOME: "/fecomerciors",
     REGISTER_DONATOR: "/fecomerciors/cadastro-doador",
-    REGISTER_FURNITURE: "/fecomerciors/cadastro-movel"
+    REGISTER_FURNITURE: "/fecomerciors/cadastro-movel",
+    FURNITURE_LIST: "/fecomerciors/moveis-para-doacao",
+    FURNITURE_DETAILS: (id: string) => `/fecomerciors/moveis-para-doacao/${id}`
   }
 };
 
