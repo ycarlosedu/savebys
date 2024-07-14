@@ -11,7 +11,15 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "SAVEBYS - Cadastre seu móvel para ser doado na Mobília Solidária",
     description:
-      "Para contribuir com as vítimas das enchentes no Rio Grande do Sul estamos promovendo uma campanha chamada Mobília Solidária que tem como objetivo arrecadar e doar móveis para pessoas/empresas atingidas com a catástrofe, através de um sindicato-curador, que irá mapear e validar as doações. A logística será de responsabilidade do próprio beneficiário que irá fazer a retirada do seu móvel no local e hora combinada previamente."
+      "Participe da nossa campanha Mobília Solidária e ajude negócios no Rio Grande do Sul afetados pelas enchentes. Cadastre seus móveis para doação e faça a diferença!",
+    robots: {
+      index: false,
+      follow: false,
+      googleBot: {
+        index: false,
+        follow: false
+      }
+    }
   };
 }
 

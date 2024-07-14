@@ -13,7 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
       index: false,
       follow: false,
       googleBot: {
-        index: false
+        index: false,
+        follow: false
       }
     }
   };

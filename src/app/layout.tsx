@@ -23,16 +23,48 @@ export const metadata: Metadata = {
     "SAVEBYS",
     "Save",
     "Bys",
-    "Business",
+    "business",
     "Vaquinha",
-    "Adote",
-    "Ajude",
-    "Empresa",
-    "Curador",
-    "Campanha",
-    "Apoiadores",
-    "Patrocinadores"
+    "adote",
+    "ajude",
+    "empresa",
+    "curador",
+    "campanha",
+    "apoiadores",
+    "patrocinadores",
+    "RS",
+    "Rio Grande do Sul",
+    "enchentes",
+    "Fecomercio",
+    "Mobília Solidária",
+    "solidariedade",
+    "doações",
+    "doar",
+    "doação",
+    "ajuda",
+    "ajudar",
+    "contribuir",
+    "contribuição",
+    "doação de móveis",
+    "campanha de doação",
+    "enchentes RS",
+    "ajuda solidária",
+    "doadores",
+    "negócios afetados"
   ],
+  openGraph: {
+    url: "https://www.savebys.com",
+    siteName: "SAVEBYS",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "https://www.savebys.com/images/savebys/savebys_slogan.png",
+        width: 753,
+        height: 543
+      }
+    ]
+  },
   authors: [
     { name: "Diogo Reis" },
     {
@@ -43,8 +75,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
-      index: true
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1
     }
   }
 };

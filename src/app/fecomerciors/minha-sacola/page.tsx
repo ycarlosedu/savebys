@@ -1,4 +1,22 @@
+import { Metadata } from "next";
+
 import ProductList from "./ProductList";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "SAVEBYS - Minha Sacola",
+    description:
+      "Veja os móveis que você selecionou para resgatar na Mobília Solidária!",
+    robots: {
+      index: false,
+      follow: false,
+      googleBot: {
+        index: false,
+        follow: false
+      }
+    }
+  };
+}
 
 export default function MyProductsBag() {
   return (

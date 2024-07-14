@@ -6,25 +6,31 @@ import fecomerciorsServices from "@/services/fecomerciors";
 
 import FurnitureDetails from "./FurnitureDetails";
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = {
+  params: { id: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const product = await fecomerciorsServices.getProductById(params.id);
+  if (!product) {
+    return notFound();
+  }
+
   return {
+    title: "SAVEBYS - " + product.description,
+    description:
+      "Veja os detalhes do móvel disponível para doação na Mobília Solidária.",
     robots: {
       index: false,
       follow: false,
       googleBot: {
-        index: false
+        index: false,
+        follow: false
       }
-    },
-    title:
-      "SAVEBYS - Veja os móveis disponíveis para doação na Mobília Solidária",
-    description:
-      "Para contribuir com as vítimas das enchentes no Rio Grande do Sul estamos promovendo uma campanha chamada Mobília Solidária que tem como objetivo arrecadar e doar móveis para pessoas/empresas atingidas com a catástrofe, através de um sindicato-curador, que irá mapear e validar as doações. A logística será de responsabilidade do próprio beneficiário que irá fazer a retirada do seu móvel no local e hora combinada previamente."
+    }
   };
 }
 
-type Props = {
-  params: { id: string };
-};
 export default async function FurnitureDetailsPage({ params }: Props) {
   const furniture = await fecomerciorsServices.getProductById(params.id);
 

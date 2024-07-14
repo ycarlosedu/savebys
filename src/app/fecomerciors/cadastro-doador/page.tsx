@@ -6,7 +6,23 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "SAVEBYS - Cadastre-se como Doador na Mobília Solidária",
     description:
-      "Para contribuir com as vítimas das enchentes no Rio Grande do Sul estamos promovendo uma campanha chamada Mobília Solidária que tem como objetivo arrecadar e doar móveis para pessoas/empresas atingidas com a catástrofe, através de um sindicato-curador, que irá mapear e validar as doações. A logística será de responsabilidade do próprio beneficiário que irá fazer a retirada do seu móvel no local e hora combinada previamente."
+      "Participe da nossa campanha Mobília Solidária e ajude negócios no Rio Grande do Sul afetados pelas enchentes. Cadastre-se como doador e faça a diferença!",
+    openGraph: {
+      title: "SAVEBYS - Cadastre-se como Doador na Mobília Solidária",
+      description:
+        "Participe da nossa campanha Mobília Solidária e ajude negócios no Rio Grande do Sul afetados pelas enchentes. Cadastre-se como doador e faça a diferença!",
+      url: "https://www.savebys.com/fecomerciors/cadastro-doador",
+      siteName: "SAVEBYS",
+      locale: "pt_BR",
+      type: "website",
+      images: [
+        {
+          url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-900x560.png",
+          width: 900,
+          height: 560
+        }
+      ]
+    }
   };
 }
 
