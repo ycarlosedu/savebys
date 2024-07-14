@@ -1,7 +1,7 @@
 export enum BFFs {
   // GATEKEEPER = "https://app-sk5dez4kca-uc.a.run.app"
-  GATEKEEPER = "http://localhost:3000/api"
-  // GATEKEEPER = "https://savebys.com/api"
+  // GATEKEEPER = "http://localhost:3000/api"
+  GATEKEEPER = "https://savebys.com/api"
 }
 
 export const DEFAULT_ERROR_MESSAGE =
