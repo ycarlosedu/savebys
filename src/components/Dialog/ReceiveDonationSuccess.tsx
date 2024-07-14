@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 
 import Button from "@/components/Button";
-import useMenuStore from "@/stores/menuStore";
+import useMenuStore, { MENU } from "@/stores/menuStore";
 import * as Dialog from "@radix-ui/react-dialog";
 
 import { PAGE } from "@/constants";
@@ -11,10 +11,11 @@ import { PAGE } from "@/constants";
 import { X } from "@phosphor-icons/react";
 
 export default function Dialog_ReceiveDonationSuccess() {
-  const { sucessReceiveDonationOpened } = useMenuStore();
+  const { sucessReceiveDonationOpened, toggleMenu } = useMenuStore();
   const router = useRouter();
 
   const toggleModal = () => {
+    toggleMenu(MENU.RECEIVE_SUCESS_DONATION);
     router.push(PAGE.FECOMERCIO.HOME);
   };
 

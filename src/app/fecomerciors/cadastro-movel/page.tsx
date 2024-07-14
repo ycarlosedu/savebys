@@ -1,10 +1,13 @@
 import { Metadata } from "next";
+import { cookies } from "next/headers";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-import { PAGE } from "@/constants";
+import { COOKIES, PAGE, getCookies } from "@/constants";
 
 import { CaretLeft } from "@phosphor-icons/react/dist/ssr";
 
+import { DonatorValuesWithId } from "../cadastro-doador/FormDonator";
 import FormFurniture from "./FormFurniture";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -24,6 +27,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function FurnitureRegister() {
+  const cookieStore = cookies();
+  const donator: DonatorValuesWithId = getCookies(cookieStore, COOKIES.DONATOR);
+  if (!donator.donatorId) {
+    return redirect(PAGE.FECOMERCIO.REGISTER_DONATOR);
+  }
+
   return (
     <section className="flex flex-col p-12 gap-6 items-center w-full max-w-[500px]">
       <Link
@@ -39,7 +48,7 @@ export default function FurnitureRegister() {
       <h2 className="text-neutral text-lg text-center">
         Insira os dados do móvel a ser doado.
       </h2>
-      <FormFurniture />
+      <FormFurniture donator={donator} />
     </section>
   );
 }

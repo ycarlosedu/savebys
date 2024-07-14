@@ -1,6 +1,5 @@
 "use client";
 import Button from "@/components/Button";
-import Dialog from "@/components/Dialog";
 import ProductBagCard from "@/components/fecomerciors/ProductBagCard/intex";
 import useMenuStore, { MENU } from "@/stores/menuStore";
 import useProductStore from "@/stores/productStore";
@@ -36,8 +35,6 @@ export default function ProductList() {
           </Button>
         </>
       )}
-      <Dialog.RecipientForm />
-      <Dialog.ReceiveDonationSuccess />
     </>
   );
 }

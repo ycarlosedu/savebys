@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { useEffect } from "react";
 
 import Button from "@/components/Button";
 import Dialog from "@/components/Dialog";
@@ -14,17 +13,11 @@ import * as yup from "yup";
 
 import { scrollToTop } from "@/utils/scrollToTop";
 
-import {
-  DEFAULT_IMAGE_PATH,
-  INVALID,
-  LOCAL_STORAGE,
-  REQUIRED,
-  getLocalStorage
-} from "@/constants";
+import { DEFAULT_IMAGE_PATH, INVALID, REQUIRED } from "@/constants";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
-import { DonatorValues } from "../cadastro-doador/FormDonator";
+import { DonatorValuesWithId } from "../cadastro-doador/FormDonator";
 import furnitureCategories from "./furnitureCategories";
 
 export type FurnitureValues = {
@@ -54,9 +47,12 @@ const validationSchema = yup.object().shape({
   city: yup.string().required(REQUIRED.FIELD)
 });
 
-export default function FormFurniture() {
+type Props = {
+  donator: DonatorValuesWithId;
+};
+export default function FormFurniture({ donator }: Props) {
   const { toggleMenu } = useMenuStore();
-  const donatorId = getLocalStorage(LOCAL_STORAGE.DONATOR_ID, "");
+  const { donatorId } = donator;
 
   const onSubmit = async (values: FurnitureValues) => {
     try {
@@ -87,21 +83,11 @@ export default function FormFurniture() {
       quantity: 1,
       productType: furnitureCategories[0].value,
       additionalInfo: "",
-      city: ""
+      city: donator.city || ""
     },
     validationSchema,
     onSubmit
   });
-
-  useEffect(() => {
-    const previousDonator = getLocalStorage(
-      LOCAL_STORAGE.DONATOR
-    ) as DonatorValues;
-    if (Object.keys(previousDonator).length) {
-      setFieldValue("city", previousDonator.city);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const onChangeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files || !event.target.files[0]) return;
@@ -200,6 +186,7 @@ export default function FormFurniture() {
             Descrição
           </Input.Label>
           <Input.Text
+            autoCapitalize="sentences"
             name="productDescription"
             id="productDescription"
             placeholder="ex: móvel rústico, de escritório, possui defeito na porta."
@@ -238,6 +225,7 @@ export default function FormFurniture() {
             Informações Complementares (tamanho, cor, material)
           </Input.Label>
           <Input.Text
+            autoCapitalize="sentences"
             name="additionalInfo"
             id="additionalInfo"
             placeholder="ex: 2m², vermelho, de madeira"
@@ -256,6 +244,7 @@ export default function FormFurniture() {
             Cidade
           </Input.Label>
           <Input.Text
+            autoCapitalize="sentences"
             name="city"
             id="city"
             placeholder="Onde está localizado o móvel?"

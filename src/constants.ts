@@ -1,3 +1,5 @@
+import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
+
 export enum BFFs {
   // GATEKEEPER = "https://app-sk5dez4kca-uc.a.run.app"
   GATEKEEPER = "http://localhost:3000/api"
@@ -21,24 +23,29 @@ export const sliceMaxLength = (text: string, maxLength: number) => {
   return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
 };
 
-export const getLocalStorage = (
-  key: LOCAL_STORAGE,
-  defaultValue: unknown = {}
-) => {
+export const getLocalStorage = (key: string, defaultValue: unknown = {}) => {
   if (typeof window === "undefined") return defaultValue;
 
   const value = localStorage.getItem(key);
   return value ? JSON.parse(value) : defaultValue;
 };
 
-export enum LOCAL_STORAGE {
-  DONATOR = "donator",
-  DONATOR_ID = "donatorId",
-  RECIPIENT = "recipient"
-}
+export const getCookies = (
+  cookieStore: ReadonlyRequestCookies,
+  key: COOKIES,
+  defaultValue: unknown = {}
+) => {
+  const cookie = cookieStore.get(key);
+  return cookie?.value ? JSON.parse(cookie.value) : defaultValue;
+};
 
 export enum SESSION_STORAGE {
   PRODUCTS = "products"
+}
+
+export enum COOKIES {
+  DONATOR = "donator",
+  RECIPIENT = "recipient"
 }
 
 export const REQUIRED = {

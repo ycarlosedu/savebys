@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/fecomerciors";
 import fecomerciorsServices from "@/services/fecomerciors";
@@ -25,19 +23,14 @@ import {
   PHONE_NUMBER_REGEX
 } from "@/utils/regex";
 
-import {
-  INVALID,
-  LOCAL_STORAGE,
-  REQUIRED,
-  getLocalStorage,
-  setLocalStorage
-} from "@/constants";
+import { INVALID, REQUIRED } from "@/constants";
 
 import { X } from "@phosphor-icons/react";
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 import Button from "../Button";
 import Input from "../Input";
+import { saveRecipient } from "./actions";
 
 export type RecipientValues = {
   personType: PERSON_TYPE.LEGAL;
@@ -54,6 +47,8 @@ export type RecipientValues = {
   publicPlaceNumber: string;
   addOn: string;
 };
+
+export type RecipientValuesWithId = RecipientValues & { companyId: string };
 
 const validationSchema = yup.object().shape({
   companyName: yup.string().required(REQUIRED.FIELD),
@@ -88,7 +83,10 @@ const validationSchema = yup.object().shape({
   addOn: yup.string()
 });
 
-export default function Dialog_RecipientForm() {
+type Props = {
+  recipient: RecipientValuesWithId;
+};
+export default function Dialog_RecipientForm({ recipient }: Props) {
   const { toggleMenu, recipientFormOpened } = useMenuStore();
   const { products, reset: clearProducts } = useProductStore();
 
@@ -96,7 +94,7 @@ export default function Dialog_RecipientForm() {
     try {
       const { companyId } = await fecomerciorsServices.signupCompany(values);
       await fecomerciorsServices.receiveDonation(products, companyId);
-      setLocalStorage(LOCAL_STORAGE.RECIPIENT, values);
+      saveRecipient({ ...values, companyId });
       clearProducts();
       toggleModal();
       toggleMenu(MENU.RECEIVE_SUCESS_DONATION);
@@ -113,37 +111,26 @@ export default function Dialog_RecipientForm() {
     handleSubmit,
     touched,
     errors,
-    isSubmitting,
-    setValues
+    isSubmitting
   } = useFormik({
     initialValues: {
-      personType: PERSON_TYPE.LEGAL,
-      fullName: "",
-      companyName: "",
-      document: "",
-      cnae: "",
-      emailAddress: "",
-      phoneNumber: "",
-      postalCode: "",
-      countryDivision: "RS",
-      city: "",
-      publicPlaceName: "",
-      publicPlaceNumber: "",
-      addOn: ""
+      personType: recipient.personType || PERSON_TYPE.LEGAL,
+      fullName: recipient.fullName || "",
+      companyName: recipient.companyName || "",
+      document: recipient.document || "",
+      cnae: recipient.cnae || "",
+      emailAddress: recipient.emailAddress || "",
+      phoneNumber: recipient.phoneNumber || "",
+      postalCode: recipient.postalCode || "",
+      countryDivision: recipient.countryDivision || "RS",
+      city: recipient.city || "",
+      publicPlaceName: recipient.publicPlaceName || "",
+      publicPlaceNumber: recipient.publicPlaceNumber || "",
+      addOn: recipient.addOn || ""
     },
     validationSchema,
     onSubmit
   });
-
-  useEffect(() => {
-    const previousRecipient = getLocalStorage(
-      LOCAL_STORAGE.RECIPIENT
-    ) as RecipientValues;
-    if (Object.keys(previousRecipient).length) {
-      setValues(previousRecipient);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const toggleModal = () => {
     toggleMenu(MENU.RECIPIENT_FORM);
@@ -169,6 +156,7 @@ export default function Dialog_RecipientForm() {
                   Razão Social
                 </Input.Label>
                 <Input.Text
+                  autoCapitalize="sentences"
                   name="companyName"
                   id="companyName"
                   placeholder="Qual o nome da empresa?"
@@ -202,7 +190,7 @@ export default function Dialog_RecipientForm() {
 
               <Input.Fieldset>
                 <Input.Label htmlFor="cnae" required>
-                  Cnae
+                  CNAE
                 </Input.Label>
                 <Input.Mask
                   name="cnae"
@@ -223,6 +211,7 @@ export default function Dialog_RecipientForm() {
                   Nome da Pessoa de Contato
                 </Input.Label>
                 <Input.Text
+                  autoCapitalize="sentences"
                   name="fullName"
                   id="fullName"
                   placeholder="Como se chama?"
@@ -329,6 +318,7 @@ export default function Dialog_RecipientForm() {
                   Cidade
                 </Input.Label>
                 <Input.Text
+                  autoCapitalize="sentences"
                   name="city"
                   id="city"
                   placeholder="De onde você é?"
@@ -345,6 +335,7 @@ export default function Dialog_RecipientForm() {
                   Logradouro
                 </Input.Label>
                 <Input.Text
+                  autoCapitalize="sentences"
                   name="publicPlaceName"
                   id="publicPlaceName"
                   placeholder="Rua, Avenida, etc."
@@ -385,6 +376,7 @@ export default function Dialog_RecipientForm() {
                 <Input.Fieldset>
                   <Input.Label htmlFor="addOn">Complemento</Input.Label>
                   <Input.Text
+                    autoCapitalize="sentences"
                     name="addOn"
                     id="addOn"
                     placeholder="Bloco, Sala, etc."

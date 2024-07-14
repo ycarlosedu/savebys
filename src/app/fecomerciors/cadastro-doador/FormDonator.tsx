@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 import Button from "@/components/Button";
 import Input from "@/components/Input";
@@ -26,16 +25,11 @@ import {
   PHONE_NUMBER_REGEX
 } from "@/utils/regex";
 
-import {
-  INVALID,
-  LOCAL_STORAGE,
-  PAGE,
-  REQUIRED,
-  getLocalStorage,
-  setLocalStorage
-} from "@/constants";
+import { INVALID, PAGE, REQUIRED } from "@/constants";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
+
+import { saveDonator } from "./actions";
 
 export type DonatorValues = {
   personType: PERSON_TYPE;
@@ -51,6 +45,8 @@ export type DonatorValues = {
   publicPlaceNumber: string;
   addOn: string;
 };
+
+export type DonatorValuesWithId = DonatorValues & { donatorId: string };
 
 const validationSchema = yup.object().shape({
   personType: yup
@@ -107,20 +103,23 @@ const RADIOS_PROFILES = [
   }
 ];
 
-export default function FormDonator() {
+type Props = {
+  previousDonator?: DonatorValuesWithId;
+};
+
+export default function FormDonator({ previousDonator }: Props) {
   const router = useRouter();
 
   const onSubmit = async (values: DonatorValues) => {
     try {
       if (values.personType === PERSON_TYPE.LEGAL) {
         const { companyId } = await fecomerciorsServices.signupCompany(values);
-        setLocalStorage(LOCAL_STORAGE.DONATOR_ID, companyId);
+        saveDonator({ ...values, donatorId: companyId });
       } else {
         const { individualId } =
           await fecomerciorsServices.signupIndividual(values);
-        setLocalStorage(LOCAL_STORAGE.DONATOR_ID, individualId);
+        saveDonator({ ...values, donatorId: individualId });
       }
-      setLocalStorage(LOCAL_STORAGE.DONATOR, values);
 
       router.push(PAGE.FECOMERCIO.REGISTER_FURNITURE);
     } catch (error) {
@@ -137,36 +136,25 @@ export default function FormDonator() {
     touched,
     errors,
     isSubmitting,
-    setValues,
     setFieldValue
   } = useFormik({
     initialValues: {
-      personType: PERSON_TYPE.LEGAL,
-      fullName: "",
-      companyName: "",
-      document: "",
-      emailAddress: "",
-      phoneNumber: "",
-      postalCode: "",
-      countryDivision: "RS",
-      city: "",
-      publicPlaceName: "",
-      publicPlaceNumber: "",
-      addOn: ""
+      personType: previousDonator?.personType || PERSON_TYPE.LEGAL,
+      fullName: previousDonator?.fullName || "",
+      companyName: previousDonator?.companyName || "",
+      document: previousDonator?.document || "",
+      emailAddress: previousDonator?.emailAddress || "",
+      phoneNumber: previousDonator?.phoneNumber || "",
+      postalCode: previousDonator?.postalCode || "",
+      countryDivision: previousDonator?.countryDivision || "RS",
+      city: previousDonator?.city || "",
+      publicPlaceName: previousDonator?.publicPlaceName || "",
+      publicPlaceNumber: previousDonator?.publicPlaceNumber || "",
+      addOn: previousDonator?.addOn || ""
     },
     validationSchema,
     onSubmit
   });
-
-  useEffect(() => {
-    const previousDonator = getLocalStorage(
-      LOCAL_STORAGE.DONATOR
-    ) as DonatorValues;
-    if (Object.keys(previousDonator).length) {
-      setValues(previousDonator);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <form
@@ -190,6 +178,7 @@ export default function FormDonator() {
               Nome Completo
             </Input.Label>
             <Input.Text
+              autoCapitalize="sentences"
               name="fullName"
               id="fullName"
               placeholder="Como se chama?"
@@ -226,6 +215,7 @@ export default function FormDonator() {
               Razão Social
             </Input.Label>
             <Input.Text
+              autoCapitalize="sentences"
               name="companyName"
               id="companyName"
               placeholder="Qual o nome da empresa?"
@@ -262,6 +252,7 @@ export default function FormDonator() {
               Nome da Pessoa de Contato
             </Input.Label>
             <Input.Text
+              autoCapitalize="sentences"
               name="fullName"
               id="fullName"
               placeholder="Como se chama?"
@@ -362,6 +353,7 @@ export default function FormDonator() {
           Cidade
         </Input.Label>
         <Input.Text
+          autoCapitalize="sentences"
           name="city"
           id="city"
           placeholder="De onde você é?"
@@ -378,6 +370,7 @@ export default function FormDonator() {
           Logradouro
         </Input.Label>
         <Input.Text
+          autoCapitalize="sentences"
           name="publicPlaceName"
           id="publicPlaceName"
           placeholder="Rua, Avenida, etc."
@@ -414,6 +407,7 @@ export default function FormDonator() {
         <Input.Fieldset>
           <Input.Label htmlFor="addOn">Complemento</Input.Label>
           <Input.Text
+            autoCapitalize="sentences"
             name="addOn"
             id="addOn"
             placeholder="Bloco, Sala, etc."
