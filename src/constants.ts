@@ -2,8 +2,8 @@ import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adap
 
 export enum BFFs {
   // GATEKEEPER = "https://app-sk5dez4kca-uc.a.run.app"
-  GATEKEEPER = "http://localhost:3000/api"
-  // GATEKEEPER = "https://savebys-git-feat-fecomercio-ycarlosedus-projects.vercel.app/api"
+  // GATEKEEPER = "http://localhost:3000/api"
+  GATEKEEPER = "https://savebys-git-feat-fecomercio-ycarlosedus-projects.vercel.app/api"
 }
 
 export const DEFAULT_ERROR_MESSAGE =
