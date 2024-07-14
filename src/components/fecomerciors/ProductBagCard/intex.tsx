@@ -31,7 +31,7 @@ export default function ProductBagCard({ furniture, ...rest }: Props) {
 
   return (
     <div
-      className={`flex gap-8 p-8 w-full border border-black rounded-[32px] ${animation ? "animate-hideAndScaleDown" : ""}`}
+      className={`flex flex-col md:flex-row gap-8 p-8 w-full border border-black rounded-[32px] ${animation ? "animate-hideAndScaleDown" : ""}`}
       {...rest}
     >
       <Image
@@ -42,7 +42,7 @@ export default function ProductBagCard({ furniture, ...rest }: Props) {
         height={200}
       />
       <div className="flex flex-col gap-3 w-full">
-        <div className="flex items-center justify-between gap-6">
+        <div className="flex flex-wrap md:flex-nowrap items-center md:justify-between gap-6">
           <p className="text-2xl text-gray-secondary w-full">
             {furniture.description}
           </p>

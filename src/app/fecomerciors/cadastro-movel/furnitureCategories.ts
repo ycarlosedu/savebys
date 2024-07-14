@@ -4,8 +4,8 @@ const furnitureCategories = [
     value: "Educação"
   },
   {
-    name: "Hotelaria/Restaurantes",
-    value: "Hotelaria/Restaurantes"
+    name: "Hotelaria / Restaurantes",
+    value: "Hotelaria / Restaurantes"
   },
   {
     name: "Materiais de Escritório",

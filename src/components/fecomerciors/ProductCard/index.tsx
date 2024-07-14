@@ -41,7 +41,7 @@ export default function ProductCard({ furniture, ...rest }: Props) {
 
   return (
     <div
-      className="cursor-pointer flex flex-col gap-6 border p-4 border-transparent rounded-3xl transition-all ease-in-out hover:bg-gray-minimum hover:border-neutral/50"
+      className="w-[334px] cursor-pointer flex flex-col gap-6 border p-4 border-transparent rounded-3xl transition-all ease-in-out hover:bg-gray-minimum hover:border-neutral/50"
       onClick={() => goToProduct(furniture.id)}
       {...rest}
     >
@@ -53,7 +53,7 @@ export default function ProductCard({ furniture, ...rest }: Props) {
         height={260}
       />
       <div className="flex flex-col gap-1 w-full">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2">
           <p className="font-medium text-xl text-black">
             {furniture.description}
           </p>
@@ -66,7 +66,7 @@ export default function ProductCard({ furniture, ...rest }: Props) {
                     ? removeFromCart(furniture)
                     : addToCart(furniture);
                 }}
-                className="link-btn-secondary w-[48px] h-[48px] p-0"
+                className="link-btn-secondary min-w-[48px] w-[48px] h-[48px] p-0"
               >
                 {isProductInCart ? (
                   <CheckFat size={32} />

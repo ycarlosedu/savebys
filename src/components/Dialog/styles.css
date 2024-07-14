@@ -11,7 +11,7 @@
 }
 
 .Dialog_Title {
-  @apply font-semibold text-gray-dark text-3xl text-center md:text-[2.75rem] md:leading-[64px];
+  @apply font-semibold text-gray-dark text-center text-[2.75rem] leading-[64px];
 }
 
 .Dialog_Title > span {
@@ -19,7 +19,7 @@
 }
 
 .Dialog_Description {
-  @apply text-gray-secondary text-sm leading-4 text-center md:text-lg md:leading-8;
+  @apply text-gray-secondary text-center text-lg leading-8;
 }
 
 .Dialog_Form {

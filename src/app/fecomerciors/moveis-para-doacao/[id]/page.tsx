@@ -33,7 +33,7 @@ export default async function FurnitureDetailsPage({ params }: Props) {
   }
 
   return (
-    <section className="flex justify-between gap-6 items-start w-full max-w-[1285px]">
+    <section className="flex flex-col md:flex-row px-default justify-between gap-6 items-start w-full max-w-[1285px]">
       <Image
         src={furniture.image}
         alt={`Imagem do móvel ${furniture.id}: ${furniture.description}`}

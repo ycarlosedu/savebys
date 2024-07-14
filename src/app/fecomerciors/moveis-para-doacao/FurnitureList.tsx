@@ -26,6 +26,7 @@ export default function FurnitureList() {
     animateBagButton,
     setAnimateBagButton
   } = useProductStore();
+
   const { data, isPending } = useQuery({
     queryKey: ["posts", currentPage, filters.category],
     queryFn: () =>
@@ -47,14 +48,14 @@ export default function FurnitureList() {
       <h2 className="text-4xl font-semibold text-gray-secondary">
         {filters.category}
       </h2>
-      {data?.products.length === 0 ? (
+      {!data?.products || data?.products.length === 0 ? (
         <p className="w-full text-xl text-center">
           Nenhum produto encontrado...
         </p>
       ) : (
         <>
           <FurniturePagination />
-          <div className="flex flex-wrap gap-8 justify-between">
+          <div className="flex flex-wrap gap-8 justify-center md:justify-between">
             {data?.products.map((furniture) => (
               <ProductCard furniture={furniture} key={furniture.id} />
             ))}

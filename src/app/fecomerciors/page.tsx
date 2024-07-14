@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function FecomercioCampaign() {
   return (
     <>
-      <div className="flex items-center justify-center gap-8 pt-16 px-default">
+      <div className="flex flex-col gap-4 pt-8 md:flex-row md:gap-8 md:pt-16 items-center justify-center px-default">
         <Link href="./cadastro-doador" className="link-btn h-[58px]">
           QUERO DOAR MÓVEIS
           <CaretRight size={16} />

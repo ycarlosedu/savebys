@@ -30,13 +30,13 @@ export default async function FurnituresToDonation() {
   const dehydratedState = dehydrate(queryClient);
 
   return (
-    <section className="flex flex-col p-12 gap-6 items-center w-full max-w-[1282px]">
+    <section className="flex flex-col py-12 px-default gap-6 items-center w-full max-w-[1282px]">
       <Image
         src="/images/campaigns/fecomerciors/banner-1265x340.png"
         alt="Banner da campanha Mobília Solidária"
         width={1265}
         height={340}
-        className="w-[1265px] h-[340px] object-cover"
+        className="w-[1265px] h-[180px] object-none xs:h-[340px] xs:object-cover"
       />
 
       <FurnitureFilter />

@@ -21,11 +21,11 @@ export default function FilterFurnitureDropdown() {
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <button
-          aria-label="Alterar Categoria do Móvel"
+          aria-label="Alterar pesquisa por área de atuação"
           className="rounded-[36px] flex items-center gap-2 p-2 border border-white/50 text-white"
         >
           <Desk size={24} />
-          Categoria do Móvel
+          Área de Atuação
           <CaretDown size={18} />
         </button>
       </DropdownMenu.Trigger>

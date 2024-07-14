@@ -135,14 +135,15 @@ export default function FormFurniture() {
         className="w-full flex flex-col gap-6"
       >
         <Input.Fieldset>
-          <div className="flex gap-5">
+          <div className="flex gap-5 items-center flex-col xs:flex-row">
             <Image
               src={values.image}
               width={100}
               height={100}
               alt="Imagem do móvel a ser doado."
+              className="rounded-md w-[100px] h-[100px] object-contain"
             />
-            <div className="flex flex-col gap-3 justify-between">
+            <div className="flex flex-col gap-3 justify-between items-center xs:items-start">
               <p className="text-sm italic text-gray-dark">
                 Selecione uma imagem (com menos de 1MB).
               </p>

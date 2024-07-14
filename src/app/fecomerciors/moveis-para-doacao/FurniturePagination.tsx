@@ -30,15 +30,10 @@ export default function FurniturePagination() {
 
   return (
     <Pagination>
+      {currentPage > 1 && (
+        <PaginationPreviousAsButton onClick={() => goToPage(currentPage - 1)} />
+      )}
       <PaginationContent>
-        {currentPage > 1 && (
-          <PaginationItem>
-            <PaginationPreviousAsButton
-              onClick={() => goToPage(currentPage - 1)}
-            />
-          </PaginationItem>
-        )}
-
         {pages.map((page) => {
           const showPage = showedPages.find((p) => p === page);
           const showNextEllipsis = !showedPages.find(
@@ -64,13 +59,10 @@ export default function FurniturePagination() {
             </React.Fragment>
           );
         })}
-
-        {currentPage < totalPages && (
-          <PaginationItem>
-            <PaginationNextAsButton onClick={() => goToPage(currentPage + 1)} />
-          </PaginationItem>
-        )}
       </PaginationContent>
+      {currentPage < totalPages && (
+        <PaginationNextAsButton onClick={() => goToPage(currentPage + 1)} />
+      )}
     </Pagination>
   );
 }
