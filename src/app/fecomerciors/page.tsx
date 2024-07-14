@@ -48,6 +48,7 @@ export default function FecomercioCampaign() {
           alt="Banner da campanha Mobília Solidária"
           width={900}
           height={560}
+          priority
         />
         <div className="flex flex-col items-start gap-4 text-lg">
           <p>

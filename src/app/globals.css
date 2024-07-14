@@ -46,6 +46,10 @@ html {
     max-width: 1200px;
   }
 
+  .min-h-fecomercio {
+    min-height: calc(100vh - 260px - 120px);
+  }
+
   .px-default {
     @apply px-4 xs:px-8;
   }

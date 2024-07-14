@@ -7,7 +7,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
 import { Product } from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 
-import { PAGE } from "@/constants";
+import { PAGE, sliceMaxLength } from "@/constants";
 
 import { CheckFat, ShoppingBag } from "@phosphor-icons/react/dist/ssr";
 
@@ -40,6 +40,7 @@ export default function ProductCard({ furniture, ...rest }: Props) {
     <div
       className="w-[334px] cursor-pointer flex flex-col gap-6 border p-4 border-transparent rounded-3xl transition-all ease-in-out hover:bg-gray-minimum hover:border-neutral/50"
       onClick={() => goToProduct(furniture.id)}
+      aria-label="Clique aqui para ver detalhes do móvel"
       {...rest}
     >
       <Image
@@ -52,7 +53,7 @@ export default function ProductCard({ furniture, ...rest }: Props) {
       <div className="flex flex-col gap-1 w-full">
         <div className="flex items-center justify-between gap-2">
           <p className="font-medium text-xl text-black">
-            {furniture.description}
+            {sliceMaxLength(furniture.description, 43)}
           </p>
           <Tooltip>
             <TooltipTrigger asChild>

@@ -9,9 +9,8 @@ export async function GET(
   const furniture = fixtures.products.find(
     (product) => product.id === params.id
   );
-  console.log("🚀 ~ furniture:", furniture);
   if (!furniture) {
-    return Response.error();
+    return Response.json({ message: "Product not found" }, { status: 404 });
   }
   return Response.json(furniture);
 }

@@ -1,7 +1,7 @@
 export enum BFFs {
   // GATEKEEPER = "https://app-sk5dez4kca-uc.a.run.app"
-  // GATEKEEPER = "http://localhost:3000/api"
-  GATEKEEPER = "https://savebys.com/api"
+  GATEKEEPER = "http://localhost:3000/api"
+  // GATEKEEPER = "https://savebys-git-feat-fecomercio-ycarlosedus-projects.vercel.app/api"
 }
 
 export const DEFAULT_ERROR_MESSAGE =
@@ -15,6 +15,10 @@ export const setLocalStorage = (key: string, value: unknown) => {
   if (typeof window != "undefined") {
     localStorage.setItem(key, JSON.stringify(value));
   }
+};
+
+export const sliceMaxLength = (text: string, maxLength: number) => {
+  return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
 };
 
 export const getLocalStorage = (

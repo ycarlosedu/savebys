@@ -52,6 +52,7 @@ export default async function FurnituresToDonation() {
         width={1265}
         height={340}
         className="w-[1265px] h-[180px] object-none xs:h-[340px] xs:object-cover"
+        priority
       />
 
       <FurnitureFilter />

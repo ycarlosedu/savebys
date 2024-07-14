@@ -16,13 +16,19 @@ export async function fetchRequest<T = unknown>(
     },
     body
   });
-  if (!response.ok) {
-    throw new Error("Erro ao realizar chamada: " + url);
-  }
 
   if (response.headers.get("Content-Type") === "application/json") {
-    const reponseJSON = await response.json();
-    return reponseJSON as T;
+    const responseJSON = await response.json();
+
+    if (!response.ok) {
+      return Promise.reject({ ...responseJSON, status: response.status });
+    }
+
+    return responseJSON as T;
+  }
+
+  if (!response.ok) {
+    return Promise.reject(response);
   }
 
   return response as T;
