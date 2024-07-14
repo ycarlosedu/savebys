@@ -42,6 +42,7 @@ const useProductStore = create<Store>()(
           { ...product, quantitySelected: 1 }
         ];
         set({
+          animateBagButton: true,
           products: newProducts
         });
       },
@@ -50,6 +51,7 @@ const useProductStore = create<Store>()(
           (product) => product.id !== id
         );
         set({
+          animateBagButton: true,
           products: newProducts
         });
       },

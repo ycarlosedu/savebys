@@ -17,8 +17,7 @@ type Props = ComponentProps<"div"> & {
 export default function ProductCard({ furniture, ...rest }: Props) {
   const router = useRouter();
 
-  const { addProduct, removeProduct, products, setAnimateBagButton } =
-    useProductStore();
+  const { addProduct, removeProduct, products } = useProductStore();
   const [isProductInCart, setIsProductInCart] = useState(false);
 
   useEffect(() => {
@@ -26,12 +25,10 @@ export default function ProductCard({ furniture, ...rest }: Props) {
   }, [products, furniture.id]);
 
   const addToCart = (furniture: Product) => {
-    setAnimateBagButton(true);
     addProduct(furniture);
   };
 
   const removeFromCart = (furniture: Product) => {
-    setAnimateBagButton(true);
     removeProduct(furniture.id);
   };
 

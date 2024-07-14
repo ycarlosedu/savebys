@@ -9,7 +9,7 @@ import { ShoppingBagOpen } from "@phosphor-icons/react/dist/ssr";
 import Logo from "images/savebys/logo-savebys-gray-slogan-cropped.svg";
 
 export default function Header() {
-  const { products } = useProductStore();
+  const { products, animateBagButton, setAnimateBagButton } = useProductStore();
 
   return (
     <header className="w-full bg-white flex flex-col lg:flex-row gap-6 items-center justify-center py-4 text-center text-gray-secondary flex-wrap z-10">
@@ -35,12 +35,15 @@ export default function Header() {
           </Link>
           <Link
             href="/fecomerciors/minha-sacola"
-            className="link-btn-secondary h-[54px] relative"
+            className={`link-btn-secondary h-[54px] relative`}
           >
             Minha Sacola
             <ShoppingBagOpen size={32} />
             {products.length > 0 && (
-              <span className="absolute -top-3 -right-3 bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center">
+              <span
+                onAnimationEnd={() => setAnimateBagButton(false)}
+                className={`absolute -top-3 -right-3 bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center ${animateBagButton ? "animate-wiggle" : ""}`}
+              >
                 {products.length}
               </span>
             )}
