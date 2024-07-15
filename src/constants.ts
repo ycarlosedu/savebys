@@ -1,11 +1,9 @@
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 
-export enum BFFs {
-  // GATEKEEPER = "https://app-sk5dez4kca-uc.a.run.app"
-  // GATEKEEPER = "http://localhost:3000/api"
-  // GATEKEEPER = "https://savebys-git-feat-fecomercio-ycarlosedus-projects.vercel.app/api"
-  GATEKEEPER = "https://api-core-ae35f35ec0a3.herokuapp.com"
-}
+export const BFFs = {
+  // GATEKEEPER: "https://api-core-ae35f35ec0a3.herokuapp.com"
+  GATEKEEPER: process.env.NEXT_PUBLIC_BFF_GATEKEEPER
+};
 
 export const DEFAULT_ERROR_MESSAGE =
   "Ocorreu um erro, tente novamente mais tarde!";
