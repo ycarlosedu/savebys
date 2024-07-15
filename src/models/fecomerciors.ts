@@ -10,8 +10,8 @@ export enum ACCEPTED_DOCUMENTS {
 }
 
 export type Document = {
-  document: string;
-  type: ACCEPTED_DOCUMENTS;
+  docValue: string;
+  docName: ACCEPTED_DOCUMENTS;
 };
 
 type ContactInfo = {

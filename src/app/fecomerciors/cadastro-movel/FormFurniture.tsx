@@ -25,7 +25,7 @@ export type FurnitureValues = {
   productType: string;
   productDescription: string;
   quantity: number;
-  additionalInfo: string;
+  additionalInfos: string;
   city: string;
 };
 
@@ -43,7 +43,7 @@ const validationSchema = yup.object().shape({
       REQUIRED.RADIO
     ),
   quantity: yup.number().min(1, INVALID.QUANTITY).required(REQUIRED.FIELD),
-  additionalInfo: yup.string(),
+  additionalInfos: yup.string(),
   city: yup.string().required(REQUIRED.FIELD)
 });
 
@@ -52,11 +52,11 @@ type Props = {
 };
 export default function FormFurniture({ donator }: Props) {
   const { toggleMenu } = useMenuStore();
-  const { donatorId } = donator;
+  const { giverId } = donator;
 
   const onSubmit = async (values: FurnitureValues) => {
     try {
-      await fecomerciorsServices.registerDonation(values, donatorId);
+      await fecomerciorsServices.registerDonation(values, giverId);
       toggleMenu(MENU.SUCESS_DONATE);
     } catch (error) {
       toast.error(
@@ -82,7 +82,7 @@ export default function FormFurniture({ donator }: Props) {
       productDescription: "",
       quantity: 1,
       productType: furnitureCategories[0].value,
-      additionalInfo: "",
+      additionalInfos: "",
       city: donator.city || ""
     },
     validationSchema,
@@ -221,21 +221,21 @@ export default function FormFurniture({ donator }: Props) {
         </Input.Fieldset>
 
         <Input.Fieldset>
-          <Input.Label htmlFor="additionalInfo">
+          <Input.Label htmlFor="additionalInfos">
             Informações Complementares (tamanho, cor, material)
           </Input.Label>
           <Input.Text
             autoCapitalize="sentences"
-            name="additionalInfo"
-            id="additionalInfo"
+            name="additionalInfos"
+            id="additionalInfos"
             placeholder="ex: 2m², vermelho, de madeira"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.additionalInfo}
-            data-invalid={touched.additionalInfo && errors.additionalInfo}
+            value={values.additionalInfos}
+            data-invalid={touched.additionalInfos && errors.additionalInfos}
           />
           <Input.Error>
-            {touched.additionalInfo && errors.additionalInfo}
+            {touched.additionalInfos && errors.additionalInfos}
           </Input.Error>
         </Input.Fieldset>
 

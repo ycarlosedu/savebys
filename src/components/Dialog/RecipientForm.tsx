@@ -1,5 +1,6 @@
 "use client";
 
+import { saveRecipient } from "@/actions/cookies";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/fecomerciors";
 import fecomerciorsServices from "@/services/fecomerciors";
@@ -30,7 +31,6 @@ import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 import Button from "../Button";
 import Input from "../Input";
-import { saveRecipient } from "./actions";
 
 export type RecipientValues = {
   personType: PERSON_TYPE.LEGAL;
@@ -48,7 +48,7 @@ export type RecipientValues = {
   addOn: string;
 };
 
-export type RecipientValuesWithId = RecipientValues & { companyId: string };
+export type RecipientValuesWithId = RecipientValues & { companyId: number };
 
 const validationSchema = yup.object().shape({
   companyName: yup.string().required(REQUIRED.FIELD),

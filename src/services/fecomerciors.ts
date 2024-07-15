@@ -20,14 +20,14 @@ const createDonatorBody = (values: DonatorValues | RecipientValues) => {
     fullName: values.fullName,
     documents: [
       {
-        document: unmask(values.document),
-        type: ACCEPTED_DOCUMENTS[values.personType]
+        docValue: unmask(values.document),
+        docName: ACCEPTED_DOCUMENTS[values.personType]
       },
       {
-        document: isRecipient(values) ? unmask(values.cnae) : "",
-        type: ACCEPTED_DOCUMENTS.CNAE
+        docValue: isRecipient(values) ? unmask(values.cnae) : "",
+        docName: ACCEPTED_DOCUMENTS.CNAE
       }
-    ].filter((doc) => doc.document != ""),
+    ].filter((doc) => doc.docValue != ""),
     contactInfo: {
       personName: values.fullName,
       email: values.emailAddress,
@@ -48,10 +48,10 @@ const createDonatorBody = (values: DonatorValues | RecipientValues) => {
 };
 
 export type SignupCompanyResponse = {
-  companyId: string;
+  companyId: number;
 };
 export const generateSignupCompanyEndpoint = () =>
-  `${BFFs.GATEKEEPER}/signup/companies`;
+  `${BFFs.GATEKEEPER}/signup/company`;
 export const signupCompany = async (
   values: DonatorValues | RecipientValues
 ): Promise<SignupCompanyResponse> => {
@@ -62,10 +62,10 @@ export const signupCompany = async (
 };
 
 export type SignupIndividualResponse = {
-  individualId: string;
+  individualId: number;
 };
 export const generateSignupIndividualEndpoint = () =>
-  `${BFFs.GATEKEEPER}/signup/individuals`;
+  `${BFFs.GATEKEEPER}/signup/individual`;
 export const signupIndividual = async (
   values: DonatorValues
 ): Promise<SignupIndividualResponse> => {
@@ -79,7 +79,7 @@ export const generateReceiveDonationEndpoint = () =>
   `${BFFs.GATEKEEPER}/donation/receiving`;
 export const receiveDonation = async (
   products: Product[],
-  recipientId: string
+  recipientId: number
 ) => {
   const body = {
     products: products.map((product) => ({
@@ -95,11 +95,11 @@ export const generateRegisterDonationEndpoint = () =>
   `${BFFs.GATEKEEPER}/donation/giving`;
 export const registerDonation = async (
   values: FurnitureValues,
-  donatorId: string
+  giverId: number
 ) => {
   return request.post(generateRegisterDonationEndpoint(), {
     ...values,
-    donatorId
+    giverId
   });
 };
 
@@ -110,7 +110,7 @@ export type Product = {
   image: string;
   quantity: number;
   quantitySelected?: number;
-  additionalInfo?: string;
+  additionalInfos?: string;
 };
 export type getProductsResponse = {
   page: number;

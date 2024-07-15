@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
+import { saveDonator } from "@/actions/cookies";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import RadioGroupInputs from "@/components/RadioGroup";
@@ -29,8 +30,6 @@ import { INVALID, PAGE, REQUIRED } from "@/constants";
 
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
-import { saveDonator } from "./actions";
-
 export type DonatorValues = {
   personType: PERSON_TYPE;
   fullName: string;
@@ -46,7 +45,7 @@ export type DonatorValues = {
   addOn: string;
 };
 
-export type DonatorValuesWithId = DonatorValues & { donatorId: string };
+export type DonatorValuesWithId = DonatorValues & { giverId: number };
 
 const validationSchema = yup.object().shape({
   personType: yup
@@ -114,11 +113,11 @@ export default function FormDonator({ previousDonator }: Props) {
     try {
       if (values.personType === PERSON_TYPE.LEGAL) {
         const { companyId } = await fecomerciorsServices.signupCompany(values);
-        saveDonator({ ...values, donatorId: companyId });
+        saveDonator({ ...values, giverId: companyId });
       } else {
         const { individualId } =
           await fecomerciorsServices.signupIndividual(values);
-        saveDonator({ ...values, donatorId: individualId });
+        saveDonator({ ...values, giverId: individualId });
       }
 
       router.push(PAGE.FECOMERCIO.REGISTER_FURNITURE);

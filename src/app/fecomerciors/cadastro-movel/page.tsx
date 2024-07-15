@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function FurnitureRegister() {
   const cookieStore = cookies();
   const donator: DonatorValuesWithId = getCookies(cookieStore, COOKIES.DONATOR);
-  if (!donator.donatorId) {
+  if (!donator.giverId) {
     return redirect(PAGE.FECOMERCIO.REGISTER_DONATOR);
   }
 

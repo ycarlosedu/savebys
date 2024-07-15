@@ -43,7 +43,7 @@ export default function FurnitureDetails({ furniture }: Props) {
       </Link>
       <h1 className="text-4xl font-bold">{furniture.description}</h1>
       <p className="text-2xl">Onde retirar: {furniture.city}</p>
-      <p>Informações: {furniture.additionalInfo}</p>
+      <p>Informações: {furniture.additionalInfos}</p>
       <p>Quantidade disponível: {furniture.quantity}</p>
       <Button
         className="h-[58px]"

@@ -1,3 +1,3 @@
 export async function POST() {
-  return Response.json({ individualId: "321" });
+  return Response.json({ individualId: 321 });
 }
