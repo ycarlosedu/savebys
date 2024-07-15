@@ -51,6 +51,7 @@ export default function ProductBagCard({ furniture, ...rest }: Props) {
               <button
                 onClick={startAnimation}
                 className="link-btn-secondary min-w-12 w-12 h-12 p-0"
+                aria-label="Remover item da sacola"
               >
                 <Trash size={32} />
               </button>
@@ -63,6 +64,7 @@ export default function ProductBagCard({ furniture, ...rest }: Props) {
               disabled={furniture.quantitySelected === 1}
               onClick={() => decreaseProductQuantity(furniture.id)}
               className="px-3 w-12 h-12 p-1 flex items-center justify-center disabled:bg-gray-primary"
+              aria-label="Diminuir quantidade do item na sacola"
             >
               <Minus size={24} />
             </button>
@@ -73,6 +75,7 @@ export default function ProductBagCard({ furniture, ...rest }: Props) {
               onClick={() => increaseProductQuantity(furniture.id)}
               disabled={furniture.quantitySelected === furniture.quantity}
               className="px-3 w-12 h-12 p-1 flex items-center justify-center disabled:bg-gray-primary"
+              aria-label="Aumentar quantidade do item na sacola"
             >
               <Plus size={24} />
             </button>

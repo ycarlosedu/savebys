@@ -3,7 +3,7 @@
     {
       "id": "1",
       "city": "Porto Alegre",
-      "description": "Balcão de Cozinha preto com manchas brancas",
+      "description": "Mesa de Cozinha preta com manchas brancas",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 1
@@ -11,7 +11,7 @@
     {
       "id": "2",
       "city": "Canoas",
-      "description": "Cadeira de Escritório com defeito nas rodas traseiras",
+      "description": "Mesa de Escritório com defeito na parte traseira",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 2

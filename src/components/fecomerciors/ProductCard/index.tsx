@@ -65,6 +65,11 @@ export default function ProductCard({ furniture, ...rest }: Props) {
                     : addToCart(furniture);
                 }}
                 className="link-btn-secondary min-w-[48px] w-[48px] h-[48px] p-0"
+                aria-label={
+                  isProductInCart
+                    ? "Remover item da sacola"
+                    : "Adicionar item à sacola"
+                }
               >
                 {isProductInCart ? (
                   <CheckFat size={32} />

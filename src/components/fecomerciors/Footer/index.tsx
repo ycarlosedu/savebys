@@ -19,6 +19,7 @@ export default function Footer() {
                 href={social.url}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={`Acessar o perfil da SAVEBYS no ${social.name}`}
                 className="text-white bg-gray-tertiary shadow-xl p-1 rounded-md hover:bg-white hover:text-gray-secondary transition-all ease-in-out"
               >
                 <Icon size={24} />

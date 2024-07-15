@@ -64,12 +64,12 @@ export default function FurnitureList() {
         </>
       )}
       <FloatingButton
-        aria-label="Ir para minha sacola"
         onClick={goToBagPage}
         className={`bottom-20`}
         animation={animateBagButton ? "animate-wiggle" : undefined}
         onAnimationEnd={() => setAnimateBagButton(false)}
       >
+        <span className="sr-only">Ir para minha sacola</span>
         <ShoppingBagOpen size={32} />
         {products.length > 0 && (
           <span className="absolute -top-3 -right-3 bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center">
