@@ -38,6 +38,10 @@ export const getCookies = (
   return cookie?.value ? JSON.parse(cookie.value) : defaultValue;
 };
 
+export const sleep = (ms: number) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
 export enum SESSION_STORAGE {
   PRODUCTS = "products"
 }
