@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Logo from "images/savebys/logo-savebys-gray-slogan-cropped.svg";
+import Logo from "images/savebys/logo_slogan_gray_cropped.svg";
 
 import ActiveLink from "../ActiveLink";
 

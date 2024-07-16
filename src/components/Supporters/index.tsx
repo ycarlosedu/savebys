@@ -17,7 +17,12 @@ export default function Supporters() {
           {supportersList.map((supporter) => (
             <Tooltip key={supporter.name}>
               <TooltipTrigger asChild>
-                <a href={supporter.href} target="_blank" rel="noreferrer">
+                <a
+                  href={supporter.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-[150px] h-[150px] flex items-center"
+                >
                   <Image
                     src={supporter.image}
                     alt={"Logo do apoiador " + supporter.name}
