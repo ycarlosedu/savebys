@@ -241,13 +241,13 @@ export default function FormFurniture({ donator }: Props) {
 
         <Input.Fieldset>
           <Input.Label htmlFor="city" required>
-            Cidade
+            Cidade onde o móvel está localizado
           </Input.Label>
           <Input.Text
             autoCapitalize="sentences"
             name="city"
             id="city"
-            placeholder="Onde está localizado o móvel?"
+            placeholder="Onde o móvel está?"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.city}
