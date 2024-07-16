@@ -1,9 +1,6 @@
 import { Metadata } from "next";
-import { cookies } from "next/headers";
 
-import { COOKIES, getCookies } from "@/constants";
-
-import FormDonator, { DonatorValuesWithId } from "./FormDonator";
+import FormDonator from "./FormDonator";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -30,12 +27,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function DonatorRegister() {
-  const cookieStore = cookies();
-  const previousDonator: DonatorValuesWithId = getCookies(
-    cookieStore,
-    COOKIES.DONATOR
-  );
-
   return (
     <section className="flex flex-col p-12 gap-6 items-center w-full max-w-[500px]">
       <h1 className="form-title text-gray-dark">
@@ -45,7 +36,7 @@ export default function DonatorRegister() {
         Coloque seus dados para ser um dos nossos doadores e ajudar os negócios
         que amamos!
       </h2>
-      <FormDonator previousDonator={previousDonator} />
+      <FormDonator />
     </section>
   );
 }

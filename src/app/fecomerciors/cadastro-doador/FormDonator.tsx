@@ -102,11 +102,7 @@ const RADIOS_PROFILES = [
   }
 ];
 
-type Props = {
-  previousDonator?: DonatorValuesWithId;
-};
-
-export default function FormDonator({ previousDonator }: Props) {
+export default function FormDonator() {
   const router = useRouter();
 
   const onSubmit = async (values: DonatorValues) => {
@@ -138,18 +134,18 @@ export default function FormDonator({ previousDonator }: Props) {
     setFieldValue
   } = useFormik({
     initialValues: {
-      personType: previousDonator?.personType || PERSON_TYPE.LEGAL,
-      fullName: previousDonator?.fullName || "",
-      companyName: previousDonator?.companyName || "",
-      document: previousDonator?.document || "",
-      emailAddress: previousDonator?.emailAddress || "",
-      phoneNumber: previousDonator?.phoneNumber || "",
-      postalCode: previousDonator?.postalCode || "",
-      countryDivision: previousDonator?.countryDivision || "RS",
-      city: previousDonator?.city || "",
-      publicPlaceName: previousDonator?.publicPlaceName || "",
-      publicPlaceNumber: previousDonator?.publicPlaceNumber || "",
-      addOn: previousDonator?.addOn || ""
+      personType: PERSON_TYPE.LEGAL,
+      fullName: "",
+      companyName: "",
+      document: "",
+      emailAddress: "",
+      phoneNumber: "",
+      postalCode: "",
+      countryDivision: "RS",
+      city: "",
+      publicPlaceName: "",
+      publicPlaceNumber: "",
+      addOn: ""
     },
     validationSchema,
     onSubmit
