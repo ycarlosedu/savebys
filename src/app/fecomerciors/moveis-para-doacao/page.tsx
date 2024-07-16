@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-1265x340.png",
+          url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-1265x340.webp",
           width: 1265,
           height: 340
         }
@@ -47,7 +47,7 @@ export default async function FurnituresToDonation() {
   return (
     <section className="flex flex-col py-12 px-default gap-6 items-center w-full max-w-[1282px]">
       <Image
-        src="/images/campaigns/fecomerciors/banner-1265x340.png"
+        src="/images/campaigns/fecomerciors/banner-1265x340.webp"
         alt="Banner da campanha Mobília Solidária"
         width={1265}
         height={340}

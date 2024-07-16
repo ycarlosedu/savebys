@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-900x560.png",
+          url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-900x560.webp",
           width: 900,
           height: 560
         }

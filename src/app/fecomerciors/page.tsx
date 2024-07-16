@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-900x560.png",
+          url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-900x560.webp",
           width: 900,
           height: 560
         }
@@ -44,7 +44,7 @@ export default function FecomercioCampaign() {
       <section className="w-full max-w-[900px] px-default py-16 flex flex-col gap-8 items-center">
         <h1 className="title">CAMPANHA MOBÍLIA SOLIDÁRIA</h1>
         <Image
-          src="/images/campaigns/fecomerciors/banner-900x560.png"
+          src="/images/campaigns/fecomerciors/banner-900x560.webp"
           alt="Banner da campanha Mobília Solidária"
           width={900}
           height={560}
