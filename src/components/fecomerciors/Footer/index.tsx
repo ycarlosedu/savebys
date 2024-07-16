@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import socialMedias from "@/components/SocialMedias/socialMedias";
 
-import Logo from "images/savebys/logo-savebys-gray-slogan-cropped.svg";
+import Logo from "images/savebys/logo_slogan_gray_cropped.svg";
 
 export default function Footer() {
   return (

@@ -10,7 +10,7 @@ import useProductStore from "@/stores/productStore";
 import { cn } from "@/lib/utils";
 
 import { List, ShoppingBagOpen } from "@phosphor-icons/react/dist/ssr";
-import Logo from "images/savebys/logo-savebys-gray-slogan-cropped.svg";
+import Logo from "images/savebys/logo_slogan_gray_cropped.svg";
 
 type Props = ComponentProps<"div">;
 const Nav = ({ className, ...props }: Props) => {
