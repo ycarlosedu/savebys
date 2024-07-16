@@ -68,6 +68,7 @@ export default function FurnitureList() {
         className={`bottom-20`}
         animation={animateBagButton ? "animate-wiggle" : undefined}
         onAnimationEnd={() => setAnimateBagButton(false)}
+        aria-label="Ir para minha sacola"
       >
         <span className="sr-only">Ir para minha sacola</span>
         <ShoppingBagOpen size={32} />
