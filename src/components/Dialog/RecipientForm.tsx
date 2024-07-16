@@ -1,6 +1,13 @@
 "use client";
 
 import { saveRecipient } from "@/actions/cookies";
+import Button from "@/components/Button";
+import {
+  Checkbox,
+  CheckboxFieldset,
+  CheckboxLabel
+} from "@/components/Checkbox";
+import Input from "@/components/Input";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/fecomerciors";
 import fecomerciorsServices from "@/services/fecomerciors";
@@ -29,9 +36,6 @@ import { INVALID, REQUIRED } from "@/constants";
 import { X } from "@phosphor-icons/react";
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
-import Button from "../Button";
-import Input from "../Input";
-
 export type RecipientValues = {
   personType: PERSON_TYPE.LEGAL;
   companyName: string;
@@ -40,12 +44,14 @@ export type RecipientValues = {
   cnae: string;
   emailAddress: string;
   phoneNumber: string;
+  isWhatsApp: boolean;
   postalCode: string;
   countryDivision: string;
   city: string;
   publicPlaceName: string;
   publicPlaceNumber: string;
   addOn: string;
+  terms: boolean;
 };
 
 export type RecipientValuesWithId = RecipientValues & { companyId: number };
@@ -80,7 +86,8 @@ const validationSchema = yup.object().shape({
   city: yup.string().required(REQUIRED.FIELD),
   publicPlaceName: yup.string().required(REQUIRED.FIELD),
   publicPlaceNumber: yup.number().required(REQUIRED.FIELD),
-  addOn: yup.string()
+  addOn: yup.string(),
+  terms: yup.boolean().oneOf([true], REQUIRED.CHECKBOX)
 });
 
 export default function Dialog_RecipientForm() {
@@ -108,7 +115,8 @@ export default function Dialog_RecipientForm() {
     handleSubmit,
     touched,
     errors,
-    isSubmitting
+    isSubmitting,
+    setFieldValue
   } = useFormik({
     initialValues: {
       personType: PERSON_TYPE.LEGAL,
@@ -118,12 +126,14 @@ export default function Dialog_RecipientForm() {
       cnae: "",
       emailAddress: "",
       phoneNumber: "",
+      isWhatsApp: false,
       postalCode: "",
       countryDivision: "RS",
       city: "",
       publicPlaceName: "",
       publicPlaceNumber: "",
-      addOn: ""
+      addOn: "",
+      terms: false
     },
     validationSchema,
     onSubmit
@@ -258,6 +268,21 @@ export default function Dialog_RecipientForm() {
                 </Input.Error>
               </Input.Fieldset>
 
+              <CheckboxFieldset>
+                <Checkbox
+                  name="isWhatsApp"
+                  id="isWhatsApp"
+                  onCheckedChange={(value) =>
+                    setFieldValue("isWhatsApp", value)
+                  }
+                  onBlur={handleBlur}
+                  checked={values.isWhatsApp}
+                />
+                <CheckboxLabel htmlFor="isWhatsApp">
+                  O número informado possui WhatsApp?
+                </CheckboxLabel>
+              </CheckboxFieldset>
+
               <Input.Group>
                 <Input.Fieldset className="md:w-[38%]">
                   <Input.Label htmlFor="postalCode" required>
@@ -385,6 +410,20 @@ export default function Dialog_RecipientForm() {
                   <Input.Error>{touched.addOn && errors.addOn}</Input.Error>
                 </Input.Fieldset>
               </Input.Group>
+
+              <CheckboxFieldset>
+                <Checkbox
+                  name="terms"
+                  id="terms"
+                  onCheckedChange={(value) => setFieldValue("terms", value)}
+                  onBlur={handleBlur}
+                  checked={values.terms}
+                />
+                <CheckboxLabel htmlFor="terms">
+                  Aceito os termos e condições.
+                </CheckboxLabel>
+                <Input.Error>{touched.terms && errors.terms}</Input.Error>
+              </CheckboxFieldset>
 
               <Button
                 isLoading={isSubmitting}

@@ -50,6 +50,7 @@ export enum COOKIES {
 export const REQUIRED = {
   FIELD: "O campo não pode estar vazio.",
   RADIO: "Deve ser selecionada uma opção.",
+  CHECKBOX: "O campo deve ser marcado.",
   FILE: "Deve ser selecionado um arquivo.",
   MIN_LENGTH: (min: number) =>
     `O campo não pode ter menos de ${min} caracteres.`,

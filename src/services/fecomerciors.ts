@@ -18,6 +18,7 @@ const createDonatorBody = (values: DonatorValues | RecipientValues) => {
   const body: RegisterDonator = {
     companyName: values.companyName,
     fullName: values.fullName,
+    termsAccepted: values.terms,
     documents: [
       {
         docValue: unmask(values.document),
@@ -32,7 +33,7 @@ const createDonatorBody = (values: DonatorValues | RecipientValues) => {
       personName: values.fullName,
       email: values.emailAddress,
       phone: unmask(values.phoneNumber),
-      isWhatsApp: true
+      isWhatsApp: values.isWhatsApp
     },
     address: {
       postalCode: unmask(values.postalCode),

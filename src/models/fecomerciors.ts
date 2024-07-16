@@ -37,4 +37,5 @@ export type RegisterDonator = {
   documents: Document[];
   contactInfo: ContactInfo;
   address: Address;
+  termsAccepted: boolean;
 };

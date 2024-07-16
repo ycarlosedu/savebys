@@ -4,6 +4,11 @@ import { useRouter } from "next/navigation";
 
 import { saveDonator } from "@/actions/cookies";
 import Button from "@/components/Button";
+import {
+  Checkbox,
+  CheckboxFieldset,
+  CheckboxLabel
+} from "@/components/Checkbox";
 import Input from "@/components/Input";
 import RadioGroupInputs from "@/components/RadioGroup";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
@@ -37,12 +42,14 @@ export type DonatorValues = {
   document: string;
   emailAddress: string;
   phoneNumber: string;
+  isWhatsApp: boolean;
   postalCode: string;
   countryDivision: string;
   city: string;
   publicPlaceName: string;
   publicPlaceNumber: string;
   addOn: string;
+  terms: boolean;
 };
 
 export type DonatorValuesWithId = DonatorValues & { giverId: number };
@@ -87,7 +94,8 @@ const validationSchema = yup.object().shape({
   city: yup.string().required(REQUIRED.FIELD),
   publicPlaceName: yup.string().required(REQUIRED.FIELD),
   publicPlaceNumber: yup.number().required(REQUIRED.FIELD),
-  addOn: yup.string()
+  addOn: yup.string(),
+  terms: yup.boolean().oneOf([true], REQUIRED.CHECKBOX)
 });
 
 const RADIOS_PROFILES = [
@@ -140,12 +148,14 @@ export default function FormDonator() {
       document: "",
       emailAddress: "",
       phoneNumber: "",
+      isWhatsApp: false,
       postalCode: "",
       countryDivision: "RS",
       city: "",
       publicPlaceName: "",
       publicPlaceNumber: "",
-      addOn: ""
+      addOn: "",
+      terms: false
     },
     validationSchema,
     onSubmit
@@ -280,7 +290,7 @@ export default function FormDonator() {
 
       <Input.Fieldset>
         <Input.Label htmlFor="phoneNumber" required>
-          Celular (WhatsApp)
+          Celular
         </Input.Label>
         <Input.Mask
           name="phoneNumber"
@@ -294,6 +304,19 @@ export default function FormDonator() {
         />
         <Input.Error>{touched.phoneNumber && errors.phoneNumber}</Input.Error>
       </Input.Fieldset>
+
+      <CheckboxFieldset>
+        <Checkbox
+          name="isWhatsApp"
+          id="isWhatsApp"
+          onCheckedChange={(value) => setFieldValue("isWhatsApp", value)}
+          onBlur={handleBlur}
+          checked={values.isWhatsApp}
+        />
+        <CheckboxLabel htmlFor="isWhatsApp">
+          O número informado possui WhatsApp?
+        </CheckboxLabel>
+      </CheckboxFieldset>
 
       <Input.Group>
         <Input.Fieldset className="md:w-[38%]">
@@ -414,6 +437,20 @@ export default function FormDonator() {
           <Input.Error>{touched.addOn && errors.addOn}</Input.Error>
         </Input.Fieldset>
       </Input.Group>
+
+      <CheckboxFieldset>
+        <Checkbox
+          name="terms"
+          id="terms"
+          onCheckedChange={(value) => setFieldValue("terms", value)}
+          onBlur={handleBlur}
+          checked={values.terms}
+        />
+        <CheckboxLabel htmlFor="terms">
+          Aceito os termos e condições.
+        </CheckboxLabel>
+        <Input.Error>{touched.terms && errors.terms}</Input.Error>
+      </CheckboxFieldset>
 
       <Button type="submit" isLoading={isSubmitting} className="h-[58px] px-8">
         Avançar
