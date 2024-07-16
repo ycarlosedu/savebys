@@ -83,10 +83,7 @@ const validationSchema = yup.object().shape({
   addOn: yup.string()
 });
 
-type Props = {
-  recipient: RecipientValuesWithId;
-};
-export default function Dialog_RecipientForm({ recipient }: Props) {
+export default function Dialog_RecipientForm() {
   const { toggleMenu, recipientFormOpened } = useMenuStore();
   const { products, reset: clearProducts } = useProductStore();
 
@@ -114,19 +111,19 @@ export default function Dialog_RecipientForm({ recipient }: Props) {
     isSubmitting
   } = useFormik({
     initialValues: {
-      personType: recipient.personType || PERSON_TYPE.LEGAL,
-      fullName: recipient.fullName || "",
-      companyName: recipient.companyName || "",
-      document: recipient.document || "",
-      cnae: recipient.cnae || "",
-      emailAddress: recipient.emailAddress || "",
-      phoneNumber: recipient.phoneNumber || "",
-      postalCode: recipient.postalCode || "",
-      countryDivision: recipient.countryDivision || "RS",
-      city: recipient.city || "",
-      publicPlaceName: recipient.publicPlaceName || "",
-      publicPlaceNumber: recipient.publicPlaceNumber || "",
-      addOn: recipient.addOn || ""
+      personType: PERSON_TYPE.LEGAL,
+      fullName: "",
+      companyName: "",
+      document: "",
+      cnae: "",
+      emailAddress: "",
+      phoneNumber: "",
+      postalCode: "",
+      countryDivision: "RS",
+      city: "",
+      publicPlaceName: "",
+      publicPlaceNumber: "",
+      addOn: ""
     },
     validationSchema,
     onSubmit
