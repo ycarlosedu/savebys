@@ -98,7 +98,7 @@ export default function Dialog_RecipientForm() {
     try {
       const { companyId } = await fecomerciorsServices.signupCompany(values);
       await fecomerciorsServices.receiveDonation(products, companyId);
-      saveRecipient({ ...values, companyId });
+      await saveRecipient({ ...values, companyId });
       clearProducts();
       toggleModal();
       toggleMenu(MENU.RECEIVE_SUCESS_DONATION);

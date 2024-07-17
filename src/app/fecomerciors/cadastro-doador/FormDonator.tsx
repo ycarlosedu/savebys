@@ -117,11 +117,11 @@ export default function FormDonator() {
     try {
       if (values.personType === PERSON_TYPE.LEGAL) {
         const { companyId } = await fecomerciorsServices.signupCompany(values);
-        saveDonator({ ...values, giverId: companyId });
+        await saveDonator({ ...values, giverId: companyId });
       } else {
         const { individualId } =
           await fecomerciorsServices.signupIndividual(values);
-        saveDonator({ ...values, giverId: individualId });
+        await saveDonator({ ...values, giverId: individualId });
       }
 
       router.push(PAGE.FECOMERCIO.REGISTER_FURNITURE);
