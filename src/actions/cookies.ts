@@ -9,14 +9,14 @@ import { COOKIES } from "@/constants";
 const oneYear = 1000 * 60 * 60 * 24 * 365;
 
 export const saveDonator = async (donator: DonatorValuesWithId) => {
-  return cookies().set(COOKIES.DONATOR, JSON.stringify(donator), {
+  await cookies().set(COOKIES.DONATOR, JSON.stringify(donator), {
     secure: true,
     expires: Date.now() + oneYear
   });
 };
 
 export const saveRecipient = async (recipient: RecipientValuesWithId) => {
-  return cookies().set(COOKIES.RECIPIENT, JSON.stringify(recipient), {
+  await cookies().set(COOKIES.RECIPIENT, JSON.stringify(recipient), {
     secure: true,
     expires: Date.now() + oneYear
   });

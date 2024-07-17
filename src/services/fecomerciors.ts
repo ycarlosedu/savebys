@@ -78,16 +78,13 @@ export const signupIndividual = async (
 
 export const generateReceiveDonationEndpoint = () =>
   `${BFFs.GATEKEEPER}/donation/receiving`;
-export const receiveDonation = async (
-  products: Product[],
-  recipientId: number
-) => {
+export const receiveDonation = async (products: Product[], doneeId: number) => {
   const body = {
     products: products.map((product) => ({
       id: product.id,
       quantity: product.quantitySelected
     })),
-    recipientId
+    doneeId
   };
   return request.post(generateReceiveDonationEndpoint(), body);
 };
@@ -135,7 +132,11 @@ export const getProducts = async (
 ): Promise<getProductsResponse> => {
   const categoryFilter = category === "ALL" ? "" : `&category=${category}`;
   const { content, pageable, totalPages }: ProductResponse = await request.get(
-    generateGetProductsEndpoint() + `?pageNumber=${pageNumber}${categoryFilter}`
+    generateGetProductsEndpoint() +
+      `?pageNumber=${pageNumber}${categoryFilter}`,
+    {
+      cache: "no-store"
+    }
   );
 
   return {
@@ -149,7 +150,9 @@ export const getProducts = async (
 export const generateGetProductByIdEndpoint = (id: string = "1") =>
   `${BFFs.GATEKEEPER}/products/${id}`;
 export const getProductById = async (id: string = "1"): Promise<Product> => {
-  return request.get(generateGetProductByIdEndpoint(id));
+  return request.get(generateGetProductByIdEndpoint(id), {
+    cache: "no-store"
+  });
 };
 
 const fecomerciorsServices = {
