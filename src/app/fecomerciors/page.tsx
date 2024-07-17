@@ -52,39 +52,50 @@ export default function FecomercioCampaign() {
         />
         <div className="flex flex-col items-start gap-4 text-lg">
           <p>
-            A Federação do Comércio de Bens e de Serviços do Estado do Rio
-            Grande do Sul (Fecomércio-RS) representa as empresas do comércio de
-            bens, serviços e turismo no Rio Grande do Sul. O Sistema
-            Fecomércio-RS conta com mais de 100 sindicatos empresariais em sua
-            base para subsidiar e intensificar suas ações. Gerencia ainda o
-            Sesc/RS e o Senac-RS, com mais de uma centena de Unidades
-            Operacionais no Estado, proporcionando ações na área de bem-estar
-            social e qualificação profissional a milhares de gaúchos.
+            Para contribuir com os diversos estabelecimentos atingidos pelas
+            enchentes no Rio Grande do Sul criamos a campanha Mobília Solidária.
+            A ideia é simples: fazer a conexão entre quem tem algo para doar e
+            quem precisa de algo para retomar suas atividades. Serão aceitos
+            mobiliários e itens comerciais como estantes, araras, bancadas,
+            mesas de escritório, cadeiras, entre tantos outros. O mapeamento e a
+            validação das necessidades passarão por uma curadoria. Já a
+            logística será de responsabilidade do próprio beneficiário que irá
+            fazer a retirada do seu móvel no local e hora combinada previamente.
           </p>
-          <p>
-            Para contribuir com as vítimas das enchentes no Rio Grande do Sul
-            estamos promovendo uma campanha chamada Mobília Solidária que tem
-            como objetivo arrecadar e doar móveis para pessoas/empresas
-            atingidas com a catástrofe, através de um sindicato-curador, que irá
-            mapear e validar as doações.
-          </p>
-          <p>
-            A logística será de responsabilidade do próprio beneficiário que irá
-            fazer a retirada do seu móvel no local e hora combinada previamente.{" "}
-          </p>
-          <p className="font-bold">Regras para beneficiários:</p>
+          <h2 className="font-bold">QUEM PODE RECEBER</h2>
           <ol className="list-decimal list-inside">
-            <li>Deverá estar dentro dos 95 municípios em calamidade.</li>
-            <li>Deverá fazer parte do CNAE do comércio.</li>
+            <li>
+              O estabelecimento deve estar localizado em um dos 95 municípios
+              que tiveram situação de calamidade pública decretada (
+              <a
+                href="https://www.diariooficial.rs.gov.br/materia?id=1002017"
+                className="underline"
+              >
+                acesse a lista aqui
+              </a>
+              ).
+            </li>
+            <li>Precisa fazer parte do CNAE do comércio.</li>
           </ol>
-          <p className="font-bold">Regras para o doador:</p>
+          <h2 className="font-bold">QUEM PODE DOAR</h2>
           <ol className="list-decimal list-inside">
             <li>Qualquer pessoa poderá doar seus móveis para a campanha.</li>
             <li>
               As fotos a serem cadastradas deverão estar nítidas e com no máximo
               1Mb.
             </li>
+            <li>*LEMBRANDO QUE SÃO ITENS PARA ESTABELECIMENTOS COMERCIAIS.</li>
           </ol>
+          <h2 className="font-bold">QUEM SOMOS</h2>
+          <p>
+            A Federação do Comércio de Bens e de Serviços do Estado do Rio
+            Grande do Sul (Fecomércio-RS) representa as empresas do setor
+            terciário do Rio Grande do Sul. Conta com mais de 100 sindicatos
+            empresariais em sua base para subsidiar e intensificar suas ações.
+            Gerencia o Sesc/RS e o Senac-RS, com mais de uma centena de Unidades
+            Operacionais e Escolas no Estado, proporcionando ações na área de
+            bem-estar social e qualificação profissional a milhares de gaúchos.
+          </p>
         </div>
       </section>
     </>
