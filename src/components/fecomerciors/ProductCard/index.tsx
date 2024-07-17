@@ -46,14 +46,14 @@ export default function ProductCard({ furniture, ...rest }: Props) {
       <Image
         src={furniture.image}
         className="rounded-lg w-[300px] h-[260px] object-fit"
-        alt={`Imagem do móvel: ${furniture.description}`}
+        alt={`Imagem do móvel: ${furniture.productDescription}`}
         width={300}
         height={260}
       />
       <div className="flex flex-col gap-1 w-full">
         <div className="flex items-center justify-between gap-2">
           <p className="font-medium text-xl text-black">
-            {sliceMaxLength(furniture.description, 43)}
+            {sliceMaxLength(furniture.productDescription, 43)}
           </p>
           <Tooltip>
             <TooltipTrigger asChild>

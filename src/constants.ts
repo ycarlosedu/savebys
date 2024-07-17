@@ -51,6 +51,22 @@ export enum COOKIES {
   RECIPIENT = "recipient"
 }
 
+export enum FURNITURE_CATEGORIES {
+  ALL = "Todos",
+  EDUCATION = "Educação",
+  HOSPITALITY = "Hotelaria / Restaurantes",
+  OFFICE = "Materiais de Escritório",
+  BEAUTY = "Salões de Beleza",
+  MARKET = "Supermercado",
+  RETAIL = "Varejo",
+  OTHERS = "Outros"
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getEnumKeyByValue = (value: string, enumType: any) => {
+  return Object.keys(enumType).find((key) => enumType[key] === value);
+};
+
 export const REQUIRED = {
   FIELD: "O campo não pode estar vazio.",
   RADIO: "Deve ser selecionada uma opção.",

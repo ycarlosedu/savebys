@@ -37,14 +37,14 @@ export default function ProductBagCard({ furniture, ...rest }: Props) {
       <Image
         src={furniture.image}
         className="rounded-lg w-[200px] h-[200px] object-fit"
-        alt={`Imagem do móvel: ${furniture.description}`}
+        alt={`Imagem do móvel: ${furniture.productDescription}`}
         width={200}
         height={200}
       />
       <div className="flex flex-col gap-3 w-full">
         <div className="flex flex-wrap md:flex-nowrap items-center md:justify-between gap-6">
           <p className="text-2xl text-gray-secondary w-full">
-            {furniture.description}
+            {furniture.productDescription}
           </p>
           <Tooltip>
             <TooltipTrigger asChild>

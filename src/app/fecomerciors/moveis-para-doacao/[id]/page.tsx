@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: "SAVEBYS - " + product.description,
+    title: "SAVEBYS - " + product.productDescription,
     description:
       "Veja os detalhes do móvel disponível para doação na Mobília Solidária.",
     robots: {
@@ -61,7 +61,7 @@ export default async function FurnitureDetailsPage({ params }: Props) {
     <section className="flex flex-col md:flex-row px-default justify-between gap-6 items-start w-full max-w-[1285px] min-h-fecomercio">
       <Image
         src={product.image}
-        alt={`Imagem do móvel ${product.id}: ${product.description}`}
+        alt={`Imagem do móvel ${product.id}: ${product.productDescription}`}
         width={625}
         height={625}
         className="w-full max-w-[625px] h-full max-h-[625px] rounded-xl aspect-square"

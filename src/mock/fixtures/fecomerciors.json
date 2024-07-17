@@ -3,7 +3,8 @@
     {
       "id": "1",
       "city": "Porto Alegre",
-      "description": "Mesa de Cozinha preta com manchas brancas",
+      "productDescription": "Mesa de Cozinha preta com manchas brancas",
+      "productType": "EDUCATION",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 1
@@ -11,7 +12,8 @@
     {
       "id": "2",
       "city": "Canoas",
-      "description": "Mesa de Escritório com defeito na parte traseira",
+      "productDescription": "Mesa de Escritório com defeito na parte traseira",
+      "productType": "HOSPITALITY",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 2
@@ -19,7 +21,8 @@
     {
       "id": "3",
       "city": "Caxias",
-      "description": "Mesa Escritório",
+      "productDescription": "Mesa Escritório",
+      "productType": "OFFICE",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 3
@@ -27,7 +30,8 @@
     {
       "id": "4",
       "city": "Porto Alegre",
-      "description": "Sofá",
+      "productDescription": "Sofá",
+      "productType": "BEAUTY",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 4
@@ -35,7 +39,8 @@
     {
       "id": "5",
       "city": "Canoas",
-      "description": "Cadeira de Jantar",
+      "productDescription": "Cadeira de Jantar",
+      "productType": "MARKET",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 5
@@ -43,7 +48,8 @@
     {
       "id": "6",
       "city": "Caxias",
-      "description": "Mesa de Jantar",
+      "productDescription": "Mesa de Jantar",
+      "productType": "RETAIL",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 6
@@ -51,7 +57,8 @@
     {
       "id": "7",
       "city": "Porto Alegre",
-      "description": "Cama",
+      "productDescription": "Cama",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 7
@@ -59,7 +66,8 @@
     {
       "id": "8",
       "city": "Canoas",
-      "description": "Guarda-Roupa",
+      "productDescription": "Guarda-Roupa",
+      "productType": "EDUCATION",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 8
@@ -67,7 +75,8 @@
     {
       "id": "9",
       "city": "Caxias",
-      "description": "Cômoda",
+      "productDescription": "Cômoda",
+      "productType": "HOSPITALITY",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample.png",
       "quantity": 9
@@ -75,7 +84,8 @@
     {
       "id": "10",
       "city": "Porto Alegre",
-      "description": "Balcão de Cozinha",
+      "productDescription": "Balcão de Cozinha",
+      "productType": "OFFICE",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample2.png",
       "quantity": 10
@@ -83,7 +93,8 @@
     {
       "id": "11",
       "city": "Canoas",
-      "description": "Cadeira de Escritório",
+      "productDescription": "Cadeira de Escritório",
+      "productType": "BEAUTY",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample2.png",
       "quantity": 11
@@ -91,7 +102,8 @@
     {
       "id": "12",
       "city": "Caxias",
-      "description": "Mesa Escritório",
+      "productDescription": "Mesa Escritório",
+      "productType": "MARKET",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample2.png",
       "quantity": 12
@@ -99,7 +111,8 @@
     {
       "id": "13",
       "city": "Porto Alegre",
-      "description": "Sofá",
+      "productDescription": "Sofá",
+      "productType": "RETAIL",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample2.png",
       "quantity": 13
@@ -107,7 +120,8 @@
     {
       "id": "14",
       "city": "Canoas",
-      "description": "Cadeira de Jantar",
+      "productDescription": "Cadeira de Jantar",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample2.png",
       "quantity": 14
@@ -115,7 +129,8 @@
     {
       "id": "15",
       "city": "Caxias",
-      "description": "Mesa de Jantar",
+      "productDescription": "Mesa de Jantar",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample2.png",
       "quantity": 15
@@ -123,7 +138,8 @@
     {
       "id": "16",
       "city": "Porto Alegre",
-      "description": "Cama",
+      "productDescription": "Cama",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample2.png",
       "quantity": 16
@@ -131,7 +147,8 @@
     {
       "id": "17",
       "city": "Canoas",
-      "description": "Guarda-Roupa",
+      "productDescription": "Guarda-Roupa",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample2.png",
       "quantity": 17
@@ -139,7 +156,8 @@
     {
       "id": "18",
       "city": "Caxias",
-      "description": "Cômoda",
+      "productDescription": "Cômoda",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample2.png",
       "quantity": 18
@@ -147,7 +165,8 @@
     {
       "id": "19",
       "city": "Porto Alegre",
-      "description": "Balcão de Cozinha",
+      "productDescription": "Balcão de Cozinha",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample3.png",
       "quantity": 19
@@ -155,7 +174,8 @@
     {
       "id": "20",
       "city": "Canoas",
-      "description": "Cadeira de Escritório",
+      "productDescription": "Cadeira de Escritório",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample3.png",
       "quantity": 20
@@ -163,7 +183,8 @@
     {
       "id": "21",
       "city": "Caxias",
-      "description": "Mesa Escritório",
+      "productDescription": "Mesa Escritório",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample3.png",
       "quantity": 21
@@ -171,7 +192,8 @@
     {
       "id": "22",
       "city": "Porto Alegre",
-      "description": "Sofá",
+      "productDescription": "Sofá",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample3.png",
       "quantity": 22
@@ -179,7 +201,8 @@
     {
       "id": "23",
       "city": "Canoas",
-      "description": "Cadeira de Jantar",
+      "productDescription": "Cadeira de Jantar",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample3.png",
       "quantity": 23
@@ -187,7 +210,8 @@
     {
       "id": "24",
       "city": "Caxias",
-      "description": "Mesa de Jantar",
+      "productDescription": "Mesa de Jantar",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample3.png",
       "quantity": 24
@@ -195,7 +219,8 @@
     {
       "id": "25",
       "city": "Porto Alegre",
-      "description": "Cama",
+      "productDescription": "Cama",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample3.png",
       "quantity": 25
@@ -203,7 +228,8 @@
     {
       "id": "26",
       "city": "Canoas",
-      "description": "Guarda-Roupa",
+      "productDescription": "Guarda-Roupa",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample3.png",
       "quantity": 26
@@ -211,7 +237,8 @@
     {
       "id": "27",
       "city": "Caxias",
-      "description": "Cômoda",
+      "productDescription": "Cômoda",
+      "productType": "OTHERS",
       "additionalInfos": "2m², cor vermelha, de madeira.",
       "image": "/images/furnitureExample3.png",
       "quantity": 27

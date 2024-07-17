@@ -41,7 +41,7 @@ export default function FurnitureDetails({ furniture }: Props) {
         <CaretLeft size={16} />
         Voltar
       </Link>
-      <h1 className="text-4xl font-bold">{furniture.description}</h1>
+      <h1 className="text-4xl font-bold">{furniture.productDescription}</h1>
       <p className="text-2xl">Onde retirar: {furniture.city}</p>
       <p>Informações: {furniture.additionalInfos}</p>
       <p>Quantidade disponível: {furniture.quantity}</p>

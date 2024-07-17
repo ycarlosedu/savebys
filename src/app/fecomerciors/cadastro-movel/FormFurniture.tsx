@@ -20,6 +20,8 @@ import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 import { DonatorValuesWithId } from "../cadastro-doador/FormDonator";
 import furnitureCategories from "./furnitureCategories";
 
+const furnitureCategoriesWithoutAll = furnitureCategories.slice(1);
+
 export type FurnitureValues = {
   image: string;
   productType: string;
@@ -39,7 +41,7 @@ const validationSchema = yup.object().shape({
     .string()
     .required(REQUIRED.RADIO)
     .oneOf(
-      furnitureCategories.map((category) => category.value),
+      furnitureCategoriesWithoutAll.map((category) => category.value),
       REQUIRED.RADIO
     ),
   quantity: yup.number().min(1, INVALID.QUANTITY).required(REQUIRED.FIELD),
@@ -81,7 +83,7 @@ export default function FormFurniture({ donator }: Props) {
       image: DEFAULT_IMAGE_PATH,
       productDescription: "",
       quantity: 1,
-      productType: furnitureCategories[0].value,
+      productType: furnitureCategoriesWithoutAll[0].value,
       additionalInfos: "",
       city: donator.city || ""
     },
@@ -172,7 +174,7 @@ export default function FormFurniture({ donator }: Props) {
             <option disabled value="0">
               Selecione uma opção
             </option>
-            {furnitureCategories.map((category) => (
+            {furnitureCategoriesWithoutAll.map((category) => (
               <option key={category.value} value={category.value}>
                 {category.name}
               </option>

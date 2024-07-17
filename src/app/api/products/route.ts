@@ -1,25 +1,35 @@
 import { type NextRequest } from "next/server";
 
 import fixtures from "@/mock/fixtures/fecomerciors.json";
+import { Product } from "@/services/fecomerciors";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
+  const page = parseInt(searchParams.get("page") || "0" + 1);
+  const category = searchParams.get("category");
 
-  const page = searchParams.get("page");
-  const furnitures = fixtures.products.filter(
-    (product) =>
-      parseInt(product.id) <= 9 * parseInt(page || "1") &&
-      parseInt(product.id) > 9 * (parseInt(page || "1") - 1)
-  );
-  // const category = searchParams.get('category')
-  // if (category) {
-  //   const filteredFurnitures = fixtures.furnitures.products.filter((furniture) => furniture.category === category)
-  //   return Response.json(filteredFurnitures)
-  // }
+  let furnitures = [] as Product[];
+
+  if (!category) {
+    furnitures = fixtures.products.filter(
+      (product) =>
+        parseInt(product.id) <= 9 * page &&
+        parseInt(product.id) > 9 * (page - 1)
+    );
+  }
+
+  if (category) {
+    furnitures = fixtures.products.filter(
+      (furniture) => furniture.productType === category
+    );
+  }
+
   return Response.json({
-    page,
-    pageSize: 9,
-    numberOfPages: Math.ceil(fixtures.products.length / 9),
-    products: furnitures
+    pageable: {
+      pageNumber: page,
+      pageSize: 9
+    },
+    totalPages: Math.ceil(fixtures.products.length / 9),
+    content: furnitures
   });
 }

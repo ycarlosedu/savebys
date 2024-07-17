@@ -106,7 +106,8 @@ export const registerDonation = async (
 
 export type Product = {
   id: string;
-  description: string;
+  productType: string;
+  productDescription: string;
   city: string;
   image: string;
   quantity: number;
@@ -119,15 +120,30 @@ export type getProductsResponse = {
   numberOfPages: number;
   products: Product[];
 };
+type ProductResponse = {
+  content: Product[];
+  pageable: {
+    pageNumber: number;
+    pageSize: number;
+  };
+  totalPages: number;
+};
 export const generateGetProductsEndpoint = () => `${BFFs.GATEKEEPER}/products`;
 export const getProducts = async (
-  page: number = 1,
-  category: string = "Todos"
+  pageNumber: number = 0,
+  category: string = "ALL"
 ): Promise<getProductsResponse> => {
-  const categoryFilter = category === "Todos" ? "" : `&category=${category}`;
-  return request.get(
-    generateGetProductsEndpoint() + `?page=${page}${categoryFilter}`
+  const categoryFilter = category === "ALL" ? "" : `&category=${category}`;
+  const { content, pageable, totalPages }: ProductResponse = await request.get(
+    generateGetProductsEndpoint() + `?pageNumber=${pageNumber}${categoryFilter}`
   );
+
+  return {
+    page: pageable.pageNumber,
+    pageSize: pageable.pageSize,
+    numberOfPages: totalPages,
+    products: content
+  };
 };
 
 export const generateGetProductByIdEndpoint = (id: string = "1") =>

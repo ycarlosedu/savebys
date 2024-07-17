@@ -7,7 +7,7 @@ import fecomerciorsServices from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
-import { PAGE } from "@/constants";
+import { FURNITURE_CATEGORIES, PAGE } from "@/constants";
 
 import { ShoppingBagOpen } from "@phosphor-icons/react/dist/ssr";
 
@@ -46,7 +46,11 @@ export default function FurnitureList() {
   return (
     <section className="flex flex-col gap-8 py-8 flex-start w-full">
       <h2 className="text-4xl font-semibold text-gray-secondary">
-        {filters.category}
+        {
+          FURNITURE_CATEGORIES[
+            filters.category as keyof typeof FURNITURE_CATEGORIES
+          ]
+        }
       </h2>
       {!data?.products || data?.products.length === 0 ? (
         <p className="w-full text-xl text-center">

@@ -4,15 +4,9 @@ import furnitureCategories from "@/app/fecomerciors/cadastro-movel/furnitureCate
 import useProductStore from "@/stores/productStore";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
-import { CaretDown, Desk } from "@phosphor-icons/react/dist/ssr";
+import { FURNITURE_CATEGORIES } from "@/constants";
 
-const furnitureCategoriesWithAll = [
-  {
-    name: "Todos",
-    value: "Todos"
-  },
-  ...furnitureCategories
-];
+import { CaretDown, Desk } from "@phosphor-icons/react/dist/ssr";
 
 export default function FilterFurnitureDropdown() {
   const { filters, updateFilter } = useProductStore();
@@ -34,9 +28,11 @@ export default function FilterFurnitureDropdown() {
         <DropdownMenu.Content className="min-w-[100px] bg-white rounded-md p-1 shadow-2xl">
           <DropdownMenu.RadioGroup
             value={filters.category}
-            onValueChange={(value) => updateFilter("category", value)}
+            onValueChange={(value) =>
+              updateFilter("category", value as FURNITURE_CATEGORIES)
+            }
           >
-            {furnitureCategoriesWithAll.map((category) => (
+            {furnitureCategories.map((category) => (
               <DropdownMenu.RadioItem
                 key={category.value}
                 value={category.value}

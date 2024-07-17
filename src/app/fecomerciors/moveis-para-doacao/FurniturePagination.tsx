@@ -14,6 +14,8 @@ import useProductStore from "@/stores/productStore";
 export default function FurniturePagination() {
   const { goToPage, currentPage, totalPages } = useProductStore();
 
+  const actualPage = currentPage + 1;
+
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   const showedPages = pages.filter((page) => {
@@ -22,15 +24,15 @@ export default function FurniturePagination() {
       page === 2 ||
       page === totalPages ||
       page === totalPages - 1 ||
-      page === currentPage ||
-      page === currentPage - 1 ||
-      page === currentPage + 1
+      page === actualPage ||
+      page === actualPage - 1 ||
+      page === actualPage + 1
     );
   });
 
   return (
     <Pagination>
-      {currentPage > 1 && (
+      {actualPage > 1 && (
         <PaginationPreviousAsButton onClick={() => goToPage(currentPage - 1)} />
       )}
       <PaginationContent>
@@ -44,8 +46,8 @@ export default function FurniturePagination() {
             <React.Fragment key={page}>
               <PaginationItem>
                 <PaginationLinkAsButton
-                  disabled={page === currentPage}
-                  isActive={page === currentPage}
+                  disabled={page === actualPage}
+                  isActive={page === actualPage}
                   onClick={() => goToPage(page)}
                 >
                   {page}
@@ -60,7 +62,7 @@ export default function FurniturePagination() {
           );
         })}
       </PaginationContent>
-      {currentPage < totalPages && (
+      {actualPage < totalPages && (
         <PaginationNextAsButton onClick={() => goToPage(currentPage + 1)} />
       )}
     </Pagination>

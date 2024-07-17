@@ -2,14 +2,18 @@ import { Product } from "@/services/fecomerciors";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
-import { SESSION_STORAGE } from "@/constants";
+import {
+  FURNITURE_CATEGORIES,
+  getEnumKeyByValue,
+  SESSION_STORAGE
+} from "@/constants";
 
 const initialState = {
   products: [] as Product[],
-  currentPage: 1,
+  currentPage: 0,
   totalPages: 1,
   filters: {
-    category: "Todos"
+    category: getEnumKeyByValue(FURNITURE_CATEGORIES.ALL, FURNITURE_CATEGORIES)
   },
   animateBagButton: false
 };
@@ -25,7 +29,7 @@ type Store = InitialState & {
   decreaseProductQuantity: (id: Product["id"]) => void;
   goToPage: (page: number) => void;
   updateTotalPages: (pages: number) => void;
-  updateFilter: (filter: Filter, value: string) => void;
+  updateFilter: (filter: Filter, value: FURNITURE_CATEGORIES) => void;
   resetFilters: () => void;
   reset: () => void;
   animateBagButton: boolean;
