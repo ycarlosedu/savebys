@@ -420,7 +420,8 @@ export default function Dialog_RecipientForm() {
                   checked={values.terms}
                 />
                 <CheckboxLabel htmlFor="terms">
-                  Aceito os termos e condições.
+                  Concordo em compartilhar meus dados para que sejam repassados
+                  aos responsáveis para realizar-se a validação da doação.
                 </CheckboxLabel>
                 <Input.Error>{touched.terms && errors.terms}</Input.Error>
               </CheckboxFieldset>

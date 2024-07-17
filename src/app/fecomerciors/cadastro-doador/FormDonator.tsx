@@ -447,7 +447,8 @@ export default function FormDonator() {
           checked={values.terms}
         />
         <CheckboxLabel htmlFor="terms">
-          Aceito os termos e condições.
+          Concordo em compartilhar meus dados para que sejam repassados aos
+          solicitantes para realizar-se a logística de entrega.
         </CheckboxLabel>
         <Input.Error>{touched.terms && errors.terms}</Input.Error>
       </CheckboxFieldset>
