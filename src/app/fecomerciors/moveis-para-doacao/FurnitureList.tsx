@@ -37,7 +37,10 @@ export default function FurnitureList() {
   if (data?.numberOfPages && data?.numberOfPages != totalPages)
     updateTotalPages(data.numberOfPages);
 
-  if (isPending) return <FurnitureListSkeleton category={filters.category} />;
+  const category =
+    FURNITURE_CATEGORIES[filters.category as keyof typeof FURNITURE_CATEGORIES];
+
+  if (isPending) return <FurnitureListSkeleton category={category} />;
 
   const goToBagPage = () => {
     router.push(PAGE.FECOMERCIO.FURNITURE_BAG);
@@ -45,13 +48,7 @@ export default function FurnitureList() {
 
   return (
     <section className="flex flex-col gap-8 py-8 flex-start w-full">
-      <h2 className="text-4xl font-semibold text-gray-secondary">
-        {
-          FURNITURE_CATEGORIES[
-            filters.category as keyof typeof FURNITURE_CATEGORIES
-          ]
-        }
-      </h2>
+      <h2 className="text-4xl font-semibold text-gray-secondary">{category}</h2>
       {!data?.products || data?.products.length === 0 ? (
         <p className="w-full text-xl text-center">
           Nenhum produto encontrado...
