@@ -54,13 +54,16 @@ export default function FecomercioCampaign() {
           <p>
             Para contribuir com os diversos estabelecimentos atingidos pelas
             enchentes no Rio Grande do Sul criamos a campanha Mobília Solidária.
+            <br />
             A ideia é simples: fazer a conexão entre quem tem algo para doar e
-            quem precisa de algo para retomar suas atividades. Serão aceitos
-            mobiliários e itens comerciais como estantes, araras, bancadas,
-            mesas de escritório, cadeiras, entre tantos outros. O mapeamento e a
-            validação das necessidades passarão por uma curadoria. Já a
-            logística será de responsabilidade do próprio beneficiário que irá
-            fazer a retirada do seu móvel no local e hora combinada previamente.
+            quem precisa de algo para retomar suas atividades.
+            <br />
+            Serão aceitos mobiliários e itens comerciais como estantes, araras,
+            bancadas, mesas de escritório, cadeiras, entre tantos outros.
+            <br />O mapeamento e a validação das necessidades passarão por uma
+            curadoria. Já a logística será de responsabilidade do próprio
+            beneficiário que irá fazer a retirada do seu móvel no local e hora
+            combinada previamente.
           </p>
           <h2 className="font-bold">QUEM PODE RECEBER</h2>
           <ol className="list-decimal list-inside">
@@ -86,6 +89,26 @@ export default function FecomercioCampaign() {
             </li>
             <li>*LEMBRANDO QUE SÃO ITENS PARA ESTABELECIMENTOS COMERCIAIS.</li>
           </ol>
+          <h2 className="font-bold">COMO FUNCIONA</h2>
+          <p>
+            A pessoa interessada em doar (DOADOR) deve se cadastrar em QUERO
+            DOAR MÓVEIS. Ao realizar o cadastro e enviar as fotos, o ‘DOADOR’
+            irá receber uma confirmação automática de que seus itens já estão
+            disponíveis para serem selecionados.
+            <br />
+            Quem deseja receber (RECEPTOR), deverá selecionar os móveis em LISTA
+            DE MÓVEIS, podendo utilizar o filtro pela área de atuação para
+            facilitar a localização. Os móveis escolhidos serão enviados
+            automaticamente para Minha Sacola e, para efetivar a solicitação, o
+            ‘RECEPTOR’ deverá preencher um cadastro.
+            <br />
+            <b>Importante</b>: o ‘RECEPTOR’ deverá obrigatoriamente informar a
+            CNAE (Classificação Nacional das Atividades Econômicas) compatível
+            com o tipo de móvel/item solicitado. O grupo curador, irá avaliar e
+            validar as informações cadastradas e, estando tudo correto, repassa
+            o contato do DOADOR para que o RECEPTOR faça as devidas combinações
+            para retirada.
+          </p>
           <h2 className="font-bold">QUEM SOMOS</h2>
           <p>
             A Federação do Comércio de Bens e de Serviços do Estado do Rio

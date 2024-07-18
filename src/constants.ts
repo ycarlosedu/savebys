@@ -53,12 +53,13 @@ export enum COOKIES {
 
 export enum FURNITURE_CATEGORIES {
   ALL = "Todos",
-  EDUCATION = "Educação",
-  HOSPITALITY = "Hotelaria / Restaurantes",
-  OFFICE = "Materiais de Escritório",
+  RETAIL = "Comércio / Varejo em geral",
+  EDUCATION = "Escolas e afins",
+  HOSPITALITY = "Hotéis",
+  RESTAURANT = "Restaurantes",
+  OFFICE = "Escritórios em geral",
   BEAUTY = "Salões de Beleza",
-  MARKET = "Supermercado",
-  RETAIL = "Varejo",
+  MARKET = "Supermercados",
   OTHERS = "Outros"
 }
 

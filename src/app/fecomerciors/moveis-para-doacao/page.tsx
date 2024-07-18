@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Image from "next/image";
+// import dynamic from "next/dynamic";
 
 import fecomerciorsServices from "@/services/fecomerciors";
 import {
@@ -8,6 +8,8 @@ import {
   QueryClient
 } from "@tanstack/react-query";
 
+// const Banner = dynamic(() => import("./Banner"), { ssr: false });
+import Banner from "./Banner";
 import FurnitureFilter from "./FurnitureFilter";
 import FurnitureList from "./FurnitureList";
 
@@ -46,14 +48,7 @@ export default async function FurnituresToDonation() {
 
   return (
     <section className="flex flex-col py-12 px-default gap-6 items-center w-full max-w-[1282px]">
-      <Image
-        src="/images/campaigns/fecomerciors/banner-1265x340.webp"
-        alt="Banner da campanha Mobília Solidária"
-        width={1265}
-        height={340}
-        className="w-[1265px] h-[180px] object-none xs:h-[340px] xs:object-cover"
-        priority
-      />
+      <Banner />
 
       <FurnitureFilter />
       <HydrationBoundary state={dehydratedState}>

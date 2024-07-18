@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import socialMedias from "@/components/SocialMedias/socialMedias";
 
+import { PAGE } from "@/constants";
+
 import Logo from "images/savebys/logo_slogan_gray_cropped.svg";
 
 export default function Footer() {
@@ -29,13 +31,15 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
-          <Image
-            src={Logo}
-            width={200}
-            height={200}
-            alt="Logo da marca SaveBys"
-            className="w-200 h-auto"
-          />
+          <Link href={PAGE.HOME} aria-label="Ir para página inicial">
+            <Image
+              src={Logo}
+              width={200}
+              height={200}
+              alt="Logo da marca SaveBys"
+              className="w-200 h-auto"
+            />
+          </Link>
           <hr className="h-[24px] w-[1px] bg-gray-secondary hidden md:block" />
           <p className="w-fit break-normal">
             Copyright ©{new Date().getFullYear()} savebys.com
