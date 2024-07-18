@@ -420,8 +420,10 @@ export default function Dialog_RecipientForm() {
                   checked={values.terms}
                 />
                 <CheckboxLabel htmlFor="terms">
-                  Concordo em compartilhar meus dados para que sejam repassados
-                  aos responsáveis para realizar-se a validação da doação.
+                  Concordo em compartilhar meus dados com a Savebys e a
+                  Fecomércio-RS, no âmbito da parceria entre as duas entidades,
+                  para que sejam repassados aos solicitantes para a realização
+                  da logística de entrega.
                 </CheckboxLabel>
                 <Input.Error>{touched.terms && errors.terms}</Input.Error>
               </CheckboxFieldset>
