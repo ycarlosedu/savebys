@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 
@@ -114,6 +115,8 @@ export default function RootLayout({ children }: Props) {
         {/* Vercel */}
         <SpeedInsights />
         <Analytics />
+
+        <GoogleAnalytics gaId="G-WB6FN0R181" />
       </body>
     </html>
   );
