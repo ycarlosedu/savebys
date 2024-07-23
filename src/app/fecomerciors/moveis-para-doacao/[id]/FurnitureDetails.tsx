@@ -9,7 +9,11 @@ import { toast } from "sonner";
 
 import { PAGE } from "@/constants";
 
-import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
+import {
+  CaretLeft,
+  CaretRight,
+  Prohibit
+} from "@phosphor-icons/react/dist/ssr";
 
 type Props = {
   furniture: Product;
@@ -45,15 +49,24 @@ export default function FurnitureDetails({ furniture }: Props) {
       <p className="text-2xl">Onde retirar: {furniture.city}</p>
       <p>Informações: {furniture.additionalInfos}</p>
       <p>Quantidade disponível: {furniture.quantity}</p>
-      <Button
-        className="h-[58px]"
-        onClick={() => {
-          isProductInCart ? removeFromCart(furniture) : addToCart(furniture);
-        }}
-      >
-        {isProductInCart ? "Remover item da sacola" : "Adicionar item à sacola"}
-        <CaretRight size={16} />
-      </Button>
+      {furniture.quantity === 0 ? (
+        <Button disabled aria-disabled className="h-[58px]">
+          Produto indisponível
+          <Prohibit size={16} />
+        </Button>
+      ) : (
+        <Button
+          className="h-[58px]"
+          onClick={() => {
+            isProductInCart ? removeFromCart(furniture) : addToCart(furniture);
+          }}
+        >
+          {isProductInCart
+            ? "Remover item da sacola"
+            : "Adicionar item à sacola"}
+          <CaretRight size={16} />
+        </Button>
+      )}
     </div>
   );
 }
