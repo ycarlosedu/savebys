@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.savebys.com/images/savebys/savebys_slogan.png",
+        url: "https://www.savebys.com/images/savebys/logo_slogan_gray.webp",
         width: 753,
         height: 543
       }

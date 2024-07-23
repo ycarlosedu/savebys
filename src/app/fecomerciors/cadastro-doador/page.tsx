@@ -7,6 +7,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "SAVEBYS - Cadastre-se como Doador na Mobília Solidária",
     description:
       "Participe da nossa campanha Mobília Solidária e ajude negócios no Rio Grande do Sul afetados pelas enchentes. Cadastre-se como doador e faça a diferença!",
+    alternates: {
+      canonical: "https://savebys.com/fecomerciors/cadastro-doador"
+    },
     openGraph: {
       title: "SAVEBYS - Cadastre-se como Doador na Mobília Solidária",
       description:

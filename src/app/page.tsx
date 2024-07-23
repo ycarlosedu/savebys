@@ -16,7 +16,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "SAVEBYS - Adote a empresa que você ama",
     description:
-      "SAVEBYS é uma plataforma de financiamento coletivo para empresas. Adote a empresa que você ama e ajude a manter viva a economia local."
+      "SAVEBYS é uma plataforma de financiamento coletivo para empresas. Adote a empresa que você ama e ajude a manter viva a economia local.",
+    alternates: {
+      canonical: "https://savebys.com"
+    }
   };
 }
 

@@ -18,6 +18,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "SAVEBYS - Móveis disponíveis para doação na Mobília Solidária",
     description:
       "Veja os móveis disponíveis para doação para negócios do Rio Grande do Sul afetados pelas enchentes. Caso você necessite, solicite uma doação e deixe-nos ajudar!",
+    alternates: {
+      canonical: "https://savebys.com/fecomerciors/moveis-para-doacao"
+    },
     openGraph: {
       title: "SAVEBYS - Móveis disponíveis para doação na Mobília Solidária",
       description:

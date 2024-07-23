@@ -22,7 +22,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       return notFound();
     }
   } catch (error) {
-    console.error("🚀 ~ generateMetadata ~ error:", error);
     return notFound();
   }
 
@@ -53,7 +52,6 @@ export default async function FurnitureDetailsPage({ params }: Props) {
       return notFound();
     }
   } catch (error) {
-    console.error("🚀 ~ FurnitureDetailsPage ~ error:", error);
     return notFound();
   }
 

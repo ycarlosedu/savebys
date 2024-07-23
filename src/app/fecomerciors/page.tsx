@@ -9,6 +9,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "SAVEBYS - Mobília Solidária",
     description:
       "Para contribuir com as vítimas das enchentes no Rio Grande do Sul estamos promovendo uma campanha chamada Mobília Solidária que tem como objetivo arrecadar e doar móveis para pessoas/empresas atingidas com a catástrofe, através de um sindicato-curador, que irá mapear e validar as doações. A logística será de responsabilidade do próprio beneficiário que irá fazer a retirada do seu móvel no local e hora combinada previamente.",
+    alternates: {
+      canonical: "https://savebys.com/fecomerciors"
+    },
     openGraph: {
       title: "SAVEBYS - Mobília Solidária",
       description:
