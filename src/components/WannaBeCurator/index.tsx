@@ -6,16 +6,16 @@ export default function WannaBeCurator() {
   return (
     <section
       id="quero-ser-curador"
-      className="bg-white px-default py-8 w-full flex flex-col items-center justify-center gap-8"
+      className="bg-gray-tertiary px-default py-8 w-full flex flex-col items-center justify-center gap-8"
     >
       <div className="max-w-default w-full flex flex-col items-center justify-center gap-8">
         <h2 className="title text-title">Quero ser um Curador</h2>
-        <p className="text-center text-gray-secondary text-lg max-w-[380px]">
+        <p className="text-center text-white text-lg max-w-[380px]">
           Os Curadores são parceiros que irão mapear e centralizar as empresas
           afetadas.
         </p>
 
-        <ol className="text-gray-secondary list-inside list-decimal text-lg flex items-start justify-center gap-8 text-center flex-wrap">
+        <ol className="text-white list-inside list-decimal text-lg flex items-start justify-center gap-8 text-center flex-wrap">
           {list.map(({ description }, index) => (
             <li key={description} className="flex flex-col max-w-[175px]">
               <span className="text-title title">{index + 1}.</span>
