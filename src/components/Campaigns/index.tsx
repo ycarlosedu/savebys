@@ -6,7 +6,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
 import campaignsList from "./list";
 
 const containerClassName =
-  "border-white bg-white border-4 rounded-3xl flex items-center justify-center w-[250px] xs:w-[350px] h-[250px] xs:h-[350px] hover:scale-110 transition-all ease-in-out";
+  "border-white bg-white border-4 overflow-hidden p-4 rounded-3xl flex items-center justify-center w-[250px] xs:w-[350px] h-[250px] xs:h-[350px] hover:scale-110 transition-all ease-in-out";
 const imageClassName =
   "flex items-center justify-center font-bold text-xl text-primary text-center";
 
@@ -25,7 +25,7 @@ export default function Campaigns() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
-                      href="/fecomerciors"
+                      href={campaign.href}
                       aria-label={campaign.name}
                       className={containerClassName}
                     >
