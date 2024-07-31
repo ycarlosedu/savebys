@@ -2,17 +2,20 @@ const campaingList = [
   {
     name: "Mobília Solidária",
     id: 1,
-    image: "/images/campaigns/logo-fecomercio.webp"
+    image: "/images/campaigns/logo-fecomercio.webp",
+    href: "/fecomerciors"
   },
   {
-    name: "Em breve!",
+    name: "Ajude uma criança a voltar para a escola",
     id: 2,
-    image: ""
+    image: "/images/campaigns/logo-bonanza.webp",
+    href: "/bonanza"
   },
   {
     name: "Em breve!",
     id: 3,
-    image: ""
+    image: "",
+    href: ""
   }
 ];
 
