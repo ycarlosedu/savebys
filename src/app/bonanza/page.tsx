@@ -51,7 +51,7 @@ export default function BonanzaCampaign() {
       <section className="w-full max-w-[900px] px-default py-16 flex flex-col gap-8 items-center">
         <h1 className="title">AJUDE UMA CRIANÇA A VOLTAR PARA A ESCOLA</h1>
         <Image
-          src="/images/campaigns/bonanza/banner-900x560.png"
+          src="/images/campaigns/bonanza/banner-900x560.webp"
           alt="Banner da campanha 'AJUDE UMA CRIANÇA A VOLTAR PARA A ESCOLA'"
           width={900}
           height={560}
@@ -107,7 +107,7 @@ export default function BonanzaCampaign() {
           </p>
         </div>
         <Image
-          src="/images/campaigns/bonanza/banner-1080x1080.png"
+          src="/images/campaigns/bonanza/banner-1080x1080.webp"
           alt="Banner detalhado da campanha 'AJUDE UMA CRIANÇA A VOLTAR PARA A ESCOLA'"
           width={1080}
           height={1080}

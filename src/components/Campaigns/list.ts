@@ -8,7 +8,7 @@ const campaingList = [
   {
     name: "Ajude uma criança a voltar para a escola",
     id: 2,
-    image: "/images/campaigns/logo-bonanza.png",
+    image: "/images/campaigns/logo-bonanza.webp",
     href: "/bonanza"
   },
   {
