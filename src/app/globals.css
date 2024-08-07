@@ -35,6 +35,19 @@ html {
   .floating {
     @apply text-white size-12 p-1 fixed z-20 bottom-6 right-6 transition-all duration-500;
   }
+
+  .embla {
+    @apply overflow-hidden;
+  }
+
+  .embla__container {
+    @apply flex;
+  }
+
+  .embla__slide {
+    flex: 0 0 100%;
+    @apply min-w-0 flex flex-col justify-center items-center;
+  }
 }
 
 @layer utilities {
