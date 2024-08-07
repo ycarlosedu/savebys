@@ -1,11 +1,15 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { ComponentProps, useState } from "react";
 
+import ActiveLink from "@/components/ActiveLink";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
 import { Product } from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 import { toast } from "sonner";
+
+import { PAGE } from "@/constants";
 
 import { Minus, Plus, Trash } from "@phosphor-icons/react/dist/ssr";
 
@@ -34,18 +38,24 @@ export default function ProductBagCard({ furniture, ...rest }: Props) {
       className={`flex flex-col md:flex-row gap-8 p-8 w-full border border-black rounded-[32px] ${animation ? "animate-hideAndScaleDown" : ""}`}
       {...rest}
     >
-      <Image
-        src={furniture.image}
-        className="rounded-lg w-[200px] h-[200px] object-fit"
-        alt={`Imagem do móvel: ${furniture.productDescription}`}
-        width={200}
-        height={200}
-      />
+      <Link href={PAGE.FECOMERCIO.FURNITURE_DETAILS(furniture.id)}>
+        <Image
+          src={furniture.image}
+          className="rounded-lg w-[200px] h-[200px] object-fit"
+          alt={`Imagem do móvel: ${furniture.productDescription}`}
+          width={200}
+          height={200}
+        />
+      </Link>
       <div className="flex flex-col gap-3 w-full">
         <div className="flex flex-wrap md:flex-nowrap items-center md:justify-between gap-6">
-          <p className="text-2xl text-gray-secondary w-full">
+          <ActiveLink
+            href={PAGE.FECOMERCIO.FURNITURE_DETAILS(furniture.id)}
+            className="text-2xl text-gray-secondary w-full hover:opacity-80"
+          >
             {furniture.productDescription}
-          </p>
+          </ActiveLink>
+
           <Tooltip>
             <TooltipTrigger asChild>
               <button

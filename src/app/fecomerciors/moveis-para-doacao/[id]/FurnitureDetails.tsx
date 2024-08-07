@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import Button from "@/components/Button";
@@ -19,6 +19,7 @@ type Props = {
   furniture: Product;
 };
 export default function FurnitureDetails({ furniture }: Props) {
+  const router = useRouter();
   const { products, addProduct, removeProduct } = useProductStore();
   const [isProductInCart, setIsProductInCart] = useState(false);
 
@@ -36,15 +37,23 @@ export default function FurnitureDetails({ furniture }: Props) {
     toast.success("Item removido da sacola!");
   };
 
+  const handleBack = () => {
+    if (window.history?.length && window.history.length > 1) {
+      return router.back();
+    }
+
+    return router.replace(PAGE.FECOMERCIO.FURNITURE_LIST);
+  };
+
   return (
     <div className="flex flex-col gap-6 w-full max-w-[515px]">
-      <Link
-        href={PAGE.FECOMERCIO.FURNITURE_LIST}
+      <Button
+        onClick={handleBack}
         className="link-btn-secondary px-8 w-fit h-[58px]"
       >
         <CaretLeft size={16} />
         Voltar
-      </Link>
+      </Button>
       <h1 className="text-4xl font-bold">{furniture.productDescription}</h1>
       <p className="text-2xl">Onde retirar: {furniture.city}</p>
       <p>Informações: {furniture.additionalInfos}</p>

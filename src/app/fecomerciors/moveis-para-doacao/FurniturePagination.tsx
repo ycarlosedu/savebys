@@ -14,6 +14,8 @@ import useProductStore from "@/stores/productStore";
 export default function FurniturePagination() {
   const { goToPage, currentPage, totalPages } = useProductStore();
 
+  if (totalPages <= 1) return null;
+
   const actualPage = currentPage + 1;
 
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
