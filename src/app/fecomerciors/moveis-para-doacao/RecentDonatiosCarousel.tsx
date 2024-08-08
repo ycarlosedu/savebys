@@ -8,7 +8,7 @@ type Props = {
   furnitures: Product[];
 };
 export default function RecentDonatiosCarousel({ furnitures }: Props) {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
     Autoplay({ delay: 2000 })
   ]);
 
@@ -20,7 +20,10 @@ export default function RecentDonatiosCarousel({ furnitures }: Props) {
       >
         <div className="embla__container">
           {furnitures.map((furniture) => (
-            <div className="embla__slide h-fit" key={furniture.id}>
+            <div
+              className="embla__slide h-fit md:max-w-[50%] lg:max-w-[33%]"
+              key={furniture.id}
+            >
               <ProductCardRecent furniture={furniture} />
             </div>
           ))}
