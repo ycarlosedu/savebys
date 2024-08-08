@@ -33,7 +33,7 @@ export default function ProductCardRecent({ furniture, ...rest }: Props) {
       />
       <div className="flex flex-col gap-1 w-full">
         <p className="font-medium text-xl text-white">
-          {sliceMaxLength(furniture.productDescription, 43)}
+          {sliceMaxLength(furniture.productDescription, 20)}
         </p>
         <p className="font-medium text-lg text-gray-minimum">
           {furniture.city}

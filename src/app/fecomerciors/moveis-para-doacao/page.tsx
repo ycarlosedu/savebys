@@ -54,7 +54,7 @@ export default async function FurnituresToDonation() {
     <section className="flex flex-col py-12 px-default gap-6 items-center w-full max-w-[1282px]">
       <Banner />
 
-      <div className="flex justify-between w-full gap-8">
+      <div className="flex flex-col md:flex-row justify-between w-full gap-8">
         <FurnitureFilter />
         <RecentDonations />
       </div>
