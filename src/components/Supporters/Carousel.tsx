@@ -55,12 +55,20 @@ export default function SupportersCarousel() {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-center gap-6">
-          <button className="embla__prev link-btn" onClick={scrollPrev}>
-            <CaretLeft size={24} />
+        <div className="flex items-center justify-center gap-4">
+          <button
+            aria-label="Anterior"
+            className="embla__prev link-btn p-2"
+            onClick={scrollPrev}
+          >
+            <CaretLeft size={16} />
           </button>
-          <button className="embla__next link-btn" onClick={scrollNext}>
-            <CaretRight size={24} />
+          <button
+            aria-label="Próximo"
+            className="embla__next link-btn p-2"
+            onClick={scrollNext}
+          >
+            <CaretRight size={16} />
           </button>
         </div>
       </div>
