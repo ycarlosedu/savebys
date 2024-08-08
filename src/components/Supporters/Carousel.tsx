@@ -1,33 +1,21 @@
 "use client";
 import Image from "next/image";
-import { useCallback } from "react";
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 
-import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
-
 import supportersList from "./supportersList";
 
 export default function SupportersCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start" },
-    [Autoplay({ delay: 2000 })]
-  );
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
+    Autoplay({ delay: 2000 })
+  ]);
 
   return (
     <div className="embla">
       <div
-        className="embla__viewport flex flex-col items-center justify-end h-[250px] gap-6"
+        className="embla__viewport flex flex-col items-center justify-end h-[190px] gap-6"
         ref={emblaRef}
       >
         <div className="embla__container">
@@ -58,22 +46,6 @@ export default function SupportersCarousel() {
               </Tooltip>
             </div>
           ))}
-        </div>
-        <div className="flex items-center justify-center gap-4">
-          <button
-            aria-label="Anterior"
-            className="embla__prev link-btn p-2"
-            onClick={scrollPrev}
-          >
-            <CaretLeft size={16} />
-          </button>
-          <button
-            aria-label="Próximo"
-            className="embla__next link-btn p-2"
-            onClick={scrollNext}
-          >
-            <CaretRight size={16} />
-          </button>
         </div>
       </div>
     </div>
