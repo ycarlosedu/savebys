@@ -16,7 +16,7 @@ export default function FilterFurnitureDropdown() {
       <DropdownMenu.Trigger asChild>
         <button
           aria-label="Alterar pesquisa por área de atuação"
-          className="rounded-[36px] flex items-center gap-2 p-2 border border-white/50 text-white"
+          className="rounded-[36px] flex items-center gap-2 p-2 border border-gray-secondary/50 text-gray-tertiary"
         >
           <Desk size={24} />
           Área de Atuação
