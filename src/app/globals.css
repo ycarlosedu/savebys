@@ -45,7 +45,7 @@ html {
   }
 
   .embla__container {
-    @apply flex w-full touch-pan-x touch-pinch-zoom;
+    @apply flex w-full;
   }
 
   .embla__slide {

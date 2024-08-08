@@ -3,13 +3,15 @@ import { create } from "zustand";
 export enum MENU {
   SUCESS_DONATE = "sucessDonateOpened",
   RECEIVE_SUCESS_DONATION = "sucessReceiveDonationOpened",
-  RECIPIENT_FORM = "recipientFormOpened"
+  RECIPIENT_FORM = "recipientFormOpened",
+  SHEET = "sheetOpened"
 }
 
 const initialState = {
   [MENU.SUCESS_DONATE]: false,
   [MENU.RECEIVE_SUCESS_DONATION]: false,
-  [MENU.RECIPIENT_FORM]: false
+  [MENU.RECIPIENT_FORM]: false,
+  [MENU.SHEET]: false
 };
 
 type InitialState = typeof initialState;
