@@ -37,11 +37,11 @@ html {
   }
 
   .embla {
-    @apply overflow-hidden max-w-full;
+    @apply max-w-full;
   }
 
   .embla__viewport {
-    @apply relative overflow-hidden w-full;
+    @apply overflow-x-hidden relative w-full;
   }
 
   .embla__container {

@@ -11,9 +11,10 @@ import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
 import supportersList from "./supportersList";
 
 export default function SupportersCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 2000 })
-  ]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start" },
+    [Autoplay({ delay: 2000 })]
+  );
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -24,14 +25,17 @@ export default function SupportersCarousel() {
   }, [emblaApi]);
 
   return (
-    <div className="embla overflow-visible">
+    <div className="embla">
       <div
-        className="embla__viewport flex flex-col items-center justify-center gap-6"
+        className="embla__viewport flex flex-col items-center justify-end h-[250px] gap-6"
         ref={emblaRef}
       >
         <div className="embla__container">
           {supportersList.map((supporter) => (
-            <div className="embla__slide" key={supporter.name}>
+            <div
+              className="embla__slide max-w-full md:max-w-[50%] lg:max-w-[33%]"
+              key={supporter.name}
+            >
               <Tooltip>
                 <TooltipTrigger>
                   <a
