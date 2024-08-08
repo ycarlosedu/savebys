@@ -38,6 +38,11 @@ const supportersList = [
     name: "ONNE",
     image: "/images/supporters/logo-onne.webp",
     href: "https://onne.site"
+  },
+  {
+    name: "Associação Gaúcha de Startups",
+    image: "/images/supporters/logo-ags.webp",
+    href: "https://www.agstartups.org.br"
   }
 ];
 
