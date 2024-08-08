@@ -7,7 +7,7 @@ const supportersList = [
   {
     name: "Bonanza",
     image: "/images/supporters/logo-bonanza.webp",
-    href: "#"
+    href: "https://www.instagram.com/bonanza.ong"
   },
   {
     name: "Societário Digital",
