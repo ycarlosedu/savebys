@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 // import dynamic from "next/dynamic";
 
+import { Suspense } from "react";
+
 import fecomerciorsServices from "@/services/fecomerciors";
 import {
   dehydrate,
@@ -13,6 +15,7 @@ import Banner from "./Banner";
 import FurnitureFilter from "./FurnitureFilter";
 import FurnitureList from "./FurnitureList";
 import RecentDonations from "./RecentDonatios";
+import RecentDonatiosSkeleton from "./RecentDonatiosSkeleton";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -56,7 +59,9 @@ export default async function FurnituresToDonation() {
 
       <div className="flex flex-col md:flex-row justify-between w-full gap-8">
         <FurnitureFilter />
-        <RecentDonations />
+        <Suspense fallback={<RecentDonatiosSkeleton />}>
+          <RecentDonations />
+        </Suspense>
       </div>
       <HydrationBoundary state={dehydratedState}>
         <FurnitureList />
