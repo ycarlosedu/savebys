@@ -10,9 +10,7 @@ import {
   QueryClient
 } from "@tanstack/react-query";
 
-// const Banner = dynamic(() => import("./Banner"), { ssr: false });
 import Banner from "./Banner";
-import FurnitureFilter from "./FurnitureFilter";
 import FurnitureList from "./FurnitureList";
 import RecentDonations from "./RecentDonatios";
 import RecentDonatiosSkeleton from "./RecentDonatiosSkeleton";
@@ -60,7 +58,6 @@ export default async function FurnituresToDonation() {
       <Suspense fallback={<RecentDonatiosSkeleton />}>
         <RecentDonations />
       </Suspense>
-      <FurnitureFilter />
       <HydrationBoundary state={dehydratedState}>
         <FurnitureList />
       </HydrationBoundary>

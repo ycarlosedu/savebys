@@ -11,6 +11,7 @@ import { FURNITURE_CATEGORIES, PAGE } from "@/constants";
 
 import { ShoppingBagOpen } from "@phosphor-icons/react/dist/ssr";
 
+import FurnitureFilter from "./FurnitureFilter";
 import FurnitureListSkeleton from "./FurnitureListSkeleton";
 import FurniturePagination from "./FurniturePagination";
 
@@ -47,8 +48,13 @@ export default function FurnitureList() {
   };
 
   return (
-    <section className="flex flex-col gap-8 py-8 flex-start w-full">
-      <h2 className="text-4xl font-semibold text-gray-secondary">{category}</h2>
+    <section className="flex flex-col gap-8 flex-start w-full">
+      <div className="flex items-start justify-between w-full gap-6 flex-col lg:flex-row-reverse lg:items-center">
+        <FurnitureFilter />
+        <h2 className="text-4xl font-semibold text-gray-secondary">
+          {category}
+        </h2>
+      </div>
       {!data?.products || data?.products.length === 0 ? (
         <p className="w-full text-xl text-center">
           Nenhum produto encontrado...
