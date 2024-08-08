@@ -50,7 +50,7 @@ export default function CampaignsCarousel() {
                       {campaign.name}
                     </h3>
                     <p
-                      className="text-gray-secondary text-lg"
+                      className="text-gray-secondary text-lg max-w-[500px]"
                       dangerouslySetInnerHTML={{ __html: campaign.description }}
                     ></p>
                   </div>
@@ -62,9 +62,9 @@ export default function CampaignsCarousel() {
                 <Image
                   src={campaign.image}
                   alt={`Logo da marca ${campaign.name}`}
-                  width={200}
-                  height={200}
-                  className="md:max-h-[230px]"
+                  width={300}
+                  height={300}
+                  className="md:max-h-[300px]"
                 />
               </article>
             </div>

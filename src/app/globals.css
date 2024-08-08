@@ -73,7 +73,7 @@ html {
   .embla__dot:after {
     box-shadow: inset 0 0 0 0.2rem rgb(54, 49, 61);
     content: "";
-    @apply flex items-center rounded-full h-4 w-4;
+    @apply flex items-center rounded-full h-3 w-3;
   }
 
   .embla__dot--selected:after {
