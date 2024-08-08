@@ -155,13 +155,26 @@ export const getProductById = async (id: string = "1"): Promise<Product> => {
   });
 };
 
+type RecentDonations = {
+  products: Product[];
+  totalDonations: number;
+};
+export const generateGetRecentDonationsEndpoint = () =>
+  `${BFFs.GATEKEEPER}/donation/recents`;
+export const getRecentDonations = async (): Promise<RecentDonations> => {
+  return request.get(generateGetRecentDonationsEndpoint(), {
+    cache: "no-store"
+  });
+};
+
 const fecomerciorsServices = {
   signupCompany,
   signupIndividual,
   receiveDonation,
   registerDonation,
   getProducts,
-  getProductById
+  getProductById,
+  getRecentDonations
 };
 
 export default fecomerciorsServices;

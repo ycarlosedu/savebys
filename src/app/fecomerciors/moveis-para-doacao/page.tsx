@@ -12,6 +12,7 @@ import {
 import Banner from "./Banner";
 import FurnitureFilter from "./FurnitureFilter";
 import FurnitureList from "./FurnitureList";
+import RecentDonations from "./RecentDonatios";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -53,7 +54,10 @@ export default async function FurnituresToDonation() {
     <section className="flex flex-col py-12 px-default gap-6 items-center w-full max-w-[1282px]">
       <Banner />
 
-      <FurnitureFilter />
+      <div className="flex justify-between w-full gap-8">
+        <FurnitureFilter />
+        <RecentDonations />
+      </div>
       <HydrationBoundary state={dehydratedState}>
         <FurnitureList />
       </HydrationBoundary>

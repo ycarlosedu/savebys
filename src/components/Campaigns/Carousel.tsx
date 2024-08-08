@@ -78,6 +78,7 @@ export default function CampaignsCarousel() {
             <DotButton
               key={index}
               onClick={() => onDotButtonClick(index)}
+              aria-label={`Ir para item ${index + 1}`}
               className={"embla__dot".concat(
                 index === selectedIndex ? " embla__dot--selected" : ""
               )}
