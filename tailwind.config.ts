@@ -24,6 +24,8 @@ const config = {
     extend: {
       screens: {
         xs: "425px",
+        ssm: "500px",
+        sm: "640px",
         "2xl": "1400px"
       },
       backgroundImage: {

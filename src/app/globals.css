@@ -37,12 +37,16 @@ html {
   }
 
   .embla {
-    @apply overflow-hidden;
+    @apply overflow-hidden max-w-full;
+  }
+
+  .embla__viewport {
+    @apply relative overflow-hidden w-full;
   }
 
   .embla__container {
     touch-action: pan-y pinch-zoom;
-    @apply flex;
+    @apply flex w-full;
   }
 
   .embla__slide {
