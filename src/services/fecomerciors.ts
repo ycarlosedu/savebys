@@ -155,16 +155,25 @@ export const getProductById = async (id: string = "1"): Promise<Product> => {
   });
 };
 
+export type DonatedProduct = {
+  description: string;
+  city: string;
+  image: string;
+  donatedQuantity: number;
+};
 type RecentDonations = {
-  products: Product[];
+  products: DonatedProduct[];
   totalDonations: number;
 };
 export const generateGetRecentDonationsEndpoint = () =>
   `${BFFs.GATEKEEPER}/donation/recents`;
 export const getRecentDonations = async (): Promise<RecentDonations> => {
-  return request.get(generateGetRecentDonationsEndpoint(), {
-    cache: "no-store"
-  });
+  return request.get(
+    generateGetRecentDonationsEndpoint() + "?howManyToShow=10",
+    {
+      cache: "no-store"
+    }
+  );
 };
 
 const fecomerciorsServices = {

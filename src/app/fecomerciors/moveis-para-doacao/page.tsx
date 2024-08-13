@@ -46,7 +46,7 @@ export default async function FurnituresToDonation() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["products"],
+    queryKey: ["products", 0, "all"],
     queryFn: () => fecomerciorsServices.getProducts()
   });
   const dehydratedState = dehydrate(queryClient);

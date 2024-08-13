@@ -1,11 +1,11 @@
 "use client";
 import ProductCardRecent from "@/components/fecomerciors/ProductCardRecent";
-import { Product } from "@/services/fecomerciors";
+import { DonatedProduct } from "@/services/fecomerciors";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 
 type Props = {
-  furnitures: Product[];
+  furnitures: DonatedProduct[];
 };
 export default function RecentDonatiosCarousel({ furnitures }: Props) {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
@@ -13,7 +13,7 @@ export default function RecentDonatiosCarousel({ furnitures }: Props) {
   ]);
 
   return (
-    <div className="embla">
+    <div className="embla w-full">
       <div
         className="embla__viewport flex flex-col items-center justify-center gap-1"
         ref={emblaRef}
@@ -22,7 +22,7 @@ export default function RecentDonatiosCarousel({ furnitures }: Props) {
           {furnitures.map((furniture) => (
             <div
               className="embla__slide h-fit md:max-w-[50%] lg:max-w-[33%]"
-              key={furniture.id}
+              key={furniture.description}
             >
               <ProductCardRecent furniture={furniture} />
             </div>
