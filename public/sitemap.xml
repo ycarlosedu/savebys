@@ -9,7 +9,7 @@
   <url>
     <loc>https://savebys.com</loc>
 
-    <lastmod>2024-07-11</lastmod>
+    <lastmod>2024-08-14</lastmod>
 
     <changefreq>weekly</changefreq>
 
@@ -39,7 +39,17 @@
   <url>
     <loc>https://savebys.com/fecomerciors/moveis-para-doacao</loc>
 
-    <lastmod>2024-07-14</lastmod>
+    <lastmod>2024-08-14</lastmod>
+
+    <changefreq>weekly</changefreq>
+
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://savebys.com/bonanza</loc>
+
+    <lastmod>2024-08-14</lastmod>
 
     <changefreq>weekly</changefreq>
 
