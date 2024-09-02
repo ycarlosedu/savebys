@@ -13,7 +13,7 @@ const list = [
     description:
       "Os Doadores são os responsáveis por ajudarem os negócios a prosperarem novamente.",
     action: "VER CAMPANHAS",
-    href: "#campanhas",
+    href: "/#campanhas",
     ariaLabel: "Cadastrar-se como doador SAVEBYS",
     target: "_self"
   },

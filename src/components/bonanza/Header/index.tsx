@@ -21,7 +21,7 @@ const Nav = ({ className, ...props }: Props) => {
       {...props}
     >
       <ActiveLink href="/">Início</ActiveLink>
-      <ActiveLink href="/bonanza">Campanha Bonanza</ActiveLink>
+      <ActiveLink href="/bonanza/">Campanha Bonanza</ActiveLink>
       <Link
         href="https://encurtador.com.br/s6b95"
         className="link-btn h-[54px]"

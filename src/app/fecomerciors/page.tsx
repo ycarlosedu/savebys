@@ -35,11 +35,11 @@ export default function FecomercioCampaign() {
   return (
     <>
       <div className="flex flex-col gap-4 pt-8 md:flex-row md:gap-8 md:pt-16 items-center justify-center px-default">
-        <Link href="./cadastro-doador" className="link-btn h-[58px]">
+        <Link href="./cadastro-doador/" className="link-btn h-[58px]">
           QUERO DOAR MÓVEIS
           <CaretRight size={16} />
         </Link>
-        <Link href="./moveis-para-doacao" className="link-btn h-[58px]">
+        <Link href="./moveis-para-doacao/" className="link-btn h-[58px]">
           VER MÓVEIS CADASTRADOS
           <CaretRight size={16} />
         </Link>

@@ -32,22 +32,25 @@ const Nav = ({ className, onClickLink, ...props }: Props) => {
       <ActiveLink onClick={onClickLink} href="/">
         Início
       </ActiveLink>
-      <ActiveLink onClick={onClickLink} href="/fecomerciors">
+      <ActiveLink onClick={onClickLink} href="/fecomerciors/">
         Campanha Fecomércio
       </ActiveLink>
-      <ActiveLink onClick={onClickLink} href="/fecomerciors/moveis-para-doacao">
+      <ActiveLink
+        onClick={onClickLink}
+        href="/fecomerciors/moveis-para-doacao/"
+      >
         Lista de Móveis
       </ActiveLink>
       <Link
         onClick={onClickLink}
-        href="/fecomerciors/cadastro-doador"
+        href="/fecomerciors/cadastro-doador/"
         className="link-btn h-[54px]"
       >
         Quero Doar
       </Link>
       <Link
         onClick={onClickLink}
-        href="/fecomerciors/minha-sacola"
+        href="/fecomerciors/minha-sacola/"
         className={`link-btn-secondary h-[54px] relative`}
       >
         Minha Sacola

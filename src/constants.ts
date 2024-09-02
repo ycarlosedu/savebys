@@ -92,12 +92,13 @@ export const INVALID = {
 export const PAGE = {
   HOME: "/",
   FECOMERCIO: {
-    HOME: "/fecomerciors",
-    REGISTER_DONATOR: "/fecomerciors/cadastro-doador",
-    REGISTER_FURNITURE: "/fecomerciors/cadastro-movel",
-    FURNITURE_LIST: "/fecomerciors/moveis-para-doacao",
-    FURNITURE_DETAILS: (id: string) => `/fecomerciors/moveis-para-doacao/${id}`,
-    FURNITURE_BAG: "/fecomerciors/minha-sacola"
+    HOME: "/fecomerciors/",
+    REGISTER_DONATOR: "/fecomerciors/cadastro-doador/",
+    REGISTER_FURNITURE: "/fecomerciors/cadastro-movel/",
+    FURNITURE_LIST: "/fecomerciors/moveis-para-doacao/",
+    FURNITURE_DETAILS: (id: string) =>
+      `/fecomerciors/moveis-para-doacao/${id}/`,
+    FURNITURE_BAG: "/fecomerciors/minha-sacola/"
   }
 };
 
