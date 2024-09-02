@@ -9,7 +9,7 @@ export default function HowItWorks() {
       className="bg-gray-tertiary bg-opacity-70 w-full py-20 flex flex-col gap-8 items-center px-default"
     >
       <div className="max-w-default flex flex-col gap-10 items-center">
-        <h2 className="title text-title">Como Funciona</h2>
+        <h2 className="title text-primary">Como Funciona</h2>
         <Flux list={list} />
       </div>
     </section>

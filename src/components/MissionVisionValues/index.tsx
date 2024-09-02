@@ -5,7 +5,7 @@ export default function MissionVisionValues() {
     <section className="bg-white px-default pt-20 w-full flex flex-col items-center justify-center gap-8">
       <div className="flex gap-8 flex-wrap items-start justify-center w-full max-w-default">
         <div className="flex flex-col gap-8 items-center justify-center flex-1 md:min-w-[320px]">
-          <h3 className="text-title title">MISSÃO</h3>
+          <h3 className="title">MISSÃO</h3>
           <p className="text-center max-w-[300px] text-lg text-gray-secondary">
             Ajudar Microempreendedores e pequenas empresas, em situações de
             crise, a reerguerem seus negócios através de apoio financeiro,
@@ -14,7 +14,7 @@ export default function MissionVisionValues() {
           </p>
         </div>
         <div className="flex flex-col gap-8 items-center justify-center flex-1 md:min-w-[320px]">
-          <h3 className="text-title title">VISÃO</h3>
+          <h3 className="title">VISÃO</h3>
           <p className="text-center max-w-[300px] text-lg text-gray-secondary">
             Ser a principal plataforma de apoio a microempreendedores e a
             pequenas empresas em situações de crise, promovendo uma rede
@@ -23,7 +23,7 @@ export default function MissionVisionValues() {
         </div>
 
         <div className="flex flex-col gap-8 items-center justify-center flex-1 md:min-w-[320px]">
-          <h3 className="text-title title">VALORES</h3>
+          <h3 className="title">VALORES</h3>
 
           <ul className="flex flex-col items-center justify-center text-center max-w-[300px] text-lg text-gray-secondary gap-1">
             {valuesList.map(({ title }) => (

@@ -27,7 +27,7 @@ export default function Flux({ list }: Props) {
                 }`}
               >
                 <h3
-                  className={`text-title ${isOdd ? "text-end" : "text-start"}`}
+                  className={`text-primary ${isOdd ? "text-end" : "text-start"}`}
                 >
                   {item.title}
                 </h3>

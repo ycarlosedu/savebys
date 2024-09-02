@@ -7,13 +7,11 @@ export default function SocialMedias() {
   return (
     <section
       id="redes-sociais"
-      className="bg-gray-primary px-default pt-8 pb-16 w-full flex items-center justify-center gap-8"
+      className="px-default px-default w-full flex items-center justify-center gap-8"
     >
-      <div className="flex flex-col gap-4 w-full items-start justify-center max-w-[800px]">
-        <label htmlFor="project-url" className="text-lg ml-4">
-          AJUDE A DIVULGAR NAS REDES SOCIAIS
-        </label>
-        <div className="flex gap-8 items-center justify-start w-full flex-wrap">
+      <div className="bg-gray-light py-16 px-8 rounded-t-3xl flex flex-col gap-8 w-full items-center justify-center max-w-default">
+        <h2 className="title">Ajude a divulgar nas Redes Sociais</h2>
+        <div className="flex gap-8 items-center justify-center w-full flex-wrap">
           <CopyAdress />
           <div className="flex gap-4">
             {socialMedias.map((social) => {

@@ -5,12 +5,12 @@ import contactMethods from "./contactList";
 export default function Contact() {
   return (
     <section
-      className="bg-gray-primary pt-8 pb-16 w-full flex items-center justify-center gap-8"
+      className="px-default w-full flex items-center justify-center gap-8"
       id="contato"
     >
-      <div className="flex flex-col lg:flex-row justify-center w-full max-w-default mx-auto px-default text-gray-600 gap-12 md:px-8">
+      <div className="bg-gray-light pt-8 pb-16 rounded-b-3xl flex flex-col text-gray-secondary lg:flex-row justify-center w-full max-w-default mx-auto px-default text-gray-600 gap-12 md:px-8">
         <div className="max-w-md">
-          <h3 className="text-white text-3xl font-semibold">
+          <h3 className="text-primary text-3xl font-semibold">
             Entre em contato
           </h3>
           <p className="mt-3">
@@ -26,12 +26,10 @@ export default function Contact() {
                 key={item.title}
                 className="space-y-3 border-t py-6 md:max-w-sm lg:border-t-0 lg:border-l lg:px-12 lg:max-w-none"
               >
-                <div className="w-12 h-12 rounded-full border flex items-center justify-center text-gray-700">
+                <div className="w-12 h-12 rounded-full border flex items-center justify-center">
                   <Icon size={24} />
                 </div>
-                <h4 className="text-gray-800 text-lg font-medium xl:text-xl">
-                  {item.title}
-                </h4>
+                <h4 className="text-lg font-medium xl:text-xl">{item.title}</h4>
                 <p>{item.desc}</p>
                 <a
                   href={item.link.href}

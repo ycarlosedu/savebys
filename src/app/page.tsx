@@ -4,13 +4,11 @@ import Campaigns from "@/components/Campaigns";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import MissionVisionValues from "@/components/MissionVisionValues";
 import PresentationVideo from "@/components/PresentationVideo";
 import SocialMedias from "@/components/SocialMedias";
 import Supporters from "@/components/Supporters";
-import Team from "@/components/Team";
 import WannaBeCurator from "@/components/WannaBeCurator";
-import WhoWeAre from "@/components/WhoWeAre";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -25,19 +23,15 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <main className="bg-gray-secondary text-white flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden h-full">
+    <main className="bg-white text-gray-secondary flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden h-full">
       <h1 className="sr-only">SAVEBYS</h1>
       <Header />
       <Campaigns />
       <PresentationVideo />
-      <WhoWeAre />
-      <MissionVisionValues />
-      {/* <HowItWorks /> */}
       <WannaBeCurator />
-      <Team />
+      <WhyChooseUs />
       <SocialMedias />
       <Contact />
-      {/* <FAQ /> */}
       <Supporters />
       <Footer />
     </main>

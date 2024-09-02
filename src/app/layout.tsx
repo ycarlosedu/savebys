@@ -72,7 +72,6 @@ export const metadata: Metadata = {
     ]
   },
   authors: [
-    { name: "Diogo Reis" },
     {
       name: "Carlos Silva",
       url: "https://www.linkedin.com/in/silvacarlosoliveira"

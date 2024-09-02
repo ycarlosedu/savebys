@@ -65,7 +65,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white flex flex-col lg:flex-row gap-6 items-center justify-center py-4 text-center text-gray-secondary flex-wrap border-b-2 border-gray-primary shadow-2xl z-10">
+    <header className="w-full bg-white flex flex-col lg:flex-row gap-6 items-center justify-center py-4 text-center text-gray-secondary flex-wrap border-b-2 border-gray-light z-10">
       <div className="w-full max-w-default flex flex-row gap-6 items-center justify-between md:justify-center lg:justify-between text-center flex-wrap px-default">
         <Image
           src={Logo}

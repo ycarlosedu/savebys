@@ -43,7 +43,7 @@ export default function CampaignsCarousel() {
         <div className="embla__container">
           {campaignsList.map((campaign) => (
             <div key={campaign.id} className="embla__slide w-full">
-              <article className="w-[98%] bg-white rounded-3xl flex flex-col md:flex-row items-center justify-between p-4 lg:p-8 h-[540px] ssm:h-[480px] sm:h-[440px] md:h-[300px]">
+              <article className="w-[98%] bg-gray-light rounded-3xl flex flex-col md:flex-row items-center justify-between p-4 lg:p-8 h-[540px] ssm:h-[480px] sm:h-[440px] md:h-[300px]">
                 <div className="flex flex-col gap-4 h-full justify-start md:justify-between">
                   <div className="flex flex-col gap-4">
                     <h3 className="text-gray-secondary text-2xl font-bold text-center md:text-start">

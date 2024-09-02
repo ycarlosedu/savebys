@@ -30,14 +30,14 @@ export default function NotFound() {
           </div>
           <div className="mt-12 flex-1 max-w-lg space-y-3 md:mt-0">
             <h3 className=" font-semibold">Erro 404</h3>
-            <p className="text-title text-4xl font-semibold sm:text-5xl">
+            <p className="text-primary text-4xl font-semibold sm:text-5xl">
               Página não encontrada
             </p>
             <p className="text-white">
               Não encontramos o que você procura. Este link pode ter sido movido
               ou estamos com alguma instabilidade no momento.
             </p>
-            <Link href="/" className="text-title link font-medium">
+            <Link href="/" className="text-primary link font-medium">
               Voltar para a página inicial
               <CaretRight size={16} />
             </Link>

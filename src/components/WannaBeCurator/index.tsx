@@ -6,35 +6,33 @@ export default function WannaBeCurator() {
   return (
     <section
       id="quero-ser-curador"
-      className="bg-gray-tertiary px-default py-8 w-full flex flex-col items-center justify-center gap-8"
+      className="px-default pt-16 pb-20 w-full flex flex-wrap max-w-default items-center justify-center gap-8"
     >
-      <div className="max-w-default w-full flex flex-col items-center justify-center gap-8">
-        <h2 className="title text-title">Quero ser um Curador</h2>
-        <p className="text-center text-white text-lg max-w-[380px]">
-          Os Curadores são parceiros que irão mapear e centralizar as empresas
-          afetadas.
-        </p>
-
-        <ol className="text-white list-inside list-decimal text-lg flex items-start justify-center gap-8 text-center flex-wrap">
-          {list.map(({ description }, index) => (
-            <li key={description} className="flex flex-col max-w-[175px]">
-              <span className="text-title title">{index + 1}.</span>
-              {description}
-            </li>
-          ))}
-        </ol>
-
-        <a
-          target="_blank"
-          aria-label="Cadastrar-se como curador de uma campanha SAVEBYS"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSckb6kMK6yb3yXZnkBKPxarfiEy_IF_LDP5v_PDXkE3L9ofEQ/viewform?usp=sharing"
-          className="link-btn py-4 px-8"
-          rel="noreferrer"
+      {list.map((item) => (
+        <div
+          key={item.title}
+          className="flex flex-col bg-gray-light gap-8 p-8 items-center w-[350px] rounded-[32px]"
         >
-          CADASTRE-SE AQUI
-          <CaretRight size={16} weight="bold" />
-        </a>
-      </div>
+          <h2
+            className="font-bold text-gray-tertiary text-3xl text-center"
+            dangerouslySetInnerHTML={{ __html: item.title }}
+          ></h2>
+          <p className="text-center text-gray-secondary text-lg max-w-[380px]">
+            {item.description}
+          </p>
+
+          <a
+            target="_blank"
+            aria-label={item.ariaLabel}
+            href={item.href}
+            className="link-btn py-4 px-8"
+            rel="noreferrer"
+          >
+            {item.action}
+            <CaretRight size={16} weight="bold" />
+          </a>
+        </div>
+      ))}
     </section>
   );
 }

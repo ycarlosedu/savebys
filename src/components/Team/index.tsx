@@ -9,7 +9,7 @@ export default function Team() {
       className="bg-white w-full py-20 flex flex-col gap-8 items-center px-default"
     >
       <div className="max-w-default flex flex-col gap-10 items-center">
-        <h2 className="title text-primary">Time</h2>
+        <h2 className="title ">Time</h2>
 
         <div className="flex items-start justify-center gap-8 flex-wrap text-gray-secondary">
           {teamList.map((teammate) => (
