@@ -17,8 +17,14 @@ import { Sheet, SheetContent, SheetTrigger } from "../Sheet";
 
 type Props = ComponentProps<"nav"> & {
   onClickLink?: (event: MouseEvent<HTMLAnchorElement>) => void;
+  divisorHorizontal?: boolean;
 };
-const Nav = ({ className, onClickLink, ...props }: Props) => {
+const Nav = ({
+  className,
+  onClickLink,
+  divisorHorizontal,
+  ...props
+}: Props) => {
   return (
     <nav
       className={cn(
@@ -33,13 +39,19 @@ const Nav = ({ className, onClickLink, ...props }: Props) => {
       <ActiveLink onClick={onClickLink} href="/quem-somos/">
         Quem Somos
       </ActiveLink>
-      <ActiveLink onClick={onClickLink} href="#como-funciona">
+      <hr
+        className={cn(
+          "bg-gray-secondary",
+          divisorHorizontal ? "w-[150px] h-[1px]" : "w-[1px] h-[16px]"
+        )}
+      />
+      <ActiveLink onClick={onClickLink} href="/#como-funciona">
         Como Funciona
       </ActiveLink>
-      <ActiveLink onClick={onClickLink} href="#quero-ser-curador">
+      <ActiveLink onClick={onClickLink} href="/#quero-ser-curador">
         Quero ser um Curador
       </ActiveLink>
-      <ActiveLink onClick={onClickLink} href="#contato">
+      <ActiveLink onClick={onClickLink} href="/#contato">
         Contato
       </ActiveLink>
     </nav>
@@ -82,6 +94,7 @@ export default function Header() {
             <Nav
               className="flex-col items-start"
               onClickLink={handleNavigate}
+              divisorHorizontal
             />
             <Image
               src={Logo}
