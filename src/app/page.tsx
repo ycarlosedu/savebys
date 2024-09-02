@@ -4,6 +4,7 @@ import Campaigns from "@/components/Campaigns";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Personas from "@/components/Personas";
 import PresentationVideo from "@/components/PresentationVideo";
 import SocialMedias from "@/components/SocialMedias";
 import Supporters from "@/components/Supporters";
@@ -28,6 +29,7 @@ export default function Home() {
       <Header />
       <Campaigns />
       <PresentationVideo />
+      <Personas />
       <WannaBeCurator />
       <WhyChooseUs />
       <SocialMedias />
