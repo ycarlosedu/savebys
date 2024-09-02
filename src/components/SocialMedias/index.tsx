@@ -9,7 +9,7 @@ export default function SocialMedias() {
       id="redes-sociais"
       className="px-default px-default w-full flex items-center justify-center gap-8"
     >
-      <div className="bg-gray-light py-16 px-8 rounded-t-3xl flex flex-col gap-8 w-full items-center justify-center max-w-default">
+      <div className="bg-gray-light py-16 px-default rounded-t-3xl flex flex-col gap-8 w-full items-center justify-center max-w-default">
         <h2 className="title">Ajude a divulgar nas Redes Sociais</h2>
         <div className="flex gap-8 items-center justify-center w-full flex-wrap">
           <CopyAdress />

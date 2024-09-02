@@ -64,7 +64,7 @@ export default function CampaignsCarousel() {
                   alt={`Logo da marca ${campaign.name}`}
                   width={300}
                   height={300}
-                  className="md:max-h-[300px]"
+                  className="w-[200px] md:w-[300px] md:max-h-[300px]"
                 />
               </article>
             </div>

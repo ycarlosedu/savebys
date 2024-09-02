@@ -22,7 +22,7 @@ export default function WannaBeCurator() {
           </p>
 
           <a
-            target="_blank"
+            target={item.target}
             aria-label={item.ariaLabel}
             href={item.href}
             className="link-btn py-4 px-8"
