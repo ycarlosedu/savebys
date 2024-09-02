@@ -27,21 +27,20 @@ const Nav = ({ className, onClickLink, ...props }: Props) => {
       )}
       {...props}
     >
-      <ActiveLink onClick={onClickLink} href="#campanhas">
-        Campanhas
+      <ActiveLink onClick={onClickLink} href="/">
+        Início
       </ActiveLink>
-      <ActiveLink onClick={onClickLink} href="#quem-somos">
+      <ActiveLink onClick={onClickLink} href="/quem-somos/">
         Quem Somos
       </ActiveLink>
-      {/* <ActiveLink onClick={onClickLink} href="#como-funciona">Como Funciona</ActiveLink> */}
+      <ActiveLink onClick={onClickLink} href="#como-funciona">
+        Como Funciona
+      </ActiveLink>
       <ActiveLink onClick={onClickLink} href="#quero-ser-curador">
         Quero ser um Curador
       </ActiveLink>
       <ActiveLink onClick={onClickLink} href="#contato">
         Contato
-      </ActiveLink>
-      <ActiveLink onClick={onClickLink} href="#apoiadores">
-        Apoiadores
       </ActiveLink>
     </nav>
   );

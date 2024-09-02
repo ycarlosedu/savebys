@@ -25,7 +25,7 @@ hr {
   }
 
   .link {
-    @apply inline-flex gap-x-1 items-center border-b-2 border-b-transparent hover:border-b-white transition-all ease-in-out text-lg;
+    @apply inline-flex gap-x-1 items-center border-b-2 border-b-transparent hover:border-b-white transition-all ease-in-out text-lg data-[active=true]:border-b-primary;
   }
 
   .link-btn {
