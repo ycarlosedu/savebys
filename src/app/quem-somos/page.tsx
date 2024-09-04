@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "SAVEBYS - Quem Somos",
     description:
-      "SAVEBYS é uma plataforma de financiamento coletivo para empresas. Adote a empresa que você ama e ajude a manter viva a economia local.",
+      "Veja quem somos, nossa missão, visão e valores, e conheça nossa equipe.",
     alternates: {
       canonical: "https://savebys.com/quem-somos"
     }
