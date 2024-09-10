@@ -1,3 +1,5 @@
+import React from "react";
+
 import { cn } from "@/lib/utils";
 
 import list from "./list";
@@ -11,7 +13,7 @@ export default function Personas() {
       <h2 className="title">Personas</h2>
       <div className="flex items-start flex-wrap justify-center md:py-8 gap-8 w-full">
         {list.map((item, index) => (
-          <>
+          <React.Fragment key={item.title}>
             {index === 1 && (
               <hr className="w-[2px] h-[225px] bg-gray-secondary hidden lg:block" />
             )}
@@ -40,7 +42,7 @@ export default function Personas() {
                 ))}
               </ul>
             </div>
-          </>
+          </React.Fragment>
         ))}
       </div>
     </section>

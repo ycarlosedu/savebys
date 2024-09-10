@@ -21,13 +21,7 @@ const Nav = ({ className, ...props }: Props) => {
       {...props}
     >
       <ActiveLink href="/">Início</ActiveLink>
-      <ActiveLink href="/bonanza/">Campanha Bonanza</ActiveLink>
-      <Link
-        href="https://encurtador.com.br/s6b95"
-        className="link-btn h-[54px]"
-      >
-        Quero Doar
-      </Link>
+      <ActiveLink href="/manicures/">Campanha Lacre</ActiveLink>
     </nav>
   );
 };
