@@ -10,7 +10,6 @@ import {
 import Input from "@/components/Input";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/fecomerciors";
-// import fecomerciorsServices from "@/services/fecomerciors";
 import savebysServices from "@/services/savebys";
 import useMenuStore, { MENU } from "@/stores/menuStore";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -37,7 +36,27 @@ import { INVALID, REQUIRED } from "@/constants";
 import { X } from "@phosphor-icons/react";
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
+import RadioGroupInputs from "../RadioGroup";
+
+export enum YES_NO {
+  YES = "SIM",
+  NO = "NÃO"
+}
+
+const RADIOS_AFFECTED = [
+  {
+    label: YES_NO.YES,
+    value: YES_NO.YES,
+    autoFocus: true
+  },
+  {
+    label: YES_NO.NO,
+    value: YES_NO.NO
+  }
+];
+
 export type BuyerValues = {
+  affected: YES_NO;
   personType: PERSON_TYPE.LEGAL;
   companyName: string;
   fullName: string;
@@ -57,6 +76,10 @@ export type BuyerValues = {
 };
 
 const validationSchema = yup.object().shape({
+  affected: yup
+    .mixed<YES_NO>()
+    .oneOf(Object.values(YES_NO), REQUIRED.RADIO)
+    .required(REQUIRED.RADIO),
   companyName: yup.string().required(REQUIRED.FIELD),
   fullName: yup.string().required(REQUIRED.FIELD),
   document: yup
@@ -94,7 +117,6 @@ export default function Dialog_RecipientForm() {
   const onSubmit = async (values: BuyerValues) => {
     try {
       console.log("🚀 ~ onSubmit ~ values:", values);
-      // await fecomerciorsServices.signupCompany(values);
       toggleModal();
       toast.success("Dados enviados com sucesso!");
     } catch (error) {
@@ -114,6 +136,7 @@ export default function Dialog_RecipientForm() {
     setFieldValue
   } = useFormik({
     initialValues: {
+      affected: YES_NO.YES,
       personType: PERSON_TYPE.LEGAL,
       fullName: "",
       companyName: "",
@@ -174,7 +197,20 @@ export default function Dialog_RecipientForm() {
               Analisaremos seus dados e caso seja elegível, receberá um email
               para realizar a compra.
             </Dialog.Description>
+
             <form className="Dialog_Form" onSubmit={handleSubmit} noValidate>
+              <Input.Label required className="self-start">
+                Você foi atingido pela enchente?
+              </Input.Label>
+              <RadioGroupInputs
+                radios={RADIOS_AFFECTED}
+                value={values.affected}
+                name="affected"
+                ariaLabel="Você foi atingido pela enchente?"
+                onValueChange={(value) => setFieldValue("affected", value)}
+                invalid={Boolean(touched.affected && errors.affected)}
+              />
+
               <Input.Fieldset>
                 <Input.Label htmlFor="companyName" required>
                   Razão Social
