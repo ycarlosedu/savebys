@@ -1,6 +1,5 @@
 "use client";
 
-import { saveRecipient } from "@/actions/cookies";
 import Button from "@/components/Button";
 import {
   Checkbox,
@@ -11,9 +10,8 @@ import {
 import Input from "@/components/Input";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/fecomerciors";
-import fecomerciorsServices from "@/services/fecomerciors";
+// import fecomerciorsServices from "@/services/fecomerciors";
 import useMenuStore, { MENU } from "@/stores/menuStore";
-import useProductStore from "@/stores/productStore";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useFormik } from "formik";
 import { toast } from "sonner";
@@ -37,7 +35,7 @@ import { INVALID, REQUIRED } from "@/constants";
 import { X } from "@phosphor-icons/react";
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
-export type RecipientValues = {
+export type BuyerValues = {
   personType: PERSON_TYPE.LEGAL;
   companyName: string;
   fullName: string;
@@ -49,13 +47,12 @@ export type RecipientValues = {
   postalCode: string;
   countryDivision: string;
   city: string;
+  district: string;
   publicPlaceName: string;
   publicPlaceNumber: string;
   addOn: string;
   terms: boolean;
 };
-
-export type RecipientValuesWithId = RecipientValues & { companyId: number };
 
 const validationSchema = yup.object().shape({
   companyName: yup.string().required(REQUIRED.FIELD),
@@ -64,10 +61,7 @@ const validationSchema = yup.object().shape({
     .string()
     .required(REQUIRED.FIELD)
     .matches(CNPJ_REGEX, INVALID.DOCUMENT_LEGAL),
-  cnae: yup
-    .string()
-    .required(REQUIRED.FIELD)
-    .matches(CNAE_REGEX, INVALID.DOCUMENT),
+  cnae: yup.string().matches(CNAE_REGEX, INVALID.DOCUMENT),
   emailAddress: yup.string().required(REQUIRED.FIELD).email(INVALID.EMAIL),
   phoneNumber: yup
     .string()
@@ -85,6 +79,7 @@ const validationSchema = yup.object().shape({
     )
     .required(REQUIRED.FIELD),
   city: yup.string().required(REQUIRED.FIELD),
+  district: yup.string().required(REQUIRED.FIELD),
   publicPlaceName: yup.string().required(REQUIRED.FIELD),
   publicPlaceNumber: yup.number().required(REQUIRED.FIELD),
   addOn: yup.string(),
@@ -92,17 +87,14 @@ const validationSchema = yup.object().shape({
 });
 
 export default function Dialog_RecipientForm() {
-  const { toggleMenu, recipientFormOpened } = useMenuStore();
-  const { products, reset: clearProducts } = useProductStore();
+  const { toggleMenu, buyerFormOpened } = useMenuStore();
 
-  const onSubmit = async (values: RecipientValues) => {
+  const onSubmit = async (values: BuyerValues) => {
     try {
-      const { companyId } = await fecomerciorsServices.signupCompany(values);
-      await fecomerciorsServices.receiveDonation(products, companyId);
-      await saveRecipient({ ...values, companyId });
-      clearProducts();
+      console.log("🚀 ~ onSubmit ~ values:", values);
+      // await fecomerciorsServices.signupCompany(values);
       toggleModal();
-      toggleMenu(MENU.RECEIVE_SUCESS_DONATION);
+      toast.success("Dados enviados com sucesso!");
     } catch (error) {
       console.error("🚀 ~ onSubmit ~ error:", error);
       toast.error("Ocorreu um erro ao avançar, tente novamente mais tarde!");
@@ -131,6 +123,7 @@ export default function Dialog_RecipientForm() {
       postalCode: "",
       countryDivision: "RS",
       city: "",
+      district: "",
       publicPlaceName: "",
       publicPlaceNumber: "",
       addOn: "",
@@ -141,11 +134,11 @@ export default function Dialog_RecipientForm() {
   });
 
   const toggleModal = () => {
-    toggleMenu(MENU.RECIPIENT_FORM);
+    toggleMenu(MENU.BUYER_FORM);
   };
 
   return (
-    <Dialog.Root open={recipientFormOpened} onOpenChange={toggleModal}>
+    <Dialog.Root open={buyerFormOpened} onOpenChange={toggleModal}>
       <Dialog.Portal>
         <Dialog.Overlay className="Dialog_Overlay" />
         <Dialog.Content className="Dialog_Container">
@@ -153,10 +146,11 @@ export default function Dialog_RecipientForm() {
             <Dialog.Title className="Dialog_Title">
               Cadastro de
               <br />
-              <span className="text-primary">Donatário</span>
+              <span className="text-primary">Compra</span>
             </Dialog.Title>
             <Dialog.Description className="Dialog_Description">
-              Insira seus dados para ser um dos nossos beneficiários.
+              Analisaremos seus dados e caso seja elegível, receberá um email
+              para realizar a compra.
             </Dialog.Description>
             <form className="Dialog_Form" onSubmit={handleSubmit} noValidate>
               <Input.Fieldset>
@@ -197,9 +191,7 @@ export default function Dialog_RecipientForm() {
               </Input.Fieldset>
 
               <Input.Fieldset>
-                <Input.Label htmlFor="cnae" required>
-                  CNAE
-                </Input.Label>
+                <Input.Label htmlFor="cnae">CNAE</Input.Label>
                 <Input.Mask
                   name="cnae"
                   id="cnae"
@@ -338,22 +330,43 @@ export default function Dialog_RecipientForm() {
                 </Input.Fieldset>
               </Input.Group>
 
-              <Input.Fieldset>
-                <Input.Label htmlFor="city" required>
-                  Cidade
-                </Input.Label>
-                <Input.Text
-                  autoCapitalize="sentences"
-                  name="city"
-                  id="city"
-                  placeholder="De onde você é?"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.city}
-                  data-invalid={touched.city && errors.city}
-                />
-                <Input.Error>{touched.city && errors.city}</Input.Error>
-              </Input.Fieldset>
+              <Input.Group>
+                <Input.Fieldset>
+                  <Input.Label htmlFor="city" required>
+                    Cidade
+                  </Input.Label>
+                  <Input.Text
+                    autoCapitalize="sentences"
+                    name="city"
+                    id="city"
+                    placeholder="De onde você é?"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.city}
+                    data-invalid={touched.city && errors.city}
+                  />
+                  <Input.Error>{touched.city && errors.city}</Input.Error>
+                </Input.Fieldset>
+
+                <Input.Fieldset>
+                  <Input.Label htmlFor="district" required>
+                    Bairro
+                  </Input.Label>
+                  <Input.Text
+                    autoCapitalize="sentences"
+                    name="district"
+                    id="district"
+                    placeholder="Qual bairro?"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.district}
+                    data-invalid={touched.district && errors.district}
+                  />
+                  <Input.Error>
+                    {touched.district && errors.district}
+                  </Input.Error>
+                </Input.Fieldset>
+              </Input.Group>
 
               <Input.Fieldset>
                 <Input.Label htmlFor="publicPlaceName" required>
@@ -424,10 +437,10 @@ export default function Dialog_RecipientForm() {
                     checked={values.terms}
                   />
                   <CheckboxLabel htmlFor="terms">
-                    Concordo em compartilhar meus dados com a Savebys e a
-                    Fecomércio-RS, no âmbito da parceria entre as duas
-                    entidades, para que sejam repassados aos solicitantes para a
-                    realização da logística de entrega.
+                    Concordo em compartilhar meus dados com a Savebys e a Lacre,
+                    no âmbito da parceria entre as duas entidades, para que
+                    sejam repassados aos solicitantes para a realização da
+                    logística de entrega.
                   </CheckboxLabel>
                 </CheckboxGroup>
                 <Input.Error>{touched.terms && errors.terms}</Input.Error>

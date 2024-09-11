@@ -7,6 +7,7 @@ import Button from "@/components/Button";
 import {
   Checkbox,
   CheckboxFieldset,
+  CheckboxGroup,
   CheckboxLabel
 } from "@/components/Checkbox";
 import Input from "@/components/Input";
@@ -306,16 +307,18 @@ export default function FormDonator() {
       </Input.Fieldset>
 
       <CheckboxFieldset>
-        <Checkbox
-          name="isWhatsApp"
-          id="isWhatsApp"
-          onCheckedChange={(value) => setFieldValue("isWhatsApp", value)}
-          onBlur={handleBlur}
-          checked={values.isWhatsApp}
-        />
-        <CheckboxLabel htmlFor="isWhatsApp">
-          O número informado possui WhatsApp?
-        </CheckboxLabel>
+        <CheckboxGroup>
+          <Checkbox
+            name="isWhatsApp"
+            id="isWhatsApp"
+            onCheckedChange={(value) => setFieldValue("isWhatsApp", value)}
+            onBlur={handleBlur}
+            checked={values.isWhatsApp}
+          />
+          <CheckboxLabel htmlFor="isWhatsApp">
+            O número informado possui WhatsApp?
+          </CheckboxLabel>
+        </CheckboxGroup>
       </CheckboxFieldset>
 
       <Input.Group>
@@ -439,18 +442,21 @@ export default function FormDonator() {
       </Input.Group>
 
       <CheckboxFieldset>
-        <Checkbox
-          name="terms"
-          id="terms"
-          onCheckedChange={(value) => setFieldValue("terms", value)}
-          onBlur={handleBlur}
-          checked={values.terms}
-        />
-        <CheckboxLabel htmlFor="terms">
-          Concordo em compartilhar meus dados com a Savebys e a Fecomércio-RS,
-          no âmbito da parceria entre as duas entidades, para que sejam
-          repassados aos solicitantes para a realização da logística de entrega.
-        </CheckboxLabel>
+        <CheckboxGroup>
+          <Checkbox
+            name="terms"
+            id="terms"
+            onCheckedChange={(value) => setFieldValue("terms", value)}
+            onBlur={handleBlur}
+            checked={values.terms}
+          />
+          <CheckboxLabel htmlFor="terms">
+            Concordo em compartilhar meus dados com a Savebys e a Fecomércio-RS,
+            no âmbito da parceria entre as duas entidades, para que sejam
+            repassados aos solicitantes para a realização da logística de
+            entrega.
+          </CheckboxLabel>
+        </CheckboxGroup>
         <Input.Error>{touched.terms && errors.terms}</Input.Error>
       </CheckboxFieldset>
 

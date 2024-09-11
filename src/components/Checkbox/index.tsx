@@ -34,9 +34,18 @@ Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 type CheckboxFieldProps = React.ComponentProps<"fieldset">;
 const CheckboxFieldset = ({ children, ...rest }: CheckboxFieldProps) => {
   return (
-    <fieldset className="flex items-center space-x-2 w-full" {...rest}>
+    <fieldset className="flex flex-col space-x-2 w-full" {...rest}>
       {children}
     </fieldset>
+  );
+};
+
+type CheckboxGroupProps = React.ComponentProps<"div">;
+const CheckboxGroup = ({ children, ...rest }: CheckboxGroupProps) => {
+  return (
+    <div className="flex items-center space-x-2 w-full" {...rest}>
+      {children}
+    </div>
   );
 };
 
@@ -52,4 +61,4 @@ const CheckboxLabel = ({ children, ...rest }: CheckboxLabelProps) => {
   );
 };
 
-export { Checkbox, CheckboxLabel, CheckboxFieldset };
+export { Checkbox, CheckboxLabel, CheckboxFieldset, CheckboxGroup };

@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 
-import { CaretRight } from "@phosphor-icons/react/dist/ssr";
+import Dialog from "@/components/Dialog";
+
+import OpenForm from "./openForm";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -34,12 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function LacreCampaign() {
   return (
     <>
-      <div className="flex flex-col gap-4 pt-8 md:flex-row md:gap-8 items-center justify-center px-default">
-        <Link href="#" className="link-btn h-[58px]">
-          ME CADASTRAR
-          <CaretRight size={16} />
-        </Link>
-      </div>
+      <OpenForm />
       <section className="w-full max-w-[900px] px-default py-16 flex flex-col gap-8 items-center">
         <h1 className="title">CAMPANHA LACRE</h1>
         <Image
@@ -67,12 +63,13 @@ export default function LacreCampaign() {
             <li>1 Finalizador</li>
             <li>1 Espátula</li>
             <li>1 Acetona</li>
+            <li>1 Base</li>
           </ol>
           <h2 className="font-bold">COMO FUNCIONA</h2>
           <ol className="list-decimal list-inside">
             <li>
               Você acessa o link{" "}
-              <a href="/manicures" className="underline">
+              <a href="/manicures/" className="underline">
                 www.savebys.com/manicures
               </a>
               .
@@ -85,6 +82,7 @@ export default function LacreCampaign() {
           </ol>
         </div>
       </section>
+      <Dialog.BuyerForm />
     </>
   );
 }
