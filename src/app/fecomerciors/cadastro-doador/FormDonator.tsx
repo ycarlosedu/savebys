@@ -15,6 +15,7 @@ import RadioGroupInputs from "@/components/RadioGroup";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/fecomerciors";
 import fecomerciorsServices from "@/services/fecomerciors";
+import savebysServices from "@/services/savebys";
 import { useFormik } from "formik";
 import { toast } from "sonner";
 import * as yup from "yup";
@@ -23,7 +24,8 @@ import {
   CEP_MASK,
   CNPJ_Mask,
   CPF_MASK,
-  PHONE_NUMBER_MASK
+  PHONE_NUMBER_MASK,
+  unmask
 } from "@/utils/masks";
 import {
   CEP_REGEX,
@@ -161,6 +163,25 @@ export default function FormDonator() {
     validationSchema,
     onSubmit
   });
+
+  const fetchAddress = async (cep: string) => {
+    try {
+      const address = await savebysServices.getAddressByCEP(cep);
+      if (address.erro) {
+        throw new Error("CEP não encontrado");
+      }
+      setFieldValue("countryDivision", address.uf, true);
+      setFieldValue("city", address.localidade, true);
+      setFieldValue("publicPlaceName", address.logradouro, true);
+      setFieldValue("publicPlaceNumber", address.unidade, true);
+      setFieldValue("addOn", address.complemento, true);
+    } catch (error) {
+      console.error("🚀 ~ fetchAddress ~ error:", error);
+      toast.error(
+        "Não foi possível buscar as informações do CEP informado, tente novamente ou cadastre manualmente."
+      );
+    }
+  };
 
   return (
     <form
@@ -331,7 +352,13 @@ export default function FormDonator() {
             id="postalCode"
             placeholder="99999-999"
             mask={CEP_MASK}
-            onChange={handleChange}
+            onChange={(event) => {
+              handleChange(event);
+              const cep = unmask(event.target.value);
+              if (cep.length === 8) {
+                fetchAddress(cep);
+              }
+            }}
             onBlur={handleBlur}
             value={values.postalCode}
             data-invalid={touched.postalCode && errors.postalCode}
