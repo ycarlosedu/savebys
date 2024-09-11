@@ -11,6 +11,7 @@ import Input from "@/components/Input";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/fecomerciors";
 // import fecomerciorsServices from "@/services/fecomerciors";
+import savebysServices from "@/services/savebys";
 import useMenuStore, { MENU } from "@/stores/menuStore";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useFormik } from "formik";
@@ -21,7 +22,8 @@ import {
   CEP_MASK,
   CNAE_MASK,
   CNPJ_Mask,
-  PHONE_NUMBER_MASK
+  PHONE_NUMBER_MASK,
+  unmask
 } from "@/utils/masks";
 import {
   CEP_REGEX,
@@ -135,6 +137,26 @@ export default function Dialog_RecipientForm() {
 
   const toggleModal = () => {
     toggleMenu(MENU.BUYER_FORM);
+  };
+
+  const fetchAddress = async (cep: string) => {
+    try {
+      const address = await savebysServices.getAddressByCEP(cep);
+      if (address.erro) {
+        throw new Error("CEP não encontrado");
+      }
+      setFieldValue("countryDivision", address.uf, true);
+      setFieldValue("city", address.localidade, true);
+      setFieldValue("district", address.bairro, true);
+      setFieldValue("publicPlaceName", address.logradouro, true);
+      setFieldValue("publicPlaceNumber", address.unidade, true);
+      setFieldValue("addOn", address.complemento, true);
+    } catch (error) {
+      console.error("🚀 ~ fetchAddress ~ error:", error);
+      toast.error(
+        "Não foi possível buscar as informações do CEP informado, tente novamente ou cadastre manualmente."
+      );
+    }
   };
 
   return (
@@ -288,7 +310,13 @@ export default function Dialog_RecipientForm() {
                     id="postalCode"
                     placeholder="99999-999"
                     mask={CEP_MASK}
-                    onChange={handleChange}
+                    onChange={(event) => {
+                      handleChange(event);
+                      const cep = unmask(event.target.value);
+                      if (cep.length === 8) {
+                        fetchAddress(cep);
+                      }
+                    }}
                     onBlur={handleBlur}
                     value={values.postalCode}
                     data-invalid={touched.postalCode && errors.postalCode}

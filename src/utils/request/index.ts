@@ -17,7 +17,7 @@ export async function fetchRequest<T = unknown>(
     body
   });
 
-  if (response.headers.get("Content-Type") === "application/json") {
+  if (response.headers.get("Content-Type")?.includes("application/json")) {
     const responseJSON = await response.json();
 
     if (!response.ok) {
