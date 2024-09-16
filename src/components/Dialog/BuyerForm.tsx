@@ -9,7 +9,8 @@ import {
 } from "@/components/Checkbox";
 import Input from "@/components/Input";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
-import { PERSON_TYPE } from "@/models/fecomerciors";
+import { PERSON_TYPE } from "@/models/savebys";
+import { signupBuyer } from "@/services/lacre";
 import savebysServices from "@/services/savebys";
 import useMenuStore, { MENU } from "@/stores/menuStore";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -56,9 +57,9 @@ const RADIOS_AFFECTED = [
 ];
 
 export type BuyerValues = {
-  affected: YES_NO;
+  floodAffected: YES_NO;
   personType: PERSON_TYPE.LEGAL;
-  companyName: string;
+  name: string;
   fullName: string;
   document: string;
   cnae: string;
@@ -68,7 +69,7 @@ export type BuyerValues = {
   postalCode: string;
   countryDivision: string;
   city: string;
-  district: string;
+  cityDivision: string;
   publicPlaceName: string;
   publicPlaceNumber: string;
   addOn: string;
@@ -76,11 +77,11 @@ export type BuyerValues = {
 };
 
 const validationSchema = yup.object().shape({
-  affected: yup
+  floodAffected: yup
     .mixed<YES_NO>()
     .oneOf(Object.values(YES_NO), REQUIRED.RADIO)
     .required(REQUIRED.RADIO),
-  companyName: yup.string().required(REQUIRED.FIELD),
+  name: yup.string().required(REQUIRED.FIELD),
   fullName: yup.string().required(REQUIRED.FIELD),
   document: yup
     .string()
@@ -104,7 +105,7 @@ const validationSchema = yup.object().shape({
     )
     .required(REQUIRED.FIELD),
   city: yup.string().required(REQUIRED.FIELD),
-  district: yup.string().required(REQUIRED.FIELD),
+  cityDivision: yup.string().required(REQUIRED.FIELD),
   publicPlaceName: yup.string().required(REQUIRED.FIELD),
   publicPlaceNumber: yup.number().required(REQUIRED.FIELD),
   addOn: yup.string(),
@@ -116,7 +117,7 @@ export default function Dialog_RecipientForm() {
 
   const onSubmit = async (values: BuyerValues) => {
     try {
-      console.log("🚀 ~ onSubmit ~ values:", values);
+      await signupBuyer(values);
       toggleModal();
       toast.success("Dados enviados com sucesso!");
     } catch (error) {
@@ -136,10 +137,10 @@ export default function Dialog_RecipientForm() {
     setFieldValue
   } = useFormik({
     initialValues: {
-      affected: YES_NO.YES,
+      floodAffected: YES_NO.YES,
       personType: PERSON_TYPE.LEGAL,
       fullName: "",
-      companyName: "",
+      name: "",
       document: "",
       cnae: "",
       emailAddress: "",
@@ -148,7 +149,7 @@ export default function Dialog_RecipientForm() {
       postalCode: "",
       countryDivision: "RS",
       city: "",
-      district: "",
+      cityDivision: "",
       publicPlaceName: "",
       publicPlaceNumber: "",
       addOn: "",
@@ -170,7 +171,7 @@ export default function Dialog_RecipientForm() {
       }
       setFieldValue("countryDivision", address.uf, true);
       setFieldValue("city", address.localidade, true);
-      setFieldValue("district", address.bairro, true);
+      setFieldValue("cityDivision", address.bairro, true);
       setFieldValue("publicPlaceName", address.logradouro, true);
       setFieldValue("publicPlaceNumber", address.unidade, true);
       setFieldValue("addOn", address.complemento, true);
@@ -204,30 +205,28 @@ export default function Dialog_RecipientForm() {
               </Input.Label>
               <RadioGroupInputs
                 radios={RADIOS_AFFECTED}
-                value={values.affected}
-                name="affected"
+                value={values.floodAffected}
+                name="floodAffected"
                 ariaLabel="Você foi atingido pela enchente?"
-                onValueChange={(value) => setFieldValue("affected", value)}
-                invalid={Boolean(touched.affected && errors.affected)}
+                onValueChange={(value) => setFieldValue("floodAffected", value)}
+                invalid={Boolean(touched.floodAffected && errors.floodAffected)}
               />
 
               <Input.Fieldset>
-                <Input.Label htmlFor="companyName" required>
+                <Input.Label htmlFor="name" required>
                   Razão Social
                 </Input.Label>
                 <Input.Text
                   autoCapitalize="sentences"
-                  name="companyName"
-                  id="companyName"
+                  name="name"
+                  id="name"
                   placeholder="Qual o nome da empresa?"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.companyName}
-                  data-invalid={touched.companyName && errors.companyName}
+                  value={values.name}
+                  data-invalid={touched.name && errors.name}
                 />
-                <Input.Error>
-                  {touched.companyName && errors.companyName}
-                </Input.Error>
+                <Input.Error>{touched.name && errors.name}</Input.Error>
               </Input.Fieldset>
 
               <Input.Fieldset>
@@ -413,21 +412,21 @@ export default function Dialog_RecipientForm() {
                 </Input.Fieldset>
 
                 <Input.Fieldset>
-                  <Input.Label htmlFor="district" required>
+                  <Input.Label htmlFor="cityDivision" required>
                     Bairro
                   </Input.Label>
                   <Input.Text
                     autoCapitalize="sentences"
-                    name="district"
-                    id="district"
+                    name="cityDivision"
+                    id="cityDivision"
                     placeholder="Qual bairro?"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.district}
-                    data-invalid={touched.district && errors.district}
+                    value={values.cityDivision}
+                    data-invalid={touched.cityDivision && errors.cityDivision}
                   />
                   <Input.Error>
-                    {touched.district && errors.district}
+                    {touched.cityDivision && errors.cityDivision}
                   </Input.Error>
                 </Input.Fieldset>
               </Input.Group>

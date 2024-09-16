@@ -10,7 +10,7 @@ import {
 } from "@/components/Checkbox";
 import Input from "@/components/Input";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
-import { PERSON_TYPE } from "@/models/fecomerciors";
+import { PERSON_TYPE } from "@/models/savebys";
 import fecomerciorsServices from "@/services/fecomerciors";
 import savebysServices from "@/services/savebys";
 import useMenuStore, { MENU } from "@/stores/menuStore";

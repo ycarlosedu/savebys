@@ -1,7 +1,8 @@
 import { DonatorValues } from "@/app/fecomerciors/cadastro-doador/FormDonator";
 import { FurnitureValues } from "@/app/fecomerciors/cadastro-movel/FormFurniture";
 import { RecipientValues } from "@/components/Dialog/RecipientForm";
-import { ACCEPTED_DOCUMENTS, RegisterDonator } from "@/models/fecomerciors";
+import { RegisterDonator } from "@/models/fecomerciors";
+import { ACCEPTED_DOCUMENTS } from "@/models/savebys";
 
 import { unmask } from "@/utils/masks";
 import request from "@/utils/request";

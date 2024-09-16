@@ -13,7 +13,7 @@ import {
 import Input from "@/components/Input";
 import RadioGroupInputs from "@/components/RadioGroup";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
-import { PERSON_TYPE } from "@/models/fecomerciors";
+import { PERSON_TYPE } from "@/models/savebys";
 import fecomerciorsServices from "@/services/fecomerciors";
 import savebysServices from "@/services/savebys";
 import { useFormik } from "formik";
