@@ -7,17 +7,17 @@ import OpenForm from "./openForm";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "SAVEBYS - CAMPANHA LACRE",
+    title: "SAVEBYS - ReStart",
     description:
       "Por apenas R$ 130,00, as manicures atingidas pelas enchentes no RS poderão adquirir um super KIT a preço de custo.",
     alternates: {
-      canonical: "https://savebys.com/lacre"
+      canonical: "https://savebys.com/manicures"
     },
     openGraph: {
-      title: "SAVEBYS - CAMPANHA LACRE",
+      title: "SAVEBYS - ReStart",
       description:
         "Por apenas R$ 130,00, as manicures atingidas pelas enchentes no RS poderão adquirir um super KIT a preço de custo.",
-      url: "https://www.savebys.com/lacre",
+      url: "https://www.savebys.com/manicures",
       siteName: "SAVEBYS",
       locale: "pt_BR",
       type: "website",
@@ -37,10 +37,10 @@ export default function LacreCampaign() {
     <>
       <OpenForm />
       <section className="w-full max-w-[900px] px-default py-16 flex flex-col gap-8 items-center">
-        <h1 className="title">CAMPANHA LACRE</h1>
+        <h1 className="title">CAMPANHA RESTART</h1>
         <Image
           src="/images/campaigns/lacre/banner-900x560.webp"
-          alt="Banner da campanha 'AJUDE UMA CRIANÇA A VOLTAR PARA A ESCOLA'"
+          alt="Banner da campanha 'ReStart', promovidada pela Savebys e Lacre"
           width={900}
           height={560}
           priority

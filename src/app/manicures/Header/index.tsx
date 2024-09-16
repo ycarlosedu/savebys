@@ -21,7 +21,7 @@ const Nav = ({ className, ...props }: Props) => {
       {...props}
     >
       <ActiveLink href="/">Início</ActiveLink>
-      <ActiveLink href="/manicures/">Campanha Lacre</ActiveLink>
+      <ActiveLink href="/manicures/">Campanha ReStart</ActiveLink>
     </nav>
   );
 };
