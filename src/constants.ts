@@ -1,7 +1,6 @@
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 
 export const BFFs = {
-  // GATEKEEPER: "https://api-core-ae35f35ec0a3.herokuapp.com"
   GATEKEEPER: process.env.NEXT_PUBLIC_BFF_GATEKEEPER
 };
 
