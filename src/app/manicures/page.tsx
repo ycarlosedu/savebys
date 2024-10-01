@@ -7,14 +7,14 @@ import OpenForm from "./openForm";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "SAVEBYS - ReStart",
+    title: "SAVEBYS - ReStart do Bem",
     description:
       "Por apenas R$ 130,00, as manicures atingidas pelas enchentes no RS poderão adquirir um super KIT a preço de custo.",
     alternates: {
       canonical: "https://savebys.com/manicures"
     },
     openGraph: {
-      title: "SAVEBYS - ReStart",
+      title: "SAVEBYS - ReStart do Bem",
       description:
         "Por apenas R$ 130,00, as manicures atingidas pelas enchentes no RS poderão adquirir um super KIT a preço de custo.",
       url: "https://www.savebys.com/manicures",
@@ -37,26 +37,23 @@ export default function LacreCampaign() {
     <>
       <OpenForm />
       <section className="w-full max-w-[900px] px-default py-16 flex flex-col gap-8 items-center">
-        <h1 className="title">CAMPANHA RESTART</h1>
+        <h1 className="title">CAMPANHA RESTART DO BEM</h1>
         <Image
           src="/images/campaigns/lacre/banner-900x560.webp"
-          alt="Banner da campanha 'ReStart', promovidada pela Savebys e Lacre"
+          alt="Banner da campanha 'ReStart do Bem', promovidada pela Savebys e Lacre"
           width={900}
           height={560}
           priority
         />
         <div className="flex flex-col items-start gap-4 text-lg">
           <p className="font-bold">
-            🚨A META É ATENDER 50 MANICURES IMPACTADAS COM AS ENCHENTES DO RS!🚨
+            💅✨ Sabemos que o momento é difícil, especialmente para as
+            manicures afetadas pelas enchentes no RS. Pensando em vocês,
+            preparamos kits* de esmaltes, junto a marca gaúcha Lacre, para
+            ajudar na retomada dos atendimentos e negócios.
           </p>
-          <p>
-            Por apenas R$ 130,00 as manicures poderão adquirir um super KIT a
-            preço de custo.
-          </p>
-          <p>
-            O impacto dessa campanha vai ajudar as manicures a voltarem a
-            trabalhar e refazerem seus negócios.
-          </p>
+          <p>Vamos juntas reconstruir sonhos e colorir dias melhores!</p>
+          <p>Corre pra cadastrar, pois as quantidades são limitadas de kits!</p>
           <h2 className="font-bold">O QUE CONSTA NO KIT</h2>
           <ol className="list-disc list-inside">
             <li>15 esmaltes</li>
@@ -74,10 +71,10 @@ export default function LacreCampaign() {
               </a>
               .
             </li>
-            <li>Faz o cadastro.</li>
+            <li>Faz um cadastro.</li>
             <li>
-              Se atender aos critérios da campanha, recebe o acesso a plataforma
-              para fazer a compra.
+              Aguarda contato para ver se está dentro dos critérios da campanha
+              para ganhar o benefício.
             </li>
           </ol>
         </div>

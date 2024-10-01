@@ -192,11 +192,11 @@ export default function Dialog_RecipientForm() {
             <Dialog.Title className="Dialog_Title">
               Cadastro de
               <br />
-              <span className="text-primary">Compra</span>
+              <span className="text-primary">Interesse</span>
             </Dialog.Title>
             <Dialog.Description className="Dialog_Description">
               Analisaremos seus dados e caso seja elegível, receberá um email
-              para realizar a compra.
+              com as informações sobre a doação do kit.
             </Dialog.Description>
 
             <form className="Dialog_Form" onSubmit={handleSubmit} noValidate>

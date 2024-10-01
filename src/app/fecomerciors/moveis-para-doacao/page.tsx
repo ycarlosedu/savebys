@@ -1,6 +1,4 @@
 import { Metadata } from "next";
-// import dynamic from "next/dynamic";
-
 import { Suspense } from "react";
 
 import fecomerciorsServices from "@/services/fecomerciors";

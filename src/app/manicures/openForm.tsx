@@ -10,7 +10,7 @@ export default function OpenForm() {
   return (
     <div className="flex flex-col gap-4 pt-8 md:flex-row md:gap-8 items-center justify-center px-default">
       <Button className="h-[58px]" onClick={() => toggleMenu(MENU.BUYER_FORM)}>
-        COMPRE AQUI
+        CADASTRE-SE AQUI
         <CaretRight size={16} />
       </Button>
     </div>
