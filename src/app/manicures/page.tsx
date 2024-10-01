@@ -9,14 +9,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "SAVEBYS - ReStart do Bem",
     description:
-      "Por apenas R$ 130,00, as manicures atingidas pelas enchentes no RS poderão adquirir um super KIT a preço de custo.",
+      "Doação de kits de esmaltes para manicures afetadas pelas enchentes no RS. Cadastre-se e veja se você se encaixa nos critérios para receber o benefício.",
     alternates: {
       canonical: "https://savebys.com/manicures"
     },
     openGraph: {
       title: "SAVEBYS - ReStart do Bem",
       description:
-        "Por apenas R$ 130,00, as manicures atingidas pelas enchentes no RS poderão adquirir um super KIT a preço de custo.",
+        "Doação de kits de esmaltes para manicures afetadas pelas enchentes no RS. Cadastre-se e veja se você se encaixa nos critérios para receber o benefício.",
       url: "https://www.savebys.com/manicures",
       siteName: "SAVEBYS",
       locale: "pt_BR",
