@@ -1,4 +1,4 @@
-import { slate } from "tailwindcss/colors";
+import { slate, transparent } from "tailwindcss/colors";
 
 const colors = {
   primary: "#d03833",
@@ -16,7 +16,7 @@ const colors = {
   black: "#000",
   error: "#FF3737",
   overlay: "#00000080",
-  transparent: "#00000000",
+  transparent,
   slate
 };
 
