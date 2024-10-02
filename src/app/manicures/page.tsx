@@ -54,6 +54,12 @@ export default function LacreCampaign() {
           </p>
           <p>Vamos juntas reconstruir sonhos e colorir dias melhores!</p>
           <p>Corre pra cadastrar, pois as quantidades são limitadas de kits!</p>
+          <p>
+            Para participar da campanha, a empresa ou pessoa do cadastro deverá
+            estar seguindo a página do Instagram da @lacrecosmeticos e da
+            @save.bys e marcar dois amigos(as) nos comentários que você acha que
+            merece ganhar e esteja dentro do perfil da campanha.
+          </p>
           <h2 className="font-bold">O QUE CONSTA NO KIT</h2>
           <ol className="list-disc list-inside">
             <li>15 esmaltes</li>
