@@ -50,7 +50,7 @@ export default function FurniturePagination() {
                 <PaginationLinkAsButton
                   disabled={page === actualPage}
                   isActive={page === actualPage}
-                  onClick={() => goToPage(page)}
+                  onClick={() => goToPage(page - 1)}
                 >
                   {page}
                 </PaginationLinkAsButton>

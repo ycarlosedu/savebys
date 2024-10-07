@@ -28,7 +28,7 @@ export default function FurnitureList() {
     setAnimateBagButton
   } = useProductStore();
 
-  const { data, isPending } = useQuery({
+  const { data, isPending, isLoading } = useQuery({
     queryKey: ["products", currentPage, filters.category],
     queryFn: () =>
       fecomerciorsServices.getProducts(currentPage, filters.category),
@@ -41,7 +41,8 @@ export default function FurnitureList() {
   const category =
     FURNITURE_CATEGORIES[filters.category as keyof typeof FURNITURE_CATEGORIES];
 
-  if (isPending) return <FurnitureListSkeleton category={category} />;
+  if (isPending || isLoading)
+    return <FurnitureListSkeleton category={category} />;
 
   const goToBagPage = () => {
     router.push(PAGE.FECOMERCIO.FURNITURE_BAG);
