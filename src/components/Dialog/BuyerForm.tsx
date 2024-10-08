@@ -89,7 +89,7 @@ const validationSchema = yup.object().shape({
     is: YES_NO.YES,
     then: (schema) =>
       schema
-        .required(REQUIRED.RADIO)
+        .required(REQUIRED.FIELD)
         .max(TEXT_AREA_MAX_LENGTH, REQUIRED.MAX_LENGTH(TEXT_AREA_MAX_LENGTH))
   }),
   name: yup.string().required(REQUIRED.FIELD),
@@ -244,6 +244,11 @@ export default function Dialog_BuyerForm() {
                       touched.howWereYouAffected && errors.howWereYouAffected
                     }
                     rows={3}
+                    maxLength={TEXT_AREA_MAX_LENGTH}
+                  />
+                  <Input.Length
+                    length={values.howWereYouAffected.length}
+                    maxLength={TEXT_AREA_MAX_LENGTH}
                   />
                   <Input.Error>
                     {touched.howWereYouAffected && errors.howWereYouAffected}
@@ -543,6 +548,11 @@ export default function Dialog_BuyerForm() {
                   value={values.howCanWeHelp}
                   data-invalid={touched.howCanWeHelp && errors.howCanWeHelp}
                   rows={3}
+                  maxLength={TEXT_AREA_MAX_LENGTH}
+                />
+                <Input.Length
+                  length={values.howCanWeHelp.length}
+                  maxLength={TEXT_AREA_MAX_LENGTH}
                 />
                 <Input.Error>
                   {touched.howCanWeHelp && errors.howCanWeHelp}
