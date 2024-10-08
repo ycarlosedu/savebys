@@ -7,4 +7,6 @@ export type RegisterBuyer = {
   address: Address;
   termsAccepted: boolean;
   floodAffected: boolean;
+  howWereYouAffected: string;
+  howCanWeHelp: string;
 };

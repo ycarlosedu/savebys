@@ -58,6 +58,7 @@ const RADIOS_AFFECTED = [
 
 export type BuyerValues = {
   floodAffected: YES_NO;
+  howWereYouAffected: string;
   personType: PERSON_TYPE.LEGAL;
   name: string;
   fullName: string;
@@ -73,14 +74,24 @@ export type BuyerValues = {
   publicPlaceName: string;
   publicPlaceNumber: string;
   addOn: string;
+  howCanWeHelp: string;
   terms: boolean;
 };
+
+const TEXT_AREA_MAX_LENGTH = 2000;
 
 const validationSchema = yup.object().shape({
   floodAffected: yup
     .mixed<YES_NO>()
     .oneOf(Object.values(YES_NO), REQUIRED.RADIO)
     .required(REQUIRED.RADIO),
+  howWereYouAffected: yup.string().when("floodAffected", {
+    is: YES_NO.YES,
+    then: (schema) =>
+      schema
+        .required(REQUIRED.RADIO)
+        .max(TEXT_AREA_MAX_LENGTH, REQUIRED.MAX_LENGTH(TEXT_AREA_MAX_LENGTH))
+  }),
   name: yup.string().required(REQUIRED.FIELD),
   fullName: yup.string().required(REQUIRED.FIELD),
   document: yup
@@ -109,10 +120,13 @@ const validationSchema = yup.object().shape({
   publicPlaceName: yup.string().required(REQUIRED.FIELD),
   publicPlaceNumber: yup.number().required(REQUIRED.FIELD),
   addOn: yup.string(),
+  howCanWeHelp: yup
+    .string()
+    .max(TEXT_AREA_MAX_LENGTH, REQUIRED.MAX_LENGTH(TEXT_AREA_MAX_LENGTH)),
   terms: yup.boolean().oneOf([true], REQUIRED.CHECKBOX)
 });
 
-export default function Dialog_RecipientForm() {
+export default function Dialog_BuyerForm() {
   const { toggleMenu, buyerFormOpened } = useMenuStore();
 
   const onSubmit = async (values: BuyerValues) => {
@@ -138,6 +152,7 @@ export default function Dialog_RecipientForm() {
   } = useFormik({
     initialValues: {
       floodAffected: YES_NO.YES,
+      howWereYouAffected: "",
       personType: PERSON_TYPE.LEGAL,
       fullName: "",
       name: "",
@@ -153,6 +168,7 @@ export default function Dialog_RecipientForm() {
       publicPlaceName: "",
       publicPlaceNumber: "",
       addOn: "",
+      howCanWeHelp: "",
       terms: false
     },
     validationSchema,
@@ -211,6 +227,29 @@ export default function Dialog_RecipientForm() {
                 onValueChange={(value) => setFieldValue("floodAffected", value)}
                 invalid={Boolean(touched.floodAffected && errors.floodAffected)}
               />
+
+              {values.floodAffected === YES_NO.YES && (
+                <Input.Fieldset>
+                  <Input.Label htmlFor="howWereYouAffected" required>
+                    Pode nos descrever de que forma você foi afetado(a)?
+                  </Input.Label>
+                  <Input.Textarea
+                    name="howWereYouAffected"
+                    id="howWereYouAffected"
+                    placeholder="Minha loja foi alagada, perdi meus materiais..."
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.howWereYouAffected}
+                    data-invalid={
+                      touched.howWereYouAffected && errors.howWereYouAffected
+                    }
+                    rows={3}
+                  />
+                  <Input.Error>
+                    {touched.howWereYouAffected && errors.howWereYouAffected}
+                  </Input.Error>
+                </Input.Fieldset>
+              )}
 
               <Input.Fieldset>
                 <Input.Label htmlFor="name" required>
@@ -489,6 +528,26 @@ export default function Dialog_RecipientForm() {
                   <Input.Error>{touched.addOn && errors.addOn}</Input.Error>
                 </Input.Fieldset>
               </Input.Group>
+
+              <Input.Fieldset>
+                <Input.Label htmlFor="howCanWeHelp">
+                  Além da doação do kit, podemos lhe ajudar de alguma outra
+                  forma?
+                </Input.Label>
+                <Input.Textarea
+                  name="howCanWeHelp"
+                  id="howCanWeHelp"
+                  placeholder="Explique suas necessidades..."
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.howCanWeHelp}
+                  data-invalid={touched.howCanWeHelp && errors.howCanWeHelp}
+                  rows={3}
+                />
+                <Input.Error>
+                  {touched.howCanWeHelp && errors.howCanWeHelp}
+                </Input.Error>
+              </Input.Fieldset>
 
               <CheckboxFieldset>
                 <CheckboxGroup>

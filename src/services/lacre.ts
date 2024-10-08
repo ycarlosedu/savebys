@@ -12,6 +12,8 @@ const createBuyerBody = (values: BuyerValues) => {
     name: values.name,
     termsAccepted: values.terms,
     floodAffected: values.floodAffected === YES_NO.YES,
+    howWereYouAffected: values.howWereYouAffected,
+    howCanWeHelp: values.howCanWeHelp,
     documents: [
       {
         docValue: unmask(values.document),
