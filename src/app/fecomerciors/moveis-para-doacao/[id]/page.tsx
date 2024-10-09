@@ -26,34 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: "SAVEBYS - " + product.productDescription,
-    description:
-      "Veja os detalhes do móvel disponível para doação na Mobília Solidária.",
-    robots: {
-      index: false,
-      follow: false,
-      googleBot: {
-        index: false,
-        follow: false
-      }
-    }
+    title: "SAVEBYS - " + product.productDescription
   };
 }
 
 export default async function FurnitureDetailsPage({ params }: Props) {
-  let product: Product | undefined;
-  try {
-    if (isNaN(parseInt(params.id))) {
-      return notFound();
-    }
-    product = await fecomerciorsServices.getProductById(params.id);
-
-    if (!product) {
-      return notFound();
-    }
-  } catch (error) {
-    return notFound();
-  }
+  const product = await fecomerciorsServices.getProductById(params.id);
 
   return (
     <section className="flex flex-col md:flex-row px-default justify-between gap-6 items-start w-full max-w-[1285px] min-h-fecomercio">

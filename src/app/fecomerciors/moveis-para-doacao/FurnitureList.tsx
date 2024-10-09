@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 
 import ProductCard from "@/components/fecomerciors/ProductCard";
 import { FloatingButton } from "@/components/ui/FloatingButton";
+import PaginationSkeleton from "@/components/ui/Pagination/Skeleton";
 import fecomerciorsServices from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
@@ -28,7 +29,7 @@ export default function FurnitureList() {
     setAnimateBagButton
   } = useProductStore();
 
-  const { data, isPending, isLoading } = useQuery({
+  const { data, isLoading, isPlaceholderData } = useQuery({
     queryKey: ["products", currentPage, filters.category],
     queryFn: () =>
       fecomerciorsServices.getProducts(currentPage, filters.category),
@@ -40,9 +41,6 @@ export default function FurnitureList() {
 
   const category =
     FURNITURE_CATEGORIES[filters.category as keyof typeof FURNITURE_CATEGORIES];
-
-  if (isPending || isLoading)
-    return <FurnitureListSkeleton category={category} />;
 
   const goToBagPage = () => {
     router.push(PAGE.FECOMERCIO.FURNITURE_BAG);
@@ -56,11 +54,30 @@ export default function FurnitureList() {
           {category}
         </h2>
       </div>
-      {!data?.products || data?.products.length === 0 ? (
+
+      {(!data?.products || !data?.products.length) && !isLoading && (
         <p className="w-full text-xl text-center">
           Nenhum produto encontrado...
         </p>
-      ) : (
+      )}
+
+      {isLoading && !isPlaceholderData && (
+        <>
+          <PaginationSkeleton />
+          <FurnitureListSkeleton />
+          <PaginationSkeleton />
+        </>
+      )}
+
+      {isPlaceholderData && (
+        <>
+          <FurniturePagination />
+          <FurnitureListSkeleton />
+          <FurniturePagination />
+        </>
+      )}
+
+      {Boolean(data?.products.length) && !isPlaceholderData && (
         <>
           <FurniturePagination />
           <div className="flex flex-wrap gap-8 justify-center md:justify-between">
@@ -71,6 +88,7 @@ export default function FurnitureList() {
           <FurniturePagination />
         </>
       )}
+
       <FloatingButton
         onClick={goToBagPage}
         className={`bottom-20`}
