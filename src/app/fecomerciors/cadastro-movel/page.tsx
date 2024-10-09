@@ -10,21 +10,19 @@ import { CaretLeft } from "@phosphor-icons/react/dist/ssr";
 import { DonatorValuesWithId } from "../cadastro-doador/FormDonator";
 import FormFurniture from "./FormFurniture";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "SAVEBYS - Cadastre seu móvel para ser doado na Mobília Solidária",
-    description:
-      "Participe da nossa campanha Mobília Solidária e ajude negócios no Rio Grande do Sul afetados pelas enchentes. Cadastre seus móveis para doação e faça a diferença!",
-    robots: {
+export const metadata: Metadata = {
+  title: "SAVEBYS - Cadastre seu móvel para ser doado na Mobília Solidária",
+  description:
+    "Participe da nossa campanha Mobília Solidária e ajude negócios no Rio Grande do Sul afetados pelas enchentes. Cadastre seus móveis para doação e faça a diferença!",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
       index: false,
-      follow: false,
-      googleBot: {
-        index: false,
-        follow: false
-      }
+      follow: false
     }
-  };
-}
+  }
+};
 
 export default function FurnitureRegister() {
   const cookieStore = cookies();

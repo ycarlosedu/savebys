@@ -5,20 +5,18 @@ import Link from "next/link";
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 import Logo from "images/savebys/logo_slogan_cropped.svg";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "SAVEBYS - Não encontrado",
-    description: "O conteúdo desejado não foi encontrado.",
-    robots: {
+export const metadata: Metadata = {
+  title: "SAVEBYS - Não encontrado",
+  description: "O conteúdo desejado não foi encontrado.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
       index: false,
-      follow: false,
-      googleBot: {
-        index: false,
-        follow: false
-      }
+      follow: false
     }
-  };
-}
+  }
+};
 
 export default function NotFound() {
   return (

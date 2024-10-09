@@ -6,16 +6,14 @@ import MissionVisionValues from "@/components/MissionVisionValues";
 import Team from "@/components/Team";
 import WhoWeAre from "@/components/WhoWeAre";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "SAVEBYS - Quem Somos",
-    description:
-      "Veja quem somos, nossa missão, visão e valores, e conheça nossa equipe.",
-    alternates: {
-      canonical: "https://savebys.com/quem-somos"
-    }
-  };
-}
+export const metadata: Metadata = {
+  title: "SAVEBYS - Quem Somos",
+  description:
+    "Veja quem somos, nossa missão, visão e valores, e conheça nossa equipe.",
+  alternates: {
+    canonical: "https://savebys.com/quem-somos"
+  }
+};
 
 export default function WhoWeArePage() {
   return (

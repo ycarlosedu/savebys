@@ -2,32 +2,30 @@ import { Metadata } from "next";
 
 import FormDonator from "./FormDonator";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+export const metadata: Metadata = {
+  title: "SAVEBYS - Cadastre-se como Doador na Mobília Solidária",
+  description:
+    "Participe da nossa campanha Mobília Solidária e ajude negócios no Rio Grande do Sul afetados pelas enchentes. Cadastre-se como doador e faça a diferença!",
+  alternates: {
+    canonical: "https://savebys.com/fecomerciors/cadastro-doador"
+  },
+  openGraph: {
     title: "SAVEBYS - Cadastre-se como Doador na Mobília Solidária",
     description:
       "Participe da nossa campanha Mobília Solidária e ajude negócios no Rio Grande do Sul afetados pelas enchentes. Cadastre-se como doador e faça a diferença!",
-    alternates: {
-      canonical: "https://savebys.com/fecomerciors/cadastro-doador"
-    },
-    openGraph: {
-      title: "SAVEBYS - Cadastre-se como Doador na Mobília Solidária",
-      description:
-        "Participe da nossa campanha Mobília Solidária e ajude negócios no Rio Grande do Sul afetados pelas enchentes. Cadastre-se como doador e faça a diferença!",
-      url: "https://www.savebys.com/fecomerciors/cadastro-doador",
-      siteName: "SAVEBYS",
-      locale: "pt_BR",
-      type: "website",
-      images: [
-        {
-          url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-900x560.webp",
-          width: 900,
-          height: 560
-        }
-      ]
-    }
-  };
-}
+    url: "https://www.savebys.com/fecomerciors/cadastro-doador",
+    siteName: "SAVEBYS",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-900x560.webp",
+        width: 900,
+        height: 560
+      }
+    ]
+  }
+};
 
 export default function DonatorRegister() {
   return (

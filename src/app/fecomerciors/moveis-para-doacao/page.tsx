@@ -13,32 +13,30 @@ import FurnitureList from "./FurnitureList";
 import RecentDonations from "./RecentDonatios";
 import RecentDonatiosSkeleton from "./RecentDonatiosSkeleton";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+export const metadata: Metadata = {
+  title: "SAVEBYS - Móveis disponíveis para doação na Mobília Solidária",
+  description:
+    "Veja os móveis disponíveis para doação para negócios do Rio Grande do Sul afetados pelas enchentes. Caso você necessite, solicite uma doação e deixe-nos ajudar!",
+  alternates: {
+    canonical: "https://savebys.com/fecomerciors/moveis-para-doacao"
+  },
+  openGraph: {
     title: "SAVEBYS - Móveis disponíveis para doação na Mobília Solidária",
     description:
       "Veja os móveis disponíveis para doação para negócios do Rio Grande do Sul afetados pelas enchentes. Caso você necessite, solicite uma doação e deixe-nos ajudar!",
-    alternates: {
-      canonical: "https://savebys.com/fecomerciors/moveis-para-doacao"
-    },
-    openGraph: {
-      title: "SAVEBYS - Móveis disponíveis para doação na Mobília Solidária",
-      description:
-        "Veja os móveis disponíveis para doação para negócios do Rio Grande do Sul afetados pelas enchentes. Caso você necessite, solicite uma doação e deixe-nos ajudar!",
-      url: "https://www.savebys.com/fecomerciors/moveis-para-doacao",
-      siteName: "SAVEBYS",
-      locale: "pt_BR",
-      type: "website",
-      images: [
-        {
-          url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-1265x340.webp",
-          width: 1265,
-          height: 340
-        }
-      ]
-    }
-  };
-}
+    url: "https://www.savebys.com/fecomerciors/moveis-para-doacao",
+    siteName: "SAVEBYS",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "https://www.savebys.com/images/campaigns/fecomerciors/banner-1265x340.webp",
+        width: 1265,
+        height: 340
+      }
+    ]
+  }
+};
 
 export default async function FurnituresToDonation() {
   const queryClient = new QueryClient();

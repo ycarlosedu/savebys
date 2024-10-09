@@ -5,32 +5,30 @@ import Dialog from "@/components/Dialog";
 
 import OpenForm from "./openForm";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+export const metadata: Metadata = {
+  title: "SAVEBYS - ReStart do Bem",
+  description:
+    "Doação de kits de esmaltes para manicures afetadas pelas enchentes no RS. Cadastre-se e veja se você se encaixa nos critérios para receber o benefício.",
+  alternates: {
+    canonical: "https://savebys.com/manicures"
+  },
+  openGraph: {
     title: "SAVEBYS - ReStart do Bem",
     description:
       "Doação de kits de esmaltes para manicures afetadas pelas enchentes no RS. Cadastre-se e veja se você se encaixa nos critérios para receber o benefício.",
-    alternates: {
-      canonical: "https://savebys.com/manicures"
-    },
-    openGraph: {
-      title: "SAVEBYS - ReStart do Bem",
-      description:
-        "Doação de kits de esmaltes para manicures afetadas pelas enchentes no RS. Cadastre-se e veja se você se encaixa nos critérios para receber o benefício.",
-      url: "https://www.savebys.com/manicures",
-      siteName: "SAVEBYS",
-      locale: "pt_BR",
-      type: "website",
-      images: [
-        {
-          url: "https://www.savebys.com/images/campaigns/lacre/banner-900x560.webp",
-          width: 900,
-          height: 560
-        }
-      ]
-    }
-  };
-}
+    url: "https://www.savebys.com/manicures",
+    siteName: "SAVEBYS",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "https://www.savebys.com/images/campaigns/lacre/banner-900x560.webp",
+        width: 900,
+        height: 560
+      }
+    ]
+  }
+};
 
 export default function LacreCampaign() {
   return (
