@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SAVEBYS - Salve os Negócios que Você Ama
 
-## Getting Started
+SAVEBYS é uma plataforma de auxílio coletivo voltada para empresas. A iniciativa nasceu como uma resposta às enchentes no Rio Grande do Sul em 2024, buscando ajudar empresas impactadas a se reerguerem por meio de campanhas colaborativas. A plataforma permite que qualquer pessoa participe de campanhas para apoiar negócios locais de diversas maneiras.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **[Next.js](https://nextjs.org/)** - Framework React para construção de aplicações web modernas e escaláveis.
+- **[Tailwind CSS](https://tailwindcss.com/)** - Framework de CSS utilitário para estilização rápida e responsiva.
+- **[TypeScript](https://www.typescriptlang.org/)** - Superset do JavaScript que adiciona tipagem estática.
+- **[Zustand](https://github.com/pmndrs/zustand)** - Biblioteca para gerenciamento de estados globais.
+- **[TanStack Query](https://tanstack.com/query/latest)** - Gerenciador de cache e sincronização de dados assíncronos no front-end.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Campanhas de apoio a empresas**: Criação e gestão de campanhas para auxiliar negócios em dificuldades.
+- **Participação colaborativa**: Usuários podem contribuir nas campanhas para ajudar as empresas cadastradas.
+- **Integração futura**: Planejamos implementar mais funcionalidades para melhorar a experiência de usuários/empresas e automatizar a criação e monitoramento de campanhas.
 
-## Learn More
+## Como Rodar o Projeto
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone este repositório:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/ycarlosedu/savebys.git
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Instale as dependências:
 
-## Deploy on Vercel
+   ```bash
+   cd savebys
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Inicie o servidor de desenvolvimento:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+   npm run dev
+   ```
+
+4. Abra o navegador e acesse:
+   ```
+   http://localhost:3000
+   ```
+
+## Contribuições
+
+Contribuições são bem-vindas! Se você deseja reportar um bug ou sugerir novas funcionalidades, sinta-se à vontade para abrir uma issue ou submeter um pull request.
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
