@@ -1,13 +1,13 @@
 "use client";
 
-import Button from "@/components/Button";
+import Button from "@/components/ui/Button";
 import {
   Checkbox,
   CheckboxFieldset,
   CheckboxGroup,
   CheckboxLabel
-} from "@/components/Checkbox";
-import Input from "@/components/Input";
+} from "@/components/ui/Checkbox";
+import Input from "@/components/ui/Input";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/savebys";
 import { signupBuyer } from "@/services/lacre";
@@ -37,7 +37,7 @@ import { INVALID, REQUIRED } from "@/constants";
 import { X } from "@phosphor-icons/react";
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
-import RadioGroupInputs from "../RadioGroup";
+import RadioGroupInputs from "../ui/RadioGroup";
 
 export enum YES_NO {
   YES = "SIM",

@@ -2,7 +2,7 @@
 
 import { ComponentProps } from "react";
 
-import Loader from "@/components/Loader";
+import Loader from "@/components/ui/Loader";
 import { VariantProps, tv } from "tailwind-variants";
 
 const button = tv({

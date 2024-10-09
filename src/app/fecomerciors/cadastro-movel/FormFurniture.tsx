@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 
-import Button from "@/components/Button";
 import Dialog from "@/components/Dialog";
-import { GLOBAL_SCROLL_QUERY } from "@/components/FloatingButton";
-import Input from "@/components/Input";
+import Button from "@/components/ui/Button";
+import { GLOBAL_SCROLL_QUERY } from "@/components/ui/FloatingButton";
+import Input from "@/components/ui/Input";
 import fecomerciorsServices from "@/services/fecomerciors";
 import useMenuStore, { MENU } from "@/stores/menuStore";
 import { useFormik } from "formik";

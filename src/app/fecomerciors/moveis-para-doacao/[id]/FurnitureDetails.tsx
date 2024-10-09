@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import Button from "@/components/Button";
+import Button from "@/components/ui/Button";
 import { Product } from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 import { toast } from "sonner";

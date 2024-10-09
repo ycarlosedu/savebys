@@ -5,7 +5,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from "../Accordion";
+} from "@/components/ui/Accordion";
+
 import faqsList from "./faqsList";
 
 export type FaqItem = {

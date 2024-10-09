@@ -8,7 +8,7 @@ import {
   PaginationLinkAsButton,
   PaginationNextAsButton,
   PaginationPreviousAsButton
-} from "@/components/Pagination";
+} from "@/components/ui/Pagination";
 import useProductStore from "@/stores/productStore";
 
 export default function FurniturePagination() {

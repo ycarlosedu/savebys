@@ -3,15 +3,15 @@
 import { useRouter } from "next/navigation";
 
 import { saveDonator } from "@/actions/cookies";
-import Button from "@/components/Button";
+import Button from "@/components/ui/Button";
 import {
   Checkbox,
   CheckboxFieldset,
   CheckboxGroup,
   CheckboxLabel
-} from "@/components/Checkbox";
-import Input from "@/components/Input";
-import RadioGroupInputs from "@/components/RadioGroup";
+} from "@/components/ui/Checkbox";
+import Input from "@/components/ui/Input";
+import RadioGroupInputs from "@/components/ui/RadioGroup";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/savebys";
 import fecomerciorsServices from "@/services/fecomerciors";

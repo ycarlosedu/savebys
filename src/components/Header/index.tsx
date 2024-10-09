@@ -12,8 +12,8 @@ import { sleep } from "@/constants";
 import { List } from "@phosphor-icons/react/dist/ssr";
 import Logo from "images/savebys/logo_slogan_gray_cropped.svg";
 
-import ActiveLink from "../ActiveLink";
-import { Sheet, SheetContent, SheetTrigger } from "../Sheet";
+import ActiveLink from "../ui/ActiveLink";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/Sheet";
 
 type Props = ComponentProps<"nav"> & {
   onClickLink?: (event: MouseEvent<HTMLAnchorElement>) => void;

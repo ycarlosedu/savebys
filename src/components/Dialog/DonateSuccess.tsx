@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import Button from "@/components/Button";
+import Button from "@/components/ui/Button";
 import useMenuStore, { MENU } from "@/stores/menuStore";
 import * as Dialog from "@radix-ui/react-dialog";
 

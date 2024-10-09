@@ -1,5 +1,5 @@
-import Button from "@/components/Button";
-import { Skeleton } from "@/components/Skeleton";
+import Button from "@/components/ui/Button";
+import { Skeleton } from "@/components/ui/Skeleton";
 
 import { CaretLeft } from "@phosphor-icons/react/dist/ssr";
 

@@ -1,6 +1,6 @@
 "use client";
-import Button from "@/components/Button";
-import ProductBagCard from "@/components/fecomerciors/ProductBagCard/intex";
+import ProductBagCard from "@/components/fecomerciors/ProductBagCard";
+import Button from "@/components/ui/Button";
 import useMenuStore, { MENU } from "@/stores/menuStore";
 import useProductStore from "@/stores/productStore";
 

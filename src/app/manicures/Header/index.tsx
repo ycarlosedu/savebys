@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ComponentProps } from "react";
 
-import ActiveLink from "@/components/ActiveLink";
+import ActiveLink from "@/components/ui/ActiveLink";
 
 import { cn } from "@/lib/utils";
 

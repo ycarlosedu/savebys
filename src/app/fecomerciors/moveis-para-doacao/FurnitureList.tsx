@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 
 import ProductCard from "@/components/fecomerciors/ProductCard";
-import { FloatingButton } from "@/components/FloatingButton";
+import { FloatingButton } from "@/components/ui/FloatingButton";
 import fecomerciorsServices from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";

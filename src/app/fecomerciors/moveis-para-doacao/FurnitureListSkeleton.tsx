@@ -1,5 +1,5 @@
 import ProductCardSkeleton from "@/components/fecomerciors/ProductCard/Skeleton";
-import PaginationSkeleton from "@/components/Pagination/Skeleton";
+import PaginationSkeleton from "@/components/ui/Pagination/Skeleton";
 
 import FurnitureFilter from "./FurnitureFilter";
 

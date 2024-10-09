@@ -1,14 +1,14 @@
 "use client";
 
 import { saveRecipient } from "@/actions/cookies";
-import Button from "@/components/Button";
+import Button from "@/components/ui/Button";
 import {
   Checkbox,
   CheckboxFieldset,
   CheckboxGroup,
   CheckboxLabel
-} from "@/components/Checkbox";
-import Input from "@/components/Input";
+} from "@/components/ui/Checkbox";
+import Input from "@/components/ui/Input";
 import countryDivisions from "@/mock/fixtures/countryDivisions.json";
 import { PERSON_TYPE } from "@/models/savebys";
 import fecomerciorsServices from "@/services/fecomerciors";

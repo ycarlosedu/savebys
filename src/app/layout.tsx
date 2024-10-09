@@ -2,10 +2,13 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 
-import { FloatingButton, GLOBAL_SCROLL_ID } from "@/components/FloatingButton";
-import { ScrollArea } from "@/components/ScrollArea";
-import { Toaster } from "@/components/Sonner";
-import { TooltipProvider } from "@/components/Tooltip";
+import {
+  FloatingButton,
+  GLOBAL_SCROLL_ID
+} from "@/components/ui/FloatingButton";
+import { ScrollArea } from "@/components/ui/ScrollArea";
+import { Toaster } from "@/components/ui/Sonner";
+import { TooltipProvider } from "@/components/ui/Tooltip";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 

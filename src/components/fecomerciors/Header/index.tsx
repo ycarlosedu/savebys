@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ComponentProps } from "react";
 
-import ActiveLink from "@/components/ActiveLink";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/Sheet";
+import ActiveLink from "@/components/ui/ActiveLink";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/Sheet";
 import useMenuStore, { MENU } from "@/stores/menuStore";
 import useProductStore from "@/stores/productStore";
 

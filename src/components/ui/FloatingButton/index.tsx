@@ -1,7 +1,11 @@
 "use client";
 import React, { ComponentProps, useEffect, useRef, useState } from "react";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger
+} from "@/components/ui/Tooltip";
 
 import { cn } from "@/lib/utils";
 import { scrollToTop } from "@/utils/scrollToTop";

@@ -1,7 +1,11 @@
 "use client";
 import Image from "next/image";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger
+} from "@/components/ui/Tooltip";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 

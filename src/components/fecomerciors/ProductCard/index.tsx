@@ -3,7 +3,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ComponentProps, useEffect, useState } from "react";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger
+} from "@/components/ui/Tooltip";
 import { Product } from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 

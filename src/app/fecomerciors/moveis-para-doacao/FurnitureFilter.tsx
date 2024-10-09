@@ -1,5 +1,5 @@
 "use client";
-import Dropdown from "@/components/Dropdown";
+import Dropdown from "@/components/ui/Dropdown";
 import useProductStore from "@/stores/productStore";
 
 export default function FurnitureFilter() {

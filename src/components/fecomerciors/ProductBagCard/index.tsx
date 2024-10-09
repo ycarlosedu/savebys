@@ -3,8 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ComponentProps, useState } from "react";
 
-import ActiveLink from "@/components/ActiveLink";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/Tooltip";
+import ActiveLink from "@/components/ui/ActiveLink";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger
+} from "@/components/ui/Tooltip";
 import { Product } from "@/services/fecomerciors";
 import useProductStore from "@/stores/productStore";
 import { toast } from "sonner";
