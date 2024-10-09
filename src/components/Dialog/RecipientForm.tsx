@@ -16,6 +16,7 @@ import savebysServices from "@/services/savebys";
 import useMenuStore, { MENU } from "@/stores/menuStore";
 import useProductStore from "@/stores/productStore";
 import * as Dialog from "@radix-ui/react-dialog";
+import { QueryClient } from "@tanstack/react-query";
 import { useFormik } from "formik";
 import { toast } from "sonner";
 import * as yup from "yup";
@@ -96,11 +97,13 @@ const validationSchema = yup.object().shape({
 export default function Dialog_RecipientForm() {
   const { toggleMenu, recipientFormOpened } = useMenuStore();
   const { products, reset: clearProducts } = useProductStore();
+  const queryClient = new QueryClient();
 
   const onSubmit = async (values: RecipientValues) => {
     try {
       const { companyId } = await fecomerciorsServices.signupCompany(values);
       await fecomerciorsServices.receiveDonation(products, companyId);
+      queryClient.invalidateQueries({ queryKey: ["products"] });
       await saveRecipient({ ...values, companyId });
       clearProducts();
       toggleModal();

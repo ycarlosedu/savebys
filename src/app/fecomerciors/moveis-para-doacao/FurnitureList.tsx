@@ -30,7 +30,13 @@ export default function FurnitureList() {
   } = useProductStore();
 
   const { data, isLoading, isPlaceholderData } = useQuery({
-    queryKey: ["products", currentPage, filters.category],
+    queryKey: [
+      "products",
+      {
+        page: currentPage,
+        category: filters.category
+      }
+    ],
     queryFn: () =>
       fecomerciorsServices.getProducts(currentPage, filters.category),
     placeholderData: keepPreviousData
