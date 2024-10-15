@@ -59,7 +59,17 @@
   <url>
     <loc>https://savebys.com/manicures</loc>
 
-    <lastmod>2024-10-08</lastmod>
+    <lastmod>2024-10-15</lastmod>
+
+    <changefreq>weekly</changefreq>
+
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://savebys.com/manicures/cadastro</loc>
+
+    <lastmod>2024-10-15</lastmod>
 
     <changefreq>weekly</changefreq>
 

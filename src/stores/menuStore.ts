@@ -4,7 +4,6 @@ export enum MENU {
   SUCESS_DONATE = "sucessDonateOpened",
   RECEIVE_SUCESS_DONATION = "sucessReceiveDonationOpened",
   RECIPIENT_FORM = "recipientFormOpened",
-  BUYER_FORM = "buyerFormOpened",
   SHEET = "sheetOpened"
 }
 
@@ -12,7 +11,6 @@ const initialState = {
   [MENU.SUCESS_DONATE]: false,
   [MENU.RECEIVE_SUCESS_DONATION]: false,
   [MENU.RECIPIENT_FORM]: false,
-  [MENU.BUYER_FORM]: false,
   [MENU.SHEET]: false
 };
 

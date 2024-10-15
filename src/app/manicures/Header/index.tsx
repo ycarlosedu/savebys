@@ -21,7 +21,8 @@ const Nav = ({ className, ...props }: Props) => {
       {...props}
     >
       <ActiveLink href="/">Início</ActiveLink>
-      <ActiveLink href="/manicures/">Campanha ReStart</ActiveLink>
+      <ActiveLink href={PAGE.LACRE.HOME}>Campanha ReStart</ActiveLink>
+      <ActiveLink href={PAGE.LACRE.REGISTER_BUYER}>Cadastro</ActiveLink>
     </nav>
   );
 };

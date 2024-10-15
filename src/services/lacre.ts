@@ -1,4 +1,4 @@
-import { BuyerValues, YES_NO } from "@/components/Dialog/BuyerForm";
+import { BuyerValues, YES_NO } from "@/app/manicures/cadastro/FormBuyer";
 import { RegisterBuyer } from "@/models/lacre";
 import { ACCEPTED_DOCUMENTS } from "@/models/savebys";
 

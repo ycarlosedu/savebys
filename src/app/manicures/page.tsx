@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
 
-import Dialog from "@/components/Dialog";
-
 import OpenForm from "./openForm";
 
 export const metadata: Metadata = {
@@ -83,7 +81,6 @@ export default function LacreCampaign() {
           </ol>
         </div>
       </section>
-      <Dialog.BuyerForm />
     </>
   );
 }

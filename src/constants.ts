@@ -98,6 +98,10 @@ export const PAGE = {
     FURNITURE_DETAILS: (id: string) =>
       `/fecomerciors/moveis-para-doacao/${id}/`,
     FURNITURE_BAG: "/fecomerciors/minha-sacola/"
+  },
+  LACRE: {
+    HOME: "/manicures/",
+    REGISTER_BUYER: "/manicures/cadastro/"
   }
 };
 
