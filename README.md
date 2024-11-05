@@ -1,5 +1,7 @@
 # SAVEBYS - Salve os Negócios que Você Ama
 
+<img src="./public/images/home.png" />
+
 SAVEBYS é uma plataforma de auxílio coletivo voltada para empresas. A iniciativa nasceu como uma resposta às enchentes no Rio Grande do Sul em 2024, buscando ajudar empresas impactadas a se reerguerem por meio de campanhas colaborativas. A plataforma permite que qualquer pessoa participe de campanhas para apoiar negócios locais de diversas maneiras.
 
 ## Tecnologias Utilizadas
@@ -20,26 +22,32 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 ## Como Rodar o Projeto
 
-1. Clone este repositório:
+1. Tenha o Node instalado em sua máquina (Versão recomendada: 20.11.1):
+
+   ```
+   https://nodejs.org/pt/blog/release/v20.11.1
+   ```
+
+2. Clone este repositório:
 
    ```bash
    git clone https://github.com/ycarlosedu/savebys.git
    ```
 
-2. Instale as dependências:
+3. Instale as dependências:
 
    ```bash
    cd savebys
    npm install
    ```
 
-3. Inicie o servidor de desenvolvimento:
+4. Inicie o servidor de desenvolvimento:
 
    ```bash
    npm run dev
    ```
 
-4. Abra o navegador e acesse:
+5. Abra o navegador e acesse:
    ```
    http://localhost:3000
    ```
