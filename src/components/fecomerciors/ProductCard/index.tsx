@@ -18,6 +18,7 @@ import { CheckFat, ShoppingBag } from "@phosphor-icons/react/dist/ssr";
 type Props = ComponentProps<"div"> & {
   furniture: Product;
 };
+
 export default function ProductCard({ furniture, ...rest }: Props) {
   const router = useRouter();
 
