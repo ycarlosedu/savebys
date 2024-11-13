@@ -1,6 +1,3 @@
-
-import ProductBagCard from "@/components/fecomerciors/ProductBagCard";
-import ProductCard from "@/components/fecomerciors/ProductCard";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Marketplace/Banner";
 import Header from "@/components/Marketplace/Header";
