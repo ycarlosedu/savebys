@@ -21,7 +21,7 @@ export default function Marketplace() {
           <a href="#">Ver mais</a>
         </div>
         <Image
-          className="max-w-default w-full"
+          className="max-w-default w-full rounded-[32px]"
           src="/images/marketplace/banner-2.png"
           width={1200}
           height={300}
