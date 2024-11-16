@@ -10,7 +10,7 @@ export default function Marketplace() {
     <main className="bg-white text-gray-secondary flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden h-full">
       <Header />
       <Progress />
-      <section className="max-w-default w-full flex flex-col gap-8 mt-8">
+      <section className="max-w-default px-default w-full flex flex-col gap-8 mt-8">
         <Banner />
         <div className=" flex items-center justify-between">
           <h2 className="text-2xl font-bold">Em Destaque</h2>
