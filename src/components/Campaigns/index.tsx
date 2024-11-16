@@ -9,10 +9,6 @@ export default function Campaigns() {
       <div className="w-full max-w-default px-default flex flex-col gap-8 items-center">
         <h2 className="title">Campanhas</h2>
         <CampaignsCarousel />
-        {/* <Link href="/todas-campanhas/" className="link-btn py-4 px-8">
-          Confira aqui todas as campanhas
-          <CaretRight size={16} weight="bold" />
-        </Link> */}
       </div>
     </section>
   );

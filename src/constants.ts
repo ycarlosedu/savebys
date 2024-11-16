@@ -102,6 +102,9 @@ export const PAGE = {
   LACRE: {
     HOME: "/manicures/",
     REGISTER_BUYER: "/manicures/cadastro/"
+  },
+  MARKETPLACE: {
+    HOME: "/marketplace/",
   }
 };
 
