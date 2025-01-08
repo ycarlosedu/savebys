@@ -5,6 +5,9 @@ import Banner from "@/components/marketplace/Banner";
 import Header from "@/components/marketplace/Header";
 import Progress from "@/components/marketplace/Progress";
 
+import featuredProducts from "./featured-products";
+import ProductList from "./ProductList";
+
 export default function Marketplace() {
   return (
     <main className="bg-white text-gray-secondary flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden h-full">
@@ -14,12 +17,18 @@ export default function Marketplace() {
         <Banner />
         <div className=" flex items-center justify-between">
           <h2 className="text-2xl font-bold">Em Destaque</h2>
-          <a href="#">Ver mais</a>
+          <a href="#" className="hover:underline">
+            Ver mais
+          </a>
         </div>
+        <ProductList products={featuredProducts} />
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Mais Vendidos</h2>
-          <a href="#">Ver mais</a>
+          <a href="#" className="hover:underline">
+            Ver mais
+          </a>
         </div>
+        <ProductList products={featuredProducts} />
         <Image
           className="max-w-default w-full rounded-[32px]"
           src="/images/marketplace/banner-2.png"
@@ -29,8 +38,11 @@ export default function Marketplace() {
         />
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Mais vistos</h2>
-          <a href="#">Ver mais</a>
+          <a href="#" className="hover:underline">
+            Ver mais
+          </a>
         </div>
+        <ProductList products={featuredProducts} />
       </section>
       <Footer />
     </main>
