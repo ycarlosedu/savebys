@@ -105,6 +105,9 @@ export const PAGE = {
   },
   MARKETPLACE: {
     HOME: "/marketplace/",
+    HOW_IT_WORKS: "/marketplace/como-funciona/",
+    PRODUCTS: "/marketplace/produtos/",
+    PRODUCT_ID: (id: string) => `/marketplace/produtos/${id}/`
   }
 };
 

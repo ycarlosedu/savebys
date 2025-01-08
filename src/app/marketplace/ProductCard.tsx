@@ -12,7 +12,7 @@ import { tv } from "tailwind-variants";
 
 import { toBrazilianCurrency } from "@/utils/toBrazilianCurrency";
 
-import { sliceMaxLength } from "@/constants";
+import { PAGE, sliceMaxLength } from "@/constants";
 
 import { ShoppingBag } from "@phosphor-icons/react";
 
@@ -43,7 +43,7 @@ type Props = Omit<LinkProps, "href"> & {
 export default function ProductCard({ product, ...rest }: Props) {
   return (
     <Link
-      href={`product/${product.id}`}
+      href={PAGE.MARKETPLACE.PRODUCT_ID(product.id)}
       className={card({ hasDiscount: Boolean(product.discountPrice) })}
       {...rest}
     >

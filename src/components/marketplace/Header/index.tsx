@@ -31,8 +31,10 @@ const Nav = ({ className, onClickLink, ...props }: Props) => {
     >
       <ActiveLink href="/">Início</ActiveLink>
       <ActiveLink href={PAGE.MARKETPLACE.HOME}>Marketplace</ActiveLink>
-      <ActiveLink href="/">Como Funciona</ActiveLink>
-      <ActiveLink href="/">Produtos</ActiveLink>
+      <ActiveLink href={PAGE.MARKETPLACE.HOW_IT_WORKS}>
+        Como Funciona
+      </ActiveLink>
+      <ActiveLink href={PAGE.MARKETPLACE.PRODUCTS}>Produtos</ActiveLink>
       <Link onClick={onClickLink} href="#" className="link-btn h-[54px]">
         Quero Vender
       </Link>

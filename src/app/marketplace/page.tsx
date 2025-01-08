@@ -1,8 +1,6 @@
 import Image from "next/image";
 
-import Footer from "@/components/Footer";
 import Banner from "@/components/marketplace/Banner";
-import Header from "@/components/marketplace/Header";
 import Progress from "@/components/marketplace/Progress";
 
 import featuredProducts from "./featured-products";
@@ -10,8 +8,7 @@ import ProductList from "./ProductList";
 
 export default function Marketplace() {
   return (
-    <main className="bg-white text-gray-secondary flex min-h-screen flex-col items-center justify-start max-w-[100vw] overflow-x-hidden h-full">
-      <Header />
+    <>
       <Progress />
       <section className="max-w-default px-default w-full flex flex-col gap-8 mt-8">
         <Banner />
@@ -44,7 +41,6 @@ export default function Marketplace() {
         </div>
         <ProductList products={featuredProducts} />
       </section>
-      <Footer />
-    </main>
+    </>
   );
 }
