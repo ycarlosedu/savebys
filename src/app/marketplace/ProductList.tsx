@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 
-import { Product } from "@/services/marketplace";
+import { Product } from "@/models/marketplace";
 
 import ProductCard from "./ProductCard";
 

@@ -7,7 +7,7 @@ import {
   TooltipContent,
   TooltipTrigger
 } from "@/components/ui/Tooltip";
-import { Product } from "@/services/marketplace";
+import { Product } from "@/models/marketplace";
 import { tv } from "tailwind-variants";
 
 import { toBrazilianCurrency } from "@/utils/toBrazilianCurrency";
@@ -82,7 +82,7 @@ export default function ProductCard({ product, ...rest }: Props) {
                   // isProductInCart
                   // ? "Remover item da sacola"
                   // :
-                  "Adicionar item à sacola"
+                  "Adicionar item ao carrinho"
                 }
               >
                 {/* {isProductInCart ? ( */}
@@ -96,7 +96,7 @@ export default function ProductCard({ product, ...rest }: Props) {
               {/* {isProductInCart */}
               {/* ? "Remover item da sacola" */}
               {/* :  */}
-              "Adicionar item à sacola"
+              "Adicionar item ao carrinho"
               {/* } */}
             </TooltipContent>
           </Tooltip>
